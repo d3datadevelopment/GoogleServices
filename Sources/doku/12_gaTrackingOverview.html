@@ -1,0 +1,566 @@
+<!DOCTYPE HTML>
+<html><head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+
+
+
+  
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Using the Traditional Snippet - Google Analytics - Google Code</title>
+<script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/html/apis/analytics/_toc.ezt';
+var codesite_token = '56328469b0a0a7c65c4a395ddd8cde4c';
+var logged_in_user_email = 'dan1978@gmx.net';
+//--></script>
+<link href="12_gaTrackingOverview-Dateien/codesite.css" type="text/css" rel="stylesheet">
+<script src="12_gaTrackingOverview-Dateien/codesite_head.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <link href="12_gaTrackingOverview-Dateien/semantic_headers.css" rel="stylesheet" type="text/css">
+    <link href="12_gaTrackingOverview-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+    
+  <script src="12_gaTrackingOverview-Dateien/ga.js" async="" type="text/javascript"></script></head><body class="gc-documentation">
+
+    
+    
+
+    <div id="gb">
+ <span>
+  
+   
+    <b>dan1978@gmx.net</b>
+    |
+   
+    <a href="http://code.google.com/u/dan1978@gmx.net/" id="projects-dropdown" onclick="return false;"><span style="text-decoration: underline;">My favorites</span> <span style="font-size: 0.75em;">▼</span></a>
+    |
+  
+    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration: underline;">English</span> <span style="font-size: 0.75em;">▼</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fde%2Fapis%2Fanalytics%2Fdocs%2Ftracking%2FgaTrackingOverview.html" onclick="CODESITE_click('/gb/sc/signout');"><span style="text-decoration: underline;">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left: 0px;"></div>
+<div class="gbh" style="right: 0px;"></div>
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  <a href="#gc-pagecontent">Skip to page content</a>
+  <a href="#gc-toc">Skip to main navigation</a>
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="http://code.google.com/">
+  
+  
+     <img src="12_gaTrackingOverview-Dateien/code_logo.gif" alt="Google Code" style="border: 0pt none; margin: 3px 0pt 0pt;" height="40" width="167">
+  
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById('gsearchInput').value); return false;">
+      <noscript>
+      <input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml">
+      </noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width: 345px;" type="text">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "adwords" or "open source"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav"><img id="gc-star" src="12_gaTrackingOverview-Dateien/star_off.gif" height="15" width="15">
+  <h1 class="mozilla">Google Analytics</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="http://code.google.com/apis/analytics/" title="Google Analytics home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="http://code.google.com/apis/analytics/docs/index.html" class="selected" title="Official Google Analytics documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataFAQ.html" title="Answers to frequently asked questions about Google Analytics">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataArticlesCode.html" title="Focused articles and tutorials for Google Analytics developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://analytics.blogspot.com/" title="Official Google Analytics blog">Blog</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/apis/analytics/groups/groups.html" title="Google Analytics developer forum">Forum</a>
+    </li>
+  
+    <li>
+      <a href="http://www.google.com/analytics/tos.html" title="Google Analytics terms of service">Terms</a>
+    </li>
+  
+
+  </ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-210">
+
+      <div class="g-unit g-first" id="gc-toc">
+        <link href="12_gaTrackingOverview-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+    <li>
+    <ul>
+      <li style="padding-top: 0pt; padding-bottom: 0pt;">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Overview"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Overview" class="tlw-control tlw-plus"></a><span class="tlw-title"><strong>Overview</strong></span></div><ul style="display: none;" id="0-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsOverview.html">Functional Overview</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsAccounts.html">Accounts &amp; Profiles</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsDomains.html">Domains &amp; Directories</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsSampling.html">Sampling</a></li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+</ul>
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Tracking Code</span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-1" style="margin-top: -15px;">
+    <li>
+        <ul>
+          <li><a href="http://code.google.com/apis/analytics/docs/tracking/home.html">Home</a></li>
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Getting Started"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Collapse Getting Started" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">Getting Started</a></div><ul style="display: block;" id="1-sub-0">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncUsageGuide.html">Async Usage</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncMigrationExamples.html">Async Migration</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce Tracking</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Event Tracking"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Event Tracking" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerOverview.html">Event Tracking</a></div><ul style="display: none;" id="1-sub-1">
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Implementing</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerWrappers.html">Extending</a></li>
+                   </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain Tracking</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html">Traffic Sources</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Visitor Configuration"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Collapse Visitor Configuration" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitors.html">Visitor Configuration</a></div><ul style="display: block;" id="1-sub-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html">Custom Variables</a></li>
+                      <li class="deprecated"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitorSegments.html">Custom Visitor Segments</a></li>
+                    </ul>
+                </li>
+                <li class="selected"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingOverview.html">Traditional Snippet</a></li>
+              </ul>
+           </li>
+           <li style="padding-top: 0pt; padding-bottom: 0pt;">
+               <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tracking Reference"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Tracking Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Tracking Reference</a></div><ul style="display: none;" id="1-sub-3">
+                  <li>Global Objects
+                    <ul>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html">_gat</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gaq.html">_gaq</a></li>
+                    </ul>
+
+                  </li><li>Tracker Objects
+                    <ul class="treelist tlw-processed tlw-instance-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html">Basic Configuration</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html">Campaign Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html">Domains &amp; Directories</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html">Ecommerce</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html">Event Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html">Search Engines and Referrers</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html">Web Client</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html">Urchin Server</a></li>
+                    </ul>
+                  </li>
+
+              </ul>
+           </li>
+
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Libraries"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Libraries" class="tlw-control tlw-plus"></a><span class="tlw-title">Libraries</span></div><ul style="display: none;" id="1-sub-4">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gadgetTracking.html">Gadgets</a></li>
+                <li><a href="http://code.google.com/chrome/extensions/trunk/tut_analytics.html">Chrome Extensions</a></li>
+                <li><a style="text-decoration: none;" href="http://code.google.com/mobile/analytics/docs/"><span style="text-decoration: underline;">Mobile</span><span class="new">&nbsp;&nbsp;Updated</span></a> (Labs <img src="12_gaTrackingOverview-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Flash/Flex  (Labs )"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Flash/Flex  (Labs )" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingIntro.html">Flash/Flex</a>  (Labs <img src="12_gaTrackingOverview-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></div><ul style="display: none;" id="1-sub-5">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlash.html">Flash Setup</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlex.html">Flex Setup</a></li>
+                  </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/silverlightTrackingIntro.html">Silverlight</a> (Labs <img src="12_gaTrackingOverview-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting</a>
+          </li>
+           <li><a href="http://code.google.com/apis/analytics/docs/gaJS/changelog.html">Changelog - ga.js</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Management API <span style="letter-spacing: normal;">(Labs <img src="12_gaTrackingOverview-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-3" style="margin-top: -15px;">
+    <li>
+      <ul class="treelist tlw-processed tlw-instance-4">
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/home.html">Home</a>
+        </li><li style="padding-top: 0pt; padding-bottom: 0pt;">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="3-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJavascript.html">Javascript</a></li>
+          </ul>
+        </li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtFeedReference.html">Feed Reference</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtLibraries.html">Libraries &amp; Examples</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/changelog.html">Changelog</a></li>
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Export API <span style="letter-spacing: normal;">(Labs <img src="12_gaTrackingOverview-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-5" style="margin-top: -15px;">
+    <li>
+      <ul>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/home.html">Home</a></li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="5-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJavascript.html">Javascript</a></li>
+            <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                 <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Version 1.0"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Version 1.0" class="tlw-control tlw-plus"></a><span class="tlw-title">Version 1.0</span></div><ul style="display: none;" id="5-sub-1">
+                 <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html">Protocol</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJava.html">Java</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJavascript.html">Javascript</a></li>
+                 </ul></li>
+          </ul>
+        </li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Feed Reference"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Feed Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReference.html">Feed Reference</a></div><ul style="display: none;" id="5-sub-2">
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceAccountFeed.html">Account Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html">Data Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataCommonQueries.html">Common Queries</a>
+                </li><li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataExplorer.html">Query Explorer</a></li>
+            </ul></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDimensionsMetrics.html">Dimensions &amp; Metrics</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataLibraries.html">Libraries &amp; Examples</a></li>
+
+         <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Changelog &amp; Issues"><img src="12_gaTrackingOverview-Dateien/cleardot.gif" alt="Expand Changelog &amp; Issues" class="tlw-control tlw-plus"></a><span class="tlw-title">Changelog &amp; Issues</span></div><ul style="display: none;" id="5-sub-3">
+                  <li><a href="http://code.google.com/apis/analytics/docs/gdata/changelog.html">Changelog</a></li>
+                  <li><a href="http://code.google.com/p/gdata-issues/issues/list?can=2&amp;q=label:API-Analytics&amp;colspec=API+ID+Type+Status+Priority+Stars+Summary&amp;cells=tiles">Issue Tracker</a></li>
+                </ul>
+            </li>
+          
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Website Optimizer <span style="letter-spacing: normal;">(Labs <img src="12_gaTrackingOverview-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-6" style="margin-top: -15px;">
+<li>
+  <ul>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/index.html">Getting Started</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/commonTasks.html">Common Tasks</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/feedReference.html">Feed Reference</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/gwoFAQ.html">FAQ</a></li>
+  </ul>
+ </li>
+</ul>
+
+        <a class="hidden" href="#gc-topnav-anchor">More Google Analytics resource links</a>
+      </div>
+
+      <div style="position: relative;" class="g-unit" id="gc-pagecontent">
+        
+          <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
+
+        
+        <h1 class="page_title">Using the Traditional Snippet</h1>
+
+
+
+
+<p class="note">This document describes how to set up Analytics tracking for your website using the traditional <code>ga.js</code>
+ tracking
+code snippet. If you are setting up tracking for the first time, we 
+recommend that you use the default tracking code snippet, described in <a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">Tracking
+Sites</a>. </p>
+<p>There are two basic ways to set up tracking on your web property: 
+standard setup and customized setup. This document covers those ways, 
+along with related topics:</p>
+<ol class="toc">
+  <li><a href="#standardSetup">Standard Setup</a>
+  <ol>
+    <li><a href="#partOne">The Tracking Code Script Part One</a></li>
+    <li><a href="#partTwo">The Tracking Code Script Part Two</a></li>
+    <li><a href="#trackingCodePlacement">Where to Place the Tracking Code</a></li>
+  </ol>
+  </li>
+  <li><a href="#customizedSetup">Customized Setup</a> 
+  <ol>
+    <li><a href="#adminInterface">Customizing Using the Administrative Interface</a></li>
+    <li><a href="#additionalTrackingCodeMethods">Customizing with Additional Tracking Code Methods</a></li>
+  </ol>
+  </li>
+  </ol>
+<p>Once you correctly install  the <code>ga.js</code> tracking code on your site, you begin receiving report data.  
+
+Report data shows up in your reports within 24 hours of setting up the tracking code. </p><h2 id="standardSetup">Standard Setup</h2>
+<p>When  you first begin implementing tracking in Google Analytics 
+website, you  need to install the tracking code on your website pages. 
+The generic tracking code snippet  consists of two parts: a script tag 
+that references the ga.js tracking code, and another script that 
+executes the tracking code. </p>
+<pre class="prettyprint"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> gaJsHost </span><span class="pun">=</span><span class="pln"> </span><span class="pun">((</span><span class="str">"https:"</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">location</span><span class="pun">.</span><span class="pln">protocol</span><span class="pun">)</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">"https://ssl."</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">"http://www."</span><span class="pun">);</span><span class="pln"><br>document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">unescape</span><span class="pun">(</span><span class="str">"%3Cscript src='"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> gaJsHost </span><span class="pun">+</span><span class="pln"> </span><span class="str">"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"</span><span class="pun">));</span><span class="pln"><br></span><span class="tag">&lt;/script&gt;</span><span class="pln"><br></span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln"><br></span><span class="kwd">try</span><span class="pun">{</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-xxxxxx-x"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pun">(</span><span class="pln">err</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="tag">&lt;/script&gt;</span></pre>
+<p>This tracking code snippet should be included in your site's pages so
+ that it appears at the bottom of the page's HTML (or generated-HTML) 
+structure, before the closing <code>&lt;body&gt;</code> tag.  For more information, see the <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsOverview.html">Functional Overview</a>, which explains the logic behind the tracking code execution.</p>
+<p class="note"><strong>Note</strong>:  If you are setting up tracking 
+for a web property that spans multiple domains or multiple 
+sub-directories, you will need to modify the tracking code in order to 
+get accurate reporting data for your profile. Additionally, if you are 
+setting up a profile specifically for a sub-directory of a larger 
+domain, you should also modify the tracking code. See the <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Domains &amp; Directories Guide</a> for more information.</p>
+<h3 id="partOne">The Tracking Code Script—Part One<br>
+</h3>
+<p>The  first part of the script tag (represented by lines 1 - 4 of the 
+code  above), uses Javascript to dynamically determine whether the HTTP 
+ protocol for the requested page is either secure or standard. It then 
+uses  the appropriate protocol to reference the tracking code. So, if 
+one page on  your site is delivered over a standard HTTP protocol, the 
+resultant  string is: </p>
+<pre class="prettyprint"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">'http://www.google-analytics.com/ga.js'</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">'text/javascript'</span><span class="tag">&gt;</span></pre>
+<p>If another page is delivered over a secure connection, the resultant string is:</p>
+<pre class="prettyprint"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">'https://ssl.google-analytics.com/ga.js'</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">'text/javascript'</span><span class="tag">&gt;</span><span class="pln"><br></span></pre>
+<p>If  you have a mix of secure and non-secure pages, leave the initial 
+script  tag as indicated so that the appropriate connection can be 
+determined.  If all pages on your site are delivered over standard HTTP,
+ you can  replace the first tag with the simpler call to the Google 
+Analytics  tracking code. </p>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<h3 id="partTwo">The Tracking Code Script—Part Two</h3>
+<p>The  second set of Javascript tags encompass the methods necessary to
+  execute the tracking call for the page data. This  part of the 
+tracking code should also contain any customized methods  that you would
+ want to apply to all pages on your site. Both the initialization and 
+the methods are placed within a try/catch block so that any JavaScript 
+errors are handled without impact to the visitor.</p>
+<p>The  order of the method calls provided in the generic tracking 
+snippet is  significant, and you should follow these general guidelines 
+when  altering the tracking code for your website's purposes: </p>
+<ul class="listhead">
+  <li>The first line of the tracking script should always initialize the page tracker object.&nbsp;</li>
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-123456-1"</span><span class="pun">);</span></pre>
+  The  first line of the standard tracking code snippet initializes the 
+ default tracker object to the Google Analytics web property ID you  
+provide as a parameter. Subsequent method calls then use that object.</ul>
+<ul class="listhead">
+  <li>The final lines of your tracking code snippet should call the <code>_trackPageview()</code> method.</li>
+  <br>
+  Any custom method calls that set or initialize a value should be inserted before <code>_trackPageview()</code>.<br>
+  <pre class="prettyprint"><span class="pln">&nbsp; </span><span class="com">// put in customized calls after pageTracker object and before_trackPageview() methods</span><span class="pln"><br>&nbsp; pageTracker</span><span class="pun">.</span><span class="pln">setAllowLinker</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"> <br>&nbsp; pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span></pre>
+</ul>
+
+<h3 id="trackingCodePlacement">Where to Place the Tracking Code</h3>
+<p>The tracking code is designed to read data from your page <em>after</em> the content for the page has finished loading. For this reason, the snippet should be located  just before the closing <code>&lt;/body&gt;</code>
+ tag for your web page. Once the content for your page has loaded, the 
+tracking code, when executed, reads the content for your page following 
+the Document Object Model (DOM).  All information relevant to tracking 
+is then used  to establish page information, set/update cookies, and  to
+ send the GIF request to the Google Analytics servers. </p>
+<p>By placing the script at the end of the page body, you   ensure that 
+the tracking code is executed as the last element of the DOM. If a given
+ page load is interrupted for some reason, it is possible that the GIF 
+request for that page view will not be executed. However, should you 
+place the tracking code at the top of the page, any load interruptions 
+might result in incomplete or inaccurate reporting anyhow, since the 
+tracking code relies on  page data for its reports. </p>
+<p>Additionally, the physical placement of the tracking code call at the bottom of the page is more effective than using an <code>onLoad()</code> function to call the tracking code. If you use <code>onLoad()</code>
+ to execute the tracking code, execution  relies on the event model for 
+the browser instead of the DOM. In such a situation, should  a remote 
+image fail to load on a page, <code>onLoad()</code> will not be called, whereas the DOM for the page could still load completely.</p>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+<h2 id="customizedSetup">Customizing Your Setup<br>
+</h2>
+<p>You can customize Google Analytics in a variety of ways to modify how reporting data is displayed.&nbsp; <em>Most websites (except the most basic) can benefit from adjustments to the basic setup.</em>&nbsp;
+ In fact,  if your site has any of the following characteristics,  
+modifications to the tracking code are required in order for visitor 
+behavior to be accurately reported.</p>
+<ul>
+  <li><strong><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce</a></strong>—You have an ecommerce site or a shopping cart and you want to track visitor activity related to purchases.</li>
+  <li><strong><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Multiple domains</a></strong>—Your
+ website presence spans multiple host names or domains, and you want to 
+track visitor activity (including shopping cart activity) across those 
+properties.</li>
+  <li><strong><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">3rd-Party Shopping Carts</a></strong>—Your website is <strong>hosted by a provider on a sub-directory</strong>
+ and you want to track visitor activity across a part of the website 
+(such as a shopping cart) located in another directory of the host's 
+site.</li>
+  <li><strong><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html">Custom Campaign Tracking Variables</a></strong>—You already have links to your site that contain <strong>custom campaign tracking variables</strong> that you want to use.</li>
+</ul>
+<p>In addition, you can make many other adjustments to the standard 
+Google Analytics reporting behavior, such as adjusting the length of the
+ visitor session, changing the length of a campaign session, or turning 
+off collection of browser information.</p>
+<p>You can customize reporting in two basic areas: </p>
+<ul>
+  <li>The administrative interface of the Google Analytics reports</li>
+  <li>The use of additional tracking code methods in your web pages</li>
+</ul>
+<h3 id="adminInterface">Customizing Using the Administrative Interface </h3>
+<p>The administrative interface provides the following features you can use to refine your data display in the reports: </p>
+<ul>
+  <li><strong>Goals</strong><br>
+    Set  up goals for key pages on your site that you expect users to 
+visit.&nbsp;  Most commonly, goals are used in ecommerce sites to look 
+at statistics  for how customers come to the final purchase page in a 
+set of related  pages, such as shopping cart, order form, and order 
+acknowledgment.&nbsp;  But, you can also use goals for any other 
+scenario, such as a  step-by-step guide on a <em>how-to</em> process, or a "more" link on a blog.&nbsp;  See the  <a href="http://www.google.com/support/analytics/bin/topic.py?topic=11086">Help Center articles</a> for useful information on goals.</li>
+  <li><strong>Profiles and filters</strong><br>
+    You  can set up profiles for individual report users to include or 
+exclude  certain content from those reports. This is useful when you 
+have a very  large website and want to determine  page statistics for 
+one section of the site independently from the  other.&nbsp; For 
+example, you might have one section of a website dedicated  entirely to 
+clothing and another section of the website dedicated  entirely to 
+electronics, and you want to analyze your clothing page  statistics in 
+relationship to all clothing, but independently of  electronics. When 
+profiles are used to exclude certain sections of a  website, they 
+restrict content reporting for only allowed pages.  See the  Help  
+Center  for useful information on <a href="http://www.google.com/support/analytics/bin/topic.py?topic=11099&amp;ctx=search&amp;query=profiles">profiles</a> and <a href="http://www.google.com/support/analytics/bin/topic.py?topic=11091">filters</a>. </li>
+</ul>
+<h3 id="additionalTrackingCodeMethods">Customizing with Additional Tracking Code Methods</h3>
+<p>The  GATC provides a number of methods that you can use to configure 
+the  tracking code for your site's needs. Keep in mind that any one page
+ on  your site should be using <em>either </em>the <code>urchin.js</code> tracking code <em>or </em>the <code>ga.js</code>  tracking code and their related methods, but not both.&nbsp; </p>
+<p class="note">Using both  tracking codes on a single page can cause reporting errors for those  pages and is not advised.&nbsp; <br>
+</p>
+<p>Some of the  most common scenarios that require tracking code configuration are  described in this guide<a href="http://code.google.com/apis/analytics/docs/tracking/gaTracking.html"></a>. Additionally, the <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Tracking API</a> provides a list of all the <code>ga.js</code> tracking methods you can use, and also groups those methods by basic reporting uses, such as <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html">ecommerce </a>and <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html">event tracking</a> methods.<a name="Multiple" id="Multiple"></a></p>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+      <div style="height: 2500px;" id="gc-collapsible"></div></div><!-- end gc-pagecontent -->
+    </div><!-- end gooey wrapper -->
+
+    </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+    ©2011 Google -
+    <a href="http://code.google.com/">Code Home</a> -
+    <a href="http://code.google.com/terms.html">Terms of Service</a> -
+    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
+    <a href="http://code.google.com/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="http://code.google.com/intl/en/">English</a> -
+    <a href="http://code.google.com/intl/es/">Español</a> -
+    <a href="http://code.google.com/intl/ja/">日本語</a> -
+    <a href="http://code.google.com/intl/ko/">한국어</a> -
+    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
+    <a href="http://code.google.com/intl/ru/">Pусский</a> -
+    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
+    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="12_gaTrackingOverview-Dateien/codesite_tail.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+
+_gaq.push(
+
+
+    ['projectTracker._setAccount', 'YT-8705592-1'],
+    ['projectTracker._setDomainName', 'code.google.com'],
+    ['projectTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['projectTracker._trackPageview'],
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = 'http://www.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+
+
+  <div style="display: none;" id="menuDiv-projects-dropdown" class="menuDiv instance0"><div class="menuCategory controls"><hr class="menuSeparator"><a href="http://code.google.com/more/" style="display: block;" class="menuItem">Find developer products...</a><a href="http://code.google.com/hosting/" style="display: block;" class="menuItem">Find open source projects...</a></div></div><div style="display: none;" id="menuDiv-lang-dropdown" class="menuDiv instance1"><div class="menuCategory default"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">English</a><a href="http://code.google.com/intl/es/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">Español</a><a href="http://code.google.com/intl/ja/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">日本語</a><a href="http://code.google.com/intl/ko/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">한국어</a><a href="http://code.google.com/intl/pt-BR/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">Português (Brasil)</a><a href="http://code.google.com/intl/ru/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">Pусский</a><a href="http://code.google.com/intl/zh-CN/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">中文 (简体)</a><a href="http://code.google.com/intl/zh-TW/apis/analytics/docs/tracking/gaTrackingOverview.html" style="display: block;" class="menuItem">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow"></div><div id="cs-searchresults"><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div></body></html>

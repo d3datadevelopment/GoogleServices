@@ -1,0 +1,215 @@
+
+.thumblist {
+  margin-left: 0;
+}
+
+.thumblist li {
+  padding: 0 0 0 200px; 
+  margin: 0 0 30px 0;
+  list-style: none;
+}
+
+table { font-size:100%; }
+
+#gc-pagecontent table.borderless,
+#gc-pagecontent table.borderless td {
+ border:none;
+}
+.noborder {
+  border-width: 0;
+}
+.new-win-link {
+  padding: 0 !important;
+}
+.manPage {
+  color: #666;
+  font-family:courier-new,monospace;
+  font-size:small;
+  font-weight: normal;
+  margin-top:1em;
+  margin-left:15px;
+}
+.manPage > p {
+   padding-left: 1em;
+  margin:0;
+  line-height:65%;
+}
+.definition {
+  margin-left:2em;
+  margin-top:1em;
+}
+
+.tb-row {
+  overflow: hidden;
+  zoom: 1; /* triggers hasLayout in IE */
+}
+
+.tb-c1 {
+  float: left;
+  width: 100px;
+  color:#888;
+}
+
+.tb-c2 {
+  float: left;
+  width: 250px;
+}
+
+.tb-c3 {
+  float: right;
+  width: 325px;
+}
+
+td.greyCell  {
+  background-color:#CCCCCC;
+}
+
+/* Style for expando collapso */
+.minusImage {
+  display: none;
+  }
+
+/* Our own note style */
+p.note, p.caution, p.warning {
+  margin: 1em 0 0 0;
+  padding: .2em .5em .2em .9em;
+  background-color: #FAFAFA ;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #009900;
+}
+
+/* style for changelog link */
+feed {
+  text-align: right;
+  position: absolute;
+  right: 10px;
+  top: 1em;
+}
+
+/* little image for changelog */
+.feed img {
+  background-image: url(/images/sprites08132008.png);
+  background-position:-28px -274px;
+  height: 15px;
+  width: 15px;
+  border: 0;
+  margin-bottom: -5px;
+}
+
+.center {
+  text-align: center;
+}
+
+a.blue:visited {
+  color: blue;
+}
+
+/* Styles for columnar layout */
+ul#ga-container, #ga-container > li {
+  margin: 0;
+}
+
+#ga-container > li {
+  float:left;
+  zoom: 1; /* Triggers has layout in IE */
+  list-style-type: none;
+}
+
+#column-left{
+  width:45%;
+}
+
+#column-right{
+  margin-left: 10% !important;
+  width:45%
+}
+
+
+
+/* Homepage specific styles */
+#ga-hp-main {
+  margin-left: 10%;
+}
+#ga-hp-main ul, #ga-hp-main li, #ga-hp-main img {
+  margin: 0;
+}
+
+/* Universal container for columnar layout */
+.ga-row {
+  overflow: hidden;
+  zoom: 1; /* Triggers has layout in IE */
+}
+.ga-hp-c1, .ga-hp-c2, .ga-hp-c3 {
+  float: left;
+  margin: 0;
+}
+.ga-hp-c1 {
+  padding: 30px 0 0 0;
+  width: 150px;
+}
+.ga-hp-c2 {
+  width: 211px;
+}
+.ga-hp-c3 {
+  padding: 30px 0 0 20px;
+  width: 230px;
+}
+.ga-hp-mgmt {
+  margin-left: 36px !important;
+  width: 175px !important;
+}
+#ga-hp-main li {
+  list-style-type: none;
+}
+#ga-hp-main h2 {
+  margin-bottom: 12px;
+}
+.ga-hp-list li {
+  margin: 5px 0 5px 20px !important;
+}
+#ga-hp-proc {
+  background: url("/apis/analytics/images/ga-processing.png") no-repeat scroll left top transparent;
+  height: 181px;
+}
+/* Libraries and Code */
+.lc-h {
+  font-weight: normal;
+  font-style: italic;
+}
+.top-sm {
+  margin-top: 5px;
+}
+.top-big {
+  margin-top: 15px;
+}
+.bot-pad-med {
+  padding-bottom: 10px;
+}
+.smaller {
+  font-size: smaller;
+}
+
+/* Left Nav Styles */
+.dottedLine {
+  position:relative;
+  border-top:thin dotted #888;
+  height: 1px;
+  margin: 1.3em 1em 0 0;
+  padding: 0;
+}
+
+.sectionTitle {
+  position: relative;
+  left: 10px;
+  top: -0.7em;
+  z-index:1; 
+  font-size: 90%;
+}
+
+.sectionFont {
+  background: #FFF;
+  padding: 0 6px; 
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}

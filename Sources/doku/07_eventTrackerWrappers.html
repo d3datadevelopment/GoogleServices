@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<html><head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+
+
+
+  
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Extending Event Tracking - Google Analytics - Google Code</title>
+<script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/html/apis/analytics/_toc.ezt';
+var codesite_token = '56328469b0a0a7c65c4a395ddd8cde4c';
+var logged_in_user_email = 'dan1978@gmx.net';
+//--></script>
+<link href="07_eventTrackerWrappers-Dateien/codesite.css" type="text/css" rel="stylesheet">
+<script src="07_eventTrackerWrappers-Dateien/codesite_head.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <link href="07_eventTrackerWrappers-Dateien/semantic_headers.css" rel="stylesheet" type="text/css">
+    <link href="07_eventTrackerWrappers-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+    
+  <script src="07_eventTrackerWrappers-Dateien/ga.js" async="" type="text/javascript"></script></head><body class="gc-documentation">
+
+    
+    
+
+    <div id="gb">
+ <span>
+  
+   
+    <b>dan1978@gmx.net</b>
+    |
+   
+    <a href="http://code.google.com/u/dan1978@gmx.net/" id="projects-dropdown" onclick="return false;"><span style="text-decoration: underline;">My favorites</span> <span style="font-size: 0.75em;">▼</span></a>
+    |
+  
+    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration: underline;">English</span> <span style="font-size: 0.75em;">▼</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fde%2Fapis%2Fanalytics%2Fdocs%2Ftracking%2FeventTrackerWrappers.html" onclick="CODESITE_click('/gb/sc/signout');"><span style="text-decoration: underline;">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left: 0px;"></div>
+<div class="gbh" style="right: 0px;"></div>
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  <a href="#gc-pagecontent">Skip to page content</a>
+  <a href="#gc-toc">Skip to main navigation</a>
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="http://code.google.com/">
+  
+  
+     <img src="07_eventTrackerWrappers-Dateien/code_logo.gif" alt="Google Code" style="border: 0pt none; margin: 3px 0pt 0pt;" height="40" width="167">
+  
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById('gsearchInput').value); return false;">
+      <noscript>
+      <input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml">
+      </noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width: 345px;" type="text">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "adwords" or "open source"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav"><img id="gc-star" src="07_eventTrackerWrappers-Dateien/star_off.gif" height="15" width="15">
+  <h1 class="mozilla">Google Analytics</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="http://code.google.com/apis/analytics/" title="Google Analytics home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="http://code.google.com/apis/analytics/docs/index.html" class="selected" title="Official Google Analytics documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataFAQ.html" title="Answers to frequently asked questions about Google Analytics">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataArticlesCode.html" title="Focused articles and tutorials for Google Analytics developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://analytics.blogspot.com/" title="Official Google Analytics blog">Blog</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/apis/analytics/groups/groups.html" title="Google Analytics developer forum">Forum</a>
+    </li>
+  
+    <li>
+      <a href="http://www.google.com/analytics/tos.html" title="Google Analytics terms of service">Terms</a>
+    </li>
+  
+
+  </ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-210">
+
+      <div class="g-unit g-first" id="gc-toc">
+        <link href="07_eventTrackerWrappers-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+    <li>
+    <ul>
+      <li style="padding-top: 0pt; padding-bottom: 0pt;">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Overview"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Overview" class="tlw-control tlw-plus"></a><span class="tlw-title"><strong>Overview</strong></span></div><ul style="display: none;" id="0-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsOverview.html">Functional Overview</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsAccounts.html">Accounts &amp; Profiles</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsDomains.html">Domains &amp; Directories</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsSampling.html">Sampling</a></li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+</ul>
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Tracking Code</span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-1" style="margin-top: -15px;">
+    <li>
+        <ul>
+          <li><a href="http://code.google.com/apis/analytics/docs/tracking/home.html">Home</a></li>
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Getting Started"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Collapse Getting Started" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">Getting Started</a></div><ul style="display: block;" id="1-sub-0">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncUsageGuide.html">Async Usage</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncMigrationExamples.html">Async Migration</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce Tracking</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Event Tracking"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Collapse Event Tracking" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerOverview.html">Event Tracking</a></div><ul style="display: block;" id="1-sub-1">
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Implementing</a></li>
+                    <li class="selected"><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerWrappers.html">Extending</a></li>
+                   </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain Tracking</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html">Traffic Sources</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Visitor Configuration"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Collapse Visitor Configuration" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitors.html">Visitor Configuration</a></div><ul style="display: block;" id="1-sub-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html">Custom Variables</a></li>
+                      <li class="deprecated"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitorSegments.html">Custom Visitor Segments</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingOverview.html">Traditional Snippet</a></li>
+              </ul>
+           </li>
+           <li style="padding-top: 0pt; padding-bottom: 0pt;">
+               <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tracking Reference"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Tracking Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Tracking Reference</a></div><ul style="display: none;" id="1-sub-3">
+                  <li>Global Objects
+                    <ul>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html">_gat</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gaq.html">_gaq</a></li>
+                    </ul>
+
+                  </li><li>Tracker Objects
+                    <ul class="treelist tlw-processed tlw-instance-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html">Basic Configuration</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html">Campaign Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html">Domains &amp; Directories</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html">Ecommerce</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html">Event Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html">Search Engines and Referrers</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html">Web Client</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html">Urchin Server</a></li>
+                    </ul>
+                  </li>
+
+              </ul>
+           </li>
+
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Libraries"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Libraries" class="tlw-control tlw-plus"></a><span class="tlw-title">Libraries</span></div><ul style="display: none;" id="1-sub-4">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gadgetTracking.html">Gadgets</a></li>
+                <li><a href="http://code.google.com/chrome/extensions/trunk/tut_analytics.html">Chrome Extensions</a></li>
+                <li><a style="text-decoration: none;" href="http://code.google.com/mobile/analytics/docs/"><span style="text-decoration: underline;">Mobile</span><span class="new">&nbsp;&nbsp;Updated</span></a> (Labs <img src="07_eventTrackerWrappers-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Flash/Flex  (Labs )"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Flash/Flex  (Labs )" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingIntro.html">Flash/Flex</a>  (Labs <img src="07_eventTrackerWrappers-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></div><ul style="display: none;" id="1-sub-5">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlash.html">Flash Setup</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlex.html">Flex Setup</a></li>
+                  </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/silverlightTrackingIntro.html">Silverlight</a> (Labs <img src="07_eventTrackerWrappers-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting</a>
+          </li>
+           <li><a href="http://code.google.com/apis/analytics/docs/gaJS/changelog.html">Changelog - ga.js</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Management API <span style="letter-spacing: normal;">(Labs <img src="07_eventTrackerWrappers-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-3" style="margin-top: -15px;">
+    <li>
+      <ul class="treelist tlw-processed tlw-instance-4">
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/home.html">Home</a>
+        </li><li style="padding-top: 0pt; padding-bottom: 0pt;">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="3-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJavascript.html">Javascript</a></li>
+          </ul>
+        </li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtFeedReference.html">Feed Reference</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtLibraries.html">Libraries &amp; Examples</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/changelog.html">Changelog</a></li>
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Export API <span style="letter-spacing: normal;">(Labs <img src="07_eventTrackerWrappers-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-5" style="margin-top: -15px;">
+    <li>
+      <ul>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/home.html">Home</a></li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="5-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJavascript.html">Javascript</a></li>
+            <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                 <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Version 1.0"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Version 1.0" class="tlw-control tlw-plus"></a><span class="tlw-title">Version 1.0</span></div><ul style="display: none;" id="5-sub-1">
+                 <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html">Protocol</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJava.html">Java</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJavascript.html">Javascript</a></li>
+                 </ul></li>
+          </ul>
+        </li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Feed Reference"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Feed Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReference.html">Feed Reference</a></div><ul style="display: none;" id="5-sub-2">
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceAccountFeed.html">Account Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html">Data Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataCommonQueries.html">Common Queries</a>
+                </li><li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataExplorer.html">Query Explorer</a></li>
+            </ul></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDimensionsMetrics.html">Dimensions &amp; Metrics</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataLibraries.html">Libraries &amp; Examples</a></li>
+
+         <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Changelog &amp; Issues"><img src="07_eventTrackerWrappers-Dateien/cleardot.gif" alt="Expand Changelog &amp; Issues" class="tlw-control tlw-plus"></a><span class="tlw-title">Changelog &amp; Issues</span></div><ul style="display: none;" id="5-sub-3">
+                  <li><a href="http://code.google.com/apis/analytics/docs/gdata/changelog.html">Changelog</a></li>
+                  <li><a href="http://code.google.com/p/gdata-issues/issues/list?can=2&amp;q=label:API-Analytics&amp;colspec=API+ID+Type+Status+Priority+Stars+Summary&amp;cells=tiles">Issue Tracker</a></li>
+                </ul>
+            </li>
+          
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Website Optimizer <span style="letter-spacing: normal;">(Labs <img src="07_eventTrackerWrappers-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-6" style="margin-top: -15px;">
+<li>
+  <ul>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/index.html">Getting Started</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/commonTasks.html">Common Tasks</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/feedReference.html">Feed Reference</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/gwoFAQ.html">FAQ</a></li>
+  </ul>
+ </li>
+</ul>
+
+        <a class="hidden" href="#gc-topnav-anchor">More Google Analytics resource links</a>
+      </div>
+
+      <div style="position: relative;" class="g-unit" id="gc-pagecontent">
+        
+          <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
+
+        
+        <h1 class="page_title">Extending Event Tracking</h1>
+
+
+
+<p>This document describes the following Event Tracker wrapper libraries that are available for download:
+</p><ul>
+    <li><a href="http://code.google.com/apis/analytics/samples/time-tracker.js"><code>TimeTracker()</code></a></li>
+    <li><a href="http://code.google.com/apis/analytics/samples/mouseover-tracker.js"><code>MouseOverTracker()</code></a></li>
+</ul>
+
+<p>
+These samples illustrate how to extend Event Tracking via reusable 
+wrappers to easily implement site-wide Event Tracking for common web 
+objects. You can save these files to a script directory and reference 
+the script from the <code>&lt;head&gt;&lt;/head&gt;</code> section of your HTML page.</p>
+<p><em>NOTE:</em> All samples fall under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache2 license</a>.</p>
+<h2>TimeTracker</h2>
+<p>The time tracker example demonstrates the wrapper logic required for 
+tracking elapsed time durations.  Its two primary features are:
+</p><ul>
+<li> recording duration</li>
+<li> creating histograms for elapsed time segments</li>
+</ul>
+
+<p>  In its most basic implementation, <code>TimeTracker()</code> 
+creates a category with the name "TimeTracker," records a start and end 
+time, computes the difference, and sends that value to the Google 
+Analytics reports.  The resultant reports show the average time duration
+ for the "TimeTracker" category, how many of these measurements were 
+taken, and displays a histogram of default time values as the various <em>Actions</em> for that category. </p>
+
+<p>For added functionality, you can specify your own histogram values to <code>TimeTracker()</code>. You implement this by passing in a list of milliseconds, which then delineates the histogram segments as the various <em>Actions</em> for that category. The <code>TimeTracker()</code>
+ library classifies the tracked duration into one of these buckets, and 
+records the range of values as the name for the bucket. Finally, you can
+ also specify custom start and end times rather than using the default 
+current time, for those cases where you need additional logic. </p>
+<p>You can use event tracking to monitor latency for average page loads,
+ video load times, Flash interface set up times, or even to gather 
+average latency statistics for scripts embedded in your site.</p>
+<h3>Functions</h3>
+<p>
+</p><table>
+    <tbody><tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>TimeTracker(opt_buckets_array)</code></td>
+        <td>The constructor that returns a new time tracker. You can pass in the histogram buckets here as an option to specifying them in  <code>_setHistogramBuckets()</code>.</td>
+    </tr>
+    <tr class="alt">
+        <td><code>_recordStartTime(opt_time)</code></td>
+        <td>This method records the start time for computing elapsed duration.  Optionally, you can use a user-specified value.</td>
+    </tr>
+    <tr>
+        <td><code>_recordEndTime(opt_time)</code></td>
+        <td>This method records the stop time for computing elapsed duration.  Optionally, you can use a user-specified value.</td>
+    </tr>
+    <tr class="alt">
+        <td><code>_setHistogramBuckets(buckets_array)</code></td>
+        <td>The passed-in array specifies the cut-off points that separate out buckets.  For example, if the array is <code>[10, 20, 50]</code>, then the buckets will be: &lt;10ms, 10-19ms, 20-49ms, &gt;50ms.
+If the histogram buckets are not set, then the default set of historgram values are used: <code>[100, 200, 300, 400, 500, 1000, 1500, 2000, 2500, 5000]</code></td>
+    </tr>
+    <tr>
+        <td><code>_getTimeDiff()</code></td>
+        <td>This gets the current time difference between the start and 
+end time for this tracker, as an option to use for other applications.</td>
+    </tr>
+    <tr class="alt">
+        <td><code>_track(tracker, opt_event_object_name, opt_event_label)</code></td>
+        <td>This method makes makes the actual call to the specified GA 
+Tracker object. You must ensure that the start and stop time are 
+recorded before calling <code>_track()</code>. 
+        <ul>
+        <li><code>tracker</code> should be the default Google Analytics tracker object instantiated for your pages (e.g. <code>pageTracker</code>).</li>
+        <li><code>opt_event_object_name</code> TimeTracker defaults to reporting events under the name "TimeTracker," but you can change it here.</li>
+        <li><code>opt_event_label</code>  You can also pass in an 
+optional label for applying the time tracker functionality across 
+multiple dimensions and viewing those different dimensions in the 
+report.</li>
+        </ul></td>
+    </tr>
+</tbody></table>
+
+
+
+<h3>Basic Example</h3>
+
+<pre class="prettyprint"><span class="tag">&lt;html&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;head&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;title&gt;</span><span class="pln">Latency Tracking Demo</span><span class="tag">&lt;/title&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;/head&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;body&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://www.google-analytics.com/ga.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://www.example.com/scripts/time-tracker.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln"> &nbsp;<br></span><span class="kwd">var</span><span class="pln"> timeTracker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">TimeTracker</span><span class="pun">();</span><span class="pln"> &nbsp;<br></span><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-1735986-1'</span><span class="pun">);</span><span class="pln"> &nbsp; <br></span><span class="tag">&lt;/script&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Start Timer"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">timeTracker</span><span class="pun">.</span><span class="pln">_recordStartTime</span><span class="pun">();</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Stop Timer"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">timeTracker</span><span class="pun">.</span><span class="pln">_recordEndTime</span><span class="pun">();</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Track!"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">timeTracker</span><span class="pun">.</span><span class="pln">_track</span><span class="pun">(</span><span class="pln">pageTracker</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Manual Test'</span><span class="pun">);</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;/body&gt;</span><span class="pln"> &nbsp;<br></span><span class="tag">&lt;/html&gt;</span></pre>
+<h3>Example Defining Histogram</h3>
+<pre class="prettyprint"><span class="com">// somewhere at the top of the page</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> timeTracker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">TimeTracker</span><span class="pun">();</span><span class="pln"><br>timeTracker</span><span class="pun">.</span><span class="pln">_recordStartTime</span><span class="pun">();</span><span class="pln"><br><br></span><span class="com">// page load and setup</span><span class="pln"><br><br></span><span class="com">// now when the page is done loading...</span><span class="pln"><br>timeTracker</span><span class="pun">.</span><span class="pln">_recordEndTime</span><span class="pun">();</span><span class="pln"><br><br></span><span class="com">// Specify your own histogram "action" values</span><span class="pln"><br>timeTracker</span><span class="pun">.</span><span class="pln">_setHistogramBuckets</span><span class="pun">([</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">]);</span><span class="pln"><br><br></span><span class="com">// assuming pageTracker is called from _gat._getTracker(account) </span><span class="pln"><br>timeTracker</span><span class="pun">.</span><span class="pln">_track</span><span class="pun">(</span><span class="pln">pageTracker</span><span class="pun">);</span></pre>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+<h2>MouseOverTracker</h2>
+<p>The <code>MouseOverTracker()</code> utility demonstrates a very 
+simple use case where you can track only the initial mouseover on a page
+ element.  While you can always do this by attaching the event tracking 
+call to any <code>onMouseOver()</code> event, this method is  
+discouraged.  Because the user will likely move the mouse over and out 
+from the object many times within one pageview, your reporting numbers 
+will likely be bloated (and therefore not parcticularly useful). Most 
+importantly, the limits for events per session would likely be reached 
+in that case.   Hence, this wrapper tracks an initial mouseover and 
+ignores any subsequent calls, providing you with the ability to track 
+initial visitor mouse overs for a particular object without inflating 
+event numbers.</p>
+
+<h3>Functions</h3>
+<p>
+</p><table>
+    <tbody><tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>MouseOverTracker(tracker)</code></td>
+        <td>The constructor that returns a new mouse over tracker object. The <code>tracker</code> option should be the default Google Analytics tracker object instantiated for your pages (e.g. <code>pageTracker</code>).</td>
+    </tr>
+    <tr class="alt">
+        <td><code>_trackMouseOver()</code></td>
+        <td>The first time this method is called, a mouseover is tracked. Subsequent calls will do nothing.</td>
+    </tr>
+</tbody></table>
+
+<h3>Example</h3>
+<pre class="prettyprint"><span class="com">// &nbsp;We want to track mouse overs on a video unit that has the element id "myVideoUnit".</span><span class="pln"><br></span><span class="com">// assuming pageTracker is called from _gat._getTracker(account) </span><span class="pln"><br><br></span><span class="kwd">var</span><span class="pln"> mouseOverTracker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MouseOverTracker</span><span class="pun">(</span><span class="pln">pageTracker</span><span class="pun">);</span><span class="pln"><br>document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myVideoUnit'</span><span class="pun">).</span><span class="pln">onMouseOver </span><span class="pun">=</span><span class="pln"> mouseOverTracker</span><span class="pun">.</span><span class="pln">_trackMouseOver</span><span class="pun">;</span></pre>
+      <div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+
+      <div style="height: 2207px;" id="gc-collapsible"></div></div><!-- end gc-pagecontent -->
+    </div><!-- end gooey wrapper -->
+
+    </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+    ©2011 Google -
+    <a href="http://code.google.com/">Code Home</a> -
+    <a href="http://code.google.com/terms.html">Terms of Service</a> -
+    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
+    <a href="http://code.google.com/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="http://code.google.com/intl/en/">English</a> -
+    <a href="http://code.google.com/intl/es/">Español</a> -
+    <a href="http://code.google.com/intl/ja/">日本語</a> -
+    <a href="http://code.google.com/intl/ko/">한국어</a> -
+    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
+    <a href="http://code.google.com/intl/ru/">Pусский</a> -
+    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
+    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="07_eventTrackerWrappers-Dateien/codesite_tail.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+
+_gaq.push(
+
+
+    ['projectTracker._setAccount', 'YT-8705592-1'],
+    ['projectTracker._setDomainName', 'code.google.com'],
+    ['projectTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['projectTracker._trackPageview'],
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = 'http://www.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+
+
+  <div style="display: none;" id="menuDiv-lang-dropdown" class="menuDiv instance0"><div class="menuCategory default"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">English</a><a href="http://code.google.com/intl/es/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">Español</a><a href="http://code.google.com/intl/ja/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">日本語</a><a href="http://code.google.com/intl/ko/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">한국어</a><a href="http://code.google.com/intl/pt-BR/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">Português (Brasil)</a><a href="http://code.google.com/intl/ru/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">Pусский</a><a href="http://code.google.com/intl/zh-CN/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">中文 (简体)</a><a href="http://code.google.com/intl/zh-TW/apis/analytics/docs/tracking/eventTrackerWrappers.html" style="display: block;" class="menuItem">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow"></div><div id="cs-searchresults"><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div><div style="display: none;" id="menuDiv-projects-dropdown" class="menuDiv instance1"><div class="menuCategory controls"><hr class="menuSeparator"><a href="http://code.google.com/more/" style="display: block;" class="menuItem">Find developer products...</a><a href="http://code.google.com/hosting/" style="display: block;" class="menuItem">Find open source projects...</a></div></div></body></html>

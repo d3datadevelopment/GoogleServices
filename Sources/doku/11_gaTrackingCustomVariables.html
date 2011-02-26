@@ -1,0 +1,869 @@
+<!DOCTYPE HTML>
+<html><head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+
+
+
+
+  
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Custom Variables - Google Analytics - Google Code</title>
+<script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/html/apis/analytics/_toc.ezt';
+var codesite_token = '56328469b0a0a7c65c4a395ddd8cde4c';
+var logged_in_user_email = 'dan1978@gmx.net';
+//--></script>
+<link href="11_gaTrackingCustomVariables-Dateien/codesite.css" type="text/css" rel="stylesheet">
+<script src="11_gaTrackingCustomVariables-Dateien/codesite_head.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <link href="11_gaTrackingCustomVariables-Dateien/semantic_headers.css" rel="stylesheet" type="text/css">
+    <link href="11_gaTrackingCustomVariables-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="11_gaTrackingCustomVariables-Dateien/custom_tracker_min.js"></script>
+  <script src="11_gaTrackingCustomVariables-Dateien/ga.js" async="" type="text/javascript"></script></head><body class="gc-documentation">
+
+    
+    
+
+    <div id="gb">
+ <span>
+  
+   
+    <b>dan1978@gmx.net</b>
+    |
+   
+    <a href="http://code.google.com/u/dan1978@gmx.net/" id="projects-dropdown" onclick="return false;"><span style="text-decoration: underline;">My favorites</span> <span style="font-size: 0.75em;">▼</span></a>
+    |
+  
+    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration: underline;">English</span> <span style="font-size: 0.75em;">▼</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fde%2Fapis%2Fanalytics%2Fdocs%2Ftracking%2FgaTrackingCustomVariables.html" onclick="CODESITE_click('/gb/sc/signout');"><span style="text-decoration: underline;">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left: 0px;"></div>
+<div class="gbh" style="right: 0px;"></div>
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  <a href="#gc-pagecontent">Skip to page content</a>
+  <a href="#gc-toc">Skip to main navigation</a>
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="http://code.google.com/">
+  
+  
+     <img src="11_gaTrackingCustomVariables-Dateien/code_logo.gif" alt="Google Code" style="border: 0pt none; margin: 3px 0pt 0pt;" height="40" width="167">
+  
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById('gsearchInput').value); return false;">
+      <noscript>
+      <input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml">
+      </noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width: 345px;" type="text">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "adwords" or "open source"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav"><img id="gc-star" src="11_gaTrackingCustomVariables-Dateien/star_off.gif" height="15" width="15">
+  <h1 class="mozilla">Google Analytics</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="http://code.google.com/apis/analytics/" title="Google Analytics home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="http://code.google.com/apis/analytics/docs/index.html" class="selected" title="Official Google Analytics documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataFAQ.html" title="Answers to frequently asked questions about Google Analytics">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataArticlesCode.html" title="Focused articles and tutorials for Google Analytics developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://analytics.blogspot.com/" title="Official Google Analytics blog">Blog</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/apis/analytics/groups/groups.html" title="Google Analytics developer forum">Forum</a>
+    </li>
+  
+    <li>
+      <a href="http://www.google.com/analytics/tos.html" title="Google Analytics terms of service">Terms</a>
+    </li>
+  
+
+  </ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-210">
+
+      <div class="g-unit g-first" id="gc-toc">
+        <link href="11_gaTrackingCustomVariables-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+    <li>
+    <ul>
+      <li style="padding-top: 0pt; padding-bottom: 0pt;">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Overview"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Overview" class="tlw-control tlw-plus"></a><span class="tlw-title"><strong>Overview</strong></span></div><ul style="display: none;" id="0-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsOverview.html">Functional Overview</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsAccounts.html">Accounts &amp; Profiles</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsDomains.html">Domains &amp; Directories</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsSampling.html">Sampling</a></li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+</ul>
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Tracking Code</span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-1" style="margin-top: -15px;">
+    <li>
+        <ul>
+          <li><a href="http://code.google.com/apis/analytics/docs/tracking/home.html">Home</a></li>
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Getting Started"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Collapse Getting Started" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">Getting Started</a></div><ul style="display: block;" id="1-sub-0">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncUsageGuide.html">Async Usage</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncMigrationExamples.html">Async Migration</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce Tracking</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Event Tracking"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Event Tracking" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerOverview.html">Event Tracking</a></div><ul style="display: none;" id="1-sub-1">
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Implementing</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerWrappers.html">Extending</a></li>
+                   </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain Tracking</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html">Traffic Sources</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Visitor Configuration"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Collapse Visitor Configuration" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitors.html">Visitor Configuration</a></div><ul style="display: block;" id="1-sub-2">
+                      <li class="selected"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html">Custom Variables</a></li>
+                      <li class="deprecated"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitorSegments.html">Custom Visitor Segments</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingOverview.html">Traditional Snippet</a></li>
+              </ul>
+           </li>
+           <li style="padding-top: 0pt; padding-bottom: 0pt;">
+               <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tracking Reference"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Tracking Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Tracking Reference</a></div><ul style="display: none;" id="1-sub-3">
+                  <li>Global Objects
+                    <ul>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html">_gat</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gaq.html">_gaq</a></li>
+                    </ul>
+
+                  </li><li>Tracker Objects
+                    <ul class="treelist tlw-processed tlw-instance-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html">Basic Configuration</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html">Campaign Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html">Domains &amp; Directories</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html">Ecommerce</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html">Event Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html">Search Engines and Referrers</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html">Web Client</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html">Urchin Server</a></li>
+                    </ul>
+                  </li>
+
+              </ul>
+           </li>
+
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Libraries"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Libraries" class="tlw-control tlw-plus"></a><span class="tlw-title">Libraries</span></div><ul style="display: none;" id="1-sub-4">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gadgetTracking.html">Gadgets</a></li>
+                <li><a href="http://code.google.com/chrome/extensions/trunk/tut_analytics.html">Chrome Extensions</a></li>
+                <li><a style="text-decoration: none;" href="http://code.google.com/mobile/analytics/docs/"><span style="text-decoration: underline;">Mobile</span><span class="new">&nbsp;&nbsp;Updated</span></a> (Labs <img src="11_gaTrackingCustomVariables-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Flash/Flex  (Labs )"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Flash/Flex  (Labs )" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingIntro.html">Flash/Flex</a>  (Labs <img src="11_gaTrackingCustomVariables-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></div><ul style="display: none;" id="1-sub-5">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlash.html">Flash Setup</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlex.html">Flex Setup</a></li>
+                  </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/silverlightTrackingIntro.html">Silverlight</a> (Labs <img src="11_gaTrackingCustomVariables-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting</a>
+          </li>
+           <li><a href="http://code.google.com/apis/analytics/docs/gaJS/changelog.html">Changelog - ga.js</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Management API <span style="letter-spacing: normal;">(Labs <img src="11_gaTrackingCustomVariables-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-3" style="margin-top: -15px;">
+    <li>
+      <ul class="treelist tlw-processed tlw-instance-4">
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/home.html">Home</a>
+        </li><li style="padding-top: 0pt; padding-bottom: 0pt;">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="3-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJavascript.html">Javascript</a></li>
+          </ul>
+        </li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtFeedReference.html">Feed Reference</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtLibraries.html">Libraries &amp; Examples</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/changelog.html">Changelog</a></li>
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Export API <span style="letter-spacing: normal;">(Labs <img src="11_gaTrackingCustomVariables-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-5" style="margin-top: -15px;">
+    <li>
+      <ul>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/home.html">Home</a></li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="5-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJavascript.html">Javascript</a></li>
+            <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                 <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Version 1.0"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Version 1.0" class="tlw-control tlw-plus"></a><span class="tlw-title">Version 1.0</span></div><ul style="display: none;" id="5-sub-1">
+                 <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html">Protocol</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJava.html">Java</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJavascript.html">Javascript</a></li>
+                 </ul></li>
+          </ul>
+        </li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Feed Reference"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Feed Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReference.html">Feed Reference</a></div><ul style="display: none;" id="5-sub-2">
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceAccountFeed.html">Account Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html">Data Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataCommonQueries.html">Common Queries</a>
+                </li><li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataExplorer.html">Query Explorer</a></li>
+            </ul></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDimensionsMetrics.html">Dimensions &amp; Metrics</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataLibraries.html">Libraries &amp; Examples</a></li>
+
+         <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Changelog &amp; Issues"><img src="11_gaTrackingCustomVariables-Dateien/cleardot.gif" alt="Expand Changelog &amp; Issues" class="tlw-control tlw-plus"></a><span class="tlw-title">Changelog &amp; Issues</span></div><ul style="display: none;" id="5-sub-3">
+                  <li><a href="http://code.google.com/apis/analytics/docs/gdata/changelog.html">Changelog</a></li>
+                  <li><a href="http://code.google.com/p/gdata-issues/issues/list?can=2&amp;q=label:API-Analytics&amp;colspec=API+ID+Type+Status+Priority+Stars+Summary&amp;cells=tiles">Issue Tracker</a></li>
+                </ul>
+            </li>
+          
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Website Optimizer <span style="letter-spacing: normal;">(Labs <img src="11_gaTrackingCustomVariables-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-6" style="margin-top: -15px;">
+<li>
+  <ul>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/index.html">Getting Started</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/commonTasks.html">Common Tasks</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/feedReference.html">Feed Reference</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/gwoFAQ.html">FAQ</a></li>
+  </ul>
+ </li>
+</ul>
+
+        <a class="hidden" href="#gc-topnav-anchor">More Google Analytics resource links</a>
+      </div>
+
+      <div style="position: relative;" class="g-unit" id="gc-pagecontent">
+        
+          <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
+
+        
+        <h1 class="page_title">Custom Variables</h1>
+
+
+
+
+
+<p>Custom variables are name-value pair tags
+  that you can insert in your tracking code in order to refine Google Analytics
+  tracking. With custom variables, you can define additional segments to apply
+  to your visitors other than the ones already provided by Analytics. This document
+  describes custom variables and how you can set them up.</p>
+
+<table class="columns">
+ <tbody><tr>
+   <td>
+   <ol class="toc" id="toc-list">
+    <li><a href="#overview">Overview</a></li>
+   <li><a href="#setup">Using Custom Variables</a></li>
+   </ol>
+   </td>
+   <td>
+  <ol class="toc">
+    <li><a href="#examples">Example Use Cases</a></li>
+   <li><a href="#usage">Usage Guidelines</a></li>
+  </ol>
+  </td>
+   </tr>
+</tbody></table>
+<h2 id="overview">Overview</h2>
+<p>
+  You'll get the most out of custom variables if you understand
+    the basic visitor interaction model used in Google Analytics. In this model,
+    the visitor interacts with your content over a period of time, and the engagement
+    with your site is broken down into a hierarchy. </p>
+  
+<p><img src="11_gaTrackingCustomVariables-Dateien/visitorSessionInteraction.png" style="padding-left: 10px;" align="right">The
+  diagram illustrates this model for a single visitor to your site, where each
+  block represents the number of user sessions and interactions from that particular
+  user. </p>
+<p>Each level in this model is defined as follows: 
+  </p><ul>
+    <li><strong>Visitor</strong>—the client that visits the site, such
+      as the browser or mobile phone operated by a person.</li>
+    <li><strong>Session</strong>—the period of time during which the visitor
+      is active on the site.</li>
+    <li><strong>Page</strong>—activity
+     on the user's behalf which sends a GIF request to the Analytics servers.
+      This is typically characterized by a pageview, but it can include:
+        <ul>
+          <li>a pageview</li>
+          <li>an event (e.g. click on a movie button)</li>
+        </ul>
+    </li>
+  </ul>
+
+<p>These three levels of interaction make up the <em>scope</em> of visitor engagement.
+  This is important to  custom variables because each custom
+  variable is restricted to a particular scope.
+  For example, you might want to know the number of sessions where visitors removed
+  an item from their shopping cart. For that particular case, you would define
+  the custom variable to the session level, so that the entire session for that
+  visitor is flagged as one in which items were removed from online carts.</p>
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+</p><h2 id="setup">Using Custom Variables</h2>
+<p>Because you can set up a variety of custom variables to track user activity
+  for your site, you'll most commonly create your own JavaScript
+  utilities to manage them. Your script will use the basic method
+  for creating a custom variable as follows:</p>
+<p><code>_setCustomVar(index, name, value, opt_scope)</code></p>
+<p>This method accepts four parameters:
+</p><ul>
+  <li><strong>index</strong>—The slot for the custom variable.  <strong>Required.</strong> This is
+    a number whose value can range from <code>1</code> - <code>5</code>,
+    inclusive. A custom variable should be placed in one slot only and not be
+    re-used across different slots.</li>
+  <li><strong>name</strong>—The name for the custom variable. <strong>Required.</strong> This is a
+    string that  identifies the custom variable and appears in the top-level <em>Custom
+    Variables</em> report
+    of the Analytics reports.</li>
+  <li><strong>value</strong>—The value for the custom variable. <strong>Required.</strong> This is
+    a string that is paired with a name. You can pair a number of values with
+    a custom variable name. The value appears in the table list of the UI for
+    a selected variable name. Typically, you will have two or more values for
+    a given name. For example, you might define a custom variable name <code>gender</code> and
+    supply <code>male</code> and <code>female</code> as two possible values.</li>
+  <li><strong>opt_scope</strong>—The scope for the custom variable. <em>Optional.</em> As
+    described above, the scope defines the level of user engagement with your
+    site. It is a number whose possible values are <code>1</code> (visitor-level), 
+    <code>2</code> (session-level), or <code>3</code> (page-level). When left
+    undefined, the custom variable scope defaults to page-level interaction.</li>
+</ul>  
+
+<p>The following code snippet illustrates how you might set a custom variable
+  for tracking those visits where users
+  removed items from their shopping cart. Here, the <code>_setCustomVar()</code> method
+  is called just before a <code>_trackEvent()</code> method, so that it gets
+  delivered in the GIF request sent by the <code>_trackEvent()</code> method.
+  It uses the name <code>Items Removed</code> with the value <code>Yes</code> in
+  order to define that activity from the website users. In addition, it would
+  make sense to also set a default custom variable
+  for <code>Items Removed</code> and <code>No</code>. In this way, you would
+  have a count of visits where items were removed from shopping carts, and a
+  count of visits that didn't include item removal.</p>
+
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">&nbsp;_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCustomVar'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Items Removed'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; </span><span class="com">// The name acts as a kind of category for the user activity. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Yes'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This value of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to session-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">]);</span><span class="pln"><br>&nbsp;_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_trackEvent'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Shopping'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// category of activity</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Item Removal'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Action</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">]);</span></pre>
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="11_gaTrackingCustomVariables-Dateien/plus_sm.gif"> <strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">&nbsp;pageTracker</span><span class="pun">.</span><span class="pln">_setCustomVar</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Items Removed"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; </span><span class="com">// The name acts as a kind of category for the user activity. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Yes"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This value of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to session-level. Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp;pageTracker</span><span class="pun">.</span><span class="pln">_trackEvent</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Shopping"</span><span class="pun">,</span><span class="pln"> </span><span class="com">// category of activity</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Item Removal"</span><span class="pln"> </span><span class="com">// Action</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">);</span></pre></div>
+<p>Once you have set up custom variables, you can use the 
+<a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._deleteCustomVar"><code>_deleteCustomVar(index)</code></a>
+method to remove your custom variables.</p>
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+
+</p><h2 id="examples">Example Use Cases</h2>
+<p>Custom variables can be implemented in many different ways, depending upon
+  your website model and business needs. The examples explore different use cases,
+  where each one illustrates a different level of scope:</p>
+<ul id="use-case-list">
+  <li><a href="#pageLevel">Page-level Custom Variables</a></li>
+  <li><a href="#sessionLevel">Session-level Custom Variables</a></li>
+  <li><a href="#visitorLevel">Visitor-level Custom Variables</a></li>
+</ul>
+<h3 id="pageLevel">Page-level Custom Variables</h3>
+<p>Use page-level custom variables to define a collection of page-level
+  activities by your users. </p>
+<p>For example, suppose you manage the website for an
+  online newspaper, where visitors view many different articles. While it is
+  easy to determine which particular articles are the most popular, you can now
+  also use custom variables to determine which <em>sections</em> of
+  the newspaper are popular. This is done by setting a custom variable at the
+  page level for each article, where the section for that article is set as
+  a custom variable. For example, you might have sections such as <em>Life &amp; Style</em>, <em>Opinion</em>,
+  and <em>Business</em>. You could set a custom variable to track all your articles
+  by section.</p>
+  
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCustomVar'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Section'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// The top-level name for your online content categories. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Life &amp; Style'</span><span class="pun">,</span><span class="pln"> &nbsp;</span><span class="com">// Sets the value of "Section" to "Life &amp; Style" for this particular aricle. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">3</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to page-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="11_gaTrackingCustomVariables-Dateien/plus_sm.gif"> <strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">pageTracker</span><span class="pun">.</span><span class="pln">_setCustomVar</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Section"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// The top-level name for your online content categories. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Life &amp; Style"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the value of "Section" to "Life &amp; Style" for this particular aricle. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">3</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to page-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">);</span><span class="pln"> <br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span></pre></div>
+   
+<p>Let's continue with this example and suppose that you not only want to tag
+  the section for a particular article, but also the sub-section. For example,
+  the <em>Life &amp; Style</em> section for your newspaper might have a number
+  of sub-sections
+  as well, such as <em>Food &amp; Drink</em>, <em>Fashion</em>, and <em>Sports</em>.
+  So, for a particular article, you can track both the section and the sub-section.
+  You could set an additional custom variable to track all your articles by sub-section.</p>
+
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCustomVar'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #2. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="str">'Sub-Section'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// The 2nd-level name for your online content categories. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="str">'Fashion'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Sets the value of "Sub-section" to "Fashion" for this particular article. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="lit">3</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to page-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="11_gaTrackingCustomVariables-Dateien/plus_sm.gif"> <strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">pageTracker</span><span class="pun">.</span><span class="pln">_setCustomVar</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #2. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Sub-Section"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// The 2nd-level name for your online content categories. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Fashion"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Sets the value of "Sub-section" to "Fashion" for this particular article. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">3</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to page-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">);</span><span class="pln"> <br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span></pre></div>
+
+<p>In this example, you set two simultaneous page-level custom variables for
+  a single page. For any single page, you can track up to five custom variables,
+  each with a separate slot. This means that you could assign 3 additional custom
+  variables on this same page. For all articles on your website, you can set
+  up an array of page-level custom variables to track them by a variety of sections
+  and sub-sections. For more information on how to correctly use page-level custom
+  variables, see <a href="#usage">Usage
+  Guidelines</a> below.</p>
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+
+</p><h3 id="sessionLevel">Session-level Custom Variables</h3>
+<p>Use session-level custom variables to distinguish different visitor experiences
+  across sessions. </p>
+<p>For example, if your website offer users the ability to login, you can use
+  a custom variable scoped to the session level for user login status. In that
+  way, you can segment visits by those from logged in members versus anonymous
+  visitors. </p>
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCustomVar'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'User Type'</span><span class="pun">,</span><span class="pln"> &nbsp; </span><span class="com">// The name of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Member'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the value of "User Type" to "Member" or "Visitor" depending on status. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="lit">2</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Sets the scope to session-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">]);</span></pre>
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="11_gaTrackingCustomVariables-Dateien/plus_sm.gif"> <strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">pageTracker</span><span class="pun">.</span><span class="pln">_setCustomVar</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"User Type"</span><span class="pun">,</span><span class="pln"> &nbsp; </span><span class="com">// The name of the custom varaible. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Member"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the value of "User Type" to "Member" or "Visitor" depending on status. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="lit">2</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Sets the scope to session-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span></pre></div>
+
+<p>Suppose you wanted to track both the user type and whether
+   a purchase attempt occurred for a given session. If we assume that every page
+  offers the user the ability to login, we would want to reserve slot #1 for
+  the <em>User Type</em> custom variable and use another slot for the purchase attempt:</p>
+
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCustomVar'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #2. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Shopping Attempts'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// The name of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Yes'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// The value of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// &nbsp;(you might set this value by default to No)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to session-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="11_gaTrackingCustomVariables-Dateien/plus_sm.gif"> <strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">pageTracker</span><span class="pun">.</span><span class="pln">_setCustomVar</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// This custom var is set to slot #2. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Shopping Attempts"</span><span class="pun">,</span><span class="pln"> </span><span class="com">// The name of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Yes"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// The value of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// &nbsp;(you might set this value by default to No)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">2</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Sets the scope to session-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span></pre></div>
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+</p><h3 id="visitorLevel">Visitor-level Custom Variables</h3>
+<p>Use visitor-level custom variables to distinguish categories of visitors across
+  multiple sessions.</p>
+<p>For example, if your websites  offers premium content to paying subscribers,
+  you can set a visit-level custom variable to analyze which users are paying
+  members, at which level of payment, and which users are using the free level
+  of service for the site. You would likely set this custom variable as a one-time
+  function, since the value would persist across the life of the visitor cookie.</p>
+
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCustomVar'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Member Type'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// The name of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">'Premium'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// The value of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// &nbsp;(possible values might be Free, Bronze, Gold, and Platinum)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Sets the scope to visitor-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp;</span><span class="pun">]);</span><span class="pln"> </span></pre>
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="11_gaTrackingCustomVariables-Dateien/plus_sm.gif"> <strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">pageTracker</span><span class="pun">.</span><span class="pln">_setCustomVar</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// This custom var is set to slot #1. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Member Type"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// The name of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="str">"Premium"</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// The value of the custom variable. &nbsp;Required parameter.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// &nbsp;(possible values might be Free, Bronze, Gold, and Platinum)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="lit">1</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Sets the scope to visitor-level. &nbsp;Optional parameter.</span><span class="pln"><br>&nbsp;</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span><span class="pln"> </span></pre></div>
+<h2 id="usage">Usage Guidelines</h2>
+<p>This section describes the differences between the different types of custom
+  variables and how to use them correctly:</p>
+<ul id="usage-list">
+  <li><a href="#varTypes">Custom Variable Types</a></li>
+  <li><a href="#mixedTypes">Mixing Variable Types</a></li>
+  <li><a href="#recommended">Recommended Practices</a></li>
+</ul>
+<h3 id="varTypes">Custom Variable Types</h3>
+<p>All custom variable types can be defined for a combined length of:</p>
+<blockquote>
+  <p><strong>64 bytes inclusive of  the name and the value</strong></p>
+  </blockquote>
+<p>This means that the length of the string used for the <code>name</code> and the length
+  of the string used for the <code>value</code> must not exceed 64 bytes.</p>
+<p>The table
+  below defines the key characteristics
+  of the
+  different
+  variable types. Bear in mind that there are certain restrictions <strong>when
+    the same slots are used by different variables</strong>. </p>
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+
+</p><table border="0" width="100%">
+  <tbody><tr>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">Duration</th>
+    <th scope="col">When sharing a slot with  other variables</th>
+    <th scope="col">Number allowed</th>
+  </tr>
+  <tr>
+    <th scope="row">Page-level</th>
+    <td valign="top"><p>A single pageview, event,
+      or transaction call.</p></td>
+    <td valign="top">The last page-level variable to be called on a page is the
+      one applied to that page.</td>
+    <td valign="top"><p>For any web property (collection of pages), many  unique page-level
+      variables can be set and slots can be re-used. Limited only by the number
+      of hits in a given session.</p>
+      <p>For any single page, you can set up to 5 simultaneous custom variables.</p></td>
+  </tr>
+  <tr>
+    <th scope="row">Session-level</th>
+    <td valign="top"><p>The session
+      of the visitor. </p></td>
+    <td valign="top"><p>The last session-level variable called in a session
+      is the one used for that session. <br>
+      <strong>Example</strong>: 
+      If <code>login=false</code> for slot #1 at the beginning
+      of the session and <code>login=true</code> for slot #1 later on, the session is
+      set to <code>true</code> for <code>login</code>.</p>
+      <p>Over-rides any previously-set page-level variable called <em>in the
+          same session</em>.<br>
+        <strong>Example</strong>: If slot #1 is first used for <code>category=sports</code> and
+        then for  <code>login=true</code> for
+        a session, <code>category=sports</code> will not be recorded for that
+        session. </p></td>
+    <td valign="top"><p>For any web property, you can create as many distinct session-level
+      custom variables as can be defined with a 64-byte key-value pair limit
+      (up to the 50K unique aggregate level limit that exists across GA today).</p>
+      <p>For any given user session, you can set up to 5 session-level variables.</p></td>
+  </tr>
+  <tr>
+    <th scope="row">Visitor-level</th>
+    <td><p>The life of the visitor cookie.<br>
+      <br>
+      When set, applies to all visits onward (but not to previous visits or current
+      visit).    </p></td>
+    <td><p>The last visitor-level variable set for a visitor is the one
+      applied to the visitor.
+      </p>
+      <p>Over-rides previously-set custom variable types called <em>in the same
+        session</em>.</p></td>
+    <td valign="top"><p>For any web property, you can create up to five distinct
+        visitor-level variables.</p></td>
+  </tr>
+</tbody></table>
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+</p><h3 id="mixedTypes">Mixing Variable Types</h3>
+<p>When you use multiple page-, session-, and visitor-level custom variables
+  for your web property, you need to carefully determine the re-use of slots. If
+  a situation arises on your website where a page or session-level custom variable
+  <em>uses the same slot at the same time</em> a page-level variable is set, only the
+  session-level (or page-level) variable will be recorded.</p>
+<p>The following scenarios illustrate a mix of page, session, and visitor level
+  variables set by activity from a single user on the same browser. In each (1)
+  or (2) indicates a particular slot used by the custom variable and S: indicates
+  the scope.</p>
+<h4>Case 1 - One visit, three pageviews</h4>
+<table border="0">
+  <tbody><tr>
+    <th><strong>Visit 1</strong></th>
+    <td><strong>Page 1</strong><br>
+      (1) S:page-level <br>
+      <code>section=opinion</code></td>
+    <td><strong>Page 2</strong><br>
+      (1) S: session-level<br>
+      <code>login=true</code></td>
+    <td><strong>Page 3</strong><br>
+      (1) S: session-level<br>
+      <code>converted=true</code></td>
+  </tr>
+</tbody></table>
+<p>The report for visits would be: </p>
+<ul>
+  <li># visits for section=opinion: 0</li>
+  <li># visits for login=true: 0</li>
+  <li># visits for converted=true: 1</li>
+</ul>
+<p>Here the final page calls a session-level variable that re-uses the same slot,
+  and it receives precedence. </p>
+<h4>Case 2 - Three visits</h4>
+<table border="0">
+  <tbody><tr>
+    <th><strong>Visit 1</strong></th>
+    <td><strong>Page 1</strong><br>
+      (1) S:visitor-level <br>
+      <code>gender=male</code></td>
+    <td><code></code></td>
+  </tr>
+  <tr>
+    <th>Visit 2</th>
+    <td>(2) S:session-level <br>
+      <code>converted=false</code></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>Visit 3</th>
+    <td>(1) S:page-level <br>
+      <code>section=opinion</code></td>
+    <td><strong>Page 2</strong><br>
+      (2) S:session-level <br>
+      <code>converted=false</code></td>
+  </tr>
+</tbody></table>
+<p>The report for visits would be: </p>
+<ul>
+  <li># visits for section=opinion: 1</li>
+  <li># visits for gender=male: 2</li>
+  <li># visits for converted=false: 2</li>
+</ul>
+<p>Here the page-level variable is called after a visitor-level variable that
+  used the same slot. In this order, the visitor-level variable does not over-write
+  the page-level variable. </p>
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+
+</p><h4>Case 3 - Three visits, one page</h4>
+<table border="0">
+  <tbody><tr>
+    <th><strong>Visit 1</strong></th>
+    <td><strong>Page 1</strong><br>
+      (1) S:visitor-level <br>
+      <code>gender=male</code></td>
+    </tr>
+  <tr>
+    <th>Visit 2</th>
+    <td>(2) S:session-level <br>
+      <code>converted=false</code></td>
+    </tr>
+  <tr>
+    <th>Visit 3</th>
+    <td>(1) S:page-level <br>
+      <code>section=opinion</code></td>
+    </tr>
+</tbody></table>
+<p>The report for visits would be: </p>
+<ul>
+  <li># visits for section=opinion: 1</li>
+  <li># visits for gender=male: 2</li>
+  <li># visits for converted=false: 1</li>
+</ul>
+<p>This is a variation from the previous case, where the final visit sets only
+  one CV and re-uses a slot called in the first visit.</p>
+<h3 id="recommended">Recommended Practices</h3>
+<ul>
+  <li><strong>Do not use duplicate key names across slots.</strong></li>
+  <li><strong>You have up to 5 simultaneous custom variables for use in a single
+      request (e.g. pageview or event call).</strong><br>
+    The
+    sum of all your custom varaiables  cannot exceed 5 in any given request (i.e.
+    you cannot have 5 visitor and 5 session custom variables set simultaneously).</li>
+  <li><strong>Call the <code>_setCustomVar()</code> function when it can be set prior 
+  to a pageview or event GIF request.</strong><br>
+  In certain cases this might not be possible,
+  and you will need to set another <code>_trackPageview()</code> request <em>after</em> setting
+  a custom variable. This is typically only necessary in those situations where
+  the user triggers a session- or visit-level custom var, where it is not possible
+  to bundle that method with a pageview, event, or ecommerce tracking call.</li>
+  <li><strong>Use a slot matrix to track large numbers of custom variables.</strong><br>
+    If you have complex tracking requirements, where you have a mix of page-
+  and session-level variables that might collide,
+  you should build a slot matrix to ensure that session-level variables do not
+      inadvertently over-ride page-level variables.</li>
+  <li><strong>Consider using Event Tracking for certain applications, rather
+      than custom variables.</strong><br>
+    For
+    example, suppose you have an online music store and you want to track both
+      login sessions, purchase attempt sessions, and sessions where music samples
+      were played. It would make sense to use Event Tracking to track the number
+      of attempts to play music rather than using session-level variables to
+      achieve this. Here, you could use the 4th value parameter of the event
+      tracking call to pass in session data from your own cookies. </li>
+  <li><strong>Don't use session-level variables to track behavior you can track
+      with page-level variables.</strong><br>
+    For example, suppose you track login status and shopping
+    attempt status by sessions, and your site offers a "Members'
+    special" page
+  that you also want to track. Since a page-level custom variable will show the
+  number of visits to that particular variable, you will already have available
+  the number of visits that included that page at least once. </li>
+</ul>
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a>
+<script type="text/javascript">
+
+var tog = tog || {};
+
+tog.plusImg = 'http://www.google.com/mb/plus_sm.gif';
+tog.minusImg = 'http://www.google.com/mb/minus_sm.gif';
+
+tog.addExpandBoxes = function() {
+  $('.tog-box').each(function() {
+    var side = $(this).hasClass('.tog-right') ? 'append' : 'prepend';
+    var img = tog.minusImg;
+    var toggleContent = $(this).find('.tog-content');
+    if (!$(this).hasClass('.tog-expanded')) {
+      toggleContent.hide();
+      img = tog.plusImg;
+    }
+
+    $(this).children('.tog-header')[side](
+        '<img class="tog-img" src="' + img + '"/>')
+        .children('img')
+        .click(function() {
+          tog.clickHandler(toggleContent, this);
+        });
+  });
+}
+
+tog.clickHandler = function(toggleContent, img) {
+  img.src = img.src == tog.plusImg ? tog.minusImg : tog.plusImg;
+  var display = toggleContent.is(':hidden') ? 'show' : 'hide';
+  toggleContent[display]();
+}
+
+
+$(document).ready(function() {
+  tog.addExpandBoxes();
+});
+
+</script>
+
+
+      </p></div><!-- end gc-pagecontent -->
+    </div><!-- end gooey wrapper -->
+
+    </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+    ©2011 Google -
+    <a href="http://code.google.com/">Code Home</a> -
+    <a href="http://code.google.com/terms.html">Terms of Service</a> -
+    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
+    <a href="http://code.google.com/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="http://code.google.com/intl/en/">English</a> -
+    <a href="http://code.google.com/intl/es/">Español</a> -
+    <a href="http://code.google.com/intl/ja/">日本語</a> -
+    <a href="http://code.google.com/intl/ko/">한국어</a> -
+    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
+    <a href="http://code.google.com/intl/ru/">Pусский</a> -
+    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
+    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="11_gaTrackingCustomVariables-Dateien/codesite_tail.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+
+_gaq.push(
+
+
+    ['projectTracker._setAccount', 'YT-8705592-1'],
+    ['projectTracker._setDomainName', 'code.google.com'],
+    ['projectTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['projectTracker._trackPageview'],
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = 'http://www.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+
+
+  </div></div><div style="height: 5386px;" id="gc-collapsible"></div></div></div></div></div><div style="display: none;" id="menuDiv-lang-dropdown" class="menuDiv instance0"><div class="menuCategory default"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">English</a><a href="http://code.google.com/intl/es/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">Español</a><a href="http://code.google.com/intl/ja/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">日本語</a><a href="http://code.google.com/intl/ko/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">한국어</a><a href="http://code.google.com/intl/pt-BR/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">Português (Brasil)</a><a href="http://code.google.com/intl/ru/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">Pусский</a><a href="http://code.google.com/intl/zh-CN/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">中文 (简体)</a><a href="http://code.google.com/intl/zh-TW/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" style="display: block;" class="menuItem">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow"></div><div id="cs-searchresults"><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div><div style="display: none;" id="menuDiv-projects-dropdown" class="menuDiv instance1"><div class="menuCategory controls"><hr class="menuSeparator"><a href="http://code.google.com/more/" style="display: block;" class="menuItem">Find developer products...</a><a href="http://code.google.com/hosting/" style="display: block;" class="menuItem">Find open source projects...</a></div></div></body></html>

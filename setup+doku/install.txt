@@ -1,0 +1,79 @@
+********************************************************************************************
+*                                                                                          *
+*  Modul "Google Analytics" für OXID eSales Version 4 (CE, PE, EE)                         *
+*  Version 2.1 (23.02.2011)                                                                *
+*  (C) D³ Data Development                                                                 *
+*  Bearbeiter: DS                                                                          *
+*                                                                                          *
+********************************************************************************************
+*                                                                                          *
+*  Bei Fragen, Kritiken bzw. Problemen erreichen Sie uns wie folgt:                        *
+*                                                                                          *
+*  D³ Data Development                                                                     *
+*  Herr Thomas Dartsch                                                                     *
+*  Stollberger Straße 23                                                                   *
+*  09380, Thalheim                                                                         *
+*                                                                                          *
+*  Tel.: 03721-268090                                                                      *
+*                                                                                          *
+*  http://www.shopmodule.com                                                               *
+*  info@shopmodule.com                                                                     *
+*                                                                                          *
+*  Achtung: Für Fehlermeldungen und Supportanfragen bitte ausschließlich folgende          *
+*  Emailadresse nutzen: support@shopmodule.com                                             *
+*                                                                                          *
+********************************************************************************************
+
+Voraussetzung: OXID eShop ab Version 4.1.0
+
+Installation:
+-------------
+1) Kopieren Sie bitte die im Verzeichnis "copy_this" liegenden Dateien in den Shop. Achten Sie darauf, daß
+   speziell die PHP-Dateien im Binär-Modus übertragen werden. Behalten Sie die Verzeichnisstruktur bei!
+
+2) Im Verzeichnis 'changed_full' finden Sie, nach Shopversionen getrennt, die Standard-Templates, die für
+   das Modul geändert werden müssen. Die entsprechenden Absätze sind markiert. Übernehmen Sie diese bitte
+   in Ihre Shoptemplates. Wenn Sie in Ihrem Shop die unveränderten Standardtemplates des Original Oxid-Shops
+   verwenden, können Sie diese Modul-Templates so übernehmen.
+
+3) Verwenden Sie in Ihrem Shop ein angepaßtes Verzeichnis für Ihre Templates (neues Theme oder CustomTheme), kopieren Sie die Templates
+   und / oder die CSS-Dateien in die neuen Ordner. Dies betrifft die Dateien aus dem "copy_this"- und dem "changed_full"-Ordner.
+
+4) Modul aktivieren über Admin -> Stammdaten -> Grundeinstellungen -> System ->  Textfeld "Module"
+   Hier Folgendes eintragen:
+
+    oxcmp_utils => d3GoogleAnalytics/views/d3_oxcmp_utils_googleAnalytics
+
+   Achtung: Wenn in Ihrem Shop bereits die genannten Klassen per Modul erweitert wurde, muß das Modul an die
+   bestehende Erweiterung gehängt werden.
+
+   Beispiel:
+    oxcmp_utils => anderes_oxcmp_utils_Modul&d3GoogleAnalytics/views/d3_oxcmp_utils_googleAnalytics
+
+5) Tragen Sie in der Shopdatei "config.inc.php" folgende Zeile an das Ende der Datei ein:
+
+    $this->sD3GoogleAnalyticsId = 'UA-XXXXXX-X';
+
+   Statt der hier vorgegebenen Nummer setzen Sie bitte Ihre von Google versandte UA-Nummer ein.
+
+6) Leeren Sie bitte unbedingt das Verzeichnis /tmp im Shop.
+
+Wir wünschen Ihnen mit Ihrem neuen Modul viel Erfolg.
+
+
+Einrichtung des Google Analytics-Kontos:
+----------------------------------------
+
+Wie Sie Ihr Analytics-Konto am besten einstellen, entnehmen Sie bitte den beide Grafiken "ga1.png" und "ga2.png" im "setup+doku"-
+Ordner.
+
+Einrichtung des Google AdWords-Kontos:
+--------------------------------------
+
+Zwar unterstützt dieses Modul das Tracking von AdWords-Kampagnen nicht aktiv. Mit ein paar wenigen Einstellungen können Sie die
+AdWords-Tracking-Daten aber auch in Analytics auswerten. Fügen Sie den AdWords-Trackingcode der Thankyou-Seite Ihres Shops zu. Den
+Trackingcode finden Sie im AdWords-Account unter "Berichterstellung und Tools -> Conversions". Nach dem Ausführen des Einrichtungsassistenten
+finden Sie diesen im Tab "Code" (siehe Grafik "adwords1.png"). 
+Verbinden Sie nun noch Ihr AdWords-Konto mit Analytics über das AdWords-Menü
+"Berichterstellung und Tools -> Google Analytics" (siehe Grafik "adwords2.png"). Nun sollten diese Daten auch in Analytics zur Verfügung
+stehen.

@@ -1,0 +1,976 @@
+<!DOCTYPE HTML>
+<html><head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+
+
+
+
+  
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Cross-Domain Tracking - Google Analytics - Google Code</title>
+<script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/html/apis/analytics/_toc.ezt';
+var codesite_token = '56328469b0a0a7c65c4a395ddd8cde4c';
+var logged_in_user_email = 'dan1978@gmx.net';
+//--></script>
+<link href="08_gaTrackingSite-Dateien/codesite.css" type="text/css" rel="stylesheet">
+<script src="08_gaTrackingSite-Dateien/codesite_head.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <link href="08_gaTrackingSite-Dateien/semantic_headers.css" rel="stylesheet" type="text/css">
+    <link href="08_gaTrackingSite-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.minusImage { display: none; }
+.tog-img { padding-right: .5em; }
+.tog-right .tog-img { padding-left: .5em; }
+</style>
+
+    <script type="text/javascript" src="08_gaTrackingSite-Dateien/custom_tracker_min.js"></script>
+  <script src="08_gaTrackingSite-Dateien/ga.js" async="" type="text/javascript"></script></head><body class="gc-documentation">
+
+    
+    
+
+    <div id="gb">
+ <span>
+  
+   
+    <b>dan1978@gmx.net</b>
+    |
+   
+    <a href="http://code.google.com/u/dan1978@gmx.net/" id="projects-dropdown" onclick="return false;"><span style="text-decoration: underline;">My favorites</span> <span style="font-size: 0.75em;">▼</span></a>
+    |
+  
+    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration: underline;">English</span> <span style="font-size: 0.75em;">▼</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fde%2Fapis%2Fanalytics%2Fdocs%2Ftracking%2FgaTrackingSite.html" onclick="CODESITE_click('/gb/sc/signout');"><span style="text-decoration: underline;">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left: 0px;"></div>
+<div class="gbh" style="right: 0px;"></div>
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  <a href="#gc-pagecontent">Skip to page content</a>
+  <a href="#gc-toc">Skip to main navigation</a>
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="http://code.google.com/">
+  
+  
+     <img src="08_gaTrackingSite-Dateien/code_logo.gif" alt="Google Code" style="border: 0pt none; margin: 3px 0pt 0pt;" height="40" width="167">
+  
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById('gsearchInput').value); return false;">
+      <noscript>
+      <input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml">
+      </noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width: 345px;" type="text">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "adwords" or "open source"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav"><img id="gc-star" src="08_gaTrackingSite-Dateien/star_off.gif" height="15" width="15">
+  <h1 class="mozilla">Google Analytics</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="http://code.google.com/apis/analytics/" title="Google Analytics home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="http://code.google.com/apis/analytics/docs/index.html" class="selected" title="Official Google Analytics documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataFAQ.html" title="Answers to frequently asked questions about Google Analytics">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataArticlesCode.html" title="Focused articles and tutorials for Google Analytics developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://analytics.blogspot.com/" title="Official Google Analytics blog">Blog</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/apis/analytics/groups/groups.html" title="Google Analytics developer forum">Forum</a>
+    </li>
+  
+    <li>
+      <a href="http://www.google.com/analytics/tos.html" title="Google Analytics terms of service">Terms</a>
+    </li>
+  
+
+  </ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-210">
+
+      <div class="g-unit g-first" id="gc-toc">
+        <link href="08_gaTrackingSite-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+    <li>
+    <ul>
+      <li style="padding-top: 0pt; padding-bottom: 0pt;">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Overview"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Overview" class="tlw-control tlw-plus"></a><span class="tlw-title"><strong>Overview</strong></span></div><ul style="display: none;" id="0-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsOverview.html">Functional Overview</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsAccounts.html">Accounts &amp; Profiles</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsDomains.html">Domains &amp; Directories</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsSampling.html">Sampling</a></li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+</ul>
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Tracking Code</span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-1" style="margin-top: -15px;">
+    <li>
+        <ul>
+          <li><a href="http://code.google.com/apis/analytics/docs/tracking/home.html">Home</a></li>
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Getting Started"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Collapse Getting Started" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">Getting Started</a></div><ul style="display: block;" id="1-sub-0">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncUsageGuide.html">Async Usage</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncMigrationExamples.html">Async Migration</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce Tracking</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Event Tracking"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Event Tracking" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerOverview.html">Event Tracking</a></div><ul style="display: none;" id="1-sub-1">
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Implementing</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerWrappers.html">Extending</a></li>
+                   </ul>
+                </li>
+                <li class="selected"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain Tracking</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html">Traffic Sources</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Visitor Configuration"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Collapse Visitor Configuration" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitors.html">Visitor Configuration</a></div><ul style="display: block;" id="1-sub-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html">Custom Variables</a></li>
+                      <li class="deprecated"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitorSegments.html">Custom Visitor Segments</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingOverview.html">Traditional Snippet</a></li>
+              </ul>
+           </li>
+           <li style="padding-top: 0pt; padding-bottom: 0pt;">
+               <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tracking Reference"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Tracking Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Tracking Reference</a></div><ul style="display: none;" id="1-sub-3">
+                  <li>Global Objects
+                    <ul>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html">_gat</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gaq.html">_gaq</a></li>
+                    </ul>
+
+                  </li><li>Tracker Objects
+                    <ul class="treelist tlw-processed tlw-instance-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html">Basic Configuration</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html">Campaign Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html">Domains &amp; Directories</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html">Ecommerce</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html">Event Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html">Search Engines and Referrers</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html">Web Client</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html">Urchin Server</a></li>
+                    </ul>
+                  </li>
+
+              </ul>
+           </li>
+
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Libraries"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Libraries" class="tlw-control tlw-plus"></a><span class="tlw-title">Libraries</span></div><ul style="display: none;" id="1-sub-4">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gadgetTracking.html">Gadgets</a></li>
+                <li><a href="http://code.google.com/chrome/extensions/trunk/tut_analytics.html">Chrome Extensions</a></li>
+                <li><a style="text-decoration: none;" href="http://code.google.com/mobile/analytics/docs/"><span style="text-decoration: underline;">Mobile</span><span class="new">&nbsp;&nbsp;Updated</span></a> (Labs <img src="08_gaTrackingSite-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Flash/Flex  (Labs )"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Flash/Flex  (Labs )" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingIntro.html">Flash/Flex</a>  (Labs <img src="08_gaTrackingSite-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></div><ul style="display: none;" id="1-sub-5">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlash.html">Flash Setup</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlex.html">Flex Setup</a></li>
+                  </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/silverlightTrackingIntro.html">Silverlight</a> (Labs <img src="08_gaTrackingSite-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting</a>
+          </li>
+           <li><a href="http://code.google.com/apis/analytics/docs/gaJS/changelog.html">Changelog - ga.js</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Management API <span style="letter-spacing: normal;">(Labs <img src="08_gaTrackingSite-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-3" style="margin-top: -15px;">
+    <li>
+      <ul class="treelist tlw-processed tlw-instance-4">
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/home.html">Home</a>
+        </li><li style="padding-top: 0pt; padding-bottom: 0pt;">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="3-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJavascript.html">Javascript</a></li>
+          </ul>
+        </li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtFeedReference.html">Feed Reference</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtLibraries.html">Libraries &amp; Examples</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/changelog.html">Changelog</a></li>
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Export API <span style="letter-spacing: normal;">(Labs <img src="08_gaTrackingSite-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-5" style="margin-top: -15px;">
+    <li>
+      <ul>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/home.html">Home</a></li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="5-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJavascript.html">Javascript</a></li>
+            <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                 <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Version 1.0"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Version 1.0" class="tlw-control tlw-plus"></a><span class="tlw-title">Version 1.0</span></div><ul style="display: none;" id="5-sub-1">
+                 <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html">Protocol</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJava.html">Java</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJavascript.html">Javascript</a></li>
+                 </ul></li>
+          </ul>
+        </li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Feed Reference"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Feed Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReference.html">Feed Reference</a></div><ul style="display: none;" id="5-sub-2">
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceAccountFeed.html">Account Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html">Data Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataCommonQueries.html">Common Queries</a>
+                </li><li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataExplorer.html">Query Explorer</a></li>
+            </ul></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDimensionsMetrics.html">Dimensions &amp; Metrics</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataLibraries.html">Libraries &amp; Examples</a></li>
+
+         <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Changelog &amp; Issues"><img src="08_gaTrackingSite-Dateien/cleardot.gif" alt="Expand Changelog &amp; Issues" class="tlw-control tlw-plus"></a><span class="tlw-title">Changelog &amp; Issues</span></div><ul style="display: none;" id="5-sub-3">
+                  <li><a href="http://code.google.com/apis/analytics/docs/gdata/changelog.html">Changelog</a></li>
+                  <li><a href="http://code.google.com/p/gdata-issues/issues/list?can=2&amp;q=label:API-Analytics&amp;colspec=API+ID+Type+Status+Priority+Stars+Summary&amp;cells=tiles">Issue Tracker</a></li>
+                </ul>
+            </li>
+          
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Website Optimizer <span style="letter-spacing: normal;">(Labs <img src="08_gaTrackingSite-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-6" style="margin-top: -15px;">
+<li>
+  <ul>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/index.html">Getting Started</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/commonTasks.html">Common Tasks</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/feedReference.html">Feed Reference</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/gwoFAQ.html">FAQ</a></li>
+  </ul>
+ </li>
+</ul>
+
+        <a class="hidden" href="#gc-topnav-anchor">More Google Analytics resource links</a>
+      </div>
+
+      <div style="position: relative;" class="g-unit" id="gc-pagecontent">
+        
+          <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
+
+        
+        <h1 class="page_title">Cross-Domain Tracking</h1>
+
+
+
+
+<p>This document describes a variety of ways to use cross-domain tracking customizations
+  when you want to collect visits to multiple domains in a single profile—as
+  if they were a single site rather than two separate ones. It also covers how
+  to track portions of a website, such as sub-directories and iFramed content.
+  If you are unfamiliar with the general process of cross-domain tracking, see
+  <a href="http://www.google.com/support/analytics/bin/topic.py?topic=11007">Domains
+  and Directories</a> in our Help Center.</p>
+
+
+<table class="columns" id="toc-list">
+  <tbody><tr>
+    <td>
+      <ol class="toc">
+         <li><a href="#introduction">Introduction</a></li>
+      </ol>
+    </td>
+    <td>
+      <ol class="toc">
+         <li><a href="#trackingScenarios">Tracking Scenarios</a>
+<ol>
+            <li><a href="#multipleDomains">Multiple Domains &amp; Sub-Domains</a></li>
+             <li><a href="#domainSubDomains">One Domain &amp; Its Sub-Domains</a></li>
+             <li><a href="#domainAndSubDirectory">One Domain &amp; Sub-Directory of Another Domain</a></li>
+             <li><a href="#trackingIFrames">iFrame Content Hosted on Another Domain</a></li>
+             <li><a href="#singleSubDirectory">A Single Sub-Directory</a></li>
+             <li><a href="#twoSubDirectories">Two Directories on the Same Domain</a></li>
+           </ol>
+        </li>
+      </ol>
+    </td>
+    <td>
+      <ol class="toc">
+         <li><a href="#keyComponents">Key Components to Cross-Domain Tracking</a>
+           <ol>
+            <li><a href="#profilesKey">Profiles</a></li>
+             <li><a href="#cookies">Cookies: Necessary to Transferring Visitor Data</a></li>
+             <li><a href="#domainToNone">_setDomainName('none')</a></li>
+             <li><a href="#yourDomainName">_setDomainName('<em>yourDomainName</em>')</a></li>
+             <li><a href="#setAllowHash">_setAllowHash(false)</a></li>
+           </ol>
+        </li>
+      </ol>
+    </td>
+  </tr>
+</tbody></table>
+<h2 id="introduction">Introduction</h2>
+<p>A default setup of Google Analytics is designed to track content and visitor data for a single domain, such as<code> www.example.com</code>.</p>
+<p>However, suppose you want to use Analytics for more complex situations, such
+  as tracking:</p>
+<ul>
+  <li>  <strong>Subdomains</strong>—all visitors to <em>both</em> <code>dogs.example.com</code> and <code>www.example.com</code>,
+    with data for both showing in the same report profile</li>
+  <li><strong>Subdirectories</strong>—only visitors to the <code>www.example.com/dogs</code> subdirectory
+    in a separate report as if it were a single site</li>
+  <li><strong>3rd-party shopping carts</strong>—visitors to your online
+    store and to your shopping cart hosted on another domain</li>
+  <li><strong>Top-level domains</strong>—all visitors to two domains that
+    you own, such as <code>www.example-petstore.com</code> and <code>www.my-example-blog.com</code>,
+    with data for both showing in the same report profile</li>
+  <li><strong>IFramed Content</strong>—visitor and pageview data for content
+    in an iFrame of another domain.</li>
+  </ul>
+<p>In any of these cases, you'll need to do some customization to the tracking
+  code in order to correctly track visitors. Before doing this, it's a good idea
+to read how <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsDomains.html">Domains and Directories</a> are treated in a default Analytics installation.</p>
+<h2 id="trackingScenarios">Tracking Scenarios</h2>
+<p>This section covers a variety of tracking scenarios, ordered by the most popular
+  methods. </p>
+
+<h3 id="multipleDomains">Tracking Across Multiple Domains and Sub-domains</h3>
+<p>In this scenario, you might want to track two unique domains and one sub-domain.
+  For example, suppose you have an online store and you also want to track visitor
+  and campaign data to your blog. </p>
+  <p><img src="08_gaTrackingSite-Dateien/crossDomain.png" alt="Tracking Across Multiple Domains and Sub-Domains"></p>
+<p>The following shows key tracking code customizations
+  for three example URLs.</p>
+  <ul>
+    <li><strong>Online Store Domain</strong>: <code>www.<strong>example-petstore.com</strong></code>
+      <div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+      <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setDomainName'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'.example-petstore.com'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowLinker'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowHash'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://www.my-example-blogsite.com/intro.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">', 'http://www.my-example-blogsite.com/intro.html']); return false;"</span><span class="pun">&gt;</span><span class="typ">See</span><span class="pln"> </span><span class="kwd">my</span><span class="pln"> blog</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">', this]);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+      <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setDomainName</span><span class="pun">(</span><span class="str">'.example-petstore.com'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowLinker</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowHash</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://www.my-example-blogsite.com/intro.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">('http://www.my-example-blogsite.com/intro.html'); return false;"</span><span class="pun">&gt;</span><span class="typ">See</span><span class="pln"> </span><span class="kwd">my</span><span class="pln"> blog</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">(this);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+    <p>The only links or form data that you need to customize are those that
+      point to   <code> www.my-example-blogsite.com</code>.
+      This is not required for links to the sub-domain of this site, since the <code>_setDomainName()</code> function
+      defined <code>.example-petstore.com</code> as the domain to enable cookie
+      access for any other subdomains.</p>
+    </li>
+    <li><strong>Online Store Subdomain</strong>: <code><strong>dogs</strong>.example-petstore.com</code>
+      <div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setDomainName'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'.example-petstore.com'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowLinker'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowHash'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://www.my-example-blogsite.com/intro.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">', 'http://www.my-example-blogsite.com/intro.html']); return false;"</span><span class="pun">&gt;</span><span class="typ">See</span><span class="pln"> </span><span class="kwd">my</span><span class="pln"> blog</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">', this]);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setDomainName</span><span class="pun">(</span><span class="str">'.example-petstore.com'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowLinker</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowHash</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://www.my-example-blogsite.com/intro.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">('http://www.my-example-blogsite.com/intro.html'); return false;"</span><span class="pun">&gt;</span><span class="typ">See</span><span class="pln"> </span><span class="kwd">my</span><span class="pln"> blog</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">(this);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+<p> Links back to
+  the primary domain do not need configuration because the sub-domain shares
+  the same cookies with the primary domain.</p></li>
+    <li><strong>Blog Domain</strong>: <code>www.<strong>my-example-blogsite</strong>.com</code>
+      <div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setDomainName'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'my-example-blogsite.com'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowLinker'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowHash'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://dogs.example-petstore.com/intro.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">', 'http://dogs.example-petstore.com/intro.html']); return false;"</span><span class="pun">&gt;</span><span class="typ">See</span><span class="pln"> </span><span class="kwd">my</span><span class="pln"> pet store</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">', this]);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setDomainName</span><span class="pun">(</span><span class="str">'my-example-blogsite.com'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowLinker</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowHash</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://dogs.example-petstore.com/intro.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">('http://dogs.example-petstore.com/intro.html'); return false;"</span><span class="pun">&gt;</span><span class="typ">See</span><span class="pln"> </span><span class="kwd">my</span><span class="pln"> pet store</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">(this);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+
+   <p>This configuration sets the domain name to the top-level domain for the
+     blog site. In this way, if you later add any sub-domains for the blog site,
+     that sub-domain will be able to share cookies with its parent and you will
+     not need to set up special linked calls between them. However,
+     you still must use the <code>_link()</code> and <code>_linkByPost()</code> methods
+     for any form or links to <code> www.example-petstore.com</code>. </p>
+    </li>
+  </ul>
+  <div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<h3 id="domainSubDomains">Tracking Across a Domain and Its Subdomains</h3>
+<p>As mentioned above, a default setup of Google Analytics is designed
+to track content and visitor
+data for a single domain, such as www.example.com. This means that even
+  if you manage both a domain and a sub-domain, you must make modifications to
+the tracking code in order to share visitor data across both domains. </p>
+<p>Suppose you have the following URLs that you want to track as a single entity:</p>
+<ul>
+  <li><code>www.example-petstore.com</code></li>
+  <li><code>dogs.example-petstore.com</code></li>
+  <li><code>cats.example-petstore.com</code></li>
+</ul>
+<p> For this setup, you would use the following key customizations for the tracking
+  code on all three domains.</p>
+<div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+<pre class="prettyprint"><span class="com">//Tracking code customizations only</span><span class="pln"><br>&nbsp; </span><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>&nbsp; _gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>&nbsp; _gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setDomainName'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'.example-petstore.com'</span><span class="pun">]);</span><span class="pln"><br>&nbsp; _gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowHash'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br>&nbsp; _gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_trackPageview'</span><span class="pun">]);</span><span class="pln"> </span></pre></div></div>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">&nbsp; </span><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>&nbsp; pageTracker</span><span class="pun">.</span><span class="pln">_setDomainName</span><span class="pun">(</span><span class="str">".example-petstore.com"</span><span class="pun">);</span><span class="pln"><br>&nbsp; pageTracker</span><span class="pun">.</span><span class="pln">_setAllowHash</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br>&nbsp; pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span><span class="pln"> </span></pre></div></div>
+
+  <p>You will not have to make any adjustments to the links or forms between
+    these three sites, since they can all share the same cookies due to the fact
+    that you set the domain name to the top-level domain (e.g., <code>.example-petstore.com</code>).
+    In this example, notice the use of the leading "." in
+    the declaration of the domain. Since the Analytics tracking code creates
+    a hash value from the string that you provide in the <code>_setDomainName()</code> method,
+    it's recommended that you follow standard conventions and use the leading "." when
+    setting your domain name in this way. See the documentation on <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName"><code>_setDomainName()</code></a> for
+    more details.  </p>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<h3 id="domainAndSubDirectory"> Tracking Between a Domain and a Sub-Directory
+on Another Domain</h3>
+  <p>Another common tracking scenario is to track visitor and traffic data between
+    a single domain and a sub-directory of a different domain. 
+    This might
+    occur when you want to track traffic between your website and your online
+    blog, where your blog is limited to a sub-directory of the blog service.
+    The follow example URLs each contain recommended customizations for the tracking
+    code on both pages.</p>
+<ul>
+    <li><strong>Main Website Domain</strong>: <code>www.example.com</code>
+      <div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowLinker'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setDomainName'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'.example.com'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowHash'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"www.blog-hosting-service.com/myBlog"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">', 'www.blog-hosting-service.com/myBlog']); return false;"</span><span class="pun">&gt;</span><span class="typ">View</span><span class="pln"> </span><span class="typ">My</span><span class="pln"> </span><span class="typ">Blog</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">', this]);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+      <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setDomainName</span><span class="pun">(</span><span class="str">'.example.com'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowLinker</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowHash</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">)</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"www.blog-hosting-service.com/myBlog"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">('www.blog-hosting-service.com/myBlog'); return false;"</span><span class="pun">&gt;</span><span class="typ">View</span><span class="pln"> </span><span class="typ">My</span><span class="pln"> </span><span class="typ">Blog</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">(this);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+    </li>
+    <li><strong>Blog URL</strong>: <code>www.blog-hosting-service.com/myBlog</code>
+      <div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setDomainName'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'none'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAllowLinker'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"www.example.com"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">', 'www.example.com']); return false;"</span><span class="pun">&gt;</span><span class="typ">View</span><span class="pln"> </span><span class="typ">My</span><span class="pln"> </span><span class="typ">Site</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">', this]);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setDomainName</span><span class="pun">(</span><span class="str">'none'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setAllowLinker</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"www.example-petstore.com"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">('www.example-petstore.com'); return false;"</span><span class="pun">&gt;</span><span class="typ">Continue</span><span class="pln"> </span><span class="typ">Shopping</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">(this);"</span><span class="pun">&gt;</span></pre>
+</div></div>
+
+</li>
+</ul>
+  <p>For any form submission from <code>www.example-petstore.com</code> to the shopping cart website, you would use the<code> _linkByPost()</code> method to copy traffic and visitor cookie data via HTTP POST to the shopping cart site. The <code>_setAllowLinker()</code>
+ method directs the target site to read cookie data from the  POST data 
+rather than from the regular user session information. In this way, you 
+can pass cookie data set on one domain to another and thereby retain the
+ visitor session from your online store to your shopping cart. </p>
+<p>Similarly, use the <code>_link()</code> function to transfer visitor data on any links going from the online store to the shopping cart.</p>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+
+<h3 id="trackingIFrames">Tracking Across iFrames</h3>
+<p>In a site where the transfer between domains is done by opening a new window
+  or by including content in an iFrame, you will need to to use the  <code>_getLinkerUrl()</code> method
+  to transfer visitor and campaign cookies from one domain to another. For example,
+  suppose you include a form in an iFrame that is hosted on <code> www.my-example-iframecontent.com</code>.
+   In order to transfer visitor information from the parent page that hosts
+  the iFrame on <code>www.example-parent.com</code>, you would use JavaScript
+  to load the iFrame and pass in the cookie information using the <code>_getLinkerURL()</code> method. </p>
+<p class="note">The
+  following example illustrates only the linking function and assumes that <a href="#multipleDomains">cross-domain
+tracking</a> is configured in the tracking snippets for both domains. </p>
+
+<div class="tog-box tog-expanded">
+  <p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+  <div class="tog-content">
+  <pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTrackerByName</span><span class="pun">();</span><span class="pln"><br>&nbsp; </span><span class="kwd">var</span><span class="pln"> iframe </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myIFrame'</span><span class="pun">);</span><span class="pln"><br>&nbsp; iframe</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> pageTracker</span><span class="pun">.</span><span class="pln">_getLinkerUrl</span><span class="pun">(</span><span class="str">'http://www.my-example-iframecontent.com/'</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">});</span></pre>
+</div></div>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> iframe </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myIFrame'</span><span class="pun">);</span><span class="pln"><br>iframe</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> pageTracker</span><span class="pun">.</span><span class="pln">_getLinkerUrl</span><span class="pun">(</span><span class="str">'http://www.my-example-iframecontent.com/'</span><span class="pun">);</span></pre>
+</div></div>
+<h4>Configuring iFrame Tracking for Internet Explorer</h4>
+<p>iFramed  content that
+   is hosted in a separate domain from the parent page is regarded as third-party
+  content. The default privacy setting for Internet Explorer 6 and above
+  does not allow third-party websites to store cookies on the first-party site.  </p>
+<p>This means that Analytics tracking for iFramed pages requires special
+  configuration in order to work in Internet Explorer. For the web pages that
+  reside in the iFrame, you will need to configure privacy preferences. You can
+  set up privacy preferences on the hosted pages by using one of the following
+  methods: </p>
+<ul>
+  <li>include a special "Platform for
+    Privacy Preferences" (P3P) HTTP header for the included site's pages</li>
+  <li>provide a P3P XML manifest for the included site's pages</li>
+</ul>
+<p>For more information, see the following resources:</p>
+<ul>
+  <li>P3P
+    guides for webmasters:
+    <ul>
+      <li><a href="http://www.w3.org/P3P/usep3p.html">http://www.w3.org/P3P/usep3p.html</a></li>
+      <li><a href="http://evolt.org/node/20756">http://evolt.org/node/20756</a></li>
+      <li><a href="http://www.p3ptoolbox.org/guide/">http://www.p3ptoolbox.org/guide/        </a></li>
+    </ul>
+  </li>
+  <li><a href="http://support.microsoft.com/kb/323752/EN-US/">Microsoft Knowledge Base article explaining P3P support in IE</a></li>
+  <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies
+      in Google Analytics</a></li>
+</ul>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<h3 id="singleSubDirectory"> Tracking  a Single Subdirectory</h3>
+<p>There are two common cases for restricting Analytics tracking to a single sub-directory of a larger domain:</p>
+<ul>
+  <li>You have  access only to a sub-directory of a larger website, such as when
+    you use an ecommerce hosting service.</li>
+  <li>You want to limit tracking to a sub-directory of a larger website, such
+    as when you launch a project on your company's website, which also uses Analytics
+    tracking.</li>
+</ul>
+<p>Suppose you have a profile in your Analytics account where you track visitor
+  data to online presence, which is only part of a larger website host (such
+  as a blogging service). Your site itself is hosted on <code>www.example.com/myBlog/</code>.
+  You only want to record visitor and campaign data for the <code>/myBlog</code> subdirectory,
+  and not for any other page on the <code>example.com</code> domain. In this
+  case, you also only have access to those web pages included in that sub-directory. </p>
+  <p>In order to set up tracking for your store, you will need to use the <code>_setCookiePath()</code> function in your tracking code, like this:</p>
+<div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+<pre class="prettyprint"><span class="com">//Tracking Code Customizations Only</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setCookiePath'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/myBlog/'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_trackPageview'</span><span class="pun">]);</span><span class="pln"> </span></pre></div></div>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) ayntax</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="com">//Tracking Code Customizations Only</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_setCookiePath</span><span class="pun">(</span><span class="str">"/myBlog/"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span><span class="pln"> &nbsp;</span></pre></div></div>
+
+  <p>Once this is set up, your reports will correctly display visitor 
+and campaign data only for your sub-directory. This is because the 
+cookie path is set to your sub-directory rather than to the root 
+directory of <code>www.example.com</code> and your profile will read and write to a unique set of cookies for your store only.</p>
+  <p>It is considered a best practice to use the <code>_setCookiePath()</code> function in this scenario. If you do not, there are two possible impacts to your reports:</p>
+  <ul>
+    <li><strong>Other Analytics account cookies set on <code>www.example.com</code> can be shared by your account</strong>.
+<p>This means that visitor statistics like <code>new vs returning</code>, <code>time on site</code>, and <code>number of visits</code> might be incorrect, since your visitors' session cookies might also reflect activity on other parts of <code>www.example.com</code>. </p></li>
+    <li><strong>Your reports might reflect campaign details from another part
+        of the site.</strong>
+      <p>For example, suppose a visitor clicks on an email campaign that goes
+        to another site on the same domain: <code>www.example.com/theirBlog</code>.
+        In this case, the referral information in the visitor's cookie is set
+        to the campaign named <em>Latest News on Blogging</em>. Later, that same
+        visitor searches on Google and clicks on a search result
+        to your site and purchases a subscription to your blog. Since ad and
+        email campaign referrals persist over search results, you will see the
+        campaign <em>Latest News on Blogging </em> generating sales for your
+        subscription. This is because the <code>_utm</code>z
+        cookie for your online store was not set uniquely for your path.</p></li>
+  </ul>
+<p>If you restrict visitor cookies to only your path, campaign and session data for another part of <code>www.example.com</code> will not  be included in your reports, since the cookie path is restricted. (Read about <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies</a> for more background info on how cookies are read by web browsers.)</p>
+  <h4 class="note">Other Subdirectory Tips</h4>
+  <ul>
+    <li>If you are tracking visitor and referral traffic for a sub-directory, you might also want to set up an <em>Include</em> filter to the sub-directory to ensure that only content for that sub-directory shows up in your report. See the <a href="http://www.google.com/support/analytics/bin/answer.py?hl=en&amp;answer=55496">pre-defined filter</a> article in the Help Center for more information.</li>
+    <li>If you are setting up sub-directory tracking on your domain, you should
+      also ensure that Analytics tracking is disabled for the root path (e.g.
+      <code>/</code>) and any pages beneath it. For example, <code>www.example.com/index.html</code> should
+      not have Analytics tracking enabled if you want to track subdirectories
+      for the site separately. If tracking for the root path is not disabled,
+      2 sets of cookies will be set for a page where you have set up path-level
+      tracking, one set for the subdirectory and one set for the top-level domain. </li>
+  </ul>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<h3 id="twoSubDirectories">Tracking Across Two Sub-directories on the Same Domain</h3>
+<p>You might want to track  multiple subdirectories on a domain where 
+you do not have access to the pages for the larger domain. For example, 
+suppose you have both an online store and a shopping cart on a service 
+provider's site:</p>
+  <ul>
+    <li><code>www.example-commerce-host.com/myStore/</code></li>
+    <li><code>www.example-commerce-host.com/myCart/</code></li>
+    </ul>
+  <p>If you want to track user sessions and campaign data from your store to
+    the shopping cart, you would use two methods to achieve this:</p>
+  <ul>
+    <li>the  <code>_setCookiePath()</code> method, which <a href="#singleSubDirectory">limits tracking to a
+      specific directory</a></li>
+    <li>the <code>_cookiePathCopy()</code> method, which copies the cookie information
+      to another directory on the same domain</li>
+  </ul>
+<p>The example below shows  the key parts of the tracking code
+    snippet for all pages:</p>
+<div class="tog-box tog-expanded">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/minus_sm.gif"><strong>Asynchronous syntax</strong></p>
+<div class="tog-content">
+<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> _gaq </span><span class="pun">=</span><span class="pln"> _gaq </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-12345-1'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><strong><span class="str">_setCookiePath</span></strong><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/myStore/'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_trackPageview'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><strong><span class="str">_cookiePathCopy</span></strong><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/myCart/'</span><span class="pun">]);</span></pre></div></div>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="08_gaTrackingSite-Dateien/plus_sm.gif"><strong>Traditional (ga.js) syntax</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">"UA-12345-1"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><strong><span class="pln">_setCookiePath</span></strong><span class="pun">(</span><span class="str">"/myStore/"</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">();</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><strong><span class="pln">_cookiePathCopy</span></strong><span class="pun">(</span><span class="str">"/myCart/"</span><span class="pun">);</span></pre></div></div>
+<p> In this case, a unique cookie is set for the domain, limited to the first
+  directory provided, and the same cookie data is also copied over to the second
+  directory provided. Because both sites reside on the same domain, you will
+not need to alter any links or form data between the two directories.</p>
+
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+  <h2 id="keyComponents">Key Components to Cross-Domain Tracking</h2>
+<p>This section will help you troubleshoot your cross-domain tracking setup by
+  providing detailed information on the key components and how best to use them.</p>
+<h3 id="profilesKey"> Profiles</h3>
+<p>When you set up cross-domain tracking, you will want to make sure you do the
+  following with your profiles:</p>
+<ul>
+  <li><strong>Set up a master profile for your primary domain without filters</strong>.<br>
+    <br>
+    Because you'll want to use profiles 
+  in a special way, for cross-domain tracking, it's first recommended that you
+  set up a master profile for your primary domain. This profile should have no
+  filters added to it. In this way, you will always have
+  baseline historical data for your primary domain that you can refer to if you
+  make errors when setting up filters in your cross-tracking profile. <br>
+  <br>
+  </li>
+  <li><strong>Create a profile especially for cross-domain tracking and re-use
+      your tracking code</strong>.<br>
+    <br>
+    After you
+  have set up a profile and retrieved the tracking code for your primary domain,
+  use the same tracking code for all other web properties. In this way, your
+  configuration will be set up correctly <em>before</em> you start cross-domain
+  tracking and you will also have historical data for all web properties. If
+  you followed the recommendation for setting up master profiles, this should
+    be simply a matter of creating an additional profile for your primary domain
+    using the same tracking code provided in the master profile.  All other web
+    properties that you want to link should also have the same tracking code on
+    them. <br>
+    <br>
+  </li>
+  <li><strong>Modify your cross-domain profile with a filter to show the full domain
+    in your content reports.</strong><br>
+    <p>Once you have domain linking established, you will see only the request
+      URI in the content reports, and not the top-level or sub-domain for a given
+      page. So for example, for visits to the following pages:<br>
+      — <code>http://www.example.com/index.php</code> and
+      another page on<br>
+      — <code>http://sub.example.com/more.php</code><br>
+      The reports will show:<br>
+  — index.php<br>
+  — more.php<br>
+      You will not be able to distinguish which page is from which domain. To show
+      the domain in the page reports, set a filter to include all components
+    of the page URL, as follows:</p>
+  <ol>
+  <li>In the <strong>Profile Settings</strong> page, click the <strong>Add Filter</strong> link.</li>
+  <li>Choose <strong>Add New Filter</strong> and provide the filter a name.</li>
+  <li>Choose <em>Custom Filter</em> and select <em>Advanced</em> on the <strong>Filter type</strong> settings.</li>
+  <li>Under <strong>Advanced</strong> settings:
+    <ol>
+      <li><strong>FieldA</strong> should be set to  <em>Hostname</em></li>
+      <li><strong>FieldB</strong> should be set to <em>Request URI</em></li>
+      </ol>
+  </li>
+  <li>Set the values for both Field A and Field B to <code>(.*)</code>, which is
+    an expression that captures all characters.</li>
+  <li>Set the <strong>Output To --&gt; Constructor</strong> option to <em>Request URI</em> and provide <code>$A1$B1</code> as the value for that choice.</li>
+  </ol>
+  <p><strong>Your reports will now show:<br>
+    — <code>www.example.com/index.php</code><br>
+    — </strong><code>sub.example.com/more.php</code><br>
+    This will capture the <code>www.example.com</code> portion of your URL and
+    include that at the beginning of your page URL in the content reports section.</p>
+  </li>
+</ul>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+<h3 id="cookies">Cookies: Necessary to Transferring Visitor Data</h3>
+<p>In order for two domains to share the same visitor data, such as 
+session and visitor type, they must be able to copy or share the same 
+cookie information.  In addition, you should remember:</p>
+<blockquote> <strong>A session from one domain can only be transferred to another domain via a properly configured click or form submission, or via <code>_getLinkerURL</code></strong>. </blockquote>
+
+<p>The passing of the cookie data via these three methods links two page
+ views under a single session. If a user independently visits two sites 
+that are tracking in the same profile, such as through a bookmark, these
+ visits will still be counted under separate sessions. In this scenario,
+ the linking methods are not invoked, and thus there is no way to 
+determine the initiating session for a given user.</p>
+
+<p>To really understand cross-domain tracking, it helps to understand 
+that cookies are identified by a number of fields and that they are not 
+shared between domains by default. In addition, cookie sharing is 
+automatically turned off in Analytics.  This is because in many cases, 
+sharing of the same cookie between domains is undesirable.  See <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html#significanceOfName">Significance of Cookie Identification and Expiration</a> in the <em>Cookie Reference</em>. In addition, Analytics adds an additional integrity check to cookies by default. </p>
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<h3 id="domainToNone">_setDomainName('none')</h3>
+<blockquote><strong>What it does.</strong><br>  
+ This method sets the domain field of the cookie to <code>document.domain</code> and
+ turns off the unique hash feature, which then allows cookies stored under
+   different domains to read/write each other's data (see <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html#significanceOfName">Cookies
+   &amp; Google Analytics</a> for details). This method is a convenience
+   mechanism that accomplishes two steps in one. When you apply this method,
+    a separate set of cookies is created for any unique domain or sub-domain
+   that uses it. In order to share cookie data with this method, you must also
+   customize every link or form that connects any two websites that use this
+   method.</blockquote>
+
+<blockquote><strong>When to use it.</strong><br>
+   When tracking across top-level domains when you will use linker
+     methods to share visitor data and you don't plan to use any sub-domain for
+     the top-level domain. </blockquote>
+
+<blockquote><strong>When not to use it.</strong><br>
+ When tracking across sub-domains, because you will then have to use linker methods
+   to share data from the primary to the sub-domain, and you can easily avoid
+   this by setting the domain name to the top-level domain, thus only creating
+    a single set of cookies shared by both top- and sub-domains.</blockquote>
+
+
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+<h3 id="yourDomainName">_setDomainName('.<em>yourDomainName</em>')</h3>
+<blockquote><strong>What it does.</strong><br>  
+ This method sets the domain field of the cookie to the string provided in the
+ parameter. <span id="internal-source-marker_0.8156747782483427">With this method,
+ you can control the domain name, but then you must also  use <code>_setAllowHash(false)</code> in
+ your configuration to enable cookie data sharing between different domains. &nbsp;You
+ will ONLY have to set up linking between top-level domains because sub-domains
+ will share the same cookies with their parents.</span></blockquote>
+
+<blockquote><strong>When to use it.</strong><br>
+  <span id="internal-source-marker_0.">Use this when you want to treat top- and
+  sub-domains as one entity and track in the same profile. Also use this when
+  you want to track across multiple top-level domains AND their sub-domains.
+  You will have to use <code>_setAllowHash(false)</code> when you use this method. &nbsp; In
+  this case, you will need to using linking between the top-level domains, but
+  not between the top-level domains and their sub-domains.</span></blockquote>
+
+<blockquote><strong>When not to use it.</strong><br>
+  <span id="internal-source-marker_0.2">When you prefer to use the convenience
+  of <code>_setDomainName('none')</code>, which also calls   &nbsp;<code>_setAllowHash(false)</code> for
+  you. </span></blockquote>
+
+
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+<h3 id="setAllowHash">_setAllowHash(false)</h3>
+<blockquote><strong>What it does.</strong><br>  
+ This method turns off the hashing feature in Google Analytics, which provides
+   a unique numeric string in the <em>Content</em> field of the cookie for the
+   set of Analytics cookies for a given user. When you use this method, it sets
+   the value of the <em>Content</em> field to <code>1</code>.</blockquote>
+
+<blockquote><strong>When to use it.</strong><br>
+   When using <code>_setDomainName()</code> configured to your particular top-level domain. </blockquote>
+
+<blockquote><strong>When not to use it.</strong><br>
+ When calling <code>_setDomainName('none')</code>, because then this method is redundant.</blockquote>
+
+
+<div align="right"><a href="#top" class="backtotop">Back to Top</a></div>
+
+<script type="text/javascript">
+
+var tog = tog || {};
+
+tog.plusImg = 'http://www.google.com/mb/plus_sm.gif';
+tog.minusImg = 'http://www.google.com/mb/minus_sm.gif';
+
+tog.addExpandBoxes = function() {
+  $('.tog-box').each(function() {
+    var side = $(this).hasClass('.tog-right') ? 'append' : 'prepend';
+    var img = tog.minusImg;
+    var toggleContent = $(this).find('.tog-content');
+    if (!$(this).hasClass('.tog-expanded')) {
+      toggleContent.hide();
+      img = tog.plusImg;
+    }
+
+    $(this).children('.tog-header')[side](
+        '<img class="tog-img" src="' + img + '"/>')
+        .children('img')
+        .click(function() {
+          tog.clickHandler(toggleContent, this);
+        });
+  });
+}
+
+tog.clickHandler = function(toggleContent, img) {
+  img.src = img.src == tog.plusImg ? tog.minusImg : tog.plusImg;
+  var display = toggleContent.is(':hidden') ? 'show' : 'hide';
+  toggleContent[display]();
+}
+
+
+$(document).ready(function() {
+  tog.addExpandBoxes();
+
+
+});
+
+</script>
+
+
+
+      <div style="height: 7049px;" id="gc-collapsible"></div></div><!-- end gc-pagecontent -->
+    </div><!-- end gooey wrapper -->
+
+    </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+    ©2011 Google -
+    <a href="http://code.google.com/">Code Home</a> -
+    <a href="http://code.google.com/terms.html">Terms of Service</a> -
+    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
+    <a href="http://code.google.com/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="http://code.google.com/intl/en/">English</a> -
+    <a href="http://code.google.com/intl/es/">Español</a> -
+    <a href="http://code.google.com/intl/ja/">日本語</a> -
+    <a href="http://code.google.com/intl/ko/">한국어</a> -
+    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
+    <a href="http://code.google.com/intl/ru/">Pусский</a> -
+    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
+    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="08_gaTrackingSite-Dateien/codesite_tail.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+
+_gaq.push(
+
+
+    ['projectTracker._setAccount', 'YT-8705592-1'],
+    ['projectTracker._setDomainName', 'code.google.com'],
+    ['projectTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['projectTracker._trackPageview'],
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = 'http://www.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+
+
+  <div style="display: none;" id="menuDiv-lang-dropdown" class="menuDiv instance0"><div class="menuCategory default"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">English</a><a href="http://code.google.com/intl/es/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">Español</a><a href="http://code.google.com/intl/ja/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">日本語</a><a href="http://code.google.com/intl/ko/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">한국어</a><a href="http://code.google.com/intl/pt-BR/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">Português (Brasil)</a><a href="http://code.google.com/intl/ru/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">Pусский</a><a href="http://code.google.com/intl/zh-CN/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">中文 (简体)</a><a href="http://code.google.com/intl/zh-TW/apis/analytics/docs/tracking/gaTrackingSite.html" style="display: block;" class="menuItem">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow"></div><div id="cs-searchresults"><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div><div style="display: none;" id="menuDiv-projects-dropdown" class="menuDiv instance1"><div class="menuCategory controls"><hr class="menuSeparator"><a href="http://code.google.com/more/" style="display: block;" class="menuItem">Find developer products...</a><a href="http://code.google.com/hosting/" style="display: block;" class="menuItem">Find open source projects...</a></div></div></body></html>

@@ -1,0 +1,876 @@
+<!DOCTYPE HTML>
+<html><head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+
+
+
+
+  
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Asynchronous Migration Examples - Google Analytics - Google Code</title>
+<script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/html/apis/analytics/_toc.ezt';
+var codesite_token = '56328469b0a0a7c65c4a395ddd8cde4c';
+var logged_in_user_email = 'dan1978@gmx.net';
+//--></script>
+<link href="03_asyncMigrationExamples-Dateien/codesite.css" type="text/css" rel="stylesheet">
+<script src="03_asyncMigrationExamples-Dateien/codesite_head.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <link href="03_asyncMigrationExamples-Dateien/semantic_headers.css" rel="stylesheet" type="text/css">
+    <link href="03_asyncMigrationExamples-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.minusImage { display: none; }
+.tog-img { padding-right: .5em; }
+.tog-right .tog-img { padding-left: .5em; }
+</style>
+
+    <script type="text/javascript" src="03_asyncMigrationExamples-Dateien/custom_tracker_min.js"></script>
+  <script src="03_asyncMigrationExamples-Dateien/ga.js" async="" type="text/javascript"></script></head><body class="gc-documentation">
+
+    
+    
+
+    <div id="gb">
+ <span>
+  
+   
+    <b>dan1978@gmx.net</b>
+    |
+   
+    <a href="http://code.google.com/u/dan1978@gmx.net/" id="projects-dropdown" onclick="return false;"><span style="text-decoration: underline;">My favorites</span> <span style="font-size: 0.75em;">▼</span></a>
+    |
+  
+    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration: underline;">English</span> <span style="font-size: 0.75em;">▼</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fintl%2Fde%2Fapis%2Fanalytics%2Fdocs%2Ftracking%2FasyncMigrationExamples.html" onclick="CODESITE_click('/gb/sc/signout');"><span style="text-decoration: underline;">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left: 0px;"></div>
+<div class="gbh" style="right: 0px;"></div>
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  <a href="#gc-pagecontent">Skip to page content</a>
+  <a href="#gc-toc">Skip to main navigation</a>
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="http://code.google.com/">
+  
+  
+     <img src="03_asyncMigrationExamples-Dateien/code_logo.gif" alt="Google Code" style="border: 0pt none; margin: 3px 0pt 0pt;" height="40" width="167">
+  
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById('gsearchInput').value); return false;">
+      <noscript>
+      <input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml">
+      </noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width: 345px;" type="text">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "adwords" or "open source"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav"><img id="gc-star" src="03_asyncMigrationExamples-Dateien/star_off.gif" height="15" width="15">
+  <h1 class="mozilla">Google Analytics</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="http://code.google.com/apis/analytics/" title="Google Analytics home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="http://code.google.com/apis/analytics/docs/index.html" class="selected" title="Official Google Analytics documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataFAQ.html" title="Answers to frequently asked questions about Google Analytics">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="http://code.google.com/apis/analytics/docs/gdata/gdataArticlesCode.html" title="Focused articles and tutorials for Google Analytics developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://analytics.blogspot.com/" title="Official Google Analytics blog">Blog</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/apis/analytics/groups/groups.html" title="Google Analytics developer forum">Forum</a>
+    </li>
+  
+    <li>
+      <a href="http://www.google.com/analytics/tos.html" title="Google Analytics terms of service">Terms</a>
+    </li>
+  
+
+  </ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-210">
+
+      <div class="g-unit g-first" id="gc-toc">
+        <link href="03_asyncMigrationExamples-Dateien/local_extensions.css" rel="stylesheet" type="text/css">
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+    <li>
+    <ul>
+      <li style="padding-top: 0pt; padding-bottom: 0pt;">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Overview"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Overview" class="tlw-control tlw-plus"></a><span class="tlw-title"><strong>Overview</strong></span></div><ul style="display: none;" id="0-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsOverview.html">Functional Overview</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsAccounts.html">Accounts &amp; Profiles</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html">Cookies</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsDomains.html">Domains &amp; Directories</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsSampling.html">Sampling</a></li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+</ul>
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Tracking Code</span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-1" style="margin-top: -15px;">
+    <li>
+        <ul>
+          <li><a href="http://code.google.com/apis/analytics/docs/tracking/home.html">Home</a></li>
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Getting Started"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Collapse Getting Started" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">Getting Started</a></div><ul style="display: block;" id="1-sub-0">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/asyncUsageGuide.html">Async Usage</a></li>
+                <li class="selected"><a href="http://code.google.com/apis/analytics/docs/tracking/asyncMigrationExamples.html">Async Migration</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce Tracking</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Event Tracking"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Event Tracking" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerOverview.html">Event Tracking</a></div><ul style="display: none;" id="1-sub-1">
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Implementing</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerWrappers.html">Extending</a></li>
+                   </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain Tracking</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html">Traffic Sources</a></li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Visitor Configuration"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Collapse Visitor Configuration" class="tlw-control tlw-minus"></a><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitors.html">Visitor Configuration</a></div><ul style="display: block;" id="1-sub-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html">Custom Variables</a></li>
+                      <li class="deprecated"><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingVisitorSegments.html">Custom Visitor Segments</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingOverview.html">Traditional Snippet</a></li>
+              </ul>
+           </li>
+           <li style="padding-top: 0pt; padding-bottom: 0pt;">
+               <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tracking Reference"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Tracking Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Tracking Reference</a></div><ul style="display: none;" id="1-sub-3">
+                  <li>Global Objects
+                    <ul>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html">_gat</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gaq.html">_gaq</a></li>
+                    </ul>
+
+                  </li><li>Tracker Objects
+                    <ul class="treelist tlw-processed tlw-instance-2">
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html">Basic Configuration</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html">Campaign Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html">Domains &amp; Directories</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html">Ecommerce</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html">Event Tracking</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html">Search Engines and Referrers</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html">Web Client</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html">Urchin Server</a></li>
+                    </ul>
+                  </li>
+
+              </ul>
+           </li>
+
+          <li style="padding-top: 0pt; padding-bottom: 0pt;">
+              <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Libraries"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Libraries" class="tlw-control tlw-plus"></a><span class="tlw-title">Libraries</span></div><ul style="display: none;" id="1-sub-4">
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/gadgetTracking.html">Gadgets</a></li>
+                <li><a href="http://code.google.com/chrome/extensions/trunk/tut_analytics.html">Chrome Extensions</a></li>
+                <li><a style="text-decoration: none;" href="http://code.google.com/mobile/analytics/docs/"><span style="text-decoration: underline;">Mobile</span><span class="new">&nbsp;&nbsp;Updated</span></a> (Labs <img src="03_asyncMigrationExamples-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+                <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                   <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Flash/Flex  (Labs )"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Flash/Flex  (Labs )" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingIntro.html">Flash/Flex</a>  (Labs <img src="03_asyncMigrationExamples-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></div><ul style="display: none;" id="1-sub-5">
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlash.html">Flash Setup</a></li>
+                      <li><a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingSetupFlex.html">Flex Setup</a></li>
+                  </ul>
+                </li>
+                <li><a href="http://code.google.com/apis/analytics/docs/tracking/silverlightTrackingIntro.html">Silverlight</a> (Labs <img src="03_asyncMigrationExamples-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting</a>
+          </li>
+           <li><a href="http://code.google.com/apis/analytics/docs/gaJS/changelog.html">Changelog - ga.js</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Management API <span style="letter-spacing: normal;">(Labs <img src="03_asyncMigrationExamples-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-3" style="margin-top: -15px;">
+    <li>
+      <ul class="treelist tlw-processed tlw-instance-4">
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/home.html">Home</a>
+        </li><li style="padding-top: 0pt; padding-bottom: 0pt;">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="3-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtJavascript.html">Javascript</a></li>
+          </ul>
+        </li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtFeedReference.html">Feed Reference</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/mgmtLibraries.html">Libraries &amp; Examples</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/mgmt/changelog.html">Changelog</a></li>
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Export API <span style="letter-spacing: normal;">(Labs <img src="03_asyncMigrationExamples-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-5" style="margin-top: -15px;">
+    <li>
+      <ul>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/home.html">Home</a></li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Getting Started"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Getting Started" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html">Getting Started</a></div><ul style="display: none;" id="5-sub-0">
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataAuthentication.html">Authorization</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataProtocol.html">Protocol</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJava.html">Java</a></li>
+            <li><a href="http://code.google.com/apis/analytics/docs/gdata/2.0/gdataJavascript.html">Javascript</a></li>
+            <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                 <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Version 1.0"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Version 1.0" class="tlw-control tlw-plus"></a><span class="tlw-title">Version 1.0</span></div><ul style="display: none;" id="5-sub-1">
+                 <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataProtocol.html">Protocol</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJava.html">Java</a></li>
+                    <li><a href="http://code.google.com/apis/analytics/docs/gdata/1.0/gdataJavascript.html">Javascript</a></li>
+                 </ul></li>
+          </ul>
+        </li>
+        <li style="padding-top: 0pt; padding-bottom: 0pt;">
+            <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Feed Reference"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Feed Reference" class="tlw-control tlw-plus"></a><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReference.html">Feed Reference</a></div><ul style="display: none;" id="5-sub-2">
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceAccountFeed.html">Account Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html">Data Feed</a></li>
+                <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataCommonQueries.html">Common Queries</a>
+                </li><li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataExplorer.html">Query Explorer</a></li>
+            </ul></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDimensionsMetrics.html">Dimensions &amp; Metrics</a></li>
+        <li><a href="http://code.google.com/apis/analytics/docs/gdata/gdataLibraries.html">Libraries &amp; Examples</a></li>
+
+         <li style="padding-top: 0pt; padding-bottom: 0pt;">
+                <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Changelog &amp; Issues"><img src="03_asyncMigrationExamples-Dateien/cleardot.gif" alt="Expand Changelog &amp; Issues" class="tlw-control tlw-plus"></a><span class="tlw-title">Changelog &amp; Issues</span></div><ul style="display: none;" id="5-sub-3">
+                  <li><a href="http://code.google.com/apis/analytics/docs/gdata/changelog.html">Changelog</a></li>
+                  <li><a href="http://code.google.com/p/gdata-issues/issues/list?can=2&amp;q=label:API-Analytics&amp;colspec=API+ID+Type+Status+Priority+Stars+Summary&amp;cells=tiles">Issue Tracker</a></li>
+                </ul>
+            </li>
+          
+       </ul>
+    </li>
+ </ul>
+
+
+<div class="dottedLine"></div>
+<div class="sectionTitle"><span class="sectionFont">Website Optimizer <span style="letter-spacing: normal;">(Labs <img src="03_asyncMigrationExamples-Dateien/labs-11.png" alt="in Labs" style="padding: 0pt; margin: 0pt;">)</span></span></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-6" style="margin-top: -15px;">
+<li>
+  <ul>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/index.html">Getting Started</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/commonTasks.html">Common Tasks</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/feedReference.html">Feed Reference</a></li>
+    <li><a href="http://code.google.com/apis/analytics/docs/gwo/gwoFAQ.html">FAQ</a></li>
+  </ul>
+ </li>
+</ul>
+
+        <a class="hidden" href="#gc-topnav-anchor">More Google Analytics resource links</a>
+      </div>
+
+      <div style="position: relative;" class="g-unit" id="gc-pagecontent">
+        
+          <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
+
+        
+        <h1 class="page_title">Asynchronous Migration Examples</h1>
+
+
+
+
+<div class="sidebox">As a best practice, first copy and save your existing tracking
+code customizations to a text file (not a word processor document). With a backup copy, you can ensure that 
+you've migrated all customizations for your site.</div> 
+
+<p>This document illustrates common tracking customizations for Google Analytics.
+If your Google Analytics tracking snippet contains the <code>urchin.js</code> markup or the traditional
+<code>ga.js</code> syntax, use this guide to migrate
+your tracking to the improved Asynchronous snippet.</p>
+
+<table class="columns" id="toc-list">
+  <tbody><tr>
+    <td>
+      <ol class="toc">
+        <li><a href="#BasicPageTracking">Basic Page Tracking</a></li>
+        <li><a href="#BrowserSettingsDetection">Browser Settings Detection</a></li>
+        <li><a href="#CampaignDuration">Campaign Duration</a></li>
+        <li><a href="#CampaignFields">Campaign Fields — Custom</a></li>
+        <li><a href="#CampaignTrackingDisabled">Campaign Tracking Disabled</a></li>
+        <li><a href="#CrossDomainLinking">Cross-Domain Linking</a></li>
+        <li><a href="#CrossDomainForms">Cross-Domain Form Data</a></li>
+      </ol>
+    </td>
+    <td>
+      <ol class="toc">
+        <li><a href="#EcommerceTracking">Ecommerce Tracking</a></li>
+        <li><a href="#EventTracking">Event Tracking</a></li>
+        <li><a href="#SearchEngines">Sources — Search Engines, Keywords, Referrers</a></li>
+        <li><a href="#SessionTimeout">Session Timeout</a></li>
+        <li><a href="#SetCookiePath">Tracking Limited to a Sub-directory</a></li>
+        <li><a href="#UsingALocalServer">Using a Local Server</a></li>
+        <li><a href="#VirtualPageviews">Virtual Pageviews</a></li>
+      </ol>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+<a name="BasicPageTracking"></a>
+<h2>Basic Page Tracking</h2>
+
+<p>Basic page tracking is the best place  to familiarize yourself with the asynchronous
+  syntax. These examples set up the tracking object with the correct account
+  and call the page tracking method. </p> 
+  
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+</div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-XXXXX-X"</span><span class="pun">;</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span></pre></div>
+</div>
+
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+
+
+<a name="BrowserSettingsDetection" id="BrowserSettingsDetection"></a>
+<h2>Browser Settings Detection</h2>
+<p>These examples illustrate browser setting customizations such as 
+disabling Flash detection, turning off browser name/version detection, 
+and so forth.</p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+  <pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setClientInfo"><span class="str">_setClientInfo</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setAllowHash"><span class="str">_setAllowHash</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectFlash"><span class="str">_setDetectFlash</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectTitle"><span class="str">_setDetectTitle</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span><span class="pln"> </span></pre>
+
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setClientInfo"><span class="pln">_setClientInfo</span></a><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setAllowHash"><span class="pln">_setAllowHash</span></a><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectFlash"><span class="pln">_setDetectFlash</span></a><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectTitle"><span class="pln">_setDetectTitle</span></a><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span><span class="pln"> </span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-XXXXX-X"</span><span class="pun">;</span><span class="pln"><br>_ufsc </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// track browser info</span><span class="pln"><br>_uhash </span><span class="pun">=</span><span class="pln"> off</span><span class="pun">;</span><span class="pln"> </span><span class="com">// cookie integrity checking using hashes</span><span class="pln"><br>_uflash </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> &nbsp;</span><span class="com">// detect Flash version</span><span class="pln"><br>_utitle </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> &nbsp;</span><span class="com">// track title in reports</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span></pre>
+   </div>
+</div>
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+
+<a name="CampaignDuration"></a>
+<h2>Campaign Duration</h2>
+<p>By default, the duration of an AdWords campaign is set for 6 months. You can adjust 
+the duration of campaigns by using the <code>_setCampaignCookieTimeout()</code> method.</p> 
+
+<p><strong>Async Snippet</strong> (recommended)</p>
+  <pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampaignCookieTimeout"><span class="str">_setCampaignCookieTimeout</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">31536000000</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampaignCookieTimeout"><span class="pln">_setCampaignCookieTimeout</span></a><span class="pun">(</span><span class="lit">31536000000</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-XXXXX-X"</span><span class="pun">;</span><span class="pln"><br>_ucto </span><span class="pun">=</span><span class="pln"> </span><span class="str">"31536000"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// the number of seconds in 1 year</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span></pre>
+ </div>
+</div>
+   
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+
+<a name="CampaignFields"></a>
+<h2>Campaign Fields — Custom</h2>
+<p>Google Analytics automatically collects your Google AdWords data if 
+you have linked your Adwords account to your Analytics account. To track
+ keyword links from other advertising sources, or from email campaigns 
+or similar sources, you can create custom campaigns fields using the 
+methods below. For more details, see "<a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html#campaignTracking">Campaign
+  Tracking</a>" in the <em>Traffic Sources</em> guide.</p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNameKey"><span class="str">_setCampNameKey</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ga_campaign'</span><span class="pun">]);</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// name</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampMediumKey"><span class="str">_setCampMediumKey</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ga_medium'</span><span class="pun">]);</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// medium</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampSourceKey"><span class="str">_setCampSourceKey</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ga_source'</span><span class="pun">]);</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// source</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampTermKey"><span class="str">_setCampTermKey</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ga_term'</span><span class="pun">]);</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// term/keyword</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampContentKey"><span class="str">_setCampContentKey</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ga_content'</span><span class="pun">]);</span><span class="pln"> &nbsp;</span><span class="com">// content</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNOKey"><span class="str">_setCampNOKey</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ga_nooverride'</span><span class="pun">]);</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// don't override</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNameKey"><span class="pln">_setCampNameKey</span></a><span class="pun">(</span><span class="str">'ga_campaign'</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// name</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampMediumKey"><span class="pln">_setCampMediumKey</span></a><span class="pun">(</span><span class="str">'ga_medium'</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// medium</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampSourceKey"><span class="pln">_setCampSourceKey</span></a><span class="pun">(</span><span class="str">'ga_source'</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// source</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampTermKey"><span class="pln">_setCampTermKey</span></a><span class="pun">(</span><span class="str">'ga_term'</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// term/keyword</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampContentKey"><span class="pln">_setCampContentKey</span></a><span class="pun">(</span><span class="str">'ga_content'</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; </span><span class="com">// content</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNOKey"><span class="pln">_setCampNOKey</span></a><span class="pun">(</span><span class="str">'ga_nooverride'</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// don't override</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+<pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_uccn </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_campaign"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// name [default: utm_campaign]</span><span class="pln"><br>_ucmd </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_medium"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// medium [default: utm_medium]</span><span class="pln"><br>_ucsr </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_source"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// source [default: utm_source]</span><span class="pln"><br>_uctr </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_term"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// term/keyword [default: utm_term]</span><span class="pln"><br>_ucct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_content"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// content [default: utm_content]</span><span class="pln"><br>_ucid </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_id"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// id number [default: utm_id]</span><span class="pln"><br>_ucno </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ga_nooverride"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// don't override [default: utm_nooverride]</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span></pre>
+   </div>
+</div>
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+<a name="CampaignTrackingDisabled"></a>
+<h2>Campaign Tracking — Disabled</h2>
+<p>Google Analytics automatically enables campaign tracking, but you can disable it using the <code>_setCampaignTrack()</code> method.</p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampaignTrack"><span class="str">_setCampaignTrack</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">]);</span><span class="pln"> &nbsp; &nbsp;</span><span class="com">// Turn off campaign tracking</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampaignTrack"><span class="pln">_setCampaignTrack</span></a><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// Turn off campaign tracking</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_uctm </span><span class="pun">=</span><span class="pln"> </span><span class="str">"disable"</span><span class="pun">;</span><span class="pln"> <br>urchinTracker</span><span class="pun">();</span></pre>
+   </div>
+</div>
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+<a name="CrossDomainLinking"></a>
+<h2>Cross Domain Linking</h2>
+<p>To track traffic across domains, you can use the <code>_setAllowLinker()</code> function
+to track user clicks between two domains.  For details on setting up cross-domain tracking, see <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain
+Tracking</a>.</p>
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName"><span class="str">_setDomainName</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'none'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setAllowLinker"><span class="str">_setAllowLinker</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://example.com/test.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">', 'http://example.com/test.html']); return false;"</span><span class="pun">&gt;</span><span class="pln">click me</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName"><span class="pln">_setDomainName</span></a><span class="pun">(</span><span class="str">'none'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setAllowLinker"><span class="pln">_setAllowLinker</span></a><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://example.com/test.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._link"><span class="str">_link</span></a><span class="str">('http://example.com/test.html'); return false;"</span><span class="pun">&gt;</span><span class="pln">click me</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_udn </span><span class="pun">=</span><span class="pln"> </span><span class="str">"none"</span><span class="pun">;</span><span class="pln"><br>_ulink </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span><span class="pln"><br><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a href</span><span class="pun">=</span><span class="str">"http://newsite.com/test.html"</span><span class="pln"><br>onclick</span><span class="pun">=</span><span class="str">"__utmLinker('http://newsite.com/test.html'); return false;"</span><span class="pun">&gt;</span><span class="pln">click me</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span></pre>
+   </div>
+</div>
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+<a name="CrossDomainForms"></a>
+<h2>Cross Domain Form Data </h2>
+<p>You can use the <code>_linkByPost()</code> method to pass user data from one domain to 
+another where cross domain tracking is enabled for both domains.  For details on setting up 
+cross-domain tracking, see <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html">Cross-Domain
+Tracking</a>.  </p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName"><span class="str">_setDomainName</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'none'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setAllowLinker"><span class="str">_setAllowLinker</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">', this]);"</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;/</span><span class="pln">form</span><span class="pun">&gt;</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName"><span class="pln">_setDomainName</span></a><span class="pun">(</span><span class="str">'none'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setAllowLinker"><span class="pln">_setAllowLinker</span></a><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._linkByPost"><span class="str">_linkByPost</span></a><span class="str">(this);"</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;/</span><span class="pln">form</span><span class="pun">&gt;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_udn </span><span class="pun">=</span><span class="pln"> </span><span class="str">"none"</span><span class="pun">;</span><span class="pln"><br>_ulink </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">form name</span><span class="pun">=</span><span class="str">"f"</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pln"> onsubmit</span><span class="pun">=</span><span class="str">"__utmLinkPost(this)"</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;/</span><span class="pln">form</span><span class="pun">&gt;</span></pre>
+   </div>
+</div>
+  
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+<a name="EcommerceTracking"></a>
+<h2>Ecommerce Tracking</h2>
+<p>Ecommerce tracking involves calling three key methods in your 
+tracking setup.  See
+  <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html">Ecommerce
+  Tracking</a> for details.</p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._addTrans"><span class="str">_addTrans</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"><br>&nbsp; </span><span class="str">'1234'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// order ID - required</span><span class="pln"><br>&nbsp; </span><span class="str">'Mountain View'</span><span class="pun">,</span><span class="pln"> &nbsp;</span><span class="com">// affiliation or store name</span><span class="pln"><br>&nbsp; </span><span class="str">'11.99'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// total - required</span><span class="pln"><br>&nbsp; </span><span class="str">'1.29'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// tax</span><span class="pln"><br>&nbsp; </span><span class="str">'5'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// shipping</span><span class="pln"><br>&nbsp; </span><span class="str">'San Jose'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// city</span><span class="pln"><br>&nbsp; </span><span class="str">'California'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; </span><span class="com">// state or province</span><span class="pln"><br>&nbsp; </span><span class="str">'USA'</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// country</span><span class="pln"><br></span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._addItem"><span class="str">_addItem</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"><br>&nbsp; </span><span class="str">'1234'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// order ID - required</span><span class="pln"><br>&nbsp; </span><span class="str">'DD44'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// SKU/code</span><span class="pln"><br>&nbsp; </span><span class="str">'T-Shirt'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// product name</span><span class="pln"><br>&nbsp; </span><span class="str">'Green Medium'</span><span class="pun">,</span><span class="pln"> &nbsp; </span><span class="com">// category or variation</span><span class="pln"><br>&nbsp; </span><span class="str">'11.99'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// unit price - required</span><span class="pln"><br>&nbsp; </span><span class="str">'1'</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// quantity - required</span><span class="pln"><br></span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._trackTrans"><span class="str">_trackTrans</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._addTrans"><span class="pln">_addTrans</span></a><span class="pun">(</span><span class="pln"><br>&nbsp; </span><span class="str">'1234'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// order ID - required</span><span class="pln"><br>&nbsp; </span><span class="str">'Mountain View'</span><span class="pun">,</span><span class="pln"> &nbsp;</span><span class="com">// affiliation or store name</span><span class="pln"><br>&nbsp; </span><span class="str">'11.99'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// total - required</span><span class="pln"><br>&nbsp; </span><span class="str">'1.29'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// tax</span><span class="pln"><br>&nbsp; </span><span class="str">'5'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// shipping</span><span class="pln"><br>&nbsp; </span><span class="str">'San Jose'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; </span><span class="com">// city</span><span class="pln"><br>&nbsp; </span><span class="str">'California'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; </span><span class="com">// state or province</span><span class="pln"><br>&nbsp; </span><span class="str">'USA'</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// country</span><span class="pln"><br></span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._addItem"><span class="pln">_addItem</span></a><span class="pun">(</span><span class="pln"><br>&nbsp; </span><span class="str">'1234'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// order ID - required</span><span class="pln"><br>&nbsp; </span><span class="str">'DD44'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// SKU/code</span><span class="pln"><br>&nbsp; </span><span class="str">'T-Shirt'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// product name</span><span class="pln"><br>&nbsp; </span><span class="str">'Green Medium'</span><span class="pun">,</span><span class="pln"> &nbsp; </span><span class="com">// category or variation</span><span class="pln"><br>&nbsp; </span><span class="str">'11.99'</span><span class="pun">,</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// unit price - required</span><span class="pln"><br>&nbsp; </span><span class="str">'1'</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// quantity - required</span><span class="pln"><br></span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._trackTrans"><span class="pln">_trackTrans</span></a><span class="pun">();</span></pre>
+   </div></div>
+   
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+   <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="str">/script&gt;<br>&lt;form name="utmform" id="utmform"&gt;<br>&lt;textarea name="utmtrans" id="utmtrans" style="display:none"&gt;<br>UTM:T|1234|Mountain View|11.99|1.29|5|San Jose|California|USA<br>UTM:I|1234|DD44|T-Shirt|Green Medium|11.99|1<br>&lt;/</span><span class="pln">textarea</span><span class="pun">&gt;</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="str">/form&gt;<br>&lt;script type="text/</span><span class="pln">javascript</span><span class="str">"&gt;<br>__utmSetTrans();</span></pre>
+   </div></div>
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+
+<a name="EventTracking"></a>
+<h2>Event Tracking </h2>
+<p>Using Event Tracking involves making an event call in the appropriate place in your pages, such as 
+in an <code>onclick</code> handler.  For more information on Event Tracking, see the <a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Event
+Tracking Guide</a>. <strong>Note:</strong> Event Tracking is not available with the urchin.js tracking code.</p>
+<p><strong>Async Snippet</strong> (recommended)</p>
+<p>This section shows two ways to set up tracking using the Asynchronous syntax. With Event Tracking, the <code>onclick</code>
+  handler uses the exact same syntax. </p>
+  <pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a onclick</span><span class="pun">=</span><span class="str">"_gaq.push(['</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html#_gat.GA_EventTracker_._trackEvent"><span class="str">_trackEvent</span></a><span class="str">', 'category', 'action', 'opt_label', opt_value]);"</span><span class="pun">&gt;</span><span class="pln">click me</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span><span class="pln"> </span></pre>
+
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+  <div style="display: none;" class="tog-content">
+    <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span><span class="pln"><br></span><span class="pun">...</span><span class="pln"><br></span><span class="pun">&lt;</span><span class="pln">a onclick</span><span class="pun">=</span><span class="str">"pageTracker.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html#_gat.GA_EventTracker_._trackEvent"><span class="str">_trackEvent</span></a><span class="str">('category', 'action', 'opt_label', opt_value);"</span><span class="pun">&gt;</span><span class="pln">click me</span><span class="pun">&lt;/</span><span class="pln">a</span><span class="pun">&gt;</span></pre>
+  </div></div>
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+<a name="SessionTimeout" id="SessionTimeout"></a>
+<h2>Session Timeout </h2>
+<p>By default, user sessions are timed out after 30 minutes of inactivity on your site. These examples
+show how this can be modified using the <code>_setSessionCookieTimeout()</code> method.</p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._setSessionCookieTimeout"><span class="str">_setSessionCookieTimeout</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3600000</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._setSessionCookieTimeout"><span class="pln">_setSessionCookieTimeout</span></a><span class="pun">(</span><span class="lit">3600000</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln"><br>_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_utimeout </span><span class="pun">=</span><span class="pln"> </span><span class="str">"3600"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// the number of seconds in 1 hour</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span><span class="pln"><br></span><span class="tag">&lt;/script&gt;</span></pre>
+   </div>
+</div>
+
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+
+
+
+<a name="SearchEngines" id="SearchEngines"></a>
+<h2>Sources — Search Engines, Keywords, Referrers</h2>
+<p>By default, Google Analytics identifies a list of websites as search engine
+  referrals in your reports. You can use these  methods to alter the search engine
+  list. For more information, see "<a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingTraffic.html#searchEngine">Search
+Engines</a>" in the <em>Traffic
+Sources</em> guide. You can also configure Google Analytics to ignore referrals
+from certain domains, or to treat specific keyword searches as direct traffic.</p> 
+
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html#_gat.GA_Tracker_._addIgnoredOrganic"><span class="str">_addIgnoredOrganic</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ignore'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html#_gat.GA_Tracker_._addIgnoredRef"><span class="str">_addIgnoredRef</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'urchin.com'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html#_gat.GA_Tracker_._addOrganic"><span class="str">_addOrganic</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'new_search_engine'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'q'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html#_gat.GA_Tracker_._addIgnoredOrganic"><span class="pln">_addIgnoredOrganic</span></a><span class="pun">(</span><span class="str">'ignore'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html#_gat.GA_Tracker_._addIgnoredRef"><span class="pln">_addIgnoredRef</span></a><span class="pun">(</span><span class="str">'urchin.com'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiSearchEngines.html#_gat.GA_Tracker_._addOrganic"><span class="pln">_addOrganic</span></a><span class="pun">(</span><span class="str">'new_search_engine'</span><span class="pun">,</span><span class="str">'q'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_uOno</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"ignore"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// keyword to treat as referral</span><span class="pln"><br>_uRno</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"urchin.com"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// referral to treat as direct</span><span class="pln"><br>_uOsr</span><span class="pun">[</span><span class="lit">41</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"new_search_engine"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// new search engine to treat as referral</span><span class="pln"><br>_uOkw</span><span class="pun">[</span><span class="lit">41</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"query"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// keyword query parameter for new search engine</span><span class="pln"><br><br>urchinTracker</span><span class="pun">();</span></pre>
+   </div>
+</div>
+
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+<a name="SetCookiePath"></a>
+<h2>Tracking Limited to a Sub-Directory</h2>
+<p>Use the <code>_setCookiePath()</code> method to set a sub-directory as the default path for all tracking. You would do this to 
+confine all tracking to a sub-directory of a site.  </p> 
+<p><strong>Async Snippet</strong> (recommended)</p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setCookiePath"><span class="str">_setCookiePath</span></a><span class="str">'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/path/of/cookie/'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setCookiePath"><span class="pln">_setCookiePath</span></a><span class="pun">(</span><span class="str">'/path/of/cookie/'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln"><br>_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_utcp </span><span class="pun">=</span><span class="pln"> </span><span class="str">"/path/of/cookie/"</span><span class="pun">;</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span><span class="pln"><br></span><span class="tag">&lt;/script&gt;</span></pre>
+   </div>
+</div>
+
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+<a name="UsingALocalServer"></a>
+<h2>Using a Local Server </h2>
+<p>Use these methods if you are tracking your website using the standalone Urchin
+  software and using Google Analytics as well. For details see the <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html">Urchin
+  Server</a> section of the <em>Tracking API</em> reference.</p>
+<p class="tog-header"><strong>Async Snippet</strong></p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_setAccount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UA-XXXXX-X'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html#_gat.GA_Tracker_._setLocalRemoteServerMode"><span class="str">_setLocalRemoteServerMode</span></a><span class="str">'</span><span class="pun">]);</span><span class="pln"><br>_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="str">_trackPageview</span></a><span class="str">'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiUrchin.html#_gat.GA_Tracker_._setLocalRemoteServerMode"><span class="pln">_setLocalRemoteServerMode</span></a><span class="pun">();</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview"><span class="pln">_trackPageview</span><span class="pun">()</span></a><span class="pun">;</span></pre>
+   </div>
+</div>
+ 
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">_uacct </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UA-12345-1"</span><span class="pun">;</span><span class="pln"><br>_userv </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"><br>urchinTracker</span><span class="pun">();</span></pre>
+   </div>
+</div>
+
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+<a name="VirtualPageviews"></a>
+<h2>Virtual Pageviews</h2>
+<p>Use the <code>_trackPageview()</code> method along with a URL you fabricate
+  in order to track clicks from users that do not lead to actual website pages
+  on your site. In general,
+  we recommend  you use <a href="http://code.google.com/apis/analytics/docs/tracking/eventTrackerGuide.html">Event
+  Tracking</a> for tracking downloads, outbound links, PDFs or similar kinds
+  of user interactions. This is because virtual pageviews will add to your total
+  pageview count. However, if you want to <em>configure goals</em> based on clicks
+  to PDFs or downloads, you need to use this method (but be aware that these
+  clicks will be tallied as part of your overall pageview count). For tracking
+  Flash or Silverlight content, we recommend that you use the <a href="http://code.google.com/apis/analytics/docs/tracking/flashTrackingIntro.html">Adobe
+  Flash Tracking</a> library or the <a href="http://code.google.com/apis/analytics/docs/tracking/silverlightTrackingIntro.html">Microsoft
+  Silverlight</a> component.</p>
+<p class="tog-header"><strong>Async Snippet</strong></p>
+<pre class="prettyprint"><span class="pln">_gaq</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="str">'_trackPageview'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/downloads/pdfs/corporateBrief.pdf'</span><span class="pun">]);</span></pre>
+
+<div class="tog-box">
+<p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>Traditional (ga.js) Snippet</strong></p>
+<div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="kwd">var</span><span class="pln"> pageTracker </span><span class="pun">=</span><span class="pln"> _gat</span><span class="pun">.</span><span class="pln">_getTracker</span><span class="pun">(</span><span class="str">'UA-XXXXX-X'</span><span class="pun">);</span><span class="pln"><br>pageTracker</span><span class="pun">.</span><span class="pln">_trackPageview</span><span class="pun">(</span><span class="str">'/downloads/pdfs/corporateBrief.pdf'</span><span class="pun">);</span></pre>
+   </div>
+</div>
+ 
+<div class="tog-box">
+  <p class="tog-header"><img class="tog-img" src="03_asyncMigrationExamples-Dateien/plus_sm.gif"><strong>urchin.js Tracking</strong></p>
+  <div style="display: none;" class="tog-content">
+  <pre class="prettyprint"><span class="pln">urchinTracker</span><span class="pun">(</span><span class="str">'/downloads/pdfs/corporateBrief.pdf'</span><span class="pun">);</span></pre>
+   </div>
+</div>
+
+
+
+<p class="backtotop"><a href="#top" class="backtotop">Back to Top</a></p>
+
+<script type="text/javascript">
+
+var tog = tog || {};
+
+tog.plusImg = 'http://www.google.com/mb/plus_sm.gif';
+tog.minusImg = 'http://www.google.com/mb/minus_sm.gif';
+
+tog.addExpandBoxes = function() {
+  $('.tog-box').each(function() {
+    var side = $(this).hasClass('.tog-right') ? 'append' : 'prepend';
+    var img = tog.minusImg;
+    var toggleContent = $(this).find('.tog-content');
+    if (!$(this).hasClass('.tog-expanded')) {
+      toggleContent.hide();
+      img = tog.plusImg;
+    }
+
+    $(this).children('.tog-header')[side](
+        '<img class="tog-img" src="' + img + '"/>')
+        .children('img')
+        .click(function() {
+          tog.clickHandler(toggleContent, this);
+        });
+  });
+}
+
+tog.clickHandler = function(toggleContent, img) {
+  img.src = img.src == tog.plusImg ? tog.minusImg : tog.plusImg;
+  var display = toggleContent.is(':hidden') ? 'show' : 'hide';
+  toggleContent[display]();
+}
+
+
+$(document).ready(function() {
+  tog.addExpandBoxes();
+});
+
+</script>
+
+
+
+      <div style="height: 4717px;" id="gc-collapsible"></div></div><!-- end gc-pagecontent -->
+    </div><!-- end gooey wrapper -->
+
+    </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+    ©2011 Google -
+    <a href="http://code.google.com/">Code Home</a> -
+    <a href="http://code.google.com/terms.html">Terms of Service</a> -
+    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
+    <a href="http://code.google.com/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="http://code.google.com/intl/en/">English</a> -
+    <a href="http://code.google.com/intl/es/">Español</a> -
+    <a href="http://code.google.com/intl/ja/">日本語</a> -
+    <a href="http://code.google.com/intl/ko/">한국어</a> -
+    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
+    <a href="http://code.google.com/intl/ru/">Pусский</a> -
+    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
+    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="03_asyncMigrationExamples-Dateien/codesite_tail.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+
+_gaq.push(
+
+
+    ['projectTracker._setAccount', 'YT-8705592-1'],
+    ['projectTracker._setDomainName', 'code.google.com'],
+    ['projectTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['projectTracker._trackPageview'],
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._setCookiePath', window.location.pathname.substring(0,
+        window.location.pathname.lastIndexOf('/') + 1)],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = 'http://www.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+
+
+  <div style="display: none;" id="menuDiv-lang-dropdown" class="menuDiv instance0"><div class="menuCategory default"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">English</a><a href="http://code.google.com/intl/es/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">Español</a><a href="http://code.google.com/intl/ja/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">日本語</a><a href="http://code.google.com/intl/ko/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">한국어</a><a href="http://code.google.com/intl/pt-BR/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">Português (Brasil)</a><a href="http://code.google.com/intl/ru/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">Pусский</a><a href="http://code.google.com/intl/zh-CN/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">中文 (简体)</a><a href="http://code.google.com/intl/zh-TW/apis/analytics/docs/tracking/asyncMigrationExamples.html" style="display: block;" class="menuItem">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow"></div><div id="cs-searchresults"><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div><div style="display: none;" id="menuDiv-projects-dropdown" class="menuDiv instance1"><div class="menuCategory controls"><hr class="menuSeparator"><a href="http://code.google.com/more/" style="display: block;" class="menuItem">Find developer products...</a><a href="http://code.google.com/hosting/" style="display: block;" class="menuItem">Find open source projects...</a></div></div></body></html>
