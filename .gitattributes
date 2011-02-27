@@ -155,6 +155,7 @@ changed_full/440-447/out/basic/tpl/inc/d3GoogleAnalytics.tpl -text
 changed_full/440-447/out/basic/tpl/inc/popup_basket.tpl -text
 changed_full/440-447/out/basic/tpl/user.tpl -text
 copy_this/admin/d3_cfg_googleanalytics.php -text
+copy_this/admin/d3_cfg_googleanalytics_adwords.php -text
 copy_this/admin/d3_cfg_googleanalytics_licence.php -text
 copy_this/admin/d3_cfg_googleanalytics_list.php -text
 copy_this/admin/d3_cfg_googleanalytics_main.php -text

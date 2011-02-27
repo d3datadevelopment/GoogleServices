@@ -18,7 +18,7 @@
  * @copyright (C) D3 Data Development
  */
 
-class d3_cfg_multivariants extends d3_cfg_mod_
+class d3_cfg_googleanalytics extends d3_cfg_mod_
 {
 
     public function render()

@@ -89,6 +89,8 @@ dl dt{
 td.edittext {
     white-space: normal;
 }
+
+div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
 -->
 </style>
 
@@ -184,32 +186,162 @@ td.edittext {
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
                             <b>
-                                [{oxmultilang ident="D3_MULTIVAR_MAIN"}]
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN"}]
                             </b>
                         </a>
                         <dl>
                             <dt>
-                                [{oxmultilang ident="D3_MULTIVAR_MAIN_USEAJAX"}]
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GAID"}]
+[{*  _gaq.push(['_setAccount', 'UA_XXX']); *}]
                             </dt>
                             <dd>
-                                <input type="hidden" name="value[d3_cfg_mod__blMultiVariants_useAjax]" value="0">
-                                <input class="edittext ext_edittext" type="checkbox" value="1" name="value[d3_cfg_mod__blMultiVariants_useAjax]" [{if $value->d3_cfg_mod__blMultiVariants_useAjax == 1}]checked[{/if}]>
-                                [{ oxinputhelp ident="D3_MULTIVAR_MAIN_USEAJAX_DESC" }]
+                                <input class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$value->d3_cfg_mod__sD3GAId}]" name="value[d3_cfg_mod__sD3GAId]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GAID_DESC" }]
                             </dd>
                             <div class="spacer"></div>
                         </dl>
                         <dl>
                             <dt>
-                                [{oxmultilang ident="D3_MULTIVAR_MAIN_SEPARATOR"}]
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP"}]
+[{*  _gaq.push(['_gat._anonymizeIp']); *}]
                             </dt>
                             <dd>
-                                <input class="edittext ext_edittext" type="text" size="1" maxlength="1" name="value[d3_cfg_mod__sMultiVariants_separator]" value='[{if $value->d3_cfg_mod__sMultiVariants_separator}][{$value->d3_cfg_mod__sMultiVariants_separator}][{else}]|[{/if}]'>
-                                [{ oxinputhelp ident="D3_MULTIVAR_MAIN_SEPARATOR_DESC" }]
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GAAnonymizeIP]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GAAnonymizeIP}]checked[{/if}] name="value[d3_cfg_mod__blD3GAAnonymizeIP]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
                             </dd>
                             <div class="spacer"></div>
                         </dl>
                     </div>
                 </div>
+                
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <b>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE"}]
+                            </b>
+                        </a>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GASendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GASendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GASendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                    </div>
+                </div>
+                
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <b>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN"}]
+                            </b>
+                        </a>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_ALLOWXDOMAIN"}]
+[{*  _gaq.push(['_setAllowLinker', true]);  *}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GAAllowDomainLinker]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GAAllowDomainLinker}]checked[{/if}] name="value[d3_cfg_mod__blD3GAAllowDomainLinker]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_XDOMAIN"}]
+_gaq.push(['_setDomainName', '.example-petstore.com']);
+// wenn benutzt:
+_gaq.push(['_setAllowHash', false]);    ???
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GoogleAnalyticsSendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_COOKIEPATH"}]
+_gaq.push(['_setCookiePath', '/path/of/cookie/']);
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GoogleAnalyticsSendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                    </div>
+                </div>
+                
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <b>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_BROWSER"}]
+                            </b>
+                        </a>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]
+_gaq.push(['_setClientInfo', false]);
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GoogleAnalyticsSendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]
+_gaq.push(['_setAllowHash', false]);
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GoogleAnalyticsSendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]
+_gaq.push(['_setDetectFlash', false]);
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GoogleAnalyticsSendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]
+_gaq.push(['_setDetectTitle', false]);
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GoogleAnalyticsSendECommerce}]checked[{/if}] name="value[d3_cfg_mod__blD3GoogleAnalyticsSendECommerce]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                    </div>
+                </div>
+
             
                 <table width="100%">
                     <tr>
@@ -230,8 +362,8 @@ td.edittext {
 <script type="text/javascript">
 if (parent.parent)
 {   parent.parent.sShopTitle   = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
-    parent.parent.sMenuItem    = "[{oxmultilang ident="d3mxmultivariants"}]";
-    parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclmultivariants_main"}]";
+    parent.parent.sMenuItem    = "[{oxmultilang ident="d3mxgoogleanalytics"}]";
+    parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclgoogleanalytics_main"}]";
     parent.parent.sWorkArea    = "[{$_act}]";
     parent.parent.setTitle();
 }

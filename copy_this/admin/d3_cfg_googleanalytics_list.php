@@ -18,7 +18,7 @@
  * @copyright (C) D3 Data Development
  */
 
-class d3_cfg_multivariants_list extends d3_cfg_mod_list
+class d3_cfg_googleanalytics_list extends d3_cfg_mod_list
 {
 
     protected $_blD3ShowLangSwitch = true;
