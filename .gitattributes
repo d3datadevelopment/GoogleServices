@@ -146,12 +146,19 @@ Sources/doku/12_gaTrackingOverview-Dateien/local_extensions.css -text
 Sources/doku/12_gaTrackingOverview-Dateien/semantic_headers.css -text
 Sources/doku/12_gaTrackingOverview-Dateien/star_off.gif -text
 Sources/doku/12_gaTrackingOverview.html -text
+changed_full/440-447/out/admin/de/d3_googleanalytics_lang.php -text
+changed_full/440-447/out/admin/tpl/d3_cfg_googleanalytics_main.tpl -text
 changed_full/440-447/out/basic/tpl/_footer.tpl -text
 changed_full/440-447/out/basic/tpl/basket.tpl -text
 changed_full/440-447/out/basic/tpl/dyn/mini_basket.tpl -text
 changed_full/440-447/out/basic/tpl/inc/d3GoogleAnalytics.tpl -text
 changed_full/440-447/out/basic/tpl/inc/popup_basket.tpl -text
 changed_full/440-447/out/basic/tpl/user.tpl -text
+copy_this/admin/d3_cfg_googleanalytics.php -text
+copy_this/admin/d3_cfg_googleanalytics_licence.php -text
+copy_this/admin/d3_cfg_googleanalytics_list.php -text
+copy_this/admin/d3_cfg_googleanalytics_main.php -text
+copy_this/modules/d3GoogleAnalytics/menu.xml -text
 copy_this/modules/d3GoogleAnalytics/views/d3_oxcmp_utils_googleAnalytics.php -text
 setup+doku/Google[!!-~]Analytics-Installation.pdf -text
 setup+doku/adwords_1.png -text
@@ -159,3 +166,5 @@ setup+doku/adwords_2.png -text
 setup+doku/analytics_1.png -text
 setup+doku/analytics_2.png -text
 setup+doku/install.txt -text
+setup+doku/install_pe_ce.sql -text
+setup+doku/update.sql -text
