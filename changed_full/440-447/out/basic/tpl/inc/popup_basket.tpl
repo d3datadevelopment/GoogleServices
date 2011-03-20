@@ -1,7 +1,7 @@
 <div id="wait" class="popup">
     <strong>[{ oxmultilang ident="BASKET_POPUP_ADDEDARTICLETOBASKET" }]</strong>
 [{*** D3 MOD NEXT_LINE * GoogleAnalytics ***}]
-    <form action="[{ oxgetseourl ident=$oViewConf->getSelfActionLink()|cat:"cl=basket" }]" method="post">
+    <form action="[{ oxgetseourl ident=$oViewConf->getSelfActionLink()|oxaddparams:"cl=basket" }]" method="post">
     <div>
         [{ $oViewConf->getHiddenSid() }]
         <input type="hidden" name="cl" value="basket">
@@ -49,7 +49,7 @@
     [{/if}]
     [{/oxhasrights}]
 [{*** D3 MOD NEXT_LINE * GoogleAnalytics ***}]
-    <form action="[{ oxgetseourl ident=$oViewConf->getSelfActionLink()|cat:"cl=basket" }]" method="post">
+    <form action="[{ oxgetseourl ident=$oViewConf->getSelfActionLink()|oxaddparams:"cl=basket" }]" method="post">
     <div>
         [{ $oViewConf->getHiddenSid() }]
         <input type="hidden" name="cl" value="basket">

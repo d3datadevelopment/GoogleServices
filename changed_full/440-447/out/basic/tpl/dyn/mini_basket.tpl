@@ -71,7 +71,7 @@
             <div class="hr"></div>
 
 [{*** D3 MOD NEXT_LINE * GoogleAnalytics ***}]
-            <form action="[{ oxgetseourl ident=$oViewConf->getSelfActionLink()|cat:"cl=basket" }]" method="post">
+            <form action="[{ oxgetseourl ident=$oViewConf->getSelfActionLink()|oxaddparams:"cl=basket" }]" method="post">
               <div class="ta_right">
                   [{ $oViewConf->getHiddenSid() }]
                   <input type="hidden" name="cl" value="basket">

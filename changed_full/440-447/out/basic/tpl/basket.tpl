@@ -9,7 +9,8 @@
 [{else }]
   <div class="bar prevnext order">
     [{if $oView->showBackToShop()}]
-    <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+[{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
+    <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=basket" }]" method="post">
       <div>
           [{ $oViewConf->getHiddenSid() }]
           <input type="hidden" name="cl" value="basket">
@@ -25,7 +26,7 @@
       <div class="minorderprice">[{ oxmultilang ident="BASKET_MINORDERPRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
     [{else}]
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-    <form action="[{ $oViewConf->getSslSelfLink() }]&cl=user" method="post">
+    <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" method="post">
       <div>
           [{ $oViewConf->getHiddenSid() }]
           <input type="hidden" name="cl" value="user">
@@ -38,8 +39,8 @@
   </div>
 
 <!-- basket contents -->
-
- <form name="basket[{ $basketindex }]" action="[{ $oViewConf->getSelfActionLink() }]" method="post">
+[{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
+ <form name="basket[{ $basketindex }]" action="[{ $oViewConf->getSelfActionLink()|oxaddparams:"cl=basket" }]" method="post">
     <div>
          [{ $oViewConf->getHiddenSid() }]
          <input type="hidden" name="cl" value="basket">
@@ -403,7 +404,7 @@
           [{/foreach}]
 
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-          <form name="voucher" action="[{ $oViewConf->getSelfActionLink() }]&cl=basket" method="post" class="left">
+          <form name="voucher" action="[{ $oViewConf->getSelfActionLink()|oxaddparams:"cl=basket" }]" method="post" class="left">
               <div>
                   <label>[{ oxmultilang ident="BASKET_ENTERCOUPONNUMBER" }]</label>
                   [{ $oViewConf->getHiddenSid() }]
@@ -419,7 +420,8 @@
 
   <div class="bar prevnext bottom">
     [{if $oView->showBackToShop()}]
-    <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+[{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
+    <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=basket" }]" method="post">
       <div>
           [{ $oViewConf->getHiddenSid() }]
           <input type="hidden" name="cl" value="basket">
@@ -435,7 +437,7 @@
       <div class="minorderprice">[{ oxmultilang ident="BASKET_MINORDERPRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
     [{else}]
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-    <form action="[{ $oViewConf->getSslSelfLink() }]&cl=user" method="post">
+    <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" method="post">
       <div>
           [{ $oViewConf->getHiddenSid() }]
           <input type="hidden" name="cl" value="user">

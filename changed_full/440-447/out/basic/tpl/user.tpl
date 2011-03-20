@@ -12,7 +12,8 @@
           <div class="useroptbox">
               <b>[{ oxmultilang ident="USER_ORDERWITHOUTREGISTER1" }]</b><br><br>
               [{ oxmultilang ident="USER_ORDERWITHOUTREGISTER2" }]<br><br>
-              <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+[{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
+              <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" method="post">
                 <div>
                     [{ $oViewConf->getHiddenSid() }]
                     [{ $oViewConf->getNavFormParams() }]
@@ -34,7 +35,7 @@
                   <div class="err">[{ $oEr->getOxMessage()}]</div>
               [{/foreach}]
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-              <form action="[{ $oViewConf->getSslSelfLink() }]&cl=user" method="post">
+              <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" method="post">
                 <div>
                     [{ $oViewConf->getHiddenSid() }]
                     [{ $oViewConf->getNavFormParams() }]
@@ -75,7 +76,7 @@
               </span>
               <br><br>
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-              <form action="[{ $oViewConf->getSslSelfLink() }]&cl=user" method="post">
+              <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" method="post">
                 <div>
                     [{ $oViewConf->getHiddenSid() }]
                     [{ $oViewConf->getNavFormParams() }]
@@ -98,7 +99,8 @@
           <br>
           <br>
 
-          <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+[{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
+          <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" method="post">
             <div>
                 [{ $oViewConf->getHiddenSid() }]
                 [{ $oViewConf->getNavFormParams() }]
@@ -116,7 +118,7 @@
 
 
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-    <form action="[{ $oViewConf->getSslSelfLink() }]&cl=user" name="order" method="post">
+    <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" name="order" method="post">
       <div>
           [{ $oViewConf->getHiddenSid() }]
           [{ $oViewConf->getNavFormParams() }]
