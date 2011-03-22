@@ -36,9 +36,9 @@
             [{/if}]
 
             [{if $oD3GASettings->getValue('blD3GASetDetectTitle')}]
-                _gaq.push(['_setDetectTitle', true]);
-            [{else}]
                 _gaq.push(['_setDetectTitle', false]);
+            [{else}]
+                _gaq.push(['_setDetectTitle', true]);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GACampaignCode')}]
@@ -81,13 +81,13 @@
                     _gaq.push(['_setCustomVar',
                         1,           [{*// This custom var is set to slot #1.  Required parameter.*}]
                         'Gender',    [{*// The name of the custom variable.  Required parameter.*}]
-                        [{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]'male'[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]'female'[{/if}]],   
+                        [{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]'male'[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]'female'[{/if}]],
                                      [{*// The value of the custom variable.  Required parameter.*}]
                         1            [{*// Sets the scope to visitor-level.  Optional parameter.*}]
                     ]);
                 [{/if}]]
             [{/if}]]
-            
+
             _gaq.push(['_trackPageview']);
 
             [{if $oD3GASettings->getValue('sD3GACookiePathCopy')}]
@@ -98,7 +98,11 @@
                 _gaq.push(['_addTrans',
                     '[{ $order->oxorder__oxordernr->value }]',          // order ID - required
                     '[{ $oxcmp_shop->oxshops__oxname->value}]',         // affiliation or store name
-                    '[{ $order->getTotalOrderSum() }]',                 // total - required
+                    [{if $oD3GASettings->getValue('blD3GAUseNetto') }]
+                        '[{ $order->getOrderNetSum() }]',               // total - required
+                    [{else}]
+                        '[{ $order->getTotalOrderSum() }]',             // total - required
+                    [{/if}]
                     '',                                                 // tax
                     '[{ $order->oxorder__oxdelcost->value }]',          // shipping
                     '[{ $order->oxorder__oxbillcity->value }]',         // city
@@ -112,7 +116,12 @@
                         '[{ $oOrderArticle->oxorderarticles__oxartnum->value }]',       // SKU/code
                         '[{ $oOrderArticle->oxorderarticles__oxtitle->value }]',        // product name
                         '[{ $oOrderArticle->oxorderarticles__oxselvariant->value }]',   // category or variation
-                        '[{ $oOrderArticle->oxorderarticles__oxprice->value }]',        // unit price - required
+                        [{if $oD3GASettings->getValue('blD3GAUseNetto') }]
+                            [{assign var="oPrice" value=$oOrderArticle->getPrice()}]
+                            '[{ $oPrice->getNettoPrice() }]',                           // unit price - required
+                        [{else}]
+                            '[{ $oOrderArticle->oxorderarticles__oxprice->value }]',    // unit price - required
+                        [{/if}]
                         '[{ $oOrderArticle->oxorderarticles__oxamount->value }]'        // quantity - required
                     ]);
                 [{/foreach}]
