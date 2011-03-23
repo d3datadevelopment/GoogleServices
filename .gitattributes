@@ -204,7 +204,6 @@ setup+doku/adwords_1.png -text
 setup+doku/adwords_2.png -text
 setup+doku/analytics_1.png -text
 setup+doku/analytics_2.png -text
-setup+doku/install.txt -text
 setup+doku/install_ee.sql -text
 setup+doku/install_pe_ce.sql -text
 setup+doku/update.sql -text

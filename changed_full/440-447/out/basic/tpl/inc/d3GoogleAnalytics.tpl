@@ -76,7 +76,7 @@
             [{/if}]
 
             [{if $oD3GASettings->getValue('blD3GAUseCustomVars')}]
-[{*/*** add custom variables here ***/*}]
+[{* /*** add custom variables here ***/ *}]
                 [{if $oxcmp_user}]
                     _gaq.push(['_setCustomVar',
                         1,           [{*// This custom var is set to slot #1.  Required parameter.*}]
@@ -85,8 +85,8 @@
                                      [{*// The value of the custom variable.  Required parameter.*}]
                         1            [{*// Sets the scope to visitor-level.  Optional parameter.*}]
                     ]);
-                [{/if}]]
-            [{/if}]]
+                [{/if}]
+            [{/if}]
 
             _gaq.push(['_trackPageview']);
 

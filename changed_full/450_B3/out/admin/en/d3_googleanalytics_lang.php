@@ -26,12 +26,12 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_ECOMMERCE'                      => 'eCommerce-Einstellungen',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'             => 'eCommerce-Daten übertragen',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC'        => 'Mit dieser Einstellung werden Warenkorbdaten Ihrer Kunden an Analytics übertragen. Damit können Sie z.B. die Produktleistung und Umsatzzahlen ermitteln.',
-'D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO'             => 'Netto-Preise übertragen, wenn verfügbar / TODO',
+'D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO'             => 'Netto-Preise übertragen, wenn verfügbar',
 'D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO_DESC'        => 'Betreiben Sie einen B2B-Shop, übertragen Sie Ihre Artikelpreise netto an Analytics, wenn diese auch im Shop ohne Steuer zur Verfügung stehen. ',
 
 'D3_GOOGLEANALYTICS_DOMAIN'                         => 'Multi-Domain-Einstellungen',
-'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER'          => 'Trackingdaten von unterschiedlichen Domains verwenden / TODO',
-    // TODO: further description required
+'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER'          => 'Trackingdaten von unterschiedlichen Domains verwenden',
+'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC'     => 'Cross Domain Tracking erlaubt das Sammeln von Trackinginformationen auch über verschiedene Domains hinweg. <br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/tracking/asyncMigrationExamples.html" target="gahelp">hier</a>.',
 'D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME'           => 'fixiert das Tracking-Cookie auf die angegebene Domain (optional)',
 'D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME_DESC'      => 'Lassen Sie dieses Feld leer, ist das Tacking-Cookie für unterschiedliche Seiten gültig. Wenn Sie statt dessen eine Domain angeben, ist das gesetzte Cookie nur für Seiten unter dieser Domain gültig. Andere zu trackende Seiten setzen dann ein neues Cookie.<br><br>Der Eintrag sollte hier so aussehen: .yourDomainName.com<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html#significanceOfName" target="gahelp">hier</a>.',
 'D3_GOOGLEANALYTICS_DOMAIN_SETCOOKIEPATH'           => 'Tracking nur auf ein Verzeichnis beschränken (optional)',
@@ -41,15 +41,17 @@ $aLang = array(
 
 'D3_GOOGLEANALYTICS_BROWSER'                        => 'Browser-Daten',
 'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO'          => '<b>Deaktiviert</b> die Erkennung von Browserdaten (z.B. Name und Version)',
+'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO'          => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setClientInfo" target="gahelp">hier</a>.',
 'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH'         => '<b>Unterbindet</b> die Erkennung, ob beim Kunden das Flash-Plugin installiert ist.',
-'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE'         => '_setDetectTitle / TODO',
-    // TODO: further description required
+'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH_DESC'    => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectFlash" target="gahelp">hier</a>.',
+'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE'         => '<b>Verhindert</b> die Erkennung des Seitentitels.',
+'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE_DESC'    => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectTitle" target="gahelp">hier</a>.',
 
 'D3_GOOGLEANALYTICS_CUSTOMVARS'                     => 'individuelle Daten',
 'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT'            => 'individuelle Daten übertragen',
 'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC'       => 'Mit individuellen Daten können Sie Parameter übermitteln, die sonst im Rahmen des Trackingcodes nicht gesammelt werden. Ergänzen Sie den entsprechenden Abschnitt im Template "inc/d3GoogleAnalytics.tpl" um die gewünschten Daten. Als Beispiel ist die Übertragung des Kundengeschlechts angelegt.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" target="gahelp">hier</a>.',
 
-'D3_GOOGLEANALYTICS_SECURITYINFORMATIONS'           => 'Im CMS-Baustein "Analytics_Security_Informations" ist ein Text hinterlegt, den Sie Ihren Kunden unter Ihrer Datenschutzerklärung verfügbar machen sollten. Klären Sie jedoch bitte vor Verwendung von Google Analytics Tracking und diesem Hinweistext ab, ob beides mit den Datenschutzbestimmung Ihres Landes konform geht. Ausschließlich der Shopbetreiber haftet für Verstöße. Beraten Sie sich im Zweifel mit Ihrem Rechtsanwalt. / TODO<br><br>Nach Aktivierung des Tracking-Codes dauert es in der Regel ca. 24 Stunden, bis die ersten Tracking-Daten in Analytics zur Verfügung stehen.',
+'D3_GOOGLEANALYTICS_SECURITYINFORMATIONS'           => 'Im CMS-Baustein "Analytics_Security_Informations" ist ein Text hinterlegt, den Sie Ihren Kunden unter Ihrer Datenschutzerklärung verfügbar machen sollten. Klären Sie jedoch bitte vor Verwendung von Google Analytics Tracking und diesem Hinweistext ab, ob beides mit den Datenschutzbestimmung Ihres Landes konform geht. Ausschließlich der Shopbetreiber haftet für Verstöße. Beraten Sie sich im Zweifel mit Ihrem Rechtsanwalt.<br><br>Nach Aktivierung des Tracking-Codes dauert es in der Regel ca. 24 Stunden, bis die ersten Tracking-Daten in Analytics zur Verfügung stehen.',
     // TODO: add content to package
 
 'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                                 => 'Kampagnen Grundeinstellungen',
@@ -58,7 +60,8 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT'           => 'Kampagnenlaufzeit (optional, sonst 6 Monate)',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC'      => 'Geben Sie hier eine optionale Laufzeit dieser Kampagne in Millisekunden an.<br><br>30 Tage = 2592000000<br>365 Tage = 31536000000',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS'        => 'Millisekunden',
-'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY'                       => '_setCampNoKey',
+'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY'                       => 'zwingend verwendete Kampagne (optional)',
+'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC'                  => 'die hier festgelegte Kampagne wird zwingend verwendet, auch wenn die Cookie-Einstellungen schon eine andere Kampagne liefern.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNOKey" target="gahelp">hier</a>.',
 
 'D3_GOOGLEANALYTICS_ADWORDSCODE'                    => 'Kampagnen-Code',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_CODE'               => 'AdWords-Code',
