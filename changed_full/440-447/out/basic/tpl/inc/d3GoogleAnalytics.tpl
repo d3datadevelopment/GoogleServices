@@ -81,7 +81,7 @@
                     _gaq.push(['_setCustomVar',
                         1,           [{*// This custom var is set to slot #1.  Required parameter.*}]
                         'Gender',    [{*// The name of the custom variable.  Required parameter.*}]
-                        [{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]'male'[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]'female'[{/if}]],
+                        [{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]'male'[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]'female'[{/if}],
                                      [{*// The value of the custom variable.  Required parameter.*}]
                         1            [{*// Sets the scope to visitor-level.  Optional parameter.*}]
                     ]);
