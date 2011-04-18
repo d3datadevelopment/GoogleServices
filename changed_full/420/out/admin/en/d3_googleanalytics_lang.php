@@ -57,6 +57,8 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                                 => 'Kampagnen Grundeinstellungen',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'                   => 'Kampagnendaten <b>nicht</b> übertragen',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK_DESC'              => 'Das Kampagnentracking ist im Standard aktiviert. Setzen Sie diesen Haken, um die Kampagnenübertragung zu deaktivieren.',
+'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY'            => 'Kampagnendaten nur in Bestellabschlussseite verwenden',
+'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY_DESC'       => 'Ist dieser Haken nicht gesetzt, wird der Kampagnencode shopweit eingefügt. Das AdWords-Conversion Tracking erwartet die Daten jedoch nur bei Bestellabschluss. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion Tracking Anbieter.',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT'           => 'Kampagnenlaufzeit (optional, sonst 6 Monate)',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC'      => 'Geben Sie hier eine optionale Laufzeit dieser Kampagne in Millisekunden an.<br><br>30 Tage = 2592000000<br>365 Tage = 31536000000',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS'        => 'Millisekunden',

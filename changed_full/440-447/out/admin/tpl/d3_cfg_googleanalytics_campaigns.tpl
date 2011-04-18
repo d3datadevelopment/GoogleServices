@@ -147,6 +147,17 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                         </dl>
                         <dl>
                             <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY"}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GASetCampaignOnThankyouOnly]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GASetCampaignOnThankyouOnly}]checked[{/if}] name="value[d3_cfg_mod__blD3GASetCampaignOnThankyouOnly]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
+                        <dl>
+                            <dt>
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT"}]
 [{*  _gaq.push(['_setCampaignCookieTimeout', 31536000000]);  *}]
                             </dt>
@@ -159,8 +170,7 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                         <dl>
                             <dt>
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY"}]
-_gaq.push(['_setCampNOKey', 'ga_nooverride']);    // don't override
-// see 09
+[{* _gaq.push(['_setCampNOKey', 'ga_nooverride']);    *}]
                             </dt>
                             <dd>
                                 <input type="hidden" name="value[d3_cfg_mod__blD3GASetCampNoKey]" value="0">
@@ -193,7 +203,7 @@ _gaq.push(['_setCampNOKey', 'ga_nooverride']);    // don't override
                         </dl>
                     </div>
                 </div>
-                
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -258,7 +268,7 @@ _gaq.push(['_setCampNOKey', 'ga_nooverride']);    // don't override
                         </dl>
                     </div>
                 </div>
-            
+
                 <table width="100%">
                     <tr>
                         <td class="edittext ext_edittext" align="left"><br>
