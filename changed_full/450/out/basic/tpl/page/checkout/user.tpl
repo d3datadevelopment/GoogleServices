@@ -50,11 +50,6 @@
                     <input id="test_UsrOpt2_pwd" type="password" name="lgn_pwd" value="" size="25"><br><br>
                     <span class="btn"><input id="test_UsrOpt2" type="submit" name="send" value="[{ oxmultilang ident="USER_LOGIN" }]" class="btn"></span><br><br>
                     <a id="test_UsrOpt2_forgotPwd" rel="nofollow" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=forgotpwd" }]" class="link">[{ oxmultilang ident="USER_FORGOTPWD" }]</a><br><br>
-                    [{if $oViewConf->getShowOpenIdLogin() }]
-                        <span class="fs11"><b>[{ oxmultilang ident="USER_OPENID" }]</b></span><br>
-                        <input id="test_UsrOpt2_openid" type="text" name="lgn_openid" value="" class="openid" size="21"><br><br>
-                        <span class="btn"><input id="test_UsrOpt2OpenId" type="submit" name="send" value="[{ oxmultilang ident="USER_LOGIN" }]" class="btn"></span><br>
-                    [{/if}]
                  </div>
               </form>
           </div>
@@ -90,6 +85,7 @@
       </div>
 
   [{else}]
+    [{assign var="invadr" value=$oView->getInvoiceAddress()}]
     [{assign var="currency" value=$oView->getActCurrency() }]
 
     [{if !$oxcmp_user && $oView->isConnectedWithFb()}]
@@ -160,15 +156,15 @@
               </colgroup>
               <tr>
                 <td><label>[{ oxmultilang ident="USER_EMAILADDRESS" }]</label></td>
-                <td><input id="test_lgn_usr" type="text" name="lgn_usr" value="[{$oView->getActiveUsername()}]" size="37">&nbsp;<span class="req">*</span></td>
+                <td><input id="userLoginName" type="text" name="lgn_usr" value="[{$oView->getActiveUsername()}]" size="37">&nbsp;<span class="req">*</span></td>
               </tr>
               <tr>
                 <td><label>[{ oxmultilang ident="USER_PASSWORD" }]</label></td>
-                <td><input id="test_lgn_pwd" type="password" name="lgn_pwd" value="[{$lgn_pwd}]" size="37">&nbsp;<span class="req">*</span></td>
+                <td><input id="userPassword" type="password" name="lgn_pwd" value="[{$lgn_pwd}]" size="37">&nbsp;<span class="req">*</span></td>
               </tr>
               <tr>
                 <td><label>[{ oxmultilang ident="USER_CONFIRMPWD" }]</label></td>
-                <td><input id="test_lgn_pwd2" type="password" name="lgn_pwd2" value="[{$lgn_pwd2}]" size="37">&nbsp;<span class="req">*</span></td>
+                <td><input id="userPasswordConfirm" type="password" name="lgn_pwd2" value="[{$lgn_pwd2}]" size="37">&nbsp;<span class="req">*</span></td>
               </tr>
             </table>
         </div>
@@ -187,7 +183,7 @@
               <tr>
                 <td><label>[{ oxmultilang ident="USER_EMAILADDRESS2" }]</label></td>
                 <td>
-                    <input id="test_lgn_usr" type="text" name="lgn_usr" value="[{$oView->getActiveUsername()}]" size="37">
+                    <input id="userLoginName" type="text" name="lgn_usr" value="[{$oView->getActiveUsername()}]" size="37">
                     <span class="req">*</span></td>
               </tr>
             [{/if}]
@@ -252,9 +248,9 @@
             <tr>
               <td><label>[{ oxmultilang ident="USER_COUNTRY" }]</label></td>
               <td>
-                <select id="inv_country_select" name="invadr[oxuser__oxcountryid]">
+                <select id="invCountrySelect" name="invadr[oxuser__oxcountryid]">
                   <option value="">-</option>
-                  [{foreach from=$oView->getCountryList() item=country key=country_id}]
+                  [{foreach from=$oViewConf->getCountryList() item=country key=country_id}]
                     <option value="[{$country->oxcountry__oxid->value}]"[{if isset( $invadr.oxuser__oxcountryid ) && $invadr.oxuser__oxcountryid == $country->oxcountry__oxid->value}] selected[{ elseif $oxcmp_user->oxuser__oxcountryid->value == $country->oxcountry__oxid->value }] selected[{/if}]>[{$country->oxcountry__oxtitle->value}]</option>
                   [{/foreach}]
                 </select>
@@ -265,7 +261,7 @@
               <td></td>
               <td>
               [{include file="inc/state_selector.snippet.tpl"
-                        countrySelectId="inv_country_select"
+                        countrySelectId="invCountrySelect"
                         stateSelectName="invadr[oxuser__oxstateid]"
                         selectedStateIdPrim=$invadr.oxuser__oxstateid
                         selectedStateId=$oxcmp_user->oxuser__oxstateid
@@ -419,9 +415,9 @@
               <tr>
                 <td><label>[{ oxmultilang ident="USER_COUNTRY2" }]</label></td>
                  <td>
-                  <select id="del_country_select" name="deladr[oxaddress__oxcountryid]">
+                  <select id="delCountrySelect" name="deladr[oxaddress__oxcountryid]">
                     <option value="">-</option>
-                    [{foreach from=$oView->getCountryList() item=country key=country_id}]
+                    [{foreach from=$oViewConf->getCountryList() item=country key=country_id}]
                       <option value="[{$country->oxcountry__oxid->value}]" [{if isset( $deladr.oxaddress__oxcountryid ) && $deladr.oxaddress__oxcountryid == $country->oxcountry__oxid->value}]selected[{elseif $delivadr->oxaddress__oxcountryid->value == $country->oxcountry__oxid->value}]selected[{/if}]>[{$country->oxcountry__oxtitle->value}]</option>
                     [{/foreach}]
                   </select>
@@ -432,7 +428,7 @@
                 <td></td>
                 <td>
                 [{include file="inc/state_selector.snippet.tpl"
-                        countrySelectId="del_country_select"
+                        countrySelectId="delCountrySelect"
                         stateSelectName="deladr[oxaddress__oxstateid]"
                         selectedStateIdPrim=$deladr.oxaddress__oxstateid
                         selectedStateId=$delivadr->oxaddress__oxstateid->value

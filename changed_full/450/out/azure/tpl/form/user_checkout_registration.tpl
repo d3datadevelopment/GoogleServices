@@ -4,17 +4,18 @@
 [{ $oViewConf->getHiddenSid() }]
 [{ $oViewConf->getNavFormParams() }]
 <input type="hidden" name="cl" value="user">
-<input type="hidden" name="option" value="1">
+<input type="hidden" name="option" value="3">
 [{if !$oxcmp_user->oxuser__oxpassword->value }]
 <input type="hidden" name="fnc" value="createuser">
 [{else}]
 <input type="hidden" name="fnc" value="changeuser">
 <input type="hidden" name="lgn_cook" value="0">
 [{/if}]
-<input type="hidden" id="reloadaddress" name="reloadaddress" value="">
+<input type="hidden" id="reloadAddress" name="reloadaddress" value="">
 <input type="hidden" name="blshowshipaddress" value="1">
 
 <div class="lineBox clear">
+    <a href="[{ oxgetseourl ident=$oViewConf->getBasketLink() }]" class="submitButton largeButton" id="userBackStepBottom">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_BACKSTEP" }]</a>
     <button id="userNextStepTop" class="submitButton largeButton nextStep" name="userform" type="submit">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_NEXTSTEP" }]</button>
 </div>
 
@@ -22,13 +23,13 @@
     <div class="row">
         <h3 class="blockHead">[{ oxmultilang ident="FORM_REGISTER_ACCOUNTINFO" }]</h3>
         <ul class="form">
-            [{ include file="form/fieldset/user_noaccount.tpl" }]
+            [{ include file="form/fieldset/user_account.tpl" }]
         </ul>
     </div>
     <div class="collumn">
         <h3 class="blockHead">[{ oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
         <ul class="form">
-        [{ include file="form/fieldset/user_billing.tpl" noFormSubmit=true }]
+        [{ include file="form/fieldset/user_billing.tpl" noFormSubmit=true blSubscribeNews=true blOrderRemark=true}]
         </ul>
     </div>
     <div class="collumn">
@@ -43,6 +44,7 @@
 [{oxscript add="$('#showShipAddress').change( function() { $('#shippingAddress').toggle($(this).is(':not(:checked)'));});"}]
 
 <div class="lineBox clear">
+    <a href="[{ oxgetseourl ident=$oViewConf->getBasketLink() }]" class="submitButton largeButton" id="userBackStepBottom">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_BACKSTEP" }]</a>
     <button id="userNextStepBottom" class="submitButton largeButton nextStep" name="userform" type="submit">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_NEXTSTEP" }]</button>
 </div>
 </form>
