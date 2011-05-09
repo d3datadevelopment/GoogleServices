@@ -22,6 +22,8 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_MAIN_GAID_DESC'                 => 'Fügen Sie hier die Google Analytics Konto-ID ein. Diese finden Sie in Ihrem GA-Konto und beginnt im Normalfall mit "UA-".',
 'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP'               => 'IP-Adressen anonymisiert übertragen (dringend empfohlen)',
 'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC'          => 'Die IP-Adressen Ihrer Shopbesucher werden anonymisiert. Zwar werden dadurch die Gebietszuordnungen etwas ungenauer. Jedoch können Sie nur mit dieser Einstellung den Datenschutzvorschriften in Deutschland entsprechen.',
+'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME'         => 'Seitenladezeit mit übertragen',
+'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC'    => 'Die Ladezeit Ihrer Seite ist, speziell auch in Hinblick auf verschiedene Länder, durchaus ein Faktor, der in das Ranking Ihrer Page einfliesst.',
 
 'D3_GOOGLEANALYTICS_ECOMMERCE'                      => 'eCommerce-Einstellungen',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'             => 'eCommerce-Daten übertragen',
@@ -49,7 +51,7 @@ $aLang = array(
 
 'D3_GOOGLEANALYTICS_CUSTOMVARS'                     => 'individuelle Daten',
 'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT'            => 'individuelle Daten übertragen',
-'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC'       => 'Mit individuellen Daten können Sie Parameter übermitteln, die sonst im Rahmen des Trackingcodes nicht gesammelt werden. Ergänzen Sie den entsprechenden Abschnitt im Template "inc/d3GoogleAnalytics.tpl" um die gewünschten Daten. Als Beispiel ist die Übertragung des Kundengeschlechts angelegt.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" target="gahelp">hier</a>.',
+'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC'       => 'Mit individuellen Daten können Sie Parameter übermitteln, die sonst im Rahmen des Trackingcodes nicht gesammelt werden. Ergänzen Sie den entsprechenden Abschnitt im Template "inc/d3GoogleAnalytics.tpl" um die gewünschten Daten. Als Beispiel ist die Übertragung des Kundengeschlechts angelegt.<br><br>Individuelle Daten können nicht mit jedem Tracking-Typ übertragen werden. Lesen Sie auf den Analytics-Hilfe-Seiten nach, ob und wann dies möglich ist. <br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html" target="gahelp">hier</a>.',
 
 'D3_GOOGLEANALYTICS_SECURITYINFORMATIONS'           => 'Im CMS-Baustein "Analytics_Security_Informations" ist ein Text hinterlegt, den Sie Ihren Kunden unter Ihrer Datenschutzerklärung verfügbar machen sollten. Klären Sie jedoch bitte vor Verwendung von Google Analytics Tracking und diesem Hinweistext ab, ob beides mit den Datenschutzbestimmung Ihres Landes konform geht. Ausschließlich der Shopbetreiber haftet für Verstöße. Beraten Sie sich im Zweifel mit Ihrem Rechtsanwalt.<br><br>Nach Aktivierung des Tracking-Codes dauert es in der Regel ca. 24 Stunden, bis die ersten Tracking-Daten in Analytics zur Verfügung stehen.',
     // TODO: add content to package

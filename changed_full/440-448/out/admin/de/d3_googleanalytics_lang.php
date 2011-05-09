@@ -22,6 +22,8 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_MAIN_GAID_DESC'                 => 'Fügen Sie hier die Google Analytics Konto-ID ein. Diese finden Sie in Ihrem GA-Konto und beginnt im Normalfall mit "UA-".',
 'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP'               => 'IP-Adressen anonymisiert übertragen (dringend empfohlen)',
 'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC'          => 'Die IP-Adressen Ihrer Shopbesucher werden anonymisiert. Zwar werden dadurch die Gebietszuordnungen etwas ungenauer. Jedoch können Sie nur mit dieser Einstellung den Datenschutzvorschriften in Deutschland entsprechen.',
+'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME'         => 'Seitenladezeit mit übertragen',
+'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC'    => 'Die Ladezeit Ihrer Seite ist, speziell auch in Hinblick auf verschiedene Länder, durchaus ein Faktor, der in das Ranking Ihrer Page einfliesst.',
 
 'D3_GOOGLEANALYTICS_ECOMMERCE'                      => 'eCommerce-Einstellungen',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'             => 'eCommerce-Daten übertragen',

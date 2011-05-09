@@ -8,6 +8,10 @@
                 _gaq.push(['_gat._anonymizeIp']);
             [{/if}]
 
+            [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
+                _gaq.push(['_gat._trackPageLoadTime']);
+            [{/if}]
+
             [{if $oD3GASettings->getValue('sD3GASetDomainName')}]
                 _gaq.push(['_setDomainName', '[{$oD3GASettings->getValue('sD3GASetDomainName')}]']);
                 _gaq.push(['_setAllowHash', false]);

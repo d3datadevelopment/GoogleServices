@@ -203,9 +203,21 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                             </dd>
                             <div class="spacer"></div>
                         </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME"}]
+[{*  _gaq.push(['_gat._trackPageLoadTime']); *}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GATrackPageLoadTime]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GATrackPageLoadTime}]checked[{/if}] name="value[d3_cfg_mod__blD3GATrackPageLoadTime]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
                     </div>
                 </div>
-                
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -237,7 +249,7 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                         </dl>
                     </div>
                 </div>
-                
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -293,7 +305,7 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                         </dl>
                     </div>
                 </div>
-                
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -361,7 +373,7 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                         </dl>
                     </div>
                 </div>
-            
+
                 <table width="100%">
                     <tr>
                         <td class="edittext ext_edittext" align="left"><br>
