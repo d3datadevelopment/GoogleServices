@@ -15,3 +15,6 @@ UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.1.4', `OXINSTALLDATE` = NOW(), `OXREVIS
 
 # ==== 2.1.4 PE4 => 2.1.5 PE4 / EE4 / CE4 ====
 UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.1.5', `OXINSTALLDATE` = NOW(), `OXREVISION` = '23', `OXNEWREVISION` = '23' WHERE `OXMODID` = 'd3_googleanalytics';
+
+# ==== 2.1.5 PE4 => 2.1.6 PE4 / EE4 / CE4 ====
+UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.1.6', `OXINSTALLDATE` = NOW(), `OXREVISION` = '25', `OXNEWREVISION` = '25' WHERE `OXMODID` = 'd3_googleanalytics';

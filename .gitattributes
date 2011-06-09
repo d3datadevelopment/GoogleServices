@@ -197,6 +197,7 @@ copy_this/admin/d3_cfg_googleanalytics_campaigns.php -text
 copy_this/admin/d3_cfg_googleanalytics_licence.php -text
 copy_this/admin/d3_cfg_googleanalytics_list.php -text
 copy_this/admin/d3_cfg_googleanalytics_main.php -text
+copy_this/core/smarty/plugin/function.d3getArticleFromOrderArticle.php -text
 copy_this/modules/d3GoogleAnalytics/menu.xml -text
 copy_this/modules/d3GoogleAnalytics/views/d3_oxcmp_utils_googleAnalytics.php -text
 setup+doku/Google[!!-~]Analytics-Installation.pdf -text

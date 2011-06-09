@@ -45,7 +45,7 @@
                 _gaq.push(['_setDetectTitle', true]);
             [{/if}]
 
-            [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GACampaignCode')}]
+            [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack')}]
                 _gaq.push(['_setCampaignTrack', true]);
             [{else}]
                 _gaq.push(['_setCampaignTrack', false]);
