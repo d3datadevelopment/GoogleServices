@@ -113,7 +113,7 @@
     [{/if}]
 
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
-    <form action="[{ $oViewConf->getSslSelfLink()@oxaddparams:"cl=user" }]" name="order" method="post">
+    <form action="[{ $oViewConf->getSslSelfLink()|oxaddparams:"cl=user" }]" name="order" method="post">
       <div>
           [{ $oViewConf->getHiddenSid() }]
           [{ $oViewConf->getNavFormParams() }]
