@@ -43,7 +43,7 @@ $aLang = array(
 
 'D3_GOOGLEANALYTICS_BROWSER'                        => 'Browser-Daten',
 'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO'          => '<b>Deaktiviert</b> die Erkennung von Browserdaten (z.B. Name und Version)',
-'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO'          => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setClientInfo" target="gahelp">hier</a>.',
+'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO_DESC'     => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setClientInfo" target="gahelp">hier</a>.',
 'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH'         => '<b>Unterbindet</b> die Erkennung, ob beim Kunden das Flash-Plugin installiert ist.',
 'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH_DESC'    => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectFlash" target="gahelp">hier</a>.',
 'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE'         => '<b>Verhindert</b> die Erkennung des Seitentitels.',

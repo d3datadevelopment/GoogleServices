@@ -99,17 +99,21 @@
             [{/if}]
 
             [{if $oD3GASettings->getValue('blD3GASendECommerce') && $oViewConf->getActiveClassName() == 'thankyou'}]
+
+                [{assign var="currate" value=$order->oxorder__oxcurrate->value}]
+
                 _gaq.push(['_addTrans',
                     '[{ $order->oxorder__oxordernr->value }]',          [{* // order ID - required *}]
                     '[{ $oxcmp_shop->oxshops__oxname->value}]',         [{* // affiliation or store name *}]
                     [{if $oD3GASettings->getValue('blD3GAUseNetto') }]
-                        [{*'[{ $order->getOrderNetSum() }]',                // total - required - has to be gross sum *}]
-                        '[{ $order->getTotalOrderSum() }]',               [{* // total - required *}]
+                        [{*'[{math equation="s / r" s=$order->getOrderNetSum() r=$currate format="%.2f"}]',                // total - required - has to be gross sum *}]
+
+                         '[{math equation="s / r" s=$order->getTotalOrderSum() r=$currate format="%.2f"}]',               [{* // total - required *}]
                     [{else}]
-                        '[{ $order->getTotalOrderSum() }]',             [{* // total - required *}]
+                        '[{math equation="s / r" s=$order->getTotalOrderSum() r=$currate format="%.2f"}]',             [{* // total - required *}]
                     [{/if}]
                     '',                                                 [{* // tax *}]
-                    '[{ $order->oxorder__oxdelcost->value }]',          [{* // shipping *}]
+                    '[{math equation="s / r" s=$order->oxorder__oxdelcost->value r=$currate format="%.2f"}]',          [{* // shipping *}]
                     '[{ $order->oxorder__oxbillcity->value }]',         [{* // city *}]
                     '[{ $order->oxorder__oxbillstate->value }]',        [{* // state or province *}]
                     '[{ $order->oxorder__oxbillcountry->value }]'       [{* // country *}]
@@ -123,9 +127,9 @@
                         '[{ $oOrderArticle->oxorderarticles__oxselvariant->value }]',   [{* // category or variation *}]
                         [{if $oD3GASettings->getValue('blD3GAUseNetto') }]
                             [{assign var="oPrice" value=$oOrderArticle->getPrice()}]
-                            '[{ $oPrice->getNettoPrice() }]',                           [{* // unit price - required *}]
+                            '[{math equation="s / r" s=$oPrice->getNettoPrice() r=$currate format="%.2f"}]',                           [{* // unit price - required *}]
                         [{else}]
-                            '[{ $oOrderArticle->oxorderarticles__oxprice->value }]',    [{* // unit price - required *}]
+                            '[{ $oOrderArticle->oxorderarticles__oxprice->value }]',    [{* // unit price - required - is not currency depended *}]
                         [{/if}]
                         '[{ $oOrderArticle->oxorderarticles__oxamount->value }]'        [{* // quantity - required *}]
                     ]);
