@@ -48,27 +48,27 @@
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampaignCookieTimeout')}]
-                _gaq.push(['_setCampaignCookieTimeout', [{$oD3GASettings->getValue('sD3GASetCampaignCookieTimeout')}]]);
+                _gaq.push(['_setCampaignCookieTimeout', '[{$oD3GASettings->getValue('sD3GASetCampaignCookieTimeout')}]']);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampNameKey')}]
-                _gaq.push(['_setCampNameKey', [{$oD3GASettings->getValue('sD3GASetCampNameKey')}]]);
+                _gaq.push(['_setCampNameKey', '[{$oD3GASettings->getValue('sD3GASetCampNameKey')}]']);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampMediumKey')}]
-                _gaq.push(['_setCampMediumKey', [{$oD3GASettings->getValue('sD3GASetCampMediumKey')}]]);
+                _gaq.push(['_setCampMediumKey', '[{$oD3GASettings->getValue('sD3GASetCampMediumKey')}]']);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampSourceKey')}]
-                _gaq.push(['_setCampSourceKey', [{$oD3GASettings->getValue('sD3GASetCampSourceKey')}]]);
+                _gaq.push(['_setCampSourceKey', '[{$oD3GASettings->getValue('sD3GASetCampSourceKey')}]']);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampTermKey')}]
-                _gaq.push(['_setCampTermKey', [{$oD3GASettings->getValue('sD3GASetCampTermKey')}]]);
+                _gaq.push(['_setCampTermKey', '[{$oD3GASettings->getValue('sD3GASetCampTermKey')}]']);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampContentKey')}]
-                _gaq.push(['_setCampContentKey', [{$oD3GASettings->getValue('sD3GASetCampContentKey')}]]);
+                _gaq.push(['_setCampContentKey', '[{$oD3GASettings->getValue('sD3GASetCampContentKey')}]']);
             [{/if}]
 
             [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampContentKey')}]
