@@ -72,7 +72,9 @@
 <!--[if lt IE 7]><script type="text/javascript">oxid.popup.addShim();</script><![endif]-->
 
 [{*** D3 MOD START * GoogleAnalytics ***}]
-    [{include file="inc/d3GoogleAnalytics.tpl"}]
+    [{d3modcfgcheck modid="d3_googleanalytics"}]
+        [{include file="inc/d3GoogleAnalytics.tpl"}]
+    [{/d3modcfgcheck}]
 [{*** D3 MOD END * GoogleAnalytics ***}]
 
 </body>

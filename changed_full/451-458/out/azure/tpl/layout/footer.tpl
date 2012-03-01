@@ -81,5 +81,7 @@
 [{/if}]
 
 [{*** D3 MOD START * GoogleAnalytics ***}]
-    [{include file="widget/d3googleanalytics/d3GoogleAnalytics.tpl"}]
+    [{d3modcfgcheck modid="d3_googleanalytics"}]
+        [{include file="widget/d3googleanalytics/d3GoogleAnalytics.tpl"}]
+    [{/d3modcfgcheck}]
 [{*** D3 MOD END * GoogleAnalytics ***}]
