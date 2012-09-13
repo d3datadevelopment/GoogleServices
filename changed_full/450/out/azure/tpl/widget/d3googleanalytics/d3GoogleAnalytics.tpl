@@ -1,4 +1,12 @@
 [{if $blD3GoogleAnalyticsActive && $oD3GASettings->getValue('sD3GAId')}]
+
+[{if $oViewConf->getActiveClassName() == 'thankyou'}]
+    [{assign var="order" value=$oView->getOrder()}]
+    [{assign var="oPayment" value=$order->getPayment()}]
+    [{assign var="oDelSet" value=$order->getDelSet()}]
+    [{assign var="aVoucherSerieList" value=$order->d3getVoucherSerieList()}]
+[{/if}]
+
     [{strip}]
         <script type="text/javascript">
             var _gaq = _gaq || [];
@@ -80,11 +88,25 @@
                 [{if $oxcmp_user}]
                     _gaq.push(['_setCustomVar',
                         1,           [{*// This custom var is set to slot #1.  Required parameter.*}]
-                        'Gender',    [{*// The name of the custom variable.  Required parameter.*}]
+                        'Geschlecht',    [{*// The name of the custom variable.  Required parameter.*}]
                         [{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]'male'[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]'female'[{/if}],
                                      [{*// The value of the custom variable.  Required parameter.*}]
                         1            [{*// Sets the scope to visitor-level.  Optional parameter.*}]
                     ]);
+                [{/if}]
+                [{if $oViewConf->getActiveClassName() == 'thankyou' && $oPayment}]
+                    _gaq.push('_setCustomVar',2,'Zahlungsart', '[{$oPayment->getFieldData('oxdesc')}]' , 3);
+                [{/if}]
+                [{if $oViewConf->getActiveClassName() == 'thankyou' && $oDelSet}]
+                    _gaq.push('_setCustomVar',3,'Versandart', '[{$oDelSet->getFieldData('oxtitle')}]' , 3);
+                [{/if}]
+                [{if $oViewConf->getActiveClassName() == 'thankyou' && $aVoucherSerieList}]
+                    [{foreach from=$aVoucherSerieList item="oVoucherSerie"}]
+                        _gaq.push('_setCustomVar',4,'Gutschein', '[{$oVoucherSerie->getFieldData('oxserienr')}]', 3);
+                    [{/foreach}]
+                [{/if}]
+                [{if $oViewConf->getActiveClassName() == 'thankyou' && $order}]
+                    _gaq.push('_setCustomVar',5,'Waehrung', '[{$order->getFieldData('oxcurrency')}]' , 3);
                 [{/if}]
             [{/if}]
 

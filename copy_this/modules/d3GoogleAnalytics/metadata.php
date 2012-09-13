@@ -13,6 +13,7 @@ $aModule = array(
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
     'extend'      => array(
-        'oxcmp_utils' => 'd3GoogleAnalytics/views/d3_oxcmp_utils_googleanalytics'
+        'oxcmp_utils' => 'd3GoogleAnalytics/views/d3_oxcmp_utils_googleanalytics',
+        'oxorder'     => 'd3GoogleAnalytics/core/d3_oxorder_googleanalytics',
     )
 );

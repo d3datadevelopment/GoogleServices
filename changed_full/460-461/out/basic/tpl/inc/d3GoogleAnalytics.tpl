@@ -3,8 +3,8 @@
 [{if $oViewConf->getActiveClassName() == 'thankyou'}]
     [{assign var="order" value=$oView->getOrder()}]
     [{assign var="oPayment" value=$order->getPayment()}]
-    [{assign var="oDelset" value=$order->getDelSet()}]
-    [{assign var="aVoucherList" value=$order->getVoucherList()}]
+    [{assign var="oDelSet" value=$order->getDelSet()}]
+    [{assign var="aVoucherSerieList" value=$order->d3getVoucherSerieList()}]
 [{/if}]
 
     [{strip}]
@@ -95,18 +95,18 @@
                     ]);
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $oPayment}]
-                    _gaq.push('_setCustomVar',2,'Zahlungsart',$oPayment->getFieldData('oxdesc') , 3);
+                    _gaq.push('_setCustomVar',2,'Zahlungsart', '[{$oPayment->getFieldData('oxdesc')}]' , 3);
                 [{/if}]
-                [{if $oViewConf->getActiveClassName() == 'thankyou' && $oDelset}]
-                    _gaq.push('_setCustomVar',3,'Versandart',$order->oxorder__oxdeltype->value , 3);
+                [{if $oViewConf->getActiveClassName() == 'thankyou' && $oDelSet}]
+                    _gaq.push('_setCustomVar',3,'Versandart', '[{$oDelSet->getFieldData('oxtitle')}]' , 3);
                 [{/if}]
-                [{if $oViewConf->getActiveClassName() == 'thankyou' && $aVoucherList}]
-                    [{foreach from=$aVoucherList item="oVoucher"}]
-                        _gaq.push('_setCustomVar',4,'Gutschein',$oVoucher->getFieldData('oxvoucherserieid'), 3);
+                [{if $oViewConf->getActiveClassName() == 'thankyou' && $aVoucherSerieList}]
+                    [{foreach from=$aVoucherSerieList item="oVoucherSerie"}]
+                        _gaq.push('_setCustomVar',4,'Gutschein', '[{$oVoucherSerie->getFieldData('oxserienr')}]', 3);
                     [{/foreach}]
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $order}]
-                    _gaq.push('_setCustomVar',5,'Waehrung',$order->oxorder__oxcurrency->value , 3);
+                    _gaq.push('_setCustomVar',5,'Waehrung', '[{$order->getFieldData('oxcurrency')}]' , 3);
                 [{/if}]
             [{/if}]
 
