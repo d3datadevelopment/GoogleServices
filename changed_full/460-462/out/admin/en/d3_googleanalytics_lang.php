@@ -24,6 +24,8 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC'                          => 'Die IP-Adressen Ihrer Shopbesucher werden anonymisiert. Zwar werden dadurch die Gebietszuordnungen etwas ungenauer. Jedoch können Sie nur mit dieser Einstellung den Datenschutzvorschriften in Deutschland entsprechen.',
 'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME'                         => 'Seitenladezeit mit übertragen',
 'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC'                    => 'Die Ladezeit Ihrer Seite ist, speziell auch in Hinblick auf verschiedene Länder, durchaus ein Faktor, der in das Ranking Ihrer Page einfliesst.',
+'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING'                    		=> 'Remarketing verwenden',
+'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC'                    	=> 'Wenn Sie sich entschließen, Remarketing mit Google Analytics zu nutzen, setzen Sie diesen Haken. Nachdem Sie diese Änderung vorgenommen haben, erfasst und analysiert Google Analytics neben den üblichen Informationen auch das DoubleClick-Cookie, sofern vorhanden. Das DoubleClick-Cookie ermöglicht Remarketing im Google Display-Netzwerk für Produkte wie AdWords.',
 
 'D3_GOOGLEANALYTICS_ECOMMERCE'                                      => 'eCommerce-Einstellungen',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'                             => 'eCommerce-Daten übertragen',

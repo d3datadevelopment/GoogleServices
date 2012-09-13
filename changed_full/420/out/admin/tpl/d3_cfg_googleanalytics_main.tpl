@@ -215,6 +215,17 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
                             </dd>
                             <div class="spacer"></div>
                         </dl>
+                        <dl>
+                            <dt>
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING"}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[d3_cfg_mod__blD3GAUseRemarketing]" value="0">
+                                <input class="edittext ext_edittext" type="checkbox" value="1" [{if $value->d3_cfg_mod__blD3GAUseRemarketing}]checked[{/if}] name="value[d3_cfg_mod__blD3GAUseRemarketing]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC" }]
+                            </dd>
+                            <div class="spacer"></div>
+                        </dl>
                     </div>
                 </div>
 
