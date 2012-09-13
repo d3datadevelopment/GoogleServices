@@ -95,18 +95,18 @@
                     ]);
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $oPayment}]
-                    _gaq.push('_setCustomVar',2,'Zahlungsart', '[{$oPayment->getFieldData('oxdesc')}]' , 3);
+                    _gaq.push(['_setCustomVar',2,'Zahlungsart', '[{$oPayment->getFieldData('oxdesc')}]' , 3]);
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $oDelSet}]
-                    _gaq.push('_setCustomVar',3,'Versandart', '[{$oDelSet->getFieldData('oxtitle')}]' , 3);
+                    _gaq.push(['_setCustomVar',3,'Versandart', '[{$oDelSet->getFieldData('oxtitle')}]' , 3]);
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $aVoucherSerieList}]
                     [{foreach from=$aVoucherSerieList item="oVoucherSerie"}]
-                        _gaq.push('_setCustomVar',4,'Gutschein', '[{$oVoucherSerie->getFieldData('oxserienr')}]', 3);
+                        _gaq.push(['_setCustomVar',4,'Gutschein', '[{$oVoucherSerie->getFieldData('oxserienr')}]', 3]);
                     [{/foreach}]
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $order}]
-                    _gaq.push('_setCustomVar',5,'Waehrung', '[{$order->getFieldData('oxcurrency')}]' , 3);
+                    _gaq.push(['_setCustomVar',5,'Waehrung', '[{$order->getFieldData('oxcurrency')}]' , 3]);
                 [{/if}]
             [{/if}]
 
