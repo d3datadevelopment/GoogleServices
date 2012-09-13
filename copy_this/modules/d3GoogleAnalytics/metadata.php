@@ -1,8 +1,12 @@
 <?php
 /**
- * Module information
+ * Metadata version
  */
 $sMetadataVersion = '1.0';
+
+/**
+ * Module information
+ */
 $aModule = array(
     'id'           => 'd3_googleanalytics',
     'title'        => oxLang::getInstance()->translateString('D3_GOOGLEANALYTICS_METADATA_TITLE'),
