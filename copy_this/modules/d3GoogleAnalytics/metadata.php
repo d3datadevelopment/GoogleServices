@@ -2,13 +2,13 @@
 /**
  * Module information
  */
-$sMetadataVersion = '1,.0';
+$sMetadataVersion = '1.0';
 $aModule = array(
     'id'           => 'd3_googleanalytics',
     'title'        => oxLang::getInstance()->translateString('D3_GOOGLEANALYTICS_METADATA_TITLE'),
     'description'  => oxLang::getInstance()->translateString('D3_GOOGLEANALYTICS_METADATA_DESC'),
     'thumbnail'    => 'picture.png',
-    'version'      => '2.2.3',
+    'version'      => '2.3.0',
     'author'       => oxLang::getInstance()->translateString('D3_MOD_LIB_METADATA_AUTHOR'),
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
