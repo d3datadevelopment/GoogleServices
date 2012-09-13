@@ -37,6 +37,6 @@ UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.2.3', `OXINSTALLDATE` = NOW(), `OXNEWRE
 # ==== 2.2.3 => 2.3.0 ====
 UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.3.0', `OXINSTALLDATE` = NOW(), `OXNEWREVISION` = '52' WHERE `OXMODID` = 'd3_googleanalytics';
 
-# ==== 2.3.0 => 2.4.0 ====
-UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.4.0', `OXINSTALLDATE` = NOW(), `OXNEWREVISION` = '55' WHERE `OXMODID` = 'd3_googleanalytics';
+# ==== 2.3.0 => 2.4.1 ====
+UPDATE `d3_cfg_mod` SET `OXVERSION` = '2.4.1', `OXINSTALLDATE` = NOW(), `OXNEWREVISION` = '57' WHERE `OXMODID` = 'd3_googleanalytics';
 UPDATE `d3_cfg_mod` SET `OXREVISION` = `OXNEWREVISION` WHERE `OXMODID` = 'd3_googleanalytics';
