@@ -1,0 +1,4 @@
+-- 2012-12-19 -- SK --
+- anpassen der Verzeichnisse + Dateien an PE/CE 4.7.x bzw. EE 5.0.x
+- "alten" Trunk auslagern unter branches/trunk_bis_4.6.x
+- "alte" Versionen unter Tags verschieben in neuse Verzeichnis unter tags/versionen_bis_4.6.x

@@ -10,13 +10,13 @@ $aLang = array(
 //Navigation
 'charset'                                                           => 'ISO-8859-15',
 'd3mxgoogleanalytics'                                               => 'Google Analytics',
-'d3mxgoogleanalytics_settings'                                      => 'Einstellungen',
+'d3mxgoogleanalytics_settings'                                      => 'Settings',
 'd3tbclgoogleanalytics_main'                                        => 'Analytics',
 'd3tbclgoogleanalytics_adwords'                                     => 'Kampagnen (z.B. AdWords)',
 
-'D3_GOOGLEANALYTICS_CFG_TITLE'                                      => 'Google Analytics Schnittstelle - Einstellungen',
+'D3_GOOGLEANALYTICS_CFG_TITLE'                                      => 'Google Analytics Schnittstelle - Settings',
 
-'D3_GOOGLEANALYTICS_MAIN'                                           => 'Grundeinstellungen',
+'D3_GOOGLEANALYTICS_MAIN'                                           => 'Main Settings',
 'D3_GOOGLEANALYTICS_MAIN_GAID'                                      => 'Analyics-ID',
 'D3_GOOGLEANALYTICS_MAIN_GAID_DESC'                                 => 'Fügen Sie hier die Google Analytics Konto-ID ein. Diese finden Sie in Ihrem GA-Konto und beginnt im Normalfall mit "UA-".',
 'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP'                               => 'IP-Adressen anonymisiert übertragen (dringend empfohlen)',
@@ -26,13 +26,13 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING'                    		=> 'Remarketing verwenden',
 'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC'                    	=> 'Wenn Sie sich entschließen, Remarketing mit Google Analytics zu nutzen, setzen Sie diesen Haken. Nachdem Sie diese Änderung vorgenommen haben, erfasst und analysiert Google Analytics neben den üblichen Informationen auch das DoubleClick-Cookie, sofern vorhanden. Das DoubleClick-Cookie ermöglicht Remarketing im Google Display-Netzwerk für Produkte wie AdWords.',
 
-'D3_GOOGLEANALYTICS_ECOMMERCE'                                      => 'eCommerce-Einstellungen',
+'D3_GOOGLEANALYTICS_ECOMMERCE'                                      => 'eCommerce-Settings',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'                             => 'eCommerce-Daten übertragen',
 'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC'                        => 'Mit dieser Einstellung werden Warenkorbdaten Ihrer Kunden an Analytics übertragen. Damit können Sie z.B. die Produktleistung und Umsatzzahlen ermitteln.',
 'D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO'                             => 'Netto-Preise übertragen, wenn verfügbar',
 'D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO_DESC'                        => 'Betreiben Sie einen B2B-Shop, übertragen Sie Ihre Artikelpreise netto an Analytics, wenn diese auch im Shop ohne Steuer zur Verfügung stehen. ',
 
-'D3_GOOGLEANALYTICS_DOMAIN'                                         => 'Multi-Domain-Einstellungen',
+'D3_GOOGLEANALYTICS_DOMAIN'                                         => 'Multi-Domain-Settings',
 'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER'                          => 'Trackingdaten von unterschiedlichen Domains verwenden',
 'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC'                     => 'Cross Domain Tracking erlaubt das Sammeln von Trackinginformationen auch über verschiedene Domains hinweg. <br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/tracking/asyncMigrationExamples.html" target="gahelp">hier</a>.',
 'D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME'                           => 'fixiert das Tracking-Cookie auf die angegebene Domain (optional)',
@@ -57,7 +57,7 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_SECURITYINFORMATIONS'                           => 'Im CMS-Baustein "Analytics_Security_Informations" ist ein Text hinterlegt, den Sie Ihren Kunden unter Ihrer Datenschutzerklärung verfügbar machen sollten. Klären Sie jedoch bitte vor Verwendung von Google Analytics Tracking und diesem Hinweistext ab, ob beides mit den Datenschutzbestimmung Ihres Landes konform geht. Ausschließlich der Shopbetreiber haftet für Verstöße. Beraten Sie sich im Zweifel mit Ihrem Rechtsanwalt.<br><br>Nach Aktivierung des Tracking-Codes dauert es in der Regel ca. 24 Stunden, bis die ersten Tracking-Daten in Analytics zur Verfügung stehen.',
     // TODO: add content to package
 
-'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                                 => 'Kampagnen Grundeinstellungen',
+'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                                 => 'Kampagnen Main Settings',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'                   => 'Kampagnendaten <b>nicht</b> übertragen',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK_DESC'              => 'Das Kampagnentracking ist im Standard aktiviert. Setzen Sie diesen Haken, um die Kampagnenübertragung zu deaktivieren.',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY'            => 'Kampagnendaten nur in Bestellabschlussseite verwenden',
@@ -66,7 +66,7 @@ $aLang = array(
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC'      => 'Geben Sie hier eine optionale Laufzeit dieser Kampagne in Millisekunden an.<br><br>30 Tage = 2592000000<br>365 Tage = 31536000000',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS'        => 'Millisekunden',
 'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY'                       => 'zwingend verwendete Kampagne (optional)',
-'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC'                  => 'die hier festgelegte Kampagne wird zwingend verwendet, auch wenn die Cookie-Einstellungen schon eine andere Kampagne liefern.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNOKey" target="gahelp">hier</a>.',
+'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC'                  => 'die hier festgelegte Kampagne wird zwingend verwendet, auch wenn die Cookie-Settings schon eine andere Kampagne liefern.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNOKey" target="gahelp">hier</a>.',
 
 'D3_GOOGLEANALYTICS_ADWORDSCODE'                                    => 'Kampagnen-Code',
 'D3_GOOGLEANALYTICS_ADWORDSCODE_CODE'                               => 'AdWords-Code',

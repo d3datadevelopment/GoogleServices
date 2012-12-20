@@ -41,12 +41,14 @@
                 [{/if}]
             </div>
 
+            <div class="lineBox">
             [{include file="page/checkout/inc/basketcontents.tpl" editable=true}]
 
             [{if $oViewConf->getShowVouchers()}]
                 [{block name="checkout_basket_vouchers"}]
                     [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
                     [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
+<div id="basketVoucher">
 [{*** D3 MOD NEXT_LINE  * GoogleAnalytics ***}]
                     <form name="voucher" action="[{ $oViewConf->getSelfActionLink()|oxaddparams:"cl=basket" }]" method="post" class="js-oxValidate">
                         <div class="couponBox" id="coupon">
@@ -64,15 +66,19 @@
                             <input type="hidden" name="cl" value="basket">
                             <input type="hidden" name="fnc" value="addVoucher">
                             <input type="text" size="20" name="voucherNr" class="textbox js-oxValidate js-oxValidate_notEmpty">
-                            <button type="submit" class="submitButton largeButton">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_SUBMITCOUPON" }]</button>
+                                    <button type="submit" class="submitButton">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_SUBMITCOUPON" }]</button>
                             <p class="oxValidateError">
                                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                             </p>
                             <input type="hidden" name="CustomError" value='basket'>
                         </div>
                     </form>
+                        </div>
                 [{/block}]
             [{/if}]
+            </div>
+
+            
             <div class="lineBox clear">
                 [{if $oView->showBackToShop()}]
                     [{block name="checkout_basket_backtoshop_bottom"}]
