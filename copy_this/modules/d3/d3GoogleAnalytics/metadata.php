@@ -2,19 +2,18 @@
 /**
  * Metadata version
  */
-$sMetadataVersion = '1.0';
+$sMetadataVersion = '1.1';
 
 /**
  * Module information
  */
-$sMetadataVersion = '1,.0';
 $aModule = array(
     'id'           => 'd3_googleanalytics',
-    'title'        => oxLang::getInstance()->translateString('D3_GOOGLEANALYTICS_METADATA_TITLE'),
-    'description'  => oxLang::getInstance()->translateString('D3_GOOGLEANALYTICS_METADATA_DESC'),
+    'title'        => (class_exists('d3utils')?d3utils::getInstance()->getD3Logo():'D&sup3;').' Google Analytics Schnittstelle',
+    'description'  => array(),
     'thumbnail'    => 'picture.png',
-    'version'      => '2.4.0',
-    'author'       => oxLang::getInstance()->translateString('D3_MOD_LIB_METADATA_AUTHOR'),
+    'version'      => '3.0.0.0',
+    'author'       => 'D&sup3; Data Development',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
     'extend'      => array(
