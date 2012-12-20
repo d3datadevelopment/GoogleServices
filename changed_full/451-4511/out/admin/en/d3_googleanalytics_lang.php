@@ -9,7 +9,6 @@ $aLang = array(
 
 //Navigation
 'charset'                                                           => 'ISO-8859-15',
-'d3mxd3modules'                                                     => 'D³ Module',
 'd3mxgoogleanalytics'                                               => 'Google Analytics',
 'd3mxgoogleanalytics_settings'                                      => 'Einstellungen',
 'd3tbclgoogleanalytics_main'                                        => 'Analytics',
