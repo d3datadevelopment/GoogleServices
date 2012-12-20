@@ -116,60 +116,21 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
     <input type="hidden" name="editval[d3_cfg_mod__oxid]" value="[{ $oxid }]">
 
 <table border="0" width="98%">
-<tr>
-    <td valign="top" class="edittext">
+    <tr>
+        <td valign="top" class="edittext">
 
-            <table style="width: 100%">
-                <tr>
-		            <td style="width:50%; border-right: 1px solid #999;">
-                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                            <tr>
-                                <td class="edittext ext_edittext">
-                                    [{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULEACTIVE"}]
-                                </td>
-                                <td class="edittext ext_edittext">
-                                    <input type="hidden" name="editval[d3_cfg_mod__oxactive]" value='0'>
-                                    <input class="edittext ext_edittext" type="checkbox" name="editval[d3_cfg_mod__oxactive]" value='1' [{if $edit->d3_cfg_mod__oxactive->value == 1}]checked[{/if}]>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-		            <td>
-                        [{assign var="blD3HasLog" value=$oView->checkD3Log() }]
-                        <table cellspacing="0" cellpadding="0" border="0">
-                            <tr>
-                                <td class="edittext ext_edittext" style="width: 100%;">
-                                    [{if $blD3HasLog}]
-                                        [{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULELOGGING"}]
-                                    [{/if}]
-                                </td>
-                                <td class="edittext ext_edittext" align="left">
-                                    [{if $blD3HasLog}]
-                                        <select name="editval[d3_cfg_mod__oxismodulelog]" class="edittext">
-                                            <option value="0" [{if $edit->d3_cfg_mod__oxismodulelog->value == 0}]selected[{/if}]>[{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULELOGGING_NONE"}]</option>
-                                            <option value="1" [{if $edit->d3_cfg_mod__oxismodulelog->value == 1}]selected[{/if}]>[{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULELOGGING_ALL"}]</option>
-                                            <option value="2" [{if $edit->d3_cfg_mod__oxismodulelog->value == 2}]selected[{/if}]>[{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULELOGGING_ERRORS"}]</option>
-                                        </select>
-                                    [{/if}]
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="edittext ext_edittext" style="width: 100%;">
-                                    &nbsp;
-                                </td>
-                                <td class="edittext ext_edittext" align="left">
-                                    &nbsp;
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+            [{assign var="incpath" value=$oViewConf->getModulePath('d3modcfg_lib')|cat:"views/admin/tpl/inc/d3_cfg_mod_active.tpl"}]
+            [{include file=$incpath}]
 
             [{if $oView->getValueStatus() == 'error'}]
-                <hr>
-                <b>[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_DESC"}]</b><br>
-                <input type="submit" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_BTN"}]">
+                    <hr>
+                    <b>[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_DESC"}]</b>
+                    <br>
+                    <br>
+                    <span class="d3modcfg_btn fixed icon status_attention">
+                        <input type="submit" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_BTN"}]">
+                        <span></span>
+                    </span>
                 </form>
             [{else}]
 
@@ -398,9 +359,12 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
 
                 <br><br>[{oxmultilang ident="D3_GOOGLEANALYTICS_SECURITYINFORMATIONS"}]
             [{/if}]
+        </td>
+    </tr>
+</table>
 
-
-[{include file="bottomitem.tpl"}]
+[{assign var="incpath" value=$oViewConf->getModulePath('d3modcfg_lib')|cat:"views/admin/tpl/d3_cfg_mod_inc.tpl"}]
+[{include file=$incpath}]
 
 <script type="text/javascript">
 if (parent.parent)
