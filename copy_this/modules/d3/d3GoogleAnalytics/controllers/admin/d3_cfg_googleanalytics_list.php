@@ -20,14 +20,13 @@
 
 class d3_cfg_googleanalytics_list extends d3_cfg_mod_list
 {
-
     protected $_blD3ShowLangSwitch = TRUE;
 
     public function render()
     {
         parent::render();
 
-        $this->_aViewData["default_edit"] = "d3_cfg_googleanalytics_main";
+        $this->addTplParam("default_edit", "d3_cfg_googleanalytics_main");
 
         return $this->_sThisTemplate;
     }

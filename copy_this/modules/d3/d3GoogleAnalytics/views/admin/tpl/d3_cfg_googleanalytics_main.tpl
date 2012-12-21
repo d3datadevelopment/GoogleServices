@@ -1,7 +1,5 @@
 [{include file="headitem.tpl" title="D3_GOOGLEANALYTICS_CFG_TITLE"|oxmultilangassign}]
 
-<link rel="stylesheet" type="text/css" href="[{$oViewConf->getResourceUrl() }]d3_mod_cfg.css">
-
 <script type="text/javascript">
     <!--
     [{ if $updatelist == 1}]
@@ -89,8 +87,6 @@
     td.edittext {
         white-space: normal;
     }
-
-    div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
     -->
 </style>
 
@@ -132,6 +128,7 @@
                         <span></span>
                     </span>
                 </form>
+                </div>
             [{else}]
 
                 <div class="groupExp">

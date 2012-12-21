@@ -1,7 +1,5 @@
 [{include file="headitem.tpl" title="D3_GOOGLEANALYTICS_CFG_TITLE"|oxmultilangassign}]
 
-<link rel="stylesheet" type="text/css" href="[{$oViewConf->getResourceUrl() }]d3_mod_cfg.css">
-
 <script type="text/javascript">
 <!--
 [{ if $updatelist == 1}]
@@ -89,8 +87,6 @@ function _groupExp(el) {
     td.edittext {
         white-space: normal;
     }
-
-    div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
     -->
 </style>
 
@@ -116,14 +112,20 @@ function _groupExp(el) {
     <input type="hidden" name="editval[d3_cfg_mod__oxid]" value="[{ $oxid }]">
 
 <table border="0" width="98%">
-<tr>
-    <td valign="top" class="edittext">
+    <tr>
+        <td valign="top" class="edittext">
 
             [{if $oView->getValueStatus() == 'error'}]
-                <hr>
-                <b>[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_DESC"}]</b><br>
-                <input type="submit" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_BTN"}]">
+                    <hr>
+                    <b>[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_DESC"}]</b>
+                    <br>
+                    <br>
+                    <span class="d3modcfg_btn fixed icon status_attention">
+                        <input type="submit" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_BTN"}]">
+                        <span></span>
+                    </span>
                 </form>
+                </div>
             [{else}]
 
                 <div class="groupExp">
@@ -281,9 +283,13 @@ function _groupExp(el) {
                 </table>
 
             [{/if}]
+        </td>
+    </tr>
+</table>
 
 
-[{include file="bottomitem.tpl"}]
+[{assign var="incpath" value=$oViewConf->getModulePath('d3modcfg_lib')|cat:"views/admin/tpl/d3_cfg_mod_inc.tpl"}]
+[{include file=$incpath}]
 
 <script type="text/javascript">
     if (parent.parent) {
