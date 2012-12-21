@@ -20,7 +20,9 @@
 
 class d3_cfg_googleanalytics extends d3_cfg_mod_
 {
-
+    /**
+     * @return string
+     */
     public function render()
     {
         $this->_aViewData['sListClass'] = 'd3_cfg_googleanalytics_list';

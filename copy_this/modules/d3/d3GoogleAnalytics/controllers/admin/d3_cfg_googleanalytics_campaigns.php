@@ -24,6 +24,9 @@ class d3_cfg_googleanalytics_campaigns extends d3_cfg_mod_main
 
     protected $_sModId = 'd3_googleanalytics';
 
+    /**
+     * @return bool
+     */
     public function checkD3Log()
     {
         // there are no reasons to log anything

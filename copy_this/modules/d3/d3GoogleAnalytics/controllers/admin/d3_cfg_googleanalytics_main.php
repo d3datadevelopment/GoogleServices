@@ -23,6 +23,9 @@ class d3_cfg_googleanalytics_main extends d3_cfg_mod_main
     protected $_sThisTemplate = 'd3_cfg_googleanalytics_main.tpl';
     protected $_sModId = 'd3_googleanalytics';
 
+    /**
+     * @return bool
+     */
     public function checkD3Log()
     {
         // there are no reasons to log anything

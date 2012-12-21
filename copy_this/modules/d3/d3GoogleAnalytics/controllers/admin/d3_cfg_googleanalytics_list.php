@@ -22,6 +22,9 @@ class d3_cfg_googleanalytics_list extends d3_cfg_mod_list
 {
     protected $_blD3ShowLangSwitch = TRUE;
 
+    /**
+     * @return null|string
+     */
     public function render()
     {
         parent::render();

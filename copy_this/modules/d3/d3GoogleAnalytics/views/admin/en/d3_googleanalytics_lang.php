@@ -1,5 +1,23 @@
 <?php
 
+/**
+ *    This module is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This module is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    For further informations, see <http://www.gnu.org/licenses/>.
+ *
+ * @link      http://www.oxidmodule.com
+ * @link      http://www.shopmodule.com
+ * @copyright (C) D3 Data Development
+ */
+
 $sLangName = "English";
 
 // -------------------------------
@@ -43,11 +61,11 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_DOMAIN_COOKIEPATHCOPY_DESC'                => 'Ein Eintrag hier sollte so aussehen: /myCart/<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/tracking/gaTrackingSite.html" target="gahelp">hier</a>.',
 
     'D3_GOOGLEANALYTICS_BROWSER'                                   => 'Browser-Daten',
-    'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO'                     => '<b>Deaktiviert</b> die Erkennung von Browserdaten (z.B. Name und Version)',
+    'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO'                     => '<span style="font-weight: bold;">Deaktiviert</span> die Erkennung von Browserdaten (z.B. Name und Version)',
     'D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO_DESC'                => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setClientInfo" target="gahelp">hier</a>.',
-    'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH'                    => '<b>Unterbindet</b> die Erkennung, ob beim Kunden das Flash-Plugin installiert ist.',
+    'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH'                    => '<span style="font-weight: bold;">Unterbindet</span> die Erkennung, ob beim Kunden das Flash-Plugin installiert ist.',
     'D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH_DESC'               => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectFlash" target="gahelp">hier</a>.',
-    'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE'                    => '<b>Verhindert</b> die Erkennung des Seitentitels.',
+    'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE'                    => '<span style="font-weight: bold;">Verhindert</span> die Erkennung des Seitentitels.',
     'D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE_DESC'               => 'Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiWebClient.html#_gat.GA_Tracker_._setDetectTitle" target="gahelp">hier</a>.',
 
     'D3_GOOGLEANALYTICS_CUSTOMVARS'                                => 'individuelle Daten',
@@ -58,7 +76,7 @@ $aLang = array(
     // TODO: add content to package
 
     'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                            => 'Kampagnen Main Settings',
-    'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'              => 'Kampagnendaten <b>nicht</b> übertragen',
+    'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'              => 'Kampagnendaten <span style="font-weight: bold;">nicht</span> übertragen',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK_DESC'         => 'Das Kampagnentracking ist im Standard aktiviert. Setzen Sie diesen Haken, um die Kampagnenübertragung zu deaktivieren.',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY'       => 'Kampagnendaten nur in Bestellabschlussseite verwenden',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY_DESC'  => 'Ist dieser Haken nicht gesetzt, wird der Kampagnencode shopweit eingefügt. Das AdWords-Conversion Tracking erwartet die Daten jedoch nur bei Bestellabschluss. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion Tracking Anbieter.',

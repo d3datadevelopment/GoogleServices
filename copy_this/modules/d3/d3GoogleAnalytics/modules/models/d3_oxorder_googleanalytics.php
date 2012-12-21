@@ -20,6 +20,9 @@
 
 class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
 {
+    /**
+     * @return oxUserPayment
+     */
     public function getPayment()
     {
         if (!$this->_oPayment)
@@ -31,6 +34,9 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
         return parent::getPayment();
     }
 
+    /**
+     * @return array
+     */
     public function d3getVoucherSerieList()
     {
         $sSelect           =

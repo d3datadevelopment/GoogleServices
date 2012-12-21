@@ -260,6 +260,7 @@ copy_this/modules/d3/d3GoogleAnalytics/controllers/admin/d3_cfg_googleanalytics_
 copy_this/modules/d3/d3GoogleAnalytics/controllers/admin/d3_cfg_googleanalytics_licence.php -text
 copy_this/modules/d3/d3GoogleAnalytics/controllers/admin/d3_cfg_googleanalytics_list.php -text
 copy_this/modules/d3/d3GoogleAnalytics/controllers/admin/d3_cfg_googleanalytics_main.php -text
+copy_this/modules/d3/d3GoogleAnalytics/d3_googleanalytics_stub.php -text
 copy_this/modules/d3/d3GoogleAnalytics/menu.xml -text
 copy_this/modules/d3/d3GoogleAnalytics/modules/components/d3_oxcmp_utils_googleanalytics.php -text
 copy_this/modules/d3/d3GoogleAnalytics/modules/models/d3_oxorder_googleanalytics.php -text
