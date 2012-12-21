@@ -270,7 +270,7 @@ copy_this/modules/d3/d3GoogleAnalytics/views/admin/tpl/d3_cfg_googleanalytics_ca
 copy_this/modules/d3/d3GoogleAnalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl -text
 setup+doku/EE/install.sql -text
 setup+doku/Google[!!-~]Analytics-Installation.pdf -text
-setup+doku/PE/install.sql -text
+setup+doku/PE/install_pe_ce.sql -text
 setup+doku/adwords_1.png -text
 setup+doku/adwords_2.png -text
 setup+doku/analytics_1.png -text
