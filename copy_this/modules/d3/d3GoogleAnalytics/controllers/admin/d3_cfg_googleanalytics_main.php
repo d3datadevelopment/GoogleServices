@@ -13,19 +13,20 @@
  *
  *    For further informations, see <http://www.gnu.org/licenses/>.
  *
- * @link http://www.oxidmodule.com
- * @link http://www.shopmodule.com
+ * @link      http://www.oxidmodule.com
+ * @link      http://www.shopmodule.com
  * @copyright (C) D3 Data Development
  */
 
-
-class d3_cfg_googleanalytics_licence extends d3_cfg_mod_licence {
+class d3_cfg_googleanalytics_main extends d3_cfg_mod_main
+{
+    protected $_sThisTemplate = 'd3_cfg_googleanalytics_main.tpl';
 
     protected $_sModId = 'd3_googleanalytics';
 
-    protected $_hasLicence = false;
-
-    protected $_hasNewsletterForm = false;
-
-	protected $_hasUpdate = true;
+    public function checkD3Log()
+    {
+        // there are no reasons to log anything
+        return FALSE;
+    }
 }

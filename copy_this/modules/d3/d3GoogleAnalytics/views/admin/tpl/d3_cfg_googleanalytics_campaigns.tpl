@@ -40,58 +40,58 @@ function _groupExp(el) {
 </script>
 
 <style type="text/css">
-<!--
-.questbox{
-    background-color: #07f;
-    color: white;
-    float: right;
-    position: relative;
-    display: block;
-    padding: 1px 4px;
-    font-weight: bold;
-    z-index: 98;
-    cursor: help;
-    font-family: Verdana,Arial,Helvetica,sans-serif;
-    font-size: 10px;
-    line-height: 12px;
-}
+    <!--
+    .questbox {
+        background-color: #07f;
+        color:            white;
+        float:            right;
+        position:         relative;
+        display:          block;
+        padding:          1px 4px;
+        font-weight:      bold;
+        z-index:          98;
+        cursor:           help;
+        font-family:      Verdana, Arial, Helvetica, sans-serif;
+        font-size:        10px;
+        line-height:      12px;
+    }
 
-.helptextbox{
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    position: absolute;
-    overflow: hidden;
-    padding: 5px;
-    margin-top: 15px;
-    width: 300px;
-    z-index: 99;
-}
+    .helptextbox {
+        background-color: white;
+        color:            black;
+        border:           1px solid black;
+        position:         absolute;
+        overflow:         hidden;
+        padding:          5px;
+        margin-top:       15px;
+        width:            300px;
+        z-index:          99;
+    }
 
-fieldset{
-    border: 1px inset black;
-    background-color: #F0F0F0;
-}
+    fieldset {
+        border:           1px inset black;
+        background-color: #F0F0F0;
+    }
 
-legend{
-    font-weight: bold;
-}
+    legend {
+        font-weight: bold;
+    }
 
-dl dt{
-    font-weight: normal;
-    width: 55%;
-}
+    dl dt {
+        font-weight: normal;
+        width:       55%;
+    }
 
-.ext_edittext {
-    padding: 2px;
-}
+    .ext_edittext {
+        padding: 2px;
+    }
 
-td.edittext {
-    white-space: normal;
-}
+    td.edittext {
+        white-space: normal;
+    }
 
-div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
--->
+    div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
+    -->
 </style>
 
 [{ if $readonly}]
@@ -286,11 +286,11 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
 [{include file="bottomitem.tpl"}]
 
 <script type="text/javascript">
-if (parent.parent)
-{   parent.parent.sShopTitle   = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
-    parent.parent.sMenuItem    = "[{oxmultilang ident="d3mxgoogleanalytics"}]";
-    parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclgoogleanalytics_adwords"}]";
-    parent.parent.sWorkArea    = "[{$_act}]";
-    parent.parent.setTitle();
-}
+    if (parent.parent) {
+        parent.parent.sShopTitle = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
+        parent.parent.sMenuItem = "[{oxmultilang ident="d3mxgoogleanalytics"}]";
+        parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclgoogleanalytics_adwords"}]";
+        parent.parent.sWorkArea = "[{$_act}]";
+        parent.parent.setTitle();
+    }
 </script>

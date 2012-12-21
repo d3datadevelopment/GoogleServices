@@ -3,95 +3,95 @@
 <link rel="stylesheet" type="text/css" href="[{$oViewConf->getResourceUrl() }]d3_mod_cfg.css">
 
 <script type="text/javascript">
-<!--
-[{ if $updatelist == 1}]
-    UpdateList('[{ $oxid }]');
-[{ /if}]
+    <!--
+    [{ if $updatelist == 1}]
+        UpdateList('[{ $oxid }]');
+    [{ /if}]
 
-function UpdateList( sID)
-{
-    var oSearch = parent.list.document.getElementById("search");
-    oSearch.oxid.value=sID;
-    oSearch.fnc.value='';
-    oSearch.submit();
-}
+    function UpdateList( sID)
+    {
+        var oSearch = parent.list.document.getElementById("search");
+        oSearch.oxid.value=sID;
+        oSearch.fnc.value='';
+        oSearch.submit();
+    }
 
-function EditThis( sID)
-{
-    var oTransfer = document.getElementById("transfer");
-    oTransfer.oxid.value=sID;
-    oTransfer.cl.value='';
-    oTransfer.submit();
+    function EditThis( sID)
+    {
+        var oTransfer = document.getElementById("transfer");
+        oTransfer.oxid.value=sID;
+        oTransfer.cl.value='';
+        oTransfer.submit();
 
-    var oSearch = parent.list.document.getElementById("search");
-    oSearch.actedit.value = 0;
-    oSearch.oxid.value=sID;
-    oSearch.submit();
-}
+        var oSearch = parent.list.document.getElementById("search");
+        oSearch.actedit.value = 0;
+        oSearch.oxid.value=sID;
+        oSearch.submit();
+    }
 
-function _groupExp(el) {
-    var _cur = el.parentNode;
+    function _groupExp(el) {
+        var _cur = el.parentNode;
 
-    if (_cur.className == "exp") _cur.className = "";
-      else _cur.className = "exp";
-}
+        if (_cur.className == "exp") _cur.className = "";
+          else _cur.className = "exp";
+    }
 
--->
+    -->
 </script>
 
 <style type="text/css">
-<!--
-.questbox{
-    background-color: #07f;
-    color: white;
-    float: right;
-    position: relative;
-    display: block;
-    padding: 1px 4px;
-    font-weight: bold;
-    z-index: 98;
-    cursor: help;
-    font-family: Verdana,Arial,Helvetica,sans-serif;
-    font-size: 10px;
-    line-height: 12px;
-}
+    <!--
+    .questbox {
+        background-color: #07f;
+        color:            white;
+        float:            right;
+        position:         relative;
+        display:          block;
+        padding:          1px 4px;
+        font-weight:      bold;
+        z-index:          98;
+        cursor:           help;
+        font-family:      Verdana, Arial, Helvetica, sans-serif;
+        font-size:        10px;
+        line-height:      12px;
+    }
 
-.helptextbox{
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    position: absolute;
-    overflow: hidden;
-    padding: 5px;
-    margin-top: 15px;
-    width: 300px;
-    z-index: 99;
-}
+    .helptextbox {
+        background-color: white;
+        color:            black;
+        border:           1px solid black;
+        position:         absolute;
+        overflow:         hidden;
+        padding:          5px;
+        margin-top:       15px;
+        width:            300px;
+        z-index:          99;
+    }
 
-fieldset{
-    border: 1px inset black;
-    background-color: #F0F0F0;
-}
+    fieldset {
+        border:           1px inset black;
+        background-color: #F0F0F0;
+    }
 
-legend{
-    font-weight: bold;
-}
+    legend {
+        font-weight: bold;
+    }
 
-dl dt{
-    font-weight: normal;
-    width: 55%;
-}
+    dl dt {
+        font-weight: normal;
+        width:       55%;
+    }
 
-.ext_edittext {
-    padding: 2px;
-}
+    .ext_edittext {
+        padding: 2px;
+    }
 
-td.edittext {
-    white-space: normal;
-}
+    td.edittext {
+        white-space: normal;
+    }
 
-div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
--->
+    div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right;}
+    -->
 </style>
 
 [{ if $readonly}]
@@ -367,11 +367,11 @@ div.box{background: white url([{$oView->getBGLogoUrl()}]) no-repeat bottom right
 [{include file=$incpath}]
 
 <script type="text/javascript">
-if (parent.parent)
-{   parent.parent.sShopTitle   = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
-    parent.parent.sMenuItem    = "[{oxmultilang ident="d3mxgoogleanalytics"}]";
-    parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclgoogleanalytics_main"}]";
-    parent.parent.sWorkArea    = "[{$_act}]";
-    parent.parent.setTitle();
-}
+    if (parent.parent) {
+        parent.parent.sShopTitle = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
+        parent.parent.sMenuItem = "[{oxmultilang ident="d3mxgoogleanalytics"}]";
+        parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclgoogleanalytics_main"}]";
+        parent.parent.sWorkArea = "[{$_act}]";
+        parent.parent.setTitle();
+    }
 </script>

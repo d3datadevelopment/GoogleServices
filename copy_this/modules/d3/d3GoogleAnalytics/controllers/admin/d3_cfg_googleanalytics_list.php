@@ -13,27 +13,22 @@
  *
  *    For further informations, see <http://www.gnu.org/licenses/>.
  *
- * @link http://www.oxidmodule.com
- * @link http://www.shopmodule.com
+ * @link      http://www.oxidmodule.com
+ * @link      http://www.shopmodule.com
  * @copyright (C) D3 Data Development
  */
 
-class d3_cfg_googleanalytics_campaigns extends d3_cfg_mod_main
+class d3_cfg_googleanalytics_list extends d3_cfg_mod_list
 {
-    protected $_sThisTemplate = 'd3_cfg_googleanalytics_campaigns.tpl';
 
-    protected $_sModId = 'd3_googleanalytics';
-    
-    public function checkD3Log()
-    {
-        // there are no reasons to log anything
-        return false;
-    }
-/*    
+    protected $_blD3ShowLangSwitch = TRUE;
+
     public function render()
     {
-dumpvar($this->oSet);
-        return parent::render();
+        parent::render();
+
+        $this->_aViewData["default_edit"] = "d3_cfg_googleanalytics_main";
+
+        return $this->_sThisTemplate;
     }
-*/
 }
