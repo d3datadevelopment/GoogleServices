@@ -88,8 +88,7 @@
     <tr>
         <td valign="top" class="edittext">
 
-            [{assign var="incpath" value=$oViewConf->getModulePath('d3modcfg_lib')|cat:"views/admin/tpl/inc/d3_cfg_mod_active.tpl"}]
-            [{include file=$incpath}]
+            [{include file="d3_cfg_mod_active.tpl"}]
 
             [{if $edit->getErrorMessage()}]
 
@@ -322,7 +321,7 @@
 </table>
 
 [{assign var="incpath" value=$oViewConf->getModulePath('d3modcfg_lib')|cat:"views/admin/tpl/d3_cfg_mod_inc.tpl"}]
-[{include file=$incpath}]
+[{include file="d3_cfg_mod_inc.tpl"}]
 
 <script type="text/javascript">
     if (parent.parent) {
