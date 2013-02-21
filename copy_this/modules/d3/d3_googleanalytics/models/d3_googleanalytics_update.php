@@ -81,35 +81,67 @@ jQ9';
                 /** @var $oShop oxshop */
                 $aWhere = array(
                     'oxmodid'       => $this->sModKey,
-                    'oxnewrevision' => $this->sModRevision,
                     'oxshopid'      => $oShop->getId(),
                 );
-                if ($this->_checkTableItemExist('d3_cfg_mod', $aWhere))
+                $aInsertFields = array(
+                    'OXID'           => array(
+                        'content'       =>  "md5('" . $this->sModKey . " " . $oShop->getId() . " de')",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXSHOPID'       => array(
+                        'content'       =>  "'" . $oShop->getId() . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXMODID'        => array(
+                        'content'       =>  "'" . $this->sModKey . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXNAME'         => array(
+                        'content'       =>  "'" . $this->sModName . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXACTIVE'       => array(
+                        'content'       =>  "0",
+                        'force_update'  =>  FALSE,
+                    ),
+                    'OXBASECONFIG'   => array(
+                        'content'       =>  "'" . $this->sBaseConf . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXINSTALLDATE'  => array(
+                        'content'       =>  "NOW()",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXVERSION'      => array(
+                        'content'       =>  "'" . $this->sModVersion . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXSHOPVERSION'  => array(
+                        'content'       =>  "'" . oxRegistry::getConfig()->getEdition() . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXREQUIREMENTS' => array(
+                        'content'       =>  "'" . $this->sRequirements . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                    'OXVALUE'        => array(
+                        'content'       =>  "'" . $this->sBaseValue . "'",
+                        'force_update'  =>  FALSE,
+                    ),
+                    'OXNEWREVISION'  => array(
+                        'content'       =>  "'" . $this->sModRevision . "'",
+                        'force_update'  =>  TRUE,
+                    ),
+                );
+                $aRet          = $this->_updateTableItem('d3_cfg_mod', $aInsertFields, $aWhere);
+                $blRet         = $aRet['blRet'];
+
+                $this->_setActionLog('SQL', $aRet['sql'], __METHOD__);
+                $this->_setUpdateBreak(FALSE);
+
+                if ($this->getStepByStepMode())
                 {
-                    $aInsertFields = array(
-                        'OXID'           => "md5('" . $this->sModKey . " " . $oShop->getId() . " de')",
-                        'OXSHOPID'       => "'" . $oShop->getId() . "'",
-                        'OXMODID'        => "'" . $this->sModKey . "'",
-                        'OXNAME'         => "'" . $this->sModName . "'",
-                        'OXACTIVE'       => "0",
-                        'OXBASECONFIG'   => "'" . $this->sBaseConf . "'",
-                        'OXINSTALLDATE'  => "NOW()",
-                        'OXVERSION'      => "'" . $this->sModVersion . "'",
-                        'OXSHOPVERSION'  => "'" . oxRegistry::getConfig()->getEdition() . "'",
-                        'OXREQUIREMENTS' => "'" . $this->sRequirements . "'",
-                        'OXVALUE'        => "'" . $this->sBaseValue . "'",
-                        'OXNEWREVISION'  => "'" . $this->sModRevision . "'",
-                    );
-                    $aRet          = $this->_setTableItem('d3_cfg_mod', $aInsertFields);
-                    $blRet         = $aRet['blRet'];
-
-                    $this->_setActionLog('SQL', $aRet['sql'], __METHOD__);
-                    $this->_setUpdateBreak(FALSE);
-
-                    if ($this->getStepByStepMode())
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
         }
@@ -161,20 +193,56 @@ jQ9';
                 if ($this->_checkTableItemExist('oxcontents', $aWhere))
                 {
                     $aInsertFields = array(
-                        'OXID'       => "md5(RAND())",
-                        'OXLOADID'   => "'Analytics_Security_Informations'",
-                        'OXSHOPID'   => "'" . $oShop->getId() . "'",
-                        'OXSNIPPET'  => "'1'",
-                        'OXTYPE'     => "'0'",
-                        'OXACTIVE'   => "'1'",
-                        'OXACTIVE_1' => "'1'",
-                        'OXPOSITION' => "''",
-                        'OXTITLE'    => "'Analytics Datenschutz Information'",
-                        'OXCONTENT'  => "'<p>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google\r\n\r\nInc. (&quot;Google&quot;). Google Analytics verwendet sog. &quot;Cookies&quot;, Textdateien, die auf\r\n\r\nIhrem Computer gespeichert werden und die eine Analyse der Benutzung der Website\r\n\r\ndurch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre\r\n\r\nBenutzung dieser Website (einschließlich Ihrer IP-Adresse<span style=\"color: #800000\">, die jedoch mit der Methode _anonymizeIp() anonymisiert wird, so dass Sie nicht mehr einem Anschluss\r\n\r\nzugeordnet werden kann</span>) wird an einen Server von Google in den USA\r\n\r\nübertragen und dort gespeichert. Google wird diese Informationen benutzen, um\r\n\r\nIhre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für\r\n\r\ndie Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und\r\n\r\nder Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google\r\n\r\ndiese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich\r\n\r\nvorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten.\r\n\r\nGoogle wird in keinem Fall Ihre IP-Adresse mit anderen Daten von Google in\r\n\r\nVerbindung bringen. Sie können die Installation der Cookies durch eine\r\n\r\nentsprechende Einstellung Ihrer Browser Software verhindern; wir weisen Sie\r\n\r\njedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche\r\n\r\nFunktionen dieser Website vollumfänglich nutzen können. Durch die Nutzung dieser\r\n\r\nWebsite erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch\r\n\r\nGoogle in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck\r\n\r\neinverstanden.</p>\r\n<p><span style=\"color: #800000\">Sie können der Erhebung der\r\n\r\nDaten durch Google-Analytics mit Wirkung für die Zukunft widersprechen, indem\r\n\r\nsie ein Deaktivierungs-Add-on (<a href=\"http://tools.google.com/dlpage/gaoptout?hl=de\" title=\"\">http://tools.google.com/dlpage/gaoptout?hl=de</a>)\r\n\r\nfür Ihren Browser installieren.</span></p>'",
-                        'OXCATID'    => "'943a9ba3050e78b443c16e043ae60ef3'",
-                        'OXFOLDER'   => "'CMSFOLDER_USERINFO'",
+                        'OXID'       => array(
+                            'content'       =>  "md5(RAND())",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXLOADID'   => array(
+                            'content'       =>  "'Analytics_Security_Informations'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXSHOPID'   => array(
+                            'content'       =>  "'" . $oShop->getId() . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXSNIPPET'  => array(
+                            'content'       =>  "'1'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXTYPE'     => array(
+                            'content'       =>  "'0'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXACTIVE'   => array(
+                            'content'       =>  "'1'",
+                            'force_update'  =>  FALSE,
+                        ),
+                        'OXACTIVE_1' => array(
+                            'content'       =>  "'1'",
+                            'force_update'  =>  FALSE,
+                        ),
+                        'OXPOSITION' => array(
+                            'content'       =>  "''",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXTITLE'    => array(
+                            'content'       =>  "'Analytics Datenschutz Information'",
+                            'force_update'  =>  FALSE,
+                        ),
+                        'OXCONTENT'  => array(
+                            'content'       =>  "'<p>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google\r\n\r\nInc. (&quot;Google&quot;). Google Analytics verwendet sog. &quot;Cookies&quot;, Textdateien, die auf\r\n\r\nIhrem Computer gespeichert werden und die eine Analyse der Benutzung der Website\r\n\r\ndurch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre\r\n\r\nBenutzung dieser Website (einschließlich Ihrer IP-Adresse<span style=\"color: #800000\">, die jedoch mit der Methode _anonymizeIp() anonymisiert wird, so dass Sie nicht mehr einem Anschluss\r\n\r\nzugeordnet werden kann</span>) wird an einen Server von Google in den USA\r\n\r\nübertragen und dort gespeichert. Google wird diese Informationen benutzen, um\r\n\r\nIhre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für\r\n\r\ndie Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und\r\n\r\nder Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google\r\n\r\ndiese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich\r\n\r\nvorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten.\r\n\r\nGoogle wird in keinem Fall Ihre IP-Adresse mit anderen Daten von Google in\r\n\r\nVerbindung bringen. Sie können die Installation der Cookies durch eine\r\n\r\nentsprechende Einstellung Ihrer Browser Software verhindern; wir weisen Sie\r\n\r\njedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche\r\n\r\nFunktionen dieser Website vollumfänglich nutzen können. Durch die Nutzung dieser\r\n\r\nWebsite erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch\r\n\r\nGoogle in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck\r\n\r\neinverstanden.</p>\r\n<p><span style=\"color: #800000\">Sie können der Erhebung der\r\n\r\nDaten durch Google-Analytics mit Wirkung für die Zukunft widersprechen, indem\r\n\r\nsie ein Deaktivierungs-Add-on (<a href=\"http://tools.google.com/dlpage/gaoptout?hl=de\" title=\"\">http://tools.google.com/dlpage/gaoptout?hl=de</a>)\r\n\r\nfür Ihren Browser installieren.</span></p>'",
+                            'force_update'  =>  FALSE,
+                        ),
+                        'OXCATID'    => array(
+                            'content'       =>  "'943a9ba3050e78b443c16e043ae60ef3'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXFOLDER'   => array(
+                            'content'       =>  "'CMSFOLDER_USERINFO'",
+                            'force_update'  =>  TRUE,
+                        ),
                     );
-                    $aRet          = $this->_setTableItem('oxcontents', $aInsertFields);
+                    $aRet          = $this->_updateTableItem('oxcontents', $aInsertFields, $aWhere);
                     $blRet         = $aRet['blRet'];
 
                     $this->_setActionLog('SQL', $aRet['sql'], __METHOD__);
