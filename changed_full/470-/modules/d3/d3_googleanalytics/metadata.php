@@ -45,6 +45,7 @@ $aModule = array(
         'oxcmp_utils' => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics',
         'oxorder'     => 'd3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics',
         'order'       => 'd3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics',
+        'oxutilsview' => 'd3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalytics',
         'thankyou'    => 'd3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics',
     ),
     'files' => array(
