@@ -280,4 +280,5 @@ setup+doku/adwords_2.png -text
 setup+doku/analytics_1.png -text
 setup+doku/analytics_2.png -text
 setup+doku/changelog.txt -text
+setup+doku/d3precheck.php -text
 setup+doku/update.sql -text
