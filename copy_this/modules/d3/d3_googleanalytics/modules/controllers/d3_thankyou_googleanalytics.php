@@ -21,6 +21,8 @@
 
 class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
 {
+    private $_sModCfgId = 'd3_googleanalytics';
+
     /**
      * @return int
      */
@@ -30,5 +32,15 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
         oxRegistry::getSession()->deleteVariable("iD3GANewCustomer");
 
         return $iIsNewCustomer;
+    }
+
+    /**
+     * @param $sGACode
+     */
+    public function logCode($sGACode)
+    {
+        d3_cfg_mod::get($this->_sModCfgId)->getLog()->log(
+            d3log::NOTICE, __CLASS__, __FUNCTION__, __LINE__, 'GA TrackingCode', $sGACode
+        );
     }
 }
