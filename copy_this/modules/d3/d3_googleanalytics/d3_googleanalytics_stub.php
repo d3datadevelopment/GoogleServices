@@ -27,3 +27,6 @@ class d3_thankyou_googleanalytics_parent extends thankyou {}
 
 /** */
 class d3_order_googleanalytics_parent extends order {}
+
+/** */
+class d3_oxutilsview_googleanalytics_parent extends oxUtilsView {}
