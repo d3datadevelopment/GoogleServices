@@ -10,7 +10,7 @@ XVrbndtcEZQL2pCVlUwRHZrZzEwSmpZZFZDWnZKZ0RaNlhuTGZiS3dRQ0xua1JUdUV6eVJRcXZ1TVlEb
 jQ9
 --------------------------------------------------------------------------------',
 `OXINSTALLDATE` = NOW(), 
-`OXNEWREVISION` = '60' 
+`OXNEWREVISION` = '78'
 WHERE `OXMODID` = 'd3_googleanalytics';
 
 UPDATE `d3_cfg_mod` SET `OXREVISION` = `OXNEWREVISION` WHERE `OXMODID` = 'd3_googleanalytics';
