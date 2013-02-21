@@ -15,7 +15,7 @@
  *
  * @link      http://www.oxidmodule.com
  * @link      http://www.shopmodule.com
- * @copyright (C) D3 Data Development
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
 class d3_cfg_googleanalytics extends d3_cfg_mod_
@@ -25,8 +25,8 @@ class d3_cfg_googleanalytics extends d3_cfg_mod_
      */
     public function render()
     {
-        $this->_aViewData['sListClass'] = 'd3_cfg_googleanalytics_list';
-        $this->_aViewData['sMainClass'] = 'd3_cfg_googleanalytics_main';
+        $this->addTplParam('sListClass', 'd3_cfg_googleanalytics_list');
+        $this->addTplParam('sMainClass', 'd3_cfg_googleanalytics_main');
         return parent::render();
     }
 }

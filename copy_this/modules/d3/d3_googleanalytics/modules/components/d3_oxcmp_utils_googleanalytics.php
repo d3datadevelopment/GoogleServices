@@ -15,14 +15,12 @@
  *
  * @link      http://www.oxidmodule.com
  * @link      http://www.shopmodule.com
- * @copyright (C) D3 Data Development
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
 class d3_oxcmp_utils_googleAnalytics extends d3_oxcmp_utils_googleAnalytics_parent
 {
     private $_sModId = 'd3_googleanalytics';
-
-    private $_oSet;
 
     /**
      * @return null
@@ -31,14 +29,19 @@ class d3_oxcmp_utils_googleAnalytics extends d3_oxcmp_utils_googleAnalytics_pare
     {
         $ret = parent::render();
 
-        // load module config
-        $this->_oSet = d3_cfg_mod::get($this->_sModId);
-
         /** @var $oParentView oxView */
         $oParentView = $this->getParent();
-        $oParentView->addTplParam('blD3GoogleAnalyticsActive', $this->_oSet->getFieldData('oxactive'));
-        $oParentView->addTplParam('oD3GASettings', $this->_oSet);
+        $oParentView->addTplParam('blD3GoogleAnalyticsActive', d3_cfg_mod::get($this->d3getModId())->isActive());
+        $oParentView->addTplParam('oD3GASettings', d3_cfg_mod::get($this->d3getModId()));
 
         return $ret;
+    }
+
+    /**
+     * @return string
+     */
+    public function d3getModId()
+    {
+        return $this->_sModId;
     }
 }

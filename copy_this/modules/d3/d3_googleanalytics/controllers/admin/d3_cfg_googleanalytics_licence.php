@@ -15,7 +15,7 @@
  *
  * @link      http://www.oxidmodule.com
  * @link      http://www.shopmodule.com
- * @copyright (C) D3 Data Development
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
 class d3_cfg_googleanalytics_licence extends d3_cfg_mod_licence
