@@ -54,6 +54,7 @@ $aModule = array(
         'd3_cfg_googleanalytics_licence'   => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php',
         'd3_cfg_googleanalytics_list'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php',
         'd3_cfg_googleanalytics_main'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php',
+        'd3_googleanalytics_update'        => 'd3/d3_googleanalytics/models/d3_googleanalytics_update.php',
     ),
     'templates' => array(
         'd3_googleanalytics.tpl'                => 'd3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl',
