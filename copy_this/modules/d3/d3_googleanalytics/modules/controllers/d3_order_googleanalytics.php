@@ -15,33 +15,24 @@
  *
  * @link      http://www.oxidmodule.com
  * @link      http://www.shopmodule.com
- * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @link      http://www.aikme.de
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch) & aikme GmbH
  */
 
-class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_parent
-{
-    private $_sModId = 'd3_googleanalytics';
+class d3_order_googleanalytics extends d3_order_googleanalytics_parent {
 
-    /**
-     * @return null
-     */
-    public function render()
+    public function init() 
     {
-        $ret = parent::render();
+        parent::init();
 
-        /** @var $oParentView oxView */
-        $oParentView = $this->getParent();
-        $oParentView->addTplParam('blD3GoogleAnalyticsActive', d3_cfg_mod::get($this->d3getModId())->isActive());
-        $oParentView->addTplParam('oD3GASettings', d3_cfg_mod::get($this->d3getModId()));
-
-        return $ret;
+        $this->_d3SetIsNewCustomer();
     }
 
-    /**
-     * @return string
-     */
-    public function d3getModId()
+    protected function _d3SetIsNewCustomer()
     {
-        return $this->_sModId;
+        $oUser = $this->getUser();
+        $isNewCustomer = isset($oUser) ? $oUser->inGroup('oxidnotyetordered') : 0 ;
+
+        oxRegistry::getSession()->setVariable('iD3GANewCustomer', (int)$isNewCustomer);
     }
 }

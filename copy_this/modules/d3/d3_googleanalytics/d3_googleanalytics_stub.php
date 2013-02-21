@@ -21,3 +21,9 @@ class d3_oxcmp_utils_googleAnalytics_parent extends oxcmp_utils {}
 
 /** */
 class d3_oxorder_googleanalytics_parent extends oxOrder {}
+
+/** */
+class d3_thankyou_googleanalytics_parent extends thankyou {}
+
+/** */
+class d3_order_googleanalytics_parent extends order {}

@@ -1,1 +1,0 @@
-Trackingcode wir im <head> plaziert, erlaubt schnelle Verifizierung in WebMasterTools (Tipp von Stefan Sieber (Commodule))

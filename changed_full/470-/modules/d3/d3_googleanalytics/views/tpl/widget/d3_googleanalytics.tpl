@@ -5,6 +5,7 @@
     [{assign var="oPayment" value=$order->getPayment()}]
     [{assign var="oDelSet" value=$order->getDelSet()}]
     [{assign var="aVoucherSerieList" value=$order->d3getVoucherSerieList()}]
+    [{assign var="oUser" value=$oView->getUser()}]
 [{/if}]
 
     [{strip}]
@@ -107,6 +108,9 @@
                 [{/if}]
                 [{if $oViewConf->getActiveClassName() == 'thankyou' && $order}]
                     _gaq.push(['_setCustomVar',5,'Waehrung', '[{$order->getFieldData('oxcurrency')}]' , 3]);
+                [{/if}]
+                [{if $oViewConf->getActiveClassName() == 'thankyou'}]
+                    _gaq.push(['_setCustomVar',5,'Neukunde', '[{$oView->isNewCustomer()}]',3]);
                 [{/if}]
             [{/if}]
 

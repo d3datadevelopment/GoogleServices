@@ -38,12 +38,14 @@ $aModule = array(
     ),
     'thumbnail'    => 'picture.png',
     'version'      => '3.0.0.0',
-    'author'       => 'D&sup3; Data Development',
+    'author'       => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
     'extend'      => array(
         'oxcmp_utils' => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics',
         'oxorder'     => 'd3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics',
+        'order'       => 'd3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics',
+        'thankyou'    => 'd3/d3_googleAnalytics/modules/controllers/d3_thankyou_googleanalytics',
     ),
     'files' => array(
         'd3_cfg_googleanalytics'           => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php',
@@ -59,11 +61,10 @@ $aModule = array(
     ),
     'events'       => array(
         'onActivate'                      => 'd3install::checkUpdateStart',
-        //'onDeactivate' => 'd3_::onDeactivate'
     ),
 	'blocks' => array(
-        array(  'template' => 'layout/footer.tpl',
-                'block'=>'footer_main',
-                'file'=>'/views/blocks/layout/d3_footer_main_googleanalytics.tpl'),
+        array(  'template' => 'layout/base.tpl',
+                'block'=>'head_css',
+                'file'=>'/views/blocks/layout/d3_base_googleanalytics.tpl'),
     ),
 );
