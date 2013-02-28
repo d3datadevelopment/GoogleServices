@@ -247,10 +247,14 @@ Sources/doku/12_gaTrackingOverview-Dateien/local_extensions.css -text
 Sources/doku/12_gaTrackingOverview-Dateien/semantic_headers.css -text
 Sources/doku/12_gaTrackingOverview-Dateien/star_off.gif -text
 Sources/doku/12_gaTrackingOverview.html -text
+changed_full/470-/application/views/azure/tpl/form/login.tpl -text
 changed_full/470-/application/views/azure/tpl/form/user_checkout_change.tpl -text
 changed_full/470-/application/views/azure/tpl/form/user_checkout_noregistration.tpl -text
 changed_full/470-/application/views/azure/tpl/form/user_checkout_registration.tpl -text
 changed_full/470-/application/views/azure/tpl/page/checkout/basket.tpl -text
+changed_full/470-/application/views/azure/tpl/page/checkout/inc/options.tpl -text
+changed_full/470-/application/views/azure/tpl/page/checkout/order.tpl -text
+changed_full/470-/application/views/azure/tpl/page/checkout/payment.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/blocks/layout/d3_base_googleanalytics.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl -text
 copy_this/.noencode -text
