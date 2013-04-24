@@ -31,7 +31,7 @@ class d3_order_googleanalytics extends d3_order_googleanalytics_parent {
     protected function _d3SetIsNewCustomer()
     {
         $oUser = $this->getUser();
-        $isNewCustomer = isset($oUser) ? $oUser->inGroup('oxidnotyetordered') : 0 ;
+        $isNewCustomer = (isset($oUser) && $oUser instanceof oxuser) ? $oUser->inGroup('oxidnotyetordered') : 0 ;
 
         oxRegistry::getSession()->setVariable('iD3GANewCustomer', (int)$isNewCustomer);
     }
