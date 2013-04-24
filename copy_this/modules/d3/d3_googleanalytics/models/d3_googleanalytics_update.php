@@ -83,65 +83,69 @@ jQ9';
                     'oxmodid'       => $this->sModKey,
                     'oxshopid'      => $oShop->getId(),
                 );
-                $aInsertFields = array(
-                    'OXID'           => array(
-                        'content'       =>  "md5('" . $this->sModKey . " " . $oShop->getId() . " de')",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXSHOPID'       => array(
-                        'content'       =>  "'" . $oShop->getId() . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXMODID'        => array(
-                        'content'       =>  "'" . $this->sModKey . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXNAME'         => array(
-                        'content'       =>  "'" . $this->sModName . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXACTIVE'       => array(
-                        'content'       =>  "0",
-                        'force_update'  =>  FALSE,
-                    ),
-                    'OXBASECONFIG'   => array(
-                        'content'       =>  "'" . $this->sBaseConf . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXINSTALLDATE'  => array(
-                        'content'       =>  "NOW()",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXVERSION'      => array(
-                        'content'       =>  "'" . $this->sModVersion . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXSHOPVERSION'  => array(
-                        'content'       =>  "'" . oxRegistry::getConfig()->getEdition() . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXREQUIREMENTS' => array(
-                        'content'       =>  "'" . $this->sRequirements . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                    'OXVALUE'        => array(
-                        'content'       =>  "'" . $this->sBaseValue . "'",
-                        'force_update'  =>  FALSE,
-                    ),
-                    'OXNEWREVISION'  => array(
-                        'content'       =>  "'" . $this->sModRevision . "'",
-                        'force_update'  =>  TRUE,
-                    ),
-                );
-                $aRet          = $this->_updateTableItem('d3_cfg_mod', $aInsertFields, $aWhere);
-                $blRet         = $aRet['blRet'];
 
-                $this->_setActionLog('SQL', $aRet['sql'], __METHOD__);
-                $this->_setUpdateBreak(FALSE);
-
-                if ($this->getStepByStepMode())
+                if ($this->_checkTableItemNotExist('d3_cfg_mod', $aWhere))
                 {
-                    break;
+                    $aInsertFields = array(
+                        'OXID'           => array(
+                            'content'       =>  "md5('" . $this->sModKey . " " . $oShop->getId() . " de')",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXSHOPID'       => array(
+                            'content'       =>  "'" . $oShop->getId() . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXMODID'        => array(
+                            'content'       =>  "'" . $this->sModKey . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXNAME'         => array(
+                            'content'       =>  "'" . $this->sModName . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXACTIVE'       => array(
+                            'content'       =>  "0",
+                            'force_update'  =>  FALSE,
+                        ),
+                        'OXBASECONFIG'   => array(
+                            'content'       =>  "'" . $this->sBaseConf . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXINSTALLDATE'  => array(
+                            'content'       =>  "NOW()",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXVERSION'      => array(
+                            'content'       =>  "'" . $this->sModVersion . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXSHOPVERSION'  => array(
+                            'content'       =>  "'" . oxRegistry::getConfig()->getEdition() . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXREQUIREMENTS' => array(
+                            'content'       =>  "'" . $this->sRequirements . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                        'OXVALUE'        => array(
+                            'content'       =>  "'" . $this->sBaseValue . "'",
+                            'force_update'  =>  FALSE,
+                        ),
+                        'OXNEWREVISION'  => array(
+                            'content'       =>  "'" . $this->sModRevision . "'",
+                            'force_update'  =>  TRUE,
+                        ),
+                    );
+                    $aRet          = $this->_updateTableItem('d3_cfg_mod', $aInsertFields, $aWhere);
+                    $blRet         = $aRet['blRet'];
+
+                    $this->_setActionLog('SQL', $aRet['sql'], __METHOD__);
+                    $this->_setUpdateBreak(FALSE);
+
+                    if ($this->getStepByStepMode())
+                    {
+                        break;
+                    }
                 }
             }
         }
