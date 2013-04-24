@@ -31,8 +31,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
         /** @var $oParentView oxView */
         $oParentView = $this->getParent();
-        $oParentView->addTplParam('blD3GoogleAnalyticsActive', d3_cfg_mod::get($this->d3getModId())->isActive());
-        $oParentView->addTplParam('oD3GASettings', d3_cfg_mod::get($this->d3getModId()));
+        $oParentView->addTplParam('blD3GoogleAnalyticsActive', d3_cfg_mod::get($this->_d3getModId())->isActive());
+        $oParentView->addTplParam('oD3GASettings', d3_cfg_mod::get($this->_d3getModId()));
 
         return $ret;
     }
@@ -40,7 +40,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     /**
      * @return string
      */
-    public function d3getModId()
+    private function _d3getModId()
     {
         return $this->_sModId;
     }
