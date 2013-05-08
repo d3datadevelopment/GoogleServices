@@ -56,7 +56,7 @@ UU9';
                 'oxshopid'      => $oShop->getId(),
             );
 
-            $blRet = $this->_checkTableItemExist('d3_cfg_mod', $aWhere);
+            $blRet = $this->_checkTableItemNotExist('d3_cfg_mod', $aWhere);
 
             if ($blRet)
             {
@@ -82,18 +82,22 @@ UU9';
                 $aWhere = array(
                     'oxmodid'       => $this->sModKey,
                     'oxshopid'      => $oShop->getId(),
+                    'oxnewrevision' => $this->sModRevision,
                 );
 
                 if ($this->_checkTableItemNotExist('d3_cfg_mod', $aWhere))
                 {
+                    // update don't use this property
+                    unset($aWhere['oxnewrevision']);
+
                     $aInsertFields = array(
                         'OXID'           => array(
-                            'content'       =>  "md5('" . $this->sModKey . " " . $oShop->getId() . " de')",
-                            'force_update'  =>  TRUE,
+                            'content'       =>  "md5('" . $this->sModKey . " " . $oShop->getId() . "')",
+                            'force_update'  =>  false,
                         ),
                         'OXSHOPID'       => array(
                             'content'       =>  "'" . $oShop->getId() . "'",
-                            'force_update'  =>  TRUE,
+                            'force_update'  =>  false,
                         ),
                         'OXMODID'        => array(
                             'content'       =>  "'" . $this->sModKey . "'",
@@ -138,7 +142,6 @@ UU9';
                     );
                     $aRet          = $this->_updateTableItem('d3_cfg_mod', $aInsertFields, $aWhere);
                     $blRet         = $aRet['blRet'];
-
                     $this->_setActionLog('SQL', $aRet['sql'], __METHOD__);
                     $this->_setUpdateBreak(FALSE);
 
@@ -149,6 +152,7 @@ UU9';
                 }
             }
         }
+
         return $blRet;
     }
 
@@ -166,7 +170,7 @@ UU9';
                 'oxshopid' => $oShop->getId(),
             );
 
-            $blRet = $this->_checkTableItemExist('oxcontents', $aWhere);
+            $blRet = $this->_checkTableItemNotExist('oxcontents', $aWhere);
 
             if ($blRet)
             {
@@ -194,12 +198,12 @@ UU9';
                     'oxshopid' => $oShop->getId(),
                 );
 
-                if ($this->_checkTableItemExist('oxcontents', $aWhere))
+                if ($this->_checkTableItemNotExist('oxcontents', $aWhere))
                 {
                     $aInsertFields = array(
                         'OXID'       => array(
                             'content'       =>  "md5(RAND())",
-                            'force_update'  =>  TRUE,
+                            'force_update'  =>  FALSE,
                         ),
                         'OXLOADID'   => array(
                             'content'       =>  "'Analytics_Security_Informations'",
@@ -211,11 +215,11 @@ UU9';
                         ),
                         'OXSNIPPET'  => array(
                             'content'       =>  "'1'",
-                            'force_update'  =>  TRUE,
+                            'force_update'  =>  FALSE,
                         ),
                         'OXTYPE'     => array(
                             'content'       =>  "'0'",
-                            'force_update'  =>  TRUE,
+                            'force_update'  =>  FALSE,
                         ),
                         'OXACTIVE'   => array(
                             'content'       =>  "'1'",
@@ -227,7 +231,7 @@ UU9';
                         ),
                         'OXPOSITION' => array(
                             'content'       =>  "''",
-                            'force_update'  =>  TRUE,
+                            'force_update'  =>  FALSE,
                         ),
                         'OXTITLE'    => array(
                             'content'       =>  "'Analytics Datenschutz Information'",
@@ -238,12 +242,12 @@ UU9';
                             'force_update'  =>  FALSE,
                         ),
                         'OXCATID'    => array(
-                            'content'       =>  "'943a9ba3050e78b443c16e043ae60ef3'",
-                            'force_update'  =>  TRUE,
+                            'content'       =>  "''",
+                            'force_update'  =>  FALSE,
                         ),
                         'OXFOLDER'   => array(
                             'content'       =>  "'CMSFOLDER_USERINFO'",
-                            'force_update'  =>  TRUE,
+                            'force_update'  =>  FALSE,
                         ),
                     );
                     $aRet          = $this->_updateTableItem('oxcontents', $aInsertFields, $aWhere);
@@ -285,6 +289,7 @@ UU9';
             $this->_setUpdateBreak(FALSE);
             $blRet = $aRet['blRet'];
         }
+
         return $blRet;
     }
 }
