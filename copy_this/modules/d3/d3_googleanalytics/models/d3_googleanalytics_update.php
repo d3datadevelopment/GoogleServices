@@ -19,14 +19,14 @@ class d3_googleanalytics_update extends d3install_updatebase
 {
     public $sModKey = 'd3_googleanalytics';
     public $sModName = 'Google Analytics Schnittstelle';
-    public $sModVersion = '3.0.0.1';
-    public $sModRevision = '96';
-    public $sBaseConf = 'FTzQldsSjZkZWpic2NrQTdpajFFL2pXRjYyS3ZYVFNHVE96VW5HUmZKK0ViQWNCRWJKd3J1bmNCQ2hWS
-GVNQjlUYmJES1RtTHdyZG5sL3NTcXloc2p1MndhekdJV25zTlY0VDM0ekE3UG5mNDFIR04yWWJGaFNhT
-DNHQVNNalArT2xwUDBTSjZuZzVFS0h2SVl2anVzaE1YcGFiaWRtSHVmN1orak14cjZ4NVJkK3BRYXI1N
-DJFeXdWZ0NoczFwdWM0SXF0VElvdmFmUVhCVTNjRGowSCtJWnZ1QkdHQUx4M2F2UWpVVWtEVk9rcC9Pa
-1YxcTRRa09oYU43aG5YaVljdU53MEh3STdIUE5yWWtjSUFZc2lJZDQ0SHptRlpSbFBqR2RMZTVGZmdhd
-UU9';
+    public $sModVersion = '3.0.0.2';
+    public $sModRevision = '99';
+    public $sBaseConf = 'WxUSlVXQ0ZjeG44Z3RyZWN3TlhqTFdlNVdJcWFVaDgwOTYwcUdOdHVycnFCRnJDQjBpTDhRMHhqRCt0U
+jQrcldHdzArR0xMaGtNdTM2MFdRcTRNZ0tOQnFZWDJPckR1T3FTcmY5U0l6MjBrSmpMa0VkS2t0MXFGT
+lVPdFVIMGpNSTNpcjV5ejBLR1hpVktaTHNtbnVZVzNqT3diUEFNRXpJUjNZTDg0SmZHYjlYYW5ZaXZPY
+XJmQVVpcER0K1pXcUJRdjhOWFlFYi9jZUY1blN4cGhQdktNTTcrMTluRFF6MHZKWEVrUEw2czBuM1B0V
+0tmeFpBS2hpZVFjc29qdFRiSm9UZEVkTnFsUXB3M292anJyVG5wUkd6bG5MVzR4NThFRE9TYjJYaStuR
+3M9';
     public $sRequirements = '';
     public $sBaseValue = '';
 

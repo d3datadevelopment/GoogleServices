@@ -37,7 +37,7 @@ $aModule = array(
             'en'   => 'Provides a quick and easy integration with your Google Analytics account to your shop.',
     ),
     'thumbnail'    => 'picture.png',
-    'version'      => '3.0.0.0',
+    'version'      => '3.0.0.2',
     'author'       => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
