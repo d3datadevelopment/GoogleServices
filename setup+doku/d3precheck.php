@@ -4,9 +4,9 @@ class requConfig
 {
     public $sModName = 'D³ GoogleAnalytics';
 
-    public $sModId   = 'd3_googleanalytics';
+    public $sModId = 'd3_googleanalytics';
 
-    public $sModVersion = '3.1.2.3';
+    public $sModVersion = '3.0.0.3';
 
     /********************** check configuration section ************************/
 
@@ -15,44 +15,38 @@ class requConfig
         'hasMinPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
-                '5.2.0'
+                'version' => '5.2.0'
             )
         ),
+
         // größte erlaubte PHP-Version
         'hasMaxPhpVersion'       => array(
-            'blExec'  => 1,
+            'blExec'  => 0,
             'aParams' => array(
-                '5.4.99'
+                'version' => '5.4.200'
             )
         ),
-        // PHP-Version zwischen 5.2 und 5.4
-        'hasPhp52to54'           => array('blExec' => 1),
-        // PHP-Version ist 5.2
-        'hasPhp52'               => array('blExec' => 0),
-        // PHP-Version ist 5.3
-        'hasPhp53'               => array('blExec' => 0),
-        // PHP-Version ist 5.4
-        'hasPhp54'               => array('blExec' => 0),
-        // benötigt Zend Optimizer (PHP 5.2) bzw. Zend Guard Loader (> PHP 5.2)
-        'hasZendLoaderOptimizer' => array('blExec' => 1),
-        // benötigt IonCubeLoader
-        'hasIonCubeLoader'       => array('blExec' => 0),
-        // benötigt PHP-Extension (kaskadierbar (siehe "Desc1"))
-        'hasExtension'           => array(
-            array(
-                'blExec'  => 0,
-                'aParams' => array(
-                    'curl'
-                ),
-            ),
-            array(
-                'blExec'  => 0,
-                'aParams' => array(
-                    'soap'
-                ),
-            ),
+
+        // PHP-Version zwischen 'from' und 'to'
+        'hasFromToPhpVersion'    => array(
+            'blExec'  => 1,
+            'aParams' => array(
+                'from' => '5.2.0',
+                'to'   => '5.4.200',
+            )
         ),
-        // minimal benötigte Shopversion (editionsgetrennt)
+
+        // benötigt Zend Optimizer (PHP 5.2) bzw. Zend Guard Loader (> PHP 5.2)
+        'hasZendLoaderOptimizer' => array(
+            'blExec' => 1,
+        ),
+
+        // benötigt IonCubeLoader
+        'hasIonCubeLoader'       => array(
+            'blExec' => 0,
+        ),
+
+        // minimal benötigte Shopversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
         'hasMinShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
@@ -61,16 +55,18 @@ class requConfig
                 'EE' => '5.0.0'
             ),
         ),
-        // maximal verwendbare Shopversion (editionsgetrennt)
+
+        // maximal verwendbare Shopversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
         'hasMaxShopVersion'      => array(
-            'blExec'  => 0,
+            'blExec'  => 1,
             'aParams' => array(
-                'PE' => '4.7.0',
-                'CE' => '4.7.0',
-                'EE' => '5.0.0'
+                'PE' => '4.8.4',
+                'CE' => '4.8.4',
+                'EE' => '5.1.4'
             ),
         ),
-        // verfügbar für diese Shopeditionen
+
+        // verfügbar für diese Shopeditionen, wird (sofern möglich) Remote aktualisiert
         'isShopEdition'          => array(
             'blExec'  => 1,
             'aParams' => array(
@@ -81,47 +77,51 @@ class requConfig
                 ),
             ),
         ),
-		// benötigt Modul-Connector
+
+        // benötigt Modul-Connector
         'hasModCfg'              => array('blExec' => 1),
+
         // benötigt mindestens diese Erweiterungen / Version lt. d3_cfg_mod (kaskadierbar (siehe "Desc1"))
         'hasMinModCfgVersion'    => array(
             array(
                 'blExec'  => 1,
                 'aParams' => array(
-                    'd3modcfg_lib',
-                    'Modul-Connector',
-                    '3.9.0.0',
+                    'id'      => 'd3modcfg_lib',
+                    'name'    => 'Modul-Connector',
+                    'version' => '3.9.0.0',
                 ),
             ),
             array(
                 'blExec'  => 1,
                 'aParams' => array(
-                    'd3install_lib',
-                    'Installationsautomatik',
-                    '2.4.0.0',
+                    'id'      => 'd3install_lib',
+                    'name'    => 'Installationsautomatik',
+                    'version' => '2.5.0.0',
                 ),
             ),
         ),
+
         // verwendbar bis zu diesen Erweiterungen / Version lt. d3_cfg_mod (kaskadierbar (siehe "Desc1"))
         'hasMaxModCfgVersion'    => array(
             array(
                 'blExec'  => 0,
                 'aParams' => array(
-                    'd3modcfg_lib',
-                    'Modul-Connector',
-                    '3.9.0.5'
+                    'id'      => 'd3modcfg_lib',
+                    'name'    => 'Modul-Connector',
+                    'version' => '3.9.0.5',
                 ),
             ),
         ),
     );
 }
-    /********* don't change content from here **********************/
+
+/********* don't change content from here **********************/
 
 date_default_timezone_set('Europe/Berlin');
 
-    /**
-     * Class requcheck
-     */
+/**
+ * Class requcheck
+ */
 class requCheck
 {
     public $sVersion = '4.1';
@@ -160,9 +160,9 @@ class requCheck
 
     /**
      * @param string $sName
-     * @param array $aArguments
+     * @param array  $aArguments
      */
-    public function __call ($sName, $aArguments)
+    public function __call($sName, $aArguments)
     {
         $this->oLayout->{$sName}($aArguments);
     }
@@ -171,7 +171,7 @@ class requCheck
     {
         $this->oLayout->getHTMLHeader();
 
-        $oCheckTransformation = new requTransformation($this);
+        $oCheckTransformation  = new requTransformation($this);
         $this->oConfig->aCheck = $oCheckTransformation->transformCheckList($this->oConfig->aCheck);
 
         $this->_runThroughChecks($this->oConfig->aCheck);
@@ -225,7 +225,7 @@ class requCheck
     protected function _walkThroughDirs($sFolder)
     {
         $aIgnoreDirItems = array('.', '..');
-        $aCheckScripts = array();
+        $aCheckScripts   = array();
 
         /** @var SplFileInfo $oFileInfo */
         foreach (new RecursiveDirectoryIterator($sFolder) AS $oFileInfo) {
@@ -253,7 +253,7 @@ class requCheck
         $aReturn = array();
 
         foreach ($aScriptList as $sScriptPath) {
-            $sUrl                                       = $this->_getFolderCheckUrl(
+            $sUrl = $this->_getFolderCheckUrl(
                 $sScriptPath,
                 $sMethodName,
                 $aArguments
@@ -449,10 +449,10 @@ class requCheck
     public function displayCheck($sCheckType, &$aConfiguration)
     {
         $sGenCheckType = preg_replace("@(\_[0-9]$)@", "", $sCheckType);
-        $oTests = new requTests($this, $this->oConfig, $this->getDb(), $this->oRemote);
+        $oTests        = new requTests($this, $this->oConfig, $this->getDb(), $this->oRemote);
 
         if (method_exists($oTests, $sGenCheckType)) {
-            $aResult = $oTests->{$sGenCheckType}($aConfiguration);
+            $aResult    = $oTests->{$sGenCheckType}($aConfiguration);
             $sElementId = (md5($sGenCheckType . serialize($aConfiguration)));
 
             if ($this->_hasFalseInResult($aResult)) {
@@ -478,6 +478,7 @@ class requCheck
 class requLayout
 {
     public $oBase;
+
     public $oConfig;
 
     /**
@@ -486,7 +487,7 @@ class requLayout
      */
     public function __construct(requCheck $oBase, requConfig $oConfig)
     {
-        $this->oBase = $oBase;
+        $this->oBase   = $oBase;
         $this->oConfig = $oConfig;
     }
 
@@ -629,9 +630,18 @@ EOT;
     protected function _addToggleScript($aResult, $sElementId)
     {
         if (is_array($aResult) && count($aResult)) {
-            $sScript = "<div class='squ_toggle' title='" . $this->translate(
+            $sScript =
+                "<div class='squ_toggle' title='"
+                . $this->translate(
                     'toggleswitch'
-                ) . "' onClick='document.getElementById(\"" . $sElementId . "\").style.display = document.getElementById(\"" . $sElementId . "\").style.display == \"none\" ? \"block\" : \"none\"; this.innerHTML = document.getElementById(\"" . $sElementId . "\").style.display == \"none\" ? \"+\" : \"&minus;\";'>+</div>";
+                )
+                . "' onClick='document.getElementById(\""
+                . $sElementId
+                . "\").style.display = document.getElementById(\""
+                . $sElementId
+                . "\").style.display == \"none\" ? \"block\" : \"none\"; this.innerHTML = document.getElementById(\""
+                . $sElementId
+                . "\").style.display == \"none\" ? \"+\" : \"&minus;\";'>+</div>";
         } else {
             $sScript = "";
         }
@@ -647,9 +657,9 @@ EOT;
      */
     public function translate($sIdent, $aConfiguration = array())
     {
-        $sGenIdent = preg_replace("@(\_[0-9]$)@", "", $sIdent);
+        $sGenIdent     = preg_replace("@(\_[0-9]$)@", "", $sIdent);
         $oTranslations = new requTranslations();
-        $aTransl   = $oTranslations->getTranslations();
+        $aTransl       = $oTranslations->getTranslations();
 
         if (isset($aConfiguration['aParams']) && is_array($aConfiguration['aParams'])) {
             array_walk($aConfiguration['aParams'], array($this->oBase, 'aTos'), $sIdent);
@@ -668,7 +678,8 @@ EOT;
 
     public function getPngButton()
     {
-        $sImg = "iVBORw0KGgoAAAANSUhEUgAABDgAAAAWCAYAAAAl+SzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABMpJREFUeNrs3Y1O4zgUhuFY4hbb2ZthRjtczOz0Ght7cZwfQ5u2E4K0a55XiNDUXyWcT+ZwfGyHw+HQvZI6AACAT+J0OgW9AAAAtnA8Hh/JWYSnbkxuvAYeeg0AAAAAAPynuJevOB6P+ZKe6sYvLy96DgAA7M7z87NOAAAAm7iVq8gxRs5p5CTH03Tz758/uzAUc7x+Hy4pf71ex9fDj2leyxLG1vnNELpmdJPqo21a7afy+/MIj/AIj7zVhS/seWPD4zoAAIAtxJhW44+cy/jx/ftw/2kRxDEQSd0Uraah/RKVlLfK+/kDS0T7eieGZnTdA33QfeF+CpFHeIRHeORSF1Lw3I0Nd3UAAACbEhwprscfadnma05wpL7v8v0Sh4QiLimREqWEt7mSmK9xnLlrSBe6fdq02k9D1oxHeIRHeORCFz13Y8NtHQAAwNYER+zX44+q3Zzg6GOcbw6haqhmXG5MvuQPiw3q9mrTaj/xCI/wCI9c13juxoY/0wEAANxNcPTxbvzxLsHRd7mEo8y+pJIFCWEupy2XMTcSxjKQUMqSl1mb/79urzbN9hOP8AiP8MgV3Zf2vLHhIR0AAMBWcr5iNf6o4owlwdGPCY68hiUsZbRh2DGsWkz7/mUaVl83oxu3R/xwm1b7KfEIj/AIj1zRDfc9d2PDTR0AAMA2hgqOtfijWqOybDKaExzj6pVpzWyYG04zdGn5vByohVC924ou7NSm3X7iER7hER55r/P3w9jw6NgAAADwp+SCjPX442oFR5URWeaY5pKPsmNpmI+SnctN5zKRVnR7tWm1nwKP8AiP8MiKznM3NqzrAAAANic4zuf1+ONaBce576dQZAhMplPepvWzYdn6vSoBCUNJSCkPaUS3V5tm+4lHeIRHeORS97U9b2x4RAcAALA5wZEPRVmJP1K4ckxsPJ/H9SzjOvpuEc11INP805gtWQ6Ka0gXdmrTaD8NGTMe4REe4ZFrOs/d2HBLBwAAsJHzuV+PP6qJlKqCI3ZdvaZliVGm3MiYKZm3EJuvXera0aW0T5tG+2kKYHmER3iER2pdU8/Pc/+0sQEAAGALec/Q9fjjSgVH358v/zFZJNXy6ukYuFQqREZBK7q0U5tm+4lHeIRHeOSqLnnuxoa7YwMAAMAWzvF8M/64THDEOB+xEsYIJlV7d5R1tdNGHsMnlvW2I63opirrj7Zptp86HuERHuGRS92X9ryx4cGxAQAAYBv5mNi1+OP6HhzDMbEVad5JrKoxrdbfzlFa155urzYt9lPgER7hER658bt47saGVR0AAMA28ikqj8QfVQVH3705ceU1KEm5qmM+0y7N8crwOqY5a5Ja0sWd2jTaTykmHuERHuGRS52/H8aGuzoAAIBtxCGIWok/riU4Yl8EZVOwEpSUG9X62XmRS1w+oV5z24RurzaN9tO0QR6P8AiP8MgbnedubLitAwAA2EqfExo34o+LBMevX7+6b9/+KkFItYZlmI0tP1XBS3UE3LhNeju6vdq02k8dj/AIj/DIhW48W8NzNzbcHBsAAAC2MGypsRJ//P7n9/J/yOFwGO6fTie9BgAAPgvrVAAAwFZuzpgcj8fh+jQGHGm6AQAAsDcmUgAAwFYezFeEfwUYAAoCUXB0RZrTAAAAAElFTkSuQmCC";
+        $sImg =
+            "iVBORw0KGgoAAAANSUhEUgAABDgAAAAWCAYAAAAl+SzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABMpJREFUeNrs3Y1O4zgUhuFY4hbb2ZthRjtczOz0Ght7cZwfQ5u2E4K0a55XiNDUXyWcT+ZwfGyHw+HQvZI6AACAT+J0OgW9AAAAtnA8Hh/JWYSnbkxuvAYeeg0AAAAAAPynuJevOB6P+ZKe6sYvLy96DgAA7M7z87NOAAAAm7iVq8gxRs5p5CTH03Tz758/uzAUc7x+Hy4pf71ex9fDj2leyxLG1vnNELpmdJPqo21a7afy+/MIj/AIj7zVhS/seWPD4zoAAIAtxJhW44+cy/jx/ftw/2kRxDEQSd0Uraah/RKVlLfK+/kDS0T7eieGZnTdA33QfeF+CpFHeIRHeORSF1Lw3I0Nd3UAAACbEhwprscfadnma05wpL7v8v0Sh4QiLimREqWEt7mSmK9xnLlrSBe6fdq02k9D1oxHeIRHeORCFz13Y8NtHQAAwNYER+zX44+q3Zzg6GOcbw6haqhmXG5MvuQPiw3q9mrTaj/xCI/wCI9c13juxoY/0wEAANxNcPTxbvzxLsHRd7mEo8y+pJIFCWEupy2XMTcSxjKQUMqSl1mb/79urzbN9hOP8AiP8MgV3Zf2vLHhIR0AAMBWcr5iNf6o4owlwdGPCY68hiUsZbRh2DGsWkz7/mUaVl83oxu3R/xwm1b7KfEIj/AIj1zRDfc9d2PDTR0AAMA2hgqOtfijWqOybDKaExzj6pVpzWyYG04zdGn5vByohVC924ou7NSm3X7iER7hER55r/P3w9jw6NgAAADwp+SCjPX442oFR5URWeaY5pKPsmNpmI+SnctN5zKRVnR7tWm1nwKP8AiP8MiKznM3NqzrAAAANic4zuf1+ONaBce576dQZAhMplPepvWzYdn6vSoBCUNJSCkPaUS3V5tm+4lHeIRHeORS97U9b2x4RAcAALA5wZEPRVmJP1K4ckxsPJ/H9SzjOvpuEc11INP805gtWQ6Ka0gXdmrTaD8NGTMe4REe4ZFrOs/d2HBLBwAAsJHzuV+PP6qJlKqCI3ZdvaZliVGm3MiYKZm3EJuvXera0aW0T5tG+2kKYHmER3iER2pdU8/Pc/+0sQEAAGALec/Q9fjjSgVH358v/zFZJNXy6ukYuFQqREZBK7q0U5tm+4lHeIRHeOSqLnnuxoa7YwMAAMAWzvF8M/64THDEOB+xEsYIJlV7d5R1tdNGHsMnlvW2I63opirrj7Zptp86HuERHuGRS92X9ryx4cGxAQAAYBv5mNi1+OP6HhzDMbEVad5JrKoxrdbfzlFa155urzYt9lPgER7hER658bt47saGVR0AAMA28ikqj8QfVQVH3705ceU1KEm5qmM+0y7N8crwOqY5a5Ja0sWd2jTaTykmHuERHuGRS52/H8aGuzoAAIBtxCGIWok/riU4Yl8EZVOwEpSUG9X62XmRS1w+oV5z24RurzaN9tO0QR6P8AiP8MgbnedubLitAwAA2EqfExo34o+LBMevX7+6b9/+KkFItYZlmI0tP1XBS3UE3LhNeju6vdq02k8dj/AIj/DIhW48W8NzNzbcHBsAAAC2MGypsRJ//P7n9/J/yOFwGO6fTie9BgAAPgvrVAAAwFZuzpgcj8fh+jQGHGm6AQAAsDcmUgAAwFYezFeEfwUYAAoCUXB0RZrTAAAAAElFTkSuQmCC";
         header("Content-type: image/png");
         echo base64_decode($sImg);
         exit;
@@ -676,7 +687,8 @@ EOT;
 
     public function getPngLogo()
     {
-        $sImg = "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";
+        $sImg =
+            "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";
         header("Content-type: image/png");
         echo base64_decode($sImg);
         exit;
@@ -684,7 +696,8 @@ EOT;
 
     public function getGifBg()
     {
-        $sImg = "R0lGODlhCgAyANUAANHo+pfK85rM8/X6/vb6/v///5jL85bJ8+Hv/KbS9dzt+87m+qTR9fH4/er1/b7e+MTh+P3+/63V9u/3/dfq+rnc97fa96DP9Nns+53N9LLY9tTp+sHg+Mzl+cfi+OPx/Pv9/7DX9p/O9Oz2/bTZ9uXy/KLQ9Pj7/ujz/bzd9/7+//r8//P5/snj+ZvM897u+6nT9avU9qvU9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAKADIAAAbFwINwSAwYj0iDcskUOJ9Ql3RKzVivWJF2y714v2CTeExmmM/ohHrNhrnf8Jh8PpdJ7vh8aM/va/6AgSSDhIUWh4iJFYuMjSmPkJEPk5SVHJeYmRCbnJ0en6ChLaOkpR2nqKkLq6ytAK+wsRuztLUUt7i5GLu8vQq/wMEvw8TFCMfIyR/LzM0lz9DRKNPU1Q7X2Nkj29zdE9/g4Q3j5OUs5+jpA+vs7QTv8PEn8/T1K/f4+SD7/P0R/wADqhhIsGCBgwgTBgEAOw==";
+        $sImg =
+            "R0lGODlhCgAyANUAANHo+pfK85rM8/X6/vb6/v///5jL85bJ8+Hv/KbS9dzt+87m+qTR9fH4/er1/b7e+MTh+P3+/63V9u/3/dfq+rnc97fa96DP9Nns+53N9LLY9tTp+sHg+Mzl+cfi+OPx/Pv9/7DX9p/O9Oz2/bTZ9uXy/KLQ9Pj7/ujz/bzd9/7+//r8//P5/snj+ZvM897u+6nT9avU9qvU9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAKADIAAAbFwINwSAwYj0iDcskUOJ9Ql3RKzVivWJF2y714v2CTeExmmM/ohHrNhrnf8Jh8PpdJ7vh8aM/va/6AgSSDhIUWh4iJFYuMjSmPkJEPk5SVHJeYmRCbnJ0en6ChLaOkpR2nqKkLq6ytAK+wsRuztLUUt7i5GLu8vQq/wMEvw8TFCMfIyR/LzM0lz9DRKNPU1Q7X2Nkj29zdE9/g4Q3j5OUs5+jpA+vs7QTv8PEn8/T1K/f4+SD7/P0R/wADqhhIsGCBgwgTBgEAOw==";
         header("Content-type: image/Gif");
         echo base64_decode($sImg);
         exit;
@@ -692,7 +705,8 @@ EOT;
 
     public function getGifDe()
     {
-        $sImg = "R0lGODlhEgANAIQZAAAAABAFBhEGBhIGBhQHBxUHCCYNDZQqH5QrI9c4M+M4M9w9M+g/MuNDM/BFM99tI+t3H+CyDerIB+zIBuzKBurLCPfcAPfgAPjlAP///////////////////////////ywAAAAAEgANAAAFVaARCGRpmoExAGzrvsBAwHRLFHVdIEfv/8ADouEoGo9IR2PBaDqfUMYioahar1hF4gHper9gyKOCKZvPaExFcmm73/CLZGKp2+94yyRCmfj/gIAUESEAOw==";
+        $sImg =
+            "R0lGODlhEgANAIQZAAAAABAFBhEGBhIGBhQHBxUHCCYNDZQqH5QrI9c4M+M4M9w9M+g/MuNDM/BFM99tI+t3H+CyDerIB+zIBuzKBurLCPfcAPfgAPjlAP///////////////////////////ywAAAAAEgANAAAFVaARCGRpmoExAGzrvsBAwHRLFHVdIEfv/8ADouEoGo9IR2PBaDqfUMYioahar1hF4gHper9gyKOCKZvPaExFcmm73/CLZGKp2+94yyRCmfj/gIAUESEAOw==";
         header("Content-type: image/Gif");
         echo base64_decode($sImg);
         exit;
@@ -700,7 +714,8 @@ EOT;
 
     public function getGifEn()
     {
-        $sImg = "R0lGODlhEgANAOfRANzd6P9LQP7//93e6ba32v8HB/J4ef//+/85Of8fFVddwP8aFq+13P8aFPr////f3f8XE/n//62s3fQuLAIDj6ys3uHZ5P8uLOjp793f6dbX6uvBxsyasurCx/9fXcadtS88r+Da5EZHr+Hi7A0NlUVGqcjR9MKaunh5x/8REQAAkv9IP/9BPnh6wi4/td3c5uLl7P8PD7vO9aGSw7bM9uDh6UpLsf8hFv/f3PPx9/Dx9DFCuMDE4cHF4/sAANPU3ufp8JSDvuVocf8ODvz8+/xRTPQgG+PM0ZSWzs/R476+4ujp8v8/PurO0uPZ3//u5fQCAOPj6nFxxf8UE8rM4P/w5YGM18PH4/79/ExUuP3//4CAxqmo3KaZxv7+/RcstO3v89XW6fS8waOj2snM7Nra7Ccon+no9v03OFJZvuK2xBEipP89Ov8dE+be4u3u8/w3OOVocv8sKv8EBOjo9+/u+Kap15SFvgwRlba327uXteHh7tvc5yo3q9XX5SQ4uU5MrtjW5qaVxvDS2f8DA+Tj6vr6/j1FtVlgvL+euvHw9v+rqe7u+XKJ1ebn7p2x7CUmnvb2+dPW8P8cEc/P4efn8/38/5Ws66mYx/ccGNfY5vh0d927zSUlov96ev88OgAAjmmA09rb5v+xsPF5eMnR8i0upuuAgvEyLx0rq97f6cunwEBIuO/Aw/9/fuTm6vn5+vTEyM7P5rq63BESlf+Fgv8fF8SWsOfp7+2rrvX1+La23RgmqLe43PPV2vdydhcnqIWQ2BEgoube4wASn82atOHj6uTT2f97etKjuf9dWsSduZyb08fJ4fn5+/z8/f+ZAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAEgANAAAI/gB/YHCkig+AAVGGuSmUAYCoEbpgGXsFY8kWM7T6JEI14QMIEpBaVNIBRBOSOtEqmAK27EabYqk6jYl2hpksKnjSmIgmqdEqWw2ShSITrZQCFXb8IDpkRdGBCLGmpBDj4ECOYKyyXHFyyoCQX8hceShQQFktT5viGCDV5AgUaHDjypXrI9exIgHYwEHA5MIcQnJYIEDzKcCKVi+63BE0CMeTUTGGLKrywBemIDMCJVnz5ZIWATI4LYCghoaAaI/+EGNAqQQXQ4xQuDiRYBKHHVLoWJIAaFaNZkSU2KAgTI+RTLd4gRKxC0uZPQPAvAnTiwCPEB02WOiRh4CGZ15wAgUEADs=";
+        $sImg =
+            "R0lGODlhEgANAOfRANzd6P9LQP7//93e6ba32v8HB/J4ef//+/85Of8fFVddwP8aFq+13P8aFPr////f3f8XE/n//62s3fQuLAIDj6ys3uHZ5P8uLOjp793f6dbX6uvBxsyasurCx/9fXcadtS88r+Da5EZHr+Hi7A0NlUVGqcjR9MKaunh5x/8REQAAkv9IP/9BPnh6wi4/td3c5uLl7P8PD7vO9aGSw7bM9uDh6UpLsf8hFv/f3PPx9/Dx9DFCuMDE4cHF4/sAANPU3ufp8JSDvuVocf8ODvz8+/xRTPQgG+PM0ZSWzs/R476+4ujp8v8/PurO0uPZ3//u5fQCAOPj6nFxxf8UE8rM4P/w5YGM18PH4/79/ExUuP3//4CAxqmo3KaZxv7+/RcstO3v89XW6fS8waOj2snM7Nra7Ccon+no9v03OFJZvuK2xBEipP89Ov8dE+be4u3u8/w3OOVocv8sKv8EBOjo9+/u+Kap15SFvgwRlba327uXteHh7tvc5yo3q9XX5SQ4uU5MrtjW5qaVxvDS2f8DA+Tj6vr6/j1FtVlgvL+euvHw9v+rqe7u+XKJ1ebn7p2x7CUmnvb2+dPW8P8cEc/P4efn8/38/5Ws66mYx/ccGNfY5vh0d927zSUlov96ev88OgAAjmmA09rb5v+xsPF5eMnR8i0upuuAgvEyLx0rq97f6cunwEBIuO/Aw/9/fuTm6vn5+vTEyM7P5rq63BESlf+Fgv8fF8SWsOfp7+2rrvX1+La23RgmqLe43PPV2vdydhcnqIWQ2BEgoube4wASn82atOHj6uTT2f97etKjuf9dWsSduZyb08fJ4fn5+/z8/f+ZAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAEgANAAAI/gB/YHCkig+AAVGGuSmUAYCoEbpgGXsFY8kWM7T6JEI14QMIEpBaVNIBRBOSOtEqmAK27EabYqk6jYl2hpksKnjSmIgmqdEqWw2ShSITrZQCFXb8IDpkRdGBCLGmpBDj4ECOYKyyXHFyyoCQX8hceShQQFktT5viGCDV5AgUaHDjypXrI9exIgHYwEHA5MIcQnJYIEDzKcCKVi+63BE0CMeTUTGGLKrywBemIDMCJVnz5ZIWATI4LYCghoaAaI/+EGNAqQQXQ4xQuDiRYBKHHVLoWJIAaFaNZkSU2KAgTI+RTLd4gRKxC0uZPQPAvAnTiwCPEB02WOiRh4CGZ15wAgUEADs=";
         header("Content-type: image/Gif");
         echo base64_decode($sImg);
         exit;
@@ -720,7 +735,8 @@ class requTranslations
         return array(
             'de' => array(
                 'RequCheck'              => 'Mindestanforderungsprüfung',
-                'ExecNotice'             => 'Führen Sie diese Prüfung immer aus dem Stammverzeichnis Ihres Shops aus. '.
+                'ExecNotice'             =>
+                    'Führen Sie diese Prüfung immer aus dem Stammverzeichnis Ihres Shops aus. ' .
                     'Nur dann können die Prüfungen erfolgreich durchgeführt werden.',
                 'RequSucc'               => 'Bedingung erfüllt',
                 'RequNotSucc'            => 'Bedingung nicht erfüllt',
@@ -735,21 +751,21 @@ class requTranslations
                 'hasMaxShopVersion'      => 'maximal Shop Version %s',
                 'hasMinModCfgVersion'    => 'ModCfg-Eintrag "%s" (%s) mit mindestens Version %s',
                 'hasMaxModCfgVersion'    => 'ModCfg-Eintrag "%s" (%s) mit maximal Version %s',
-                'hasModCfg'              => '<a href="http://www.oxidmodule.com/Connector" target="Connector">Modul-'.
+                'hasModCfg'              => '<a href="http://www.oxidmodule.com/Connector" target="Connector">Modul-' .
                     'Connector</a> installiert',
                 'isShopEdition'          => 'ist Shopedition %s',
-                'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) oder Zend Guard Loader (PHP 5.3, 5.4) '.
+                'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) oder Zend Guard Loader (PHP 5.3, 5.4) ' .
                     'installiert',
                 'hasIonCubeLoader'       => 'ionCube loader installiert',
                 'globalSuccess'          => 'Die Prüfung war erfolgreich. Sie können das Modul installieren.*<br><br>',
-                'globalNotSuccess'       => 'Die Prüfung war nicht erfolgreich. Bitte kontrollieren Sie die rot '.
+                'globalNotSuccess'       => 'Die Prüfung war nicht erfolgreich. Bitte kontrollieren Sie die rot ' .
                     'markierten Bedingungen.<br><br>',
-                'deleteFile1'            => 'Löschen Sie diese Datei nach der Verwendung bitte unbedingt wieder von '.
+                'deleteFile1'            => 'Löschen Sie diese Datei nach der Verwendung bitte unbedingt wieder von ' .
                     'Ihrem Server! Klicken Sie <a href="',
                 'deleteFile2'            => '?fnc=deleteme">hier</a>, um diese Datei zu löschen.',
                 'showPhpInfo'            => 'PHPinfo anzeigen',
                 'dependentoffurther'     => '* abhängig von ungeprüften Voraussetzungen',
-                'oneandonedescription'   => '** geprüft wurde das Ausführungsverzeichnis, providerabhängig müssen '.
+                'oneandonedescription'   => '** geprüft wurde das Ausführungsverzeichnis, providerabhängig müssen ' .
                     'Unterverzeichnisse separat geprüft werden (z.B. bei 1&1)',
                 'or'                     => ' oder ',
                 'toggleswitch'           => 'Klick für Details zur Prüfung',
@@ -758,7 +774,7 @@ class requTranslations
             ),
             'en' => array(
                 'RequCheck'              => 'Requirement check',
-                'ExecNotice'             => 'Execute this check script in the root directory of your shop. In this '.
+                'ExecNotice'             => 'Execute this check script in the root directory of your shop. In this ' .
                     'case only checks can executed succesfully.',
                 'RequSucc'               => 'condition is fulfilled',
                 'RequNotSucc'            => 'condition isn\'t fulfilled',
@@ -773,20 +789,20 @@ class requTranslations
                 'hasMaxShopVersion'      => 'not more than shop version %s',
                 'hasMinModCfgVersion'    => 'ModCfg item "%s" (%s) has at least version %s',
                 'hasMaxModCfgVersion'    => 'ModCfg item "%s" (%s) has not more than version %s',
-                'hasModCfg'              => '<a href="http://www.oxidmodule.com/Connector" target="Connector">Module '.
+                'hasModCfg'              => '<a href="http://www.oxidmodule.com/Connector" target="Connector">Module ' .
                     'Connector</a> installed',
                 'isShopEdition'          => 'shop edition is %s',
                 'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) or Zend Guard Loader (PHP 5.3, 5.4) installed',
                 'hasIonCubeLoader'       => 'ionCube loader installed',
-                'globalSuccess'          => 'The test was successful. Your server is ready for installing the '.
+                'globalSuccess'          => 'The test was successful. Your server is ready for installing the ' .
                     'module.*<br><br>',
-                'globalNotSuccess'       => 'The test wasn\'t successfull. Please check the red marked '.
+                'globalNotSuccess'       => 'The test wasn\'t successfull. Please check the red marked ' .
                     'conditions.<br><br>',
                 'deleteFile1'            => 'Please delete this file after use on your server! Click <a href="',
                 'deleteFile2'            => '?fnc=deleteme">here</a>, to delete this file.',
                 'showPhpInfo'            => 'show PHPinfo',
                 'dependentoffurther'     => '* dependent of further unchecked conditions',
-                'oneandonedescription'   => '** this check use execution directory only, provider dependend '.
+                'oneandonedescription'   => '** this check use execution directory only, provider dependend ' .
                     'subdirectories have to check separately (e.g. at 1&1)',
                 'or'                     => ' or ',
                 'toggleswitch'           => 'click for details',
@@ -898,7 +914,7 @@ class requRemote
 
             $this->oModuleData = $oData;
         } else {
-            $oData = new stdClass();
+            $oData         = new stdClass();
             $oData->status = 'NOK';
         }
 
@@ -914,9 +930,10 @@ class requRemote
     {
         $sContent = '';
 
-        if (extension_loaded('curl') &&
-            function_exists('curl_init') && function_exists('curl_exec') &&
-            $ch = curl_init()
+        if (extension_loaded('curl')
+            && function_exists('curl_init')
+            && function_exists('curl_exec')
+            && $ch = curl_init()
         ) {
             $sCurl_URL = preg_replace('@^((http|https)://)@', '', $sFilePath);
             curl_setopt($ch, CURLOPT_URL, $sCurl_URL);
@@ -958,8 +975,11 @@ class requRemote
 class requTests
 {
     public $oBase;
+
     public $oDb;
+
     public $oConfig;
+
     public $blGlobalResult = false;
 
     /**
@@ -970,9 +990,9 @@ class requTests
      */
     public function __construct(requCheck $oCheckInstance, requConfig $oConfig, $oDb, requRemote $oRemote)
     {
-        $this->oBase = $oCheckInstance;
+        $this->oBase   = $oCheckInstance;
         $this->oConfig = $oConfig;
-        $this->oDb = $oDb;
+        $this->oDb     = $oDb;
         $this->oRemote = $oRemote;
     }
 
@@ -1043,8 +1063,8 @@ class requTests
     {
         $aResult[$this->getBasePath()] = false;
 
-        if ((version_compare(phpversion(), $aConfiguration['aParams']['from'], '>=')) &&
-            (version_compare(phpversion(), $aConfiguration['aParams']['to'], '<'))
+        if ((version_compare(phpversion(), $aConfiguration['aParams']['from'], '>='))
+            && (version_compare(phpversion(), $aConfiguration['aParams']['to'], '<'))
         ) {
             $aResult[$this->getBasePath()] = true;
         }
@@ -1184,6 +1204,7 @@ class requTests
 
             if (in_array(strtoupper($oResult->oxedition), $aConfiguration['aParams'][0])) {
                 $aConfiguration['aParams'][0] = strtoupper($oResult->oxedition);
+
                 return true;
             }
         }
@@ -1237,9 +1258,14 @@ class requTests
     public function hasMinModCfgVersion(&$aConfiguration)
     {
         if ($this->getDb()) {
-            $sSelect = "SELECT IF ".
-                "(INET_ATON(oxversion) >= INET_ATON('" . $aConfiguration['aParams']['version'] . "'), 1, 0) AS result ".
-                "FROM d3_cfg_mod ".
+            $sSelect =
+                "SELECT IF " .
+                "(INET_ATON(oxversion) >= INET_ATON('"
+                . $aConfiguration['aParams']['version']
+                . "'), 1, 0) AS result "
+                .
+                "FROM d3_cfg_mod "
+                .
                 "WHERE
                     oxmodid = '" . $aConfiguration['aParams']['id'] . "' AND
                     oxversion != 'basic'
@@ -1297,13 +1323,14 @@ class requTests
     {
         $aResult = array($this->getBasePath() => false);
 
-        if ((version_compare(phpversion(), '5.2.0', '>=') &&
-                version_compare(phpversion(), '5.2.900', '<') &&
-                function_exists('zend_optimizer_version')
-            ) || (
-                version_compare(phpversion(), '5.3.0', '>=') &&
-                version_compare(phpversion(), '5.4.900', '<') &&
-                function_exists('zend_loader_version')
+        if ((version_compare(phpversion(), '5.2.0', '>=')
+                && version_compare(phpversion(), '5.2.900', '<')
+                && function_exists('zend_optimizer_version')
+            )
+            || (
+                version_compare(phpversion(), '5.3.0', '>=')
+                && version_compare(phpversion(), '5.4.900', '<')
+                && function_exists('zend_loader_version')
             )
         ) {
             $aResult[$this->getBasePath()] = true;
@@ -1362,12 +1389,12 @@ class requTransformation
      */
     protected function _removeDeprecatedLibs(&$aCheck)
     {
-        $blDelOldLibs = false;
+        $blDelOldLibs  = false;
         $sCheckVersion = 0;
 
         if (is_array($aCheck)) {
-            $sSelect = "SELECT oxversion as result ".
-                "FROM d3_cfg_mod ".
+            $sSelect = "SELECT oxversion as result " .
+                "FROM d3_cfg_mod " .
                 "WHERE oxmodid = 'd3modcfg_lib' LIMIT 1";
             $rResult = mysql_query($sSelect, $this->oCheck->getDb());
             if (is_resource($rResult)) {
@@ -1378,9 +1405,9 @@ class requTransformation
             }
 
             foreach ($aCheck as $aModCfgCheck) {
-                if (isset($aModCfgCheck['aParams']['id']) &&
-                    strtolower($aModCfgCheck['aParams']['id']) == 'd3modcfg_lib' &&
-                    version_compare($sCheckVersion, '4.0.0.0', '>=')
+                if (isset($aModCfgCheck['aParams']['id'])
+                    && strtolower($aModCfgCheck['aParams']['id']) == 'd3modcfg_lib'
+                    && version_compare($sCheckVersion, '4.0.0.0', '>=')
                 ) {
                     $blDelOldLibs = true;
                 }
@@ -1391,8 +1418,8 @@ class requTransformation
             if ($blDelOldLibs) {
                 $aOldLibs = array('d3install_lib', 'd3log_lib', 'd3clrtmp_lib');
                 foreach ($aCheck as $sKey => $aModCfgCheck) {
-                    if (isset($aModCfgCheck['aParams']['id']) &&
-                        in_array(strtolower($aModCfgCheck['aParams']['id']), $aOldLibs)
+                    if (isset($aModCfgCheck['aParams']['id'])
+                        && in_array(strtolower($aModCfgCheck['aParams']['id']), $aOldLibs)
                     ) {
                         unset($aCheck[$sKey]);
                     }
