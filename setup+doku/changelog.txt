@@ -1,3 +1,6 @@
+=== 3.0.0.2 => 3.0.0.3 ===
+- Umstellung auf teilautomatische Installation
+
 === 3.0.0.0 => 3.1.0.0 ===
 - Umstellung auf teilautomatische Installation
 - Übergabe der Steuer
