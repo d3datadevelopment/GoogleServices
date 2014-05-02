@@ -17,7 +17,7 @@
                     window,document,'script','//www.google-analytics.com/analytics.js','d3ga'
                 );
 
-                d3ga('create', '[{$oD3GASettings->getValue('sD3GAId')}]' [{$sD3GACreateParameter}]);
+                d3ga('create', '[{$oD3GASettings->getValue('sD3GAId')}]', '[{$sD3CurrentShopUrl}]' [{$sD3GACreateParameter}]);
 
                 [{if $oD3GASettings->getValue('blD3GAAnonymizeIP')}]
                     d3ga('set', 'anonymizeIp', true);
@@ -26,6 +26,10 @@
                 [{include file="d3ga_universal_campaigns.tpl"}]
 
                 [{include file="d3ga_universal_custom.tpl"}]
+
+                [{if $oD3GASettings->getValue('blD3GAUseRemarketing')}]
+                    d3ga('require', 'displayfeatures');
+                [{/if}]
 
                 d3ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
 
@@ -49,10 +53,8 @@
                 [{include file="d3ga_universal_ecommerce.tpl"}]
             </script>
 
-            [{if (!$oD3GASettings->getValue('blD3GASetCampaignOnThankyouOnly') || $oViewConf->getActiveClassName() == 'thankyou') &&
-                  !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GACampaignCode')}]
-                [{$oD3GASettings->getValue('sD3GACampaignCode')}]
-            [{/if}]
+            [{include file="d3ga_universal_campaigncode.tpl"}]
+
         [{/strip}]
     [{/capture}]
 

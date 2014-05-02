@@ -171,7 +171,7 @@
                             </dt>
                             <dd>
                                 <input type="hidden" name="value[blD3GAUseRemarketing]" value="0">
-                                <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{$blUniversalDisabled}] [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
+                                <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
                                 [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC" }]
                             </dd>
                         </dl>

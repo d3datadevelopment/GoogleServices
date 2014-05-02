@@ -22,9 +22,9 @@ class d3_cfg_googleanalytics_licence extends d3_cfg_mod_licence
 {
     protected $_sModId = 'd3_googleanalytics';
 
-    protected $_hasLicence = FALSE;
+    protected $_hasLicence = false;
 
-    protected $_hasNewsletterForm = FALSE;
+    protected $_hasNewsletterForm = false;
 
-    protected $_hasUpdate = TRUE;
+    protected $_hasUpdate = true;
 }

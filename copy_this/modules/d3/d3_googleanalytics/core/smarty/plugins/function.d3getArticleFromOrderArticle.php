@@ -1,27 +1,27 @@
 <?php
+
 /**
- * This Software is the property of OXID eSales and is protected
- * by copyright law - it is NOT Freeware.
+ *    This module is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
  *
- * Any unauthorized use of this software without a valid license key
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ *    This module is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
  *
- * @link      http://www.oxid-esales.com
- * @package   smarty_plugins
- * @copyright (C) OXID eSales AG 2003-2011
- * @version OXID eShop PE
- * @version   SVN: $Id: function.oxcontent.php 29602 2010-08-31 14:03:21Z sarunas $
+ *    For further informations, see <http://www.gnu.org/licenses/>.
+ *
+ * @link      http://www.oxidmodule.com
+ * @link      http://www.shopmodule.com
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
 /**
  * Smarty plugin
  * -------------------------------------------------------------
- * File: insert.oxid_content.php
- * Type: string, html
- * Name: oxid_content
- * Purpose: Output content snippet
- * add [{ insert name="oxid_content" ident="..." }] where you want to display content
+ * add [{d3getArticleFromOrderArticle aid="articleid"}] where you want to display content
  * -------------------------------------------------------------
  *
  * @param array  $params  params
@@ -35,9 +35,9 @@ function smarty_function_d3getArticleFromOrderArticle( $params, &$smarty )
     $oArticle = oxNew('oxarticle');
     $oArticle->Load($sArtId);
 
-    if( isset( $params['assign']) && $params['assign'])
+    if (isset($params['assign']) && $params['assign']) {
         $smarty->assign($params['assign'], $oArticle);
-    else
-        return "use assign param";
+    }
 
+    return "use assign param";
 }

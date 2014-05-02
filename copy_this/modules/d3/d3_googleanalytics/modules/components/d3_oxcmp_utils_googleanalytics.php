@@ -36,6 +36,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $oParentView->addTplParam('sD3GATTpl', $this->d3getGATTpl());
         $oParentView->addTplParam('sD3GACreateParameter', $this->d3getCreateParameters());
         $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
+        $oParentView->addTplParam('sD3CurrentShopUrl', oxRegistry::getConfig()->getActiveShop()->getFieldData('oxurl'));
 
         return $ret;
     }
@@ -69,7 +70,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
         if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName')) {
             $aParameter[] = "'cookieDomain': '".d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName')."'";
-            $aParameter[] = "'legacyCookieDomain': '".d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName')."'";
+            $aParameter[] = "'legacyCookieDomain': '".
+                d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName')."'";
         }
         if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetCookiePath')) {
             $aParameter[] = "'cookiePath': '".d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetCookiePath')."'";

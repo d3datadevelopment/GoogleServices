@@ -39,8 +39,13 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function logCode($sGACode)
     {
-        d3_cfg_mod::get($this->_sModCfgId)->getLog()->log(
-            d3log::NOTICE, __CLASS__, __FUNCTION__, __LINE__, 'GA TrackingCode', $sGACode
+        d3_cfg_mod::get($this->_sModCfgId)->d3getLog()->log(
+            d3log::NOTICE,
+            __CLASS__,
+            __FUNCTION__,
+            __LINE__,
+            'GA TrackingCode',
+            $sGACode
         );
     }
 }

@@ -10,56 +10,56 @@
     [{* dimension 1 set customer gender *}]
     [{if $oxcmp_user}]
         d3ga(
-        'set',
-        'dimension1',
-        '[{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]male[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]female[{/if}]'
+            'set',
+            'dimension1',
+            '[{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]male[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]female[{/if}]'
         );
     [{/if}]
 
     [{* dimension 2 set payment type *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $oPayment}]
         d3ga(
-        'set',
-        'dimension2',
-        '[{$oPayment->getFieldData('oxdesc')}]'
+            'set',
+            'dimension2',
+            '[{$oPayment->getFieldData('oxdesc')}]'
         );
     [{/if}]
 
     [{* dimension 3 set delivery type *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $oDelSet}]
         d3ga(
-        'set',
-        'dimension3',
-        '[{$oDelSet->getFieldData('oxtitle')}]'
+            'set',
+            'dimension3',
+            '[{$oDelSet->getFieldData('oxtitle')}]'
         );
     [{/if}]
 
     [{* dimension 4 set vouchers *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $aVoucherSerieList}]
         d3ga(
-        'set', {
-        [{foreach from=$aVoucherSerieList item="oVoucherSerie"}]
-            'dimension4' :  '[{$oVoucherSerie->getFieldData('oxserienr')}]',
-        [{/foreach}]
-        }
+            'set', {
+                [{foreach from=$aVoucherSerieList item="oVoucherSerie"}]
+                    'dimension4' :  '[{$oVoucherSerie->getFieldData('oxserienr')}]',
+                [{/foreach}]
+            }
         );
     [{/if}]
 
     [{* dimension 5 set currency *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $order}]
         d3ga(
-        'set',
-        'dimension5',
-        '[{$order->getFieldData('oxcurrency')}]'
+            'set',
+            'dimension5',
+            '[{$order->getFieldData('oxcurrency')}]'
         );
     [{/if}]
 
     [{* dimension 6 set new customer status *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou'}]
         d3ga(
-        'set',
-        'dimension6',
-        '[{$oView->isNewCustomer()}]'
+            'set',
+            'dimension6',
+            '[{$oView->isNewCustomer()}]'
         );
     [{/if}]
 [{/strip}][{/if}]

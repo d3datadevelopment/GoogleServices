@@ -11,9 +11,10 @@
  * http://www.shopmodule.com
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author        D3 Data Development - Daniel Seifert <ds@shopmodule.com>
+ * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
  * @link          http://www.oxidmodule.com
  */
+
 class d3_googleanalytics_update extends d3install_updatebase
 {
     public $sModKey = 'd3_googleanalytics';
