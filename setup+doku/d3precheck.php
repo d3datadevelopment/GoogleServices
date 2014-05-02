@@ -820,7 +820,7 @@ class requRemote
 {
     public $blUseRemote = true;
 
-    public $oModuleData;
+    public $oModuleData = array();
 
     /**
      * @param $sModId
@@ -897,28 +897,30 @@ class requRemote
     /**
      * @param $sUrl
      *
-     * @return string
+     * @return stdClass
      */
     protected function _getRemoteServerData($sUrl)
     {
-        if ($this->oModuleData) {
-            return $this->oModuleData;
+        if (isset($this->oModuleData[$sUrl])) {
+            return $this->oModuleData[$sUrl];
         }
 
-        if ($this->blUseRemote) {
-            $sUrl = '/serialized/' . $sUrl;
+        $oFailureData         = new stdClass();
+        $oFailureData->status = 'NOK';
 
-            $sHost = "http://update.oxidmodule.com";
-            $sData = $this->curlConnect($sHost . $sUrl);
-            $oData = unserialize($sData);
-
-            $this->oModuleData = $oData;
-        } else {
-            $oData         = new stdClass();
-            $oData->status = 'NOK';
+        if (false === $this->blUseRemote) {
+            return $oFailureData;
         }
+        $sHost = "http://update.oxidmodule.com";
+        $sData = $this->curlConnect($sHost . '/serialized/' . $sUrl);
+        $oData = unserialize($sData);
 
-        return $oData;
+        if (false == $oData) {
+            return $oFailureData;
+        }
+        $this->oModuleData[$sUrl] = $oData;
+
+        return $this->oModuleData[$sUrl];
     }
 
     /**
