@@ -23,4 +23,16 @@ class d3_cfg_googleanalytics_campaigns extends d3_cfg_mod_main
     protected $_sThisTemplate = 'd3_cfg_googleanalytics_campaigns.tpl';
 
     protected $_sModId = 'd3_googleanalytics';
+
+    /**
+     * @return mixed
+     */
+    public function getGaType()
+    {
+        if ($this->d3GetSet()->getValue('sD3GAType') == 'async') {
+            return 'async';
+        }
+
+        return 'universal';
+    }
 }

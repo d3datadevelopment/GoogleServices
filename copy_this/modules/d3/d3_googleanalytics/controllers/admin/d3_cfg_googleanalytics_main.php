@@ -22,4 +22,17 @@ class d3_cfg_googleanalytics_main extends d3_cfg_mod_main
 {
     protected $_sThisTemplate = 'd3_cfg_googleanalytics_main.tpl';
     protected $_sModId = 'd3_googleanalytics';
+    protected $_blHasDebugSwitch = true;
+
+    /**
+     * @return mixed
+     */
+    public function getGaType()
+    {
+        if ($this->d3GetSet()->getValue('sD3GAType') == 'async') {
+            return 'async';
+        }
+
+        return 'universal';
+    }
 }

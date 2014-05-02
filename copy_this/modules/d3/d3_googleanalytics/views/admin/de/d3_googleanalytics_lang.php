@@ -35,6 +35,13 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_CFG_TITLE'                                 => 'Google Analytics Schnittstelle - Einstellungen',
 
     'D3_GOOGLEANALYTICS_MAIN'                                      => 'Grundeinstellungen',
+    'D3_GOOGLEANALYTICS_MAIN_GATYPE'                               => 'TrackingCode-Typ',
+    'D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL'                     => 'Universal',
+    'D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC'                         => 'asynchron',
+    'D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC'                          => 'Aktuell priorisiert Google den Trackingtyp '.
+        '"Universal". Setzen Sie hier den Typ, den Sie in Ihrem Analytics-Konto auch verwenden. Nutzen Sie noch den '.
+        'asynchronen Trackingcode, lesen Sie vor der Umstellung den <a href="'.
+        'https://support.google.com/analytics/answer/3450662?hl=de" target="gahelp">Leitfaden</a> zum Wechsel.',
     'D3_GOOGLEANALYTICS_MAIN_GAID'                                 => 'Analyics-ID',
     'D3_GOOGLEANALYTICS_MAIN_GAID_DESC'                            => 'Fügen Sie hier die Google Analytics Konto-ID ein. Diese finden Sie in Ihrem GA-Konto und beginnt im Normalfall mit "UA-".',
     'D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP'                          => 'IP-Adressen anonymisiert übertragen (dringend empfohlen)',
@@ -42,7 +49,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME'                    => 'Seitenladezeit mit übertragen',
     'D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC'               => 'Die Ladezeit Ihrer Seite ist, speziell auch in Hinblick auf verschiedene Länder, durchaus ein Faktor, der in das Ranking Ihrer Page einfliesst.',
     'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING'                       => 'Remarketing verwenden',
-    'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC'                  => 'Wenn Sie sich entschließen, Remarketing mit Google Analytics zu nutzen, setzen Sie diesen Haken. Nachdem Sie diese Änderung vorgenommen haben, erfasst und analysiert Google Analytics neben den üblichen Informationen auch das DoubleClick-Cookie, sofern vorhanden. Das DoubleClick-Cookie ermöglicht Remarketing im Google Display-Netzwerk für Produkte wie AdWords.',
+    'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC'                  => 'Wenn Sie sich entschließen, Remarketing mit Google Analytics zu nutzen, setzen Sie diesen Haken. Nachdem Sie diese Änderung vorgenommen haben, erfasst und analysiert Google Analytics neben den üblichen Informationen auch das DoubleClick-Cookie, sofern vorhanden. Das DoubleClick-Cookie ermöglicht Remarketing im Google Display-Netzwerk für Produkte wie AdWords.<br> Beachten Sie, dass Remarketing in Verbindung mit Universal Analytics zum Zeitpunkt der Modulerstellung nicht kompatibel war. Konsultieren Sie hierzu die Dokumentation.',
 
     'D3_GOOGLEANALYTICS_ECOMMERCE'                                 => 'eCommerce-Einstellungen',
     'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'                        => 'eCommerce-Daten übertragen',
@@ -52,7 +59,7 @@ $aLang = array(
 
     'D3_GOOGLEANALYTICS_DOMAIN'                                    => 'Multi-Domain-Einstellungen',
     'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER'                     => 'Trackingdaten von unterschiedlichen Domains verwenden',
-    'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC'                => 'Cross Domain Tracking erlaubt das Sammeln von Trackinginformationen auch über verschiedene Domains hinweg. <br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/tracking/asyncMigrationExamples.html" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC'                => 'Cross Domain Tracking erlaubt das Sammeln von Trackinginformationen auch über verschiedene Domains hinweg. <br><br>Weitere Informationen finden Sie <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiDomainDirectory#_gat.GA_Tracker_._setAllowLinker" target="gahelp">hier</a>.',
     'D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME'                      => 'fixiert das Tracking-Cookie auf die angegebene Domain (optional)',
     'D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME_DESC'                 => 'Lassen Sie dieses Feld leer, ist das Tacking-Cookie für unterschiedliche Seiten gültig. Wenn Sie statt dessen eine Domain angeben, ist das gesetzte Cookie nur für Seiten unter dieser Domain gültig. Andere zu trackende Seiten setzen dann ein neues Cookie.<br><br>Der Eintrag sollte hier so aussehen: .yourDomainName.com<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/concepts/gaConceptsCookies.html#significanceOfName" target="gahelp">hier</a>.',
     'D3_GOOGLEANALYTICS_DOMAIN_SETCOOKIEPATH'                      => 'Tracking nur auf ein Verzeichnis beschränken (optional)',
@@ -81,26 +88,28 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY'       => 'Kampagnendaten nur in Bestellabschlussseite verwenden',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY_DESC'  => 'Ist dieser Haken nicht gesetzt, wird der Kampagnencode shopweit eingefügt. Das AdWords-Conversion Tracking erwartet die Daten jedoch nur bei Bestellabschluss. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion Tracking Anbieter.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT'      => 'Kampagnenlaufzeit (optional, sonst 6 Monate)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC' => 'Geben Sie hier eine optionale Laufzeit dieser Kampagne in Millisekunden an.<br><br>30 Tage = 2592000000<br>365 Tage = 31536000000',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC' => 'Geben Sie hier eine optionale Laufzeit dieser Kampagne in Millisekunden an.<br><br>30 Tage = 2592000000<br>365 Tage = 31536000000<br><br>Für Universal Analytics tragen Sie diesen Wert bitte in Ihrem Analytics-Konto nach.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS'   => 'Millisekunden',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY'                  => 'zwingend verwendete Kampagne (optional)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC'             => 'die hier festgelegte Kampagne wird zwingend verwendet, auch wenn die Cookie-Einstellungen schon eine andere Kampagne liefern.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/intl/de/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNOKey" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC'             => 'die hier festgelegte Kampagne wird zwingend verwendet, auch wenn die Cookie-Einstellungen schon eine andere Kampagne liefern.',
 
     'D3_GOOGLEANALYTICS_ADWORDSCODE'                               => 'Kampagnen-Code',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_CODE'                          => 'AdWords-Code',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_CODE_DESC'                     => 'Kopieren Sie hier den Kampagnen-Tracking-Code ein, den Sie auf Ihrer AdWords-Seite finden. Kopieren Sie auch das "script"-Tag mit.',
 
     'D3_GOOGLEANALYTICS_ADWORDSMAIN'                               => 'Individualisierung der Kampagnentrackings',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPIDKEY'                  => 'Kampagnen-ID (optional)',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPIDKEY_DESC'             => 'Geben Sie hier die ID dieser Kamapagne an.<br><br>Weitere Informationen finden Sie hier: <ul><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignId" target="gahelp">hier</a></li></ul> Diese Angabe ist nur in Universal Analytics verf&uuml;gbar.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNAMEKEY'                => 'Kampagnenname (optional)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNAMEKEY_DESC'           => 'Unter diesem Namen sehen Sie die Auswertung der Daten aus dieser Shopkampagne in Analytics.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNameKey" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNAMEKEY_DESC'           => 'Unter diesem Namen sehen Sie die Auswertung der Daten aus dieser Shopkampagne in Analytics.<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampNameKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignName" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPMEDIUMKEY'              => 'Kampagnenmedium (optional)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPMEDIUMKEY_DESC'         => 'Definieren Sie das Medium dieser Kampagne (z.B. Werbebanner, Mailkampagne oder auch Klickkampagne). Diese Einstellung finden Sie in der Kampagnenauswertung unter "Keywords".<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampMediumKey" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPMEDIUMKEY_DESC'         => 'Definieren Sie das Medium dieser Kampagne (z.B. Werbebanner, Mailkampagne oder auch Klickkampagne). Diese Einstellung finden Sie in der Kampagnenauswertung unter "Keywords".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampMediumKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignMedium" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPSOURCEKEY'              => 'Kampagnenquelle (optional)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPSOURCEKEY_DESC'         => 'Benennen Sie hier die Quelle der Shopkampagne, vergeben Sie zum Beispiel den Webseiten-Name oder den Firmenname.<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampSourceKey" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPSOURCEKEY_DESC'         => 'Benennen Sie hier die Quelle der Shopkampagne, vergeben Sie zum Beispiel den Webseiten-Name oder den Firmenname.<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampSourceKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignSource" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPTERMKEY'                => 'Schlüsselwort(e) Ihrer Kampagne (optional)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPTERMKEY_DESC'           => 'Auch diese Keywords erscheinen in Analytics unter "Keywords".<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampTermKey" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPTERMKEY_DESC'           => 'Auch diese Keywords erscheinen in Analytics unter "Keywords".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampTermKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignKeyword" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPCONTENTKEY'             => 'Inhaltsbeschreibung der Kampagne (optional)',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPCONTENTKEY_DESC'        => 'Den beschrieben Inhalt finden Sie in der Auswertung als "Ad Content".<br><br>Weitere Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampContentKey" target="gahelp">hier</a>.',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPCONTENTKEY_DESC'        => 'Den beschrieben Inhalt finden Sie in der Auswertung als "Ad Content".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampContentKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignContent" target="gahelp">hier</a></li></ul>',
 
     'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Analytics Schnittstelle',
     'D3_GOOGLEANALYTICS_METADATA_DESC'                             => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-Kontos in Ihren Shop zur Verfügung. Hierbei werden über standardisierte Schnittstellen die Besucherdaten und eCommerce-Daten zu Google übertragen.Ebenfalls übermittelt werden Daten der Website-Suche. Dem Modul liegen angepaßte Templates bei, mit denen auch die Trichter ordentlich protokolliert werden.',

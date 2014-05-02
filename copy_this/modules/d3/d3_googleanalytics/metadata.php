@@ -58,6 +58,10 @@ $aModule = array(
     ),
     'templates' => array(
         'd3_googleanalytics.tpl'                => 'd3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl',
+        'd3ga_universal.tpl'                    => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_universal.tpl',
+        'd3ga_universal_custom.tpl'             => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_custom.tpl',
+        'd3ga_universal_ecommerce.tpl'          => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_ecommerce.tpl',
+        'd3ga_universal_campaigns.tpl'          => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigns.tpl',
         'd3_cfg_googleanalytics_main.tpl'       => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
         'd3_cfg_googleanalytics_campaigns.tpl'  => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl',
     ),

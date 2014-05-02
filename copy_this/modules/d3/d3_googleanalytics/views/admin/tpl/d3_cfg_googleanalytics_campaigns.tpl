@@ -101,6 +101,17 @@ function _groupExp(el) {
                 </div>
             [{else}]
 
+                [{if $oView->getGaType() == 'universal'}]
+                    [{assign var="blUniversalDisabled" value="disabled readonly"}]
+                    [{assign var="blAsyncDisabled" value=""}]
+                [{elseif  $oView->getGaType() == 'async'}]
+                    [{assign var="blUniversalDisabled" value=""}]
+                    [{assign var="blAsyncDisabled" value="disabled readonly"}]
+                [{else}]
+                    [{assign var="blUniversalDisabled" value=""}]
+                    [{assign var="blAsyncDisabled" value=""}]
+                [{/if}]
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -135,7 +146,7 @@ function _groupExp(el) {
 [{*  _gaq.push(['_setCampaignCookieTimeout', 31536000000]);  *}]
                             </dt>
                             <dd>
-                                <input id="sD3GASetCampaignCookieTimeout" class="edittext ext_edittext" type="text" size="30" maxlength="30" value="[{$edit->getValue('sD3GASetCampaignCookieTimeout')}]" name="value[sD3GASetCampaignCookieTimeout]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS"}]
+                                <input id="sD3GASetCampaignCookieTimeout" class="edittext ext_edittext" [{$blUniversalDisabled}] type="text" size="30" maxlength="30" value="[{$edit->getValue('sD3GASetCampaignCookieTimeout')}]" name="value[sD3GASetCampaignCookieTimeout]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS"}]
                                 [{ oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC" }]
                             </dd>
                         </dl>
@@ -146,7 +157,7 @@ function _groupExp(el) {
                             </dt>
                             <dd>
                                 <input type="hidden" name="value[blD3GASetCampNoKey]" value="0">
-                                <input id="blD3GASetCampNoKey" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASetCampNoKey')}]checked[{/if}] name="value[blD3GASetCampNoKey]">
+                                <input id="blD3GASetCampNoKey" class="edittext ext_edittext" type="checkbox" value="1"  [{$blUniversalDisabled}] [{if $edit->getValue('blD3GASetCampNoKey')}]checked[{/if}] name="value[blD3GASetCampNoKey]">
                                 [{ oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC" }]
                             </dd>
                         </dl>
@@ -181,6 +192,16 @@ function _groupExp(el) {
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN"}]
                             </span>
                         </a>
+                        <dl>
+                            <dt>
+                                <label for="sD3GASetCampIdKey">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPIDKEY"}]</label>
+[{*  _gaq.push(['_setCampId', 'ga_content']);  *}]
+                            </dt>
+                            <dd>
+                                <input id="sD3GASetCampIdKey" class="edittext ext_edittext" type="text" [{$blAsyncDisabled}] size="30" maxlength="100" value="[{$edit->getValue('sD3GASetCampIdKey')}]" name="value[sD3GASetCampIdKey]">
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPIDKEY_DESC" }]
+                            </dd>
+                        </dl>
                         <dl>
                             <dt>
                                 <label for="sD3GASetCampNameKey">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNAMEKEY"}]</label>
