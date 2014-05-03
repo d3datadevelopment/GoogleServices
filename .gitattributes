@@ -1,5 +1,9 @@
 * text=auto !eol
 Sources/Google[!!-~]Analytics-Installation.docx -text
+Sources/UGA_Custom_Dimensions.jpg -text
+Sources/UGA_Einstellungen.jpg -text
+Sources/UGA_Trichtereinrichtung.jpg -text
+Sources/UGA_Trichtereinrichtung_1.jpg -text
 Sources/changelog.txt -text
 Sources/doku/01_asyncTracking-Dateien/cleardot.gif -text
 Sources/doku/01_asyncTracking-Dateien/code_logo.gif -text
@@ -200,10 +204,9 @@ copy_this/modules/d3/d3_googleanalytics/views/admin/de/d3_googleanalytics_lang.p
 copy_this/modules/d3/d3_googleanalytics/views/admin/en/d3_googleanalytics_lang.php -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl -text
+setup+doku/Google[!!-~]Analytics-Einrichtung.pdf -text svneol=unset#unset
 setup+doku/Google[!!-~]Analytics-Installation.pdf -text
 setup+doku/adwords_1.png -text
 setup+doku/adwords_2.png -text
-setup+doku/analytics_1.png -text
-setup+doku/analytics_2.png -text
 setup+doku/changelog.txt -text
 setup+doku/d3precheck.php -text

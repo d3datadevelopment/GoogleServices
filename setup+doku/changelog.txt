@@ -1,5 +1,8 @@
+=== X
+- Universal-Analytics Tracking-Code implementiert
+
 === 3.0.0.2 => 3.0.0.3 ===
-- Umstellung auf teilautomatische Installation
+- Precheck angepasst
 
 === 3.0.0.0 => 3.1.0.0 ===
 - Umstellung auf teilautomatische Installation
