@@ -204,9 +204,8 @@ copy_this/modules/d3/d3_googleanalytics/views/admin/de/d3_googleanalytics_lang.p
 copy_this/modules/d3/d3_googleanalytics/views/admin/en/d3_googleanalytics_lang.php -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl -text
+setup+doku/Google[!!-~]AdWords-Einrichtung.pdf -text svneol=unset#unset
 setup+doku/Google[!!-~]Analytics-Einrichtung.pdf -text svneol=unset#unset
 setup+doku/Google[!!-~]Analytics-Installation.pdf -text
-setup+doku/adwords_1.png -text
-setup+doku/adwords_2.png -text
 setup+doku/changelog.txt -text
 setup+doku/d3precheck.php -text
