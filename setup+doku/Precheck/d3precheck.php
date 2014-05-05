@@ -6,7 +6,7 @@ class requConfig
 
     public $sModId = 'd3_googleanalytics';
 
-    public $sModVersion = '3.0.0.3';
+    public $sModVersion = '3.1.0.0';
 
     /********************** check configuration section ************************/
 
@@ -60,9 +60,9 @@ class requConfig
         'hasMaxShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
-                'PE' => '4.8.4',
-                'CE' => '4.8.4',
-                'EE' => '5.1.4'
+                'PE' => '4.8.5',
+                'CE' => '4.8.5',
+                'EE' => '5.1.5'
             ),
         ),
 

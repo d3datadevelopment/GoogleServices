@@ -47,7 +47,7 @@
                     else if (pageLoadTime < 10000) { loadTime = "6-10 seconds"; }
                     else { loadTime = "10+ seconds"; }
 
-                    d3ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': 1});
+                    d3ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': true});
                 [{/if}]
 
                 [{include file="d3ga_universal_ecommerce.tpl"}]
