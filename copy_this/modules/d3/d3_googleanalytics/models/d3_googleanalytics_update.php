@@ -25,16 +25,16 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModRevision = '100';
 
-    public $sBaseConf = <<<KEY
---------------------------------------------------------------------------------
-84MbWtQLzZnbGNvWkw4d3BEUy82OTdmQmhZNEw5OWNYSXpuNGRMbE02bnJ0VlF6MlcwM252R1UvdTVkd
-09zOWs0SnF3T0U2L3RBUEN6MDkwdmFQeStMcWRHRGY1blJGUk9waTZSSlZLRlB0UHNnU2ZiS2pqWVJ6e
-VcxK3lPOW9TQWM3QkZmb3dTMjlwVkNBVitWck5sWUE2dlRLNWZjNGJRZG9uMEVlR2dTL3pxaGpPL2lvZ
-nYrbFovbmhIb1o3Q0RFSkl4S2RhNTdaaHUvbXU4L0VFK0QxMUVVdmo3b0N5enVaS01yRE9DZGVud1dEd
-DNLOWgybGkycTNnRnBMU256aVY5Um5RdTVPaFl6ckIyRWRJSWg1T1ZMVU1nbDBNSUFwdHh6OThRK01wV
-0k9
---------------------------------------------------------------------------------
-KEY;
+    // heredoc syntax using for class members is available from PHP 5.3 up
+    public $sBaseConf =
+    "--------------------------------------------------------------------------------
+    84MbWtQLzZnbGNvWkw4d3BEUy82OTdmQmhZNEw5OWNYSXpuNGRMbE02bnJ0VlF6MlcwM252R1UvdTVkd
+    09zOWs0SnF3T0U2L3RBUEN6MDkwdmFQeStMcWRHRGY1blJGUk9waTZSSlZLRlB0UHNnU2ZiS2pqWVJ6e
+    VcxK3lPOW9TQWM3QkZmb3dTMjlwVkNBVitWck5sWUE2dlRLNWZjNGJRZG9uMEVlR2dTL3pxaGpPL2lvZ
+    nYrbFovbmhIb1o3Q0RFSkl4S2RhNTdaaHUvbXU4L0VFK0QxMUVVdmo3b0N5enVaS01yRE9DZGVud1dEd
+    DNLOWgybGkycTNnRnBMU256aVY5Um5RdTVPaFl6ckIyRWRJSWg1T1ZMVU1nbDBNSUFwdHh6OThRK01wV
+    0k9
+    --------------------------------------------------------------------------------";
 
     public $sRequirements = '';
 

@@ -80,7 +80,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $aParameter[] = "'allowLinker': true";
         }
         if (d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate')) {
-            $aParameter[] = "'siteSpeedSampleRate': ".d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate');
+            $aParameter[] = "'siteSpeedSampleRate': ".
+                d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate');
+        }
+        if (d3_cfg_mod::get($this->_sModId)->getValue('iD3GASampleRate')) {
+            $aParameter[] = "'sampleRate': ".d3_cfg_mod::get($this->_sModId)->getValue('iD3GASampleRate');
         }
 
         if (count($aParameter)) {
