@@ -1,5 +1,7 @@
 === X
 - Universal-Analytics Tracking-Code implementiert
+- zusätzliche Steuerungsparameter eingefügt
+- Trichtererfassung vereinfacht
 
 === 3.0.0.2 => 3.0.0.3 ===
 - Precheck angepasst

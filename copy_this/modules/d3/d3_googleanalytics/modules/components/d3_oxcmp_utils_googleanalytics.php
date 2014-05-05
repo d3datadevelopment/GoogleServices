@@ -79,6 +79,9 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         if (d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
             $aParameter[] = "'allowLinker': true";
         }
+        if (d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate')) {
+            $aParameter[] = "'siteSpeedSampleRate': ".d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate');
+        }
 
         if (count($aParameter)) {
             return ", {".implode(',', $aParameter)."}";
@@ -92,7 +95,50 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function d3getSendPageViewParameters()
     {
+        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
+            return $this->_d3getAsyncSendpageViewParameters();
+        }
+
+        return $this->_d3getUniversalSendPageViewParameters();
+    }
+
+    /**
+     * @return string
+     */
+    protected function _d3getAsyncSendpageViewParameters()
+    {
         $aParameter = array();
+
+        /** @var oxUBase $oCurrentView */
+        $oCurrentView = oxRegistry::getConfig()->getActiveView();
+        $oCurrentView->getIsOrderStep();
+
+        if ($oCurrentView->getIsOrderStep()) {
+            $aParameter[] = "'{$oCurrentView->getClassName()}.html'";
+        }
+
+        if (count($aParameter)) {
+            return ", " . implode(',', $aParameter) . "";
+        }
+
+        return '';
+}
+
+    /**
+     * @return string
+     */
+    protected function _d3getUniversalSendPageViewParameters()
+    {
+        $aParameter = array();
+
+        /** @var oxUBase $oCurrentView */
+        $oCurrentView = oxRegistry::getConfig()->getActiveView();
+        $oCurrentView->getIsOrderStep();
+
+        if ($oCurrentView->getIsOrderStep()) {
+            $aParameter[] = "'page':  '{$oCurrentView->getClassName()}.html'";
+            $aParameter[] = "'title': 'Checkout: ".ucfirst($oCurrentView->getClassName())."'";
+        }
 
         if (d3_cfg_mod::get($this->_sModId)->hasDebugMode()) {
             $aParameter[] = "
@@ -103,7 +149,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         if (count($aParameter)) {
-            return ", {".implode(',', $aParameter)."}";
+            return ", {" . implode(',', $aParameter) . "}";
         }
 
         return '';

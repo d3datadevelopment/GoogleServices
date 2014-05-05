@@ -128,8 +128,8 @@
                                 <label for="sD3GAType">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE"}]</label>
                             </dt>
                             <dd>
-                                <input type="radio" name="value[sD3GAType]" value="universal" [{if $oView->getGaType() != 'async'}]checked[{/if}]> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL"}]<br>
-                                <input type="radio" name="value[sD3GAType]" value="async" [{if $oView->getGaType() == 'async'}]checked[{/if}]> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC"}]
+                                <input type="radio" name="value[sD3GAType]" value="universal" [{if $oView->getGaType() != 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL"}]<br>
+                                <input type="radio" name="value[sD3GAType]" value="async" [{if $oView->getGaType() == 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC"}]
                                 [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC" }]
                             </dd>
                         </dl>
@@ -156,6 +156,17 @@
                         </dl>
                         <dl>
                             <dt>
+                                <label for="blD3GASampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE"}]</label>
+[{* _gaq.push(['_setSampleRate', 5]); *}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[iD3GASampleRate]" value="0">
+                                <input type="text" id="iD3GASampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASampleRate')}][{$edit->getValue('iD3GASampleRate')}][{else}]100[{/if}]" size="5" maxlength="3" name="value[iD3GASampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_1"}]
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_DESC" }]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
                                 <label for="blD3GATrackPageLoadTime">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME"}]</label>
 [{*  _gaq.push(['_gat._trackPageLoadTime']); *}]
                             </dt>
@@ -163,6 +174,17 @@
                                 <input type="hidden" name="value[blD3GATrackPageLoadTime]" value="0">
                                 <input id="blD3GATrackPageLoadTime" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GATrackPageLoadTime')}]checked[{/if}] name="value[blD3GATrackPageLoadTime]">
                                 [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC" }]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="blD3GASiteSpeedSampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE"}]</label>
+[{* _gaq.push(['_setSiteSpeedSampleRate', 5]); *}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[iD3GASiteSpeedSampleRate]" value="0">
+                                <input type="text" id="iD3GASiteSpeedSampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASiteSpeedSampleRate')}][{$edit->getValue('iD3GASiteSpeedSampleRate')}][{else}]1[{/if}]" size="5" maxlength="3" name="value[iD3GASiteSpeedSampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_1"}]
+                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_DESC" }]
                             </dd>
                         </dl>
                         <dl>

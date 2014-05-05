@@ -28,6 +28,10 @@
                     _gaq.push(['_setCookiePath', '[{$oD3GASettings->getValue('sD3GASetCookiePath')}]']);
                 [{/if}]
 
+                [{if $oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]
+                    _gaq.push(['_setSiteSpeedSampleRate', '[{$oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]']);
+                [{/if}]
+
                 [{if $oD3GASettings->getValue('blD3GAAllowDomainLinker')}]
                     _gaq.push(['_setAllowLinker', true]);
                 [{/if}]
@@ -114,7 +118,7 @@
                     [{/if}]
                 [{/if}]
 
-                _gaq.push(['_trackPageview']);
+                _gaq.push(['_trackPageview' [{$sD3GASendPageViewParameter}]]);
 
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
                     _gaq.push(['_trackPageLoadTime']);
