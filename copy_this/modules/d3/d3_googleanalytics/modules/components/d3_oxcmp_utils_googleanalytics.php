@@ -139,7 +139,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $oCurrentView = oxRegistry::getConfig()->getActiveView();
         $oCurrentView->getIsOrderStep();
 
-        if ($oCurrentView->getIsOrderStep()) {
+        if ($oCurrentView->getIsOrderStep() || strtolower($oCurrentView->getClassName()) == 'thankyou') {
             $aParameter[] = "'page':  '{$oCurrentView->getClassName()}.html'";
             $aParameter[] = "'title': 'Checkout: ".ucfirst($oCurrentView->getClassName())."'";
         }

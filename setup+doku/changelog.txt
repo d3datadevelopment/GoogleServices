@@ -1,47 +1,51 @@
-=== 3.1.0.0
+=> 3.1.0.0
 - Universal-Analytics Tracking-Code implementiert
 - zusätzliche Steuerungsparameter eingefügt
 - Trichtererfassung vereinfacht
 
-=== 3.0.0.2 => 3.0.0.3 ===
+=> 3.0.0.3
 - Precheck angepasst
+- Templates für 4.8.0 / 5.1.0 hinzugefügt
 
-=== 3.0.0.0 => 3.1.0.0 ===
+=> 3.0.0.2
+- automatische Installation angepasst
+
+=> 3.0.0.1
 - Umstellung auf teilautomatische Installation
 - Übergabe der Steuer
 
-=== 2.4.1 => 3.0.0.0 ===
+=> 3.0.0.0
 - Umstellung auf Struktur des OXID 4.7 / 5.0
 - benutzerdefinierte Variablen um "Neukunde" ergänzt
 - Trackingcode in <head> verschoben
 - optionales Logging integriert
 
-=== 2.4.0 => 2.4.1 ===
+=> 2.4.1
 - Templates für OXID 4.6.4 kompatibel
 
-=== 2.3.0 => 2.4.0 ===
+=> 2.4.0
 - Remarketing-Option eingefügt
 - Metadaten vervollständigt
 - Syntaxfehler im JS-Code entfernt
 
-=== 2.2.3 => 2.3.0 ===
+=> 2.3.0
 - Templates für OXID 4.5.11 und 4.6.2 kompatibel
 - weitere Beispiele für benutzerdefinierte Variablen eingefügt
 
-=== 2.2.2 => 2.2.3 ===
+=> 2.2.3
 - Templates für OXID 4.6 eingefügt
 - Metadaten eingefügt
 - Templates für OXID 4.5.9 kompatibel
 
-=== 2.2.1 => 2.2.2 ===
+=> 2.2.2
 - Templates für OXID 4.5.8 kompatibel
 - Syntaxfehler im JS-Code entfernt
 
-=== 2.2.0 => 2.2.1 ===
+=> 2.2.1
 - Templates für OXID 4.5.3 bis 4.5.6 kompatibel
 - Syntaxfehler im JS-Code entfernt
 
-=== 2.1.5 => 2.2.0 ===
+=> 2.2.0
 - Kampagnen können unabhängig von deren Code deaktiviert werden
 - Ladezeit-Log hinzugefügt
 - Preise werden in Shophauptwährung übertragen
