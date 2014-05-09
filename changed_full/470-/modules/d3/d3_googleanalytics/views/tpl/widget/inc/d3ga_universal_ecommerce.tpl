@@ -1,10 +1,7 @@
-[{if $oD3GASettings->getValue('blD3GASendECommerce') && $oViewConf->getActiveClassName() == 'thankyou'}]
-[{strip}]
-    [{if $oViewConf->getActiveClassName() == 'thankyou'}]
-        [{assign var="order" value=$oView->getOrder()}]
-    [{/if}]
+[{if $oD3GASettings->getValue('blD3GASendECommerce') && $oViewConf->getActiveClassName() == 'thankyou'}][{strip}]
+    [{assign var="order" value=$oView->getOrder()}]
 
-    d3ga('require', 'ecommerce', 'ecommerce.js');
+    ga('require', 'ecommerce', 'ecommerce.js');
 
     [{assign var="currate" value=$order->oxorder__oxcurrate->value}]
     [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
@@ -15,12 +12,12 @@
     [{math equation="s - r" s=$order->getTotalOrderSum() r=$order->getOrderNetSum() format="%.2f" assign="sTax"}]
     [{math equation="s / r" s=$order->oxorder__oxdelcost->value r=$currate format="%.2f" assign="sShipping"}]
 
-    d3ga('ecommerce:addTransaction', {
-    'id':           '[{$order->oxorder__oxordernr->value}]',        [{* Transaction ID. Required *}]
-    'affiliation':  '[{$oxcmp_shop->oxshops__oxname->value}]',      [{* Affiliation or store name *}]
-    'revenue':      '[{$sTotal}]',                                  [{* Gesamtwert *}]
-    'shipping':     '[{$sShipping}]',                               [{* Versand *}]
-    'tax':          '[{$sTax}]'                                     [{* Steuer *}]
+    ga('ecommerce:addTransaction', {
+        'id':           '[{$order->oxorder__oxordernr->value}]',        [{* Transaction ID. Required *}]
+        'affiliation':  '[{$oxcmp_shop->oxshops__oxname->value}]',      [{* Affiliation or store name *}]
+        'revenue':      '[{$sTotal}]',                                  [{* Gesamtwert *}]
+        'shipping':     '[{$sShipping}]',                               [{* Versand *}]
+        'tax':          '[{$sTax}]'                                     [{* Steuer *}]
     });
 
     [{foreach from=$order->getOrderArticles() item=oOrderArticle}]
@@ -32,15 +29,15 @@
             [{assign var="sPrice" value=$oOrderArticle->oxorderarticles__oxprice->value}]
         [{/if}]
 
-        d3ga('ecommerce:addItem', {
-        'id': '[{$order->oxorder__oxordernr->value}]',                          [{* Transaktions-ID *}]
-        'name': '[{$oOrderArticle->oxorderarticles__oxtitle->value}]',          [{* Produktname *}]
-        'sku': '[{$oOrderArticle->oxorderarticles__oxartnum->value}]',          [{* SKU/Code *}]
-        'category': '[{$oOrderArticle->oxorderarticles__oxselvariant->value}]', [{* Kategorie oder Ausführung *}]
-        'price': '[{$sPrice}]',                                                 [{* Preis pro Einheit *}]
-        'quantity': '[{$oOrderArticle->oxorderarticles__oxamount->value}]'      [{* Menge *}]
+        ga('ecommerce:addItem', {
+            'id': '[{$order->oxorder__oxordernr->value}]',                          [{* Transaktions-ID *}]
+            'name': '[{$oOrderArticle->oxorderarticles__oxtitle->value}]',          [{* Produktname *}]
+            'sku': '[{$oOrderArticle->oxorderarticles__oxartnum->value}]',          [{* SKU/Code *}]
+            'category': '[{$oOrderArticle->oxorderarticles__oxselvariant->value}]', [{* Kategorie oder Ausführung *}]
+            'price': '[{$sPrice}]',                                                 [{* Preis pro Einheit *}]
+            'quantity': '[{$oOrderArticle->oxorderarticles__oxamount->value}]'      [{* Menge *}]
         });
     [{/foreach}]
 
-    d3ga('ecommerce:send');
+    ga('ecommerce:send');
 [{/strip}][{/if}]

@@ -22,6 +22,20 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 {
     private $_sModId = 'd3_googleanalytics';
 
+    public $aD3GAPageTypes = array(
+        'start'             => 'home',
+        'search'            => 'searchresults',
+        'alist'             => 'category',
+        'manufacturerlist'  => 'category',
+        'vendorlist'        => 'category',
+        'details'           => 'product',
+        'basket'            => 'cart',
+        'order'             => 'purchase',
+    );
+
+    public $sD3GARemarketingSKUField = 'oxartnum';
+    public $blD3GARemarketingUseBrutto = true;
+
     /**
      * @return null
      */
@@ -29,14 +43,27 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         $ret = parent::render();
 
+        $oSet = d3_cfg_mod::get($this->_d3getModId());
+
         /** @var $oParentView oxView */
         $oParentView = $this->getParent();
-        $oParentView->addTplParam('blD3GoogleAnalyticsActive', d3_cfg_mod::get($this->_d3getModId())->isActive());
-        $oParentView->addTplParam('oD3GASettings', d3_cfg_mod::get($this->_d3getModId()));
+        $oParentView->addTplParam('blD3GoogleAnalyticsActive', $oSet->isActive());
+        $oParentView->addTplParam('oD3GASettings', $oSet);
         $oParentView->addTplParam('sD3GATTpl', $this->d3getGATTpl());
         $oParentView->addTplParam('sD3GACreateParameter', $this->d3getCreateParameters());
         $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
         $oParentView->addTplParam('sD3CurrentShopUrl', oxRegistry::getConfig()->getActiveShop()->getFieldData('oxurl'));
+
+        if ($oSet->getValue('blD3GASetRemarketing')) {
+            $aInfos = $this->d3GetGAProdInfos();
+            $oParentView->addTplParam('sD3GARemarketingProdId', $this->d3GetGAProdIdList($aInfos['aArtIdList']));
+            $oParentView->addTplParam(
+                'sD3GARemarketingPrice',
+                $aInfos['dPrice'] > 0 ? number_format($aInfos['dPrice'], 2, '.', ''): ''
+            );
+            $oParentView->addTplParam('sD3GARemarketingPageType', $this->d3GetGAPageType());
+        }
+
 
         return $ret;
     }
@@ -117,8 +144,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $oCurrentView = oxRegistry::getConfig()->getActiveView();
         $oCurrentView->getIsOrderStep();
 
-        if ($oCurrentView->getIsOrderStep()) {
-            $aParameter[] = "'{$oCurrentView->getClassName()}.html'";
+        if ($oCurrentView->getIsOrderStep() ||
+            strtolower($oCurrentView->getClassName()) == 'thankyou' ||
+            $this->_d3HasNoPageParameter()
+        ) {
+            $aParameter[] = "'/{$oCurrentView->getClassName()}.html'";
         }
 
         if (count($aParameter)) {
@@ -126,7 +156,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         return '';
-}
+    }
 
     /**
      * @return string
@@ -140,8 +170,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $oCurrentView->getIsOrderStep();
 
         if ($oCurrentView->getIsOrderStep() || strtolower($oCurrentView->getClassName()) == 'thankyou') {
-            $aParameter[] = "'page':  '{$oCurrentView->getClassName()}.html'";
+            $aParameter[] = "'page':  '/{$oCurrentView->getClassName()}.html'";
             $aParameter[] = "'title': 'Checkout: ".ucfirst($oCurrentView->getClassName())."'";
+        } elseif ($this->_d3HasNoPageParameter()) {
+            $aParameter[] = "'page':  '/{$oCurrentView->getClassName()}.html'";
+            $aParameter[] = "'title': '".ucfirst($oCurrentView->getClassName())."'";
         }
 
         if (d3_cfg_mod::get($this->_sModId)->hasDebugMode()) {
@@ -157,5 +190,207 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         return '';
+    }
+
+    /**
+     * @return bool
+     */
+    protected function _d3HasNoPageParameter()
+    {
+        if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetGAPageType()
+    {
+        $oCurrentView = oxRegistry::getConfig()->getActiveView();
+
+        if (is_array($this->aD3GAPageTypes) &&
+            isset($this->aD3GAPageTypes[strtolower($oCurrentView->getClassName())])
+        ) {
+            return $this->aD3GAPageTypes[strtolower($oCurrentView->getClassName())];
+        };
+
+        return 'Siteview';
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetGAProdInfos()
+    {
+        startProfile(__METHOD__);
+
+        $oCurrentView = oxRegistry::getConfig()->getActiveView();
+
+        $aArticleIds = array();
+        $dPrice = 0;
+
+        $sMethodName = '_d3GetGA'.$oCurrentView->getClassName()."ProdList";
+
+        if (method_exists($this, $sMethodName)) {
+            stopProfile(__METHOD__);
+            return call_user_func(array($this, $sMethodName), $oCurrentView);
+        }
+
+        stopProfile(__METHOD__);
+
+        return array('aArtIdList' => $aArticleIds, 'dPrice' => $dPrice);
+    }
+
+    /**
+     * @param array $aArticleIds
+     *
+     * @return string
+     */
+    public function d3GetGAProdIdList($aArticleIds)
+    {
+        if (count($aArticleIds)) {
+            return "['".implode("', '", $aArticleIds)."']";
+        } else {
+            return "''";
+        }
+    }
+
+    /**
+     * @param details $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAdetailsProdList($oView)
+    {
+        $aArticleList = array();
+        $aArticleList[] = $oView->getProduct();
+        return $this->_d3GetGAProdList($aArticleList);
+    }
+
+    /**
+     * @param alist $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAalistProdList($oView)
+    {
+        $oArticleList = $oView->getArticleList();
+        return $this->_d3GetGAProdList($oArticleList);
+    }
+
+    /**
+     * @param search $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAsearchProdList($oView)
+    {
+        $oArticleList = $oView->getArticleList();
+        return $this->_d3GetGAProdList($oArticleList);
+    }
+
+    /**
+     * @param vendorlist $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAvendorlistProdList($oView)
+    {
+        $oArticleList = $oView->getArticleList();
+        return $this->_d3GetGAProdList($oArticleList);
+    }
+
+    /**
+     * @param manufacturerlist $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAmanufacturerlistProdList($oView)
+    {
+        $oArticleList = $oView->getArticleList();
+        return $this->_d3GetGAProdList($oArticleList);
+    }
+
+    /**
+     * @param basket $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAbasketProdList($oView)
+    {
+        $aArticleList = $oView->getBasketArticles();
+        return $this->_d3GetGAProdList($aArticleList);
+    }
+
+    /**
+     * @param order $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAorderProdList($oView)
+    {
+        $aArticleList = $oView->getBasketArticles();
+        return $this->_d3GetGAProdList($aArticleList);
+    }
+
+    /**
+     * @param compare $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAcompareProdList($oView)
+    {
+        $aArticleList = $oView->getCompArtList();
+        return $this->_d3GetGAProdList($aArticleList);
+    }
+
+    /**
+     * @param account_noticelist $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAaccount_noticelistProdList($oView)
+    {
+        $aArticleList = $oView->getNoticeProductList();
+        return $this->_d3GetGAProdList($aArticleList);
+    }
+
+    /**
+     * @param account_wishlist $oView
+     *
+     * @return array
+     */
+    protected function _d3GetGAaccount_wishlistProdList($oView)
+    {
+        $aArticleList = $oView->getWishProductList();
+        return $this->_d3GetGAProdList($aArticleList);
+    }
+
+    /**
+     * @param $aArticleList
+     *
+     * @return array
+     */
+    protected function _d3GetGAProdList($aArticleList)
+    {
+        $aArticleIds = array();
+        $dPrice = 0;
+
+        /** @var oxarticle $oArticle */
+        if (isset($aArticleList)) {
+            foreach ($aArticleList as $oArticle) {
+                $aArticleIds[] = $oArticle->getFieldData($this->sD3GARemarketingSKUField);
+                if ($this->blD3GARemarketingUseBrutto) {
+                    $dPrice += $oArticle->getPrice()->getBruttoPrice();
+                } else {
+                    $dPrice += $oArticle->getPrice()->getNettoPrice();
+                }
+            }
+        }
+
+        return array('aArtIdList' => $aArticleIds, 'dPrice' => $dPrice);
     }
 }

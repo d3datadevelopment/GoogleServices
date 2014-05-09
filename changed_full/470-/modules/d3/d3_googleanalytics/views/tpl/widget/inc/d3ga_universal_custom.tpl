@@ -9,7 +9,7 @@
 
     [{* dimension 1 set customer gender *}]
     [{if $oxcmp_user}]
-        d3ga(
+        ga(
             'set',
             'dimension1',
             '[{if $oxcmp_user->oxuser__oxsal->value == 'MR'}]male[{elseif $oxcmp_user->oxuser__oxsal->value == 'MRS'}]female[{/if}]'
@@ -18,7 +18,7 @@
 
     [{* dimension 2 set payment type *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $oPayment}]
-        d3ga(
+        ga(
             'set',
             'dimension2',
             '[{$oPayment->getFieldData('oxdesc')}]'
@@ -27,7 +27,7 @@
 
     [{* dimension 3 set delivery type *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $oDelSet}]
-        d3ga(
+        ga(
             'set',
             'dimension3',
             '[{$oDelSet->getFieldData('oxtitle')}]'
@@ -36,7 +36,7 @@
 
     [{* dimension 4 set vouchers *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $aVoucherSerieList}]
-        d3ga(
+        ga(
             'set', {
                 [{foreach from=$aVoucherSerieList item="oVoucherSerie"}]
                     'dimension4' :  '[{$oVoucherSerie->getFieldData('oxserienr')}]',
@@ -47,7 +47,7 @@
 
     [{* dimension 5 set currency *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou' && $order}]
-        d3ga(
+        ga(
             'set',
             'dimension5',
             '[{$order->getFieldData('oxcurrency')}]'
@@ -56,7 +56,7 @@
 
     [{* dimension 6 set new customer status *}]
     [{if $oViewConf->getActiveClassName() == 'thankyou'}]
-        d3ga(
+        ga(
             'set',
             'dimension6',
             '[{$oView->isNewCustomer()}]'

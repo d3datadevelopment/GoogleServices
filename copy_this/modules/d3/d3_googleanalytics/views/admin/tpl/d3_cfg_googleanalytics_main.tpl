@@ -2,9 +2,9 @@
 
 <script type="text/javascript">
     <!--
-    [{ if $updatelist == 1}]
-        UpdateList('[{ $oxid }]');
-    [{ /if}]
+    [{if $updatelist == 1}]
+        UpdateList('[{$oxid}]');
+    [{/if}]
 
     function UpdateList( sID)
     {
@@ -69,20 +69,20 @@
     [{assign var="readonly" value=""}]
 [{/if}]
 
-<form name="transfer" id="transfer" action="[{ $oViewConf->getSelfLink() }]" method="post">
-    [{ $oViewConf->getHiddenSid() }]
-    <input type="hidden" name="oxid" value="[{ $oxid }]">
-    <input type="hidden" name="cl" value="[{ $oViewConf->getActiveClassName() }]">
-    <input type="hidden" name="actshop" value="[{ $shop->id }]">
-    <input type="hidden" name="editlanguage" value="[{ $editlanguage }]">
+<form name="transfer" id="transfer" action="[{$oViewConf->getSelfLink()}]" method="post">
+    [{$oViewConf->getHiddenSid()}]
+    <input type="hidden" name="oxid" value="[{$oxid}]">
+    <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
+    <input type="hidden" name="actshop" value="[{$shop->id}]">
+    <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
-<form name="myedit" id="myedit" action="[{ $oViewConf->getSelfLink() }]" method="post">
-    [{ $oViewConf->getHiddenSid() }]
-    <input type="hidden" name="cl" value="[{ $oViewConf->getActiveClassName() }]">
+<form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post">
+    [{$oViewConf->getHiddenSid()}]
+    <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
     <input type="hidden" name="fnc" value="save">
-    <input type="hidden" name="oxid" value="[{ $oxid }]">
-    <input type="hidden" name="editval[oxid]" value="[{ $oxid }]">
+    <input type="hidden" name="oxid" value="[{$oxid}]">
+    <input type="hidden" name="editval[oxid]" value="[{$oxid}]">
 
 <table border="0" width="98%">
     <tr>
@@ -130,7 +130,7 @@
                             <dd>
                                 <input type="radio" name="value[sD3GAType]" value="universal" [{if $oView->getGaType() != 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL"}]<br>
                                 <input type="radio" name="value[sD3GAType]" value="async" [{if $oView->getGaType() == 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC"}]
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -140,7 +140,7 @@
                             </dt>
                             <dd>
                                 <input id="sD3GAId" class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$edit->getValue('sD3GAId')}]" name="value[sD3GAId]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GAID_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GAID_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -151,7 +151,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GAAnonymizeIP]" value="0">
                                 <input id="blD3GAAnonymizeIP" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAAnonymizeIP')}]checked[{/if}] name="value[blD3GAAnonymizeIP]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -162,7 +162,7 @@
                             <dd>
                                 <input type="hidden" name="value[iD3GASampleRate]" value="0">
                                 <input type="text" id="iD3GASampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASampleRate')}][{$edit->getValue('iD3GASampleRate')}][{else}]100[{/if}]" size="5" maxlength="3" name="value[iD3GASampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_1"}]
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -173,7 +173,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GATrackPageLoadTime]" value="0">
                                 <input id="blD3GATrackPageLoadTime" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GATrackPageLoadTime')}]checked[{/if}] name="value[blD3GATrackPageLoadTime]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -184,7 +184,7 @@
                             <dd>
                                 <input type="hidden" name="value[iD3GASiteSpeedSampleRate]" value="0">
                                 <input type="text" id="iD3GASiteSpeedSampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASiteSpeedSampleRate')}][{$edit->getValue('iD3GASiteSpeedSampleRate')}][{else}]1[{/if}]" size="5" maxlength="3" name="value[iD3GASiteSpeedSampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_1"}]
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -194,7 +194,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GAUseRemarketing]" value="0">
                                 <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -214,7 +214,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GASendECommerce]" value="0">
                                 <input id="blD3GASendECommerce" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASendECommerce')}]checked[{/if}] name="value[blD3GASendECommerce]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -224,7 +224,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GAUseNetto]" value="0">
                                 <input id="blD3GAUseNetto" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseNetto')}]checked[{/if}] name="value[blD3GAUseNetto]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -245,7 +245,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GAAllowDomainLinker]" value="0">
                                 <input id="blD3GAAllowDomainLinker" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAAllowDomainLinker')}]checked[{/if}] name="value[blD3GAAllowDomainLinker]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -256,7 +256,7 @@
                             </dt>
                             <dd>
                                 <input id="sD3GASetDomainName" class="edittext ext_edittext" type="text" size="30" maxlength="200" value="[{$edit->getValue('sD3GASetDomainName')}]" name="value[sD3GASetDomainName]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -266,7 +266,7 @@
                             </dt>
                             <dd>
                                 <input id="sD3GASetCookiePath" class="edittext ext_edittext" type="text" size="30" maxlength="150" value="[{$edit->getValue('sD3GASetCookiePath')}]" name="value[sD3GASetCookiePath]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETCOOKIEPATH_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETCOOKIEPATH_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -276,7 +276,7 @@
                             </dt>
                             <dd>
                                 <input id="sD3GACookiePathCopy"  [{$blUniversalDisabled}] class="edittext ext_edittext" type="text" size="30" maxlength="150" value="[{$edit->getValue('sD3GACookiePathCopy')}]" name="value[sD3GACookiePathCopy]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_COOKIEPATHCOPY_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_COOKIEPATHCOPY_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -297,7 +297,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GASetClientInfo]" value="0">
                                 <input id="blD3GASetClientInfo" class="edittext ext_edittext" type="checkbox" [{$blUniversalDisabled}] value="1" [{if $edit->getValue('blD3GASetClientInfo')}]checked[{/if}] name="value[blD3GASetClientInfo]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -308,7 +308,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GASetDetectFlash]" value="0">
                                 <input id="blD3GASetDetectFlash" class="edittext ext_edittext" type="checkbox" value="1" [{$blUniversalDisabled}] [{if $edit->getValue('blD3GASetDetectFlash')}]checked[{/if}] name="value[blD3GASetDetectFlash]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH_DESC"}]
                             </dd>
                         </dl>
                         <dl>
@@ -319,7 +319,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GASetDetectTitle]" value="0">
                                 <input id="blD3GASetDetectTitle" class="edittext ext_edittext" type="checkbox" value="1" [{$blUniversalDisabled}] [{if $edit->getValue('blD3GASetDetectTitle')}]checked[{/if}] name="value[blD3GASetDetectTitle]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -340,7 +340,7 @@
                             <dd>
                                 <input type="hidden" name="value[blD3GAUseCustomVars]" value="0">
                                 <input id="blD3GAUseCustomVars" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseCustomVars')}]checked[{/if}] name="value[blD3GAUseCustomVars]">
-                                [{ oxinputhelp ident="D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC" }]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC"}]
                             </dd>
                         </dl>
                     </div>

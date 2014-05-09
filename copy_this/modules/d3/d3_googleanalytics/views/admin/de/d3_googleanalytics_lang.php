@@ -30,7 +30,7 @@ $aLang = array(
     'd3mxgoogleanalytics'                                          => 'Google Analytics',
     'd3mxgoogleanalytics_settings'                                 => 'Einstellungen',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
-    'd3tbclgoogleanalytics_adwords'                                => 'Kampagnen (z.B. AdWords)',
+    'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
 
     'D3_GOOGLEANALYTICS_CFG_TITLE'                                 => 'Google Analytics Schnittstelle - Einstellungen',
 
@@ -83,9 +83,9 @@ $aLang = array(
         'Standardwert von 1% ge&auml;ndert werden, tragen Sie den gew&uuml;nschten Wert hier ein. F&uuml;r Webseiten '.
         'mit mehr als 1 Million Besuchern pro Tag wird dieser Wert von Google fix auf 1% gestellt.',
     'D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_1'                => "% aller Besucher",
-    'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING'                       => 'Remarketing verwenden',
+    'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING'                       => 'Remarketing-Auswertung erm&ouml;glichen',
     'D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC'                  => 'Wenn Sie sich entschlie&szlig;en, Remarketing '.
-        'mit Google Analytics zu nutzen, setzen Sie diesen Haken. Nachdem Sie diese &Auml;nderung vorgenommen haben, '.
+        'zu nutzen, setzen Sie diesen Haken. Nachdem Sie diese &Auml;nderung vorgenommen haben, '.
         'erfasst und analysiert Google Analytics neben den &uuml;blichen Informationen auch das DoubleClick-Cookie, '.
         'sofern vorhanden. Das DoubleClick-Cookie erm&ouml;glicht Remarketing im Google Display-Netzwerk f&uuml;r '.
         'Produkte wie AdWords. Je nach verwendetem Tracking-Typ muss die Erfassung von Informationen aus dem Display-'.
@@ -170,33 +170,25 @@ $aLang = array(
         'Ihrem Rechtsanwalt.<br><br>Nach Aktivierung des Tracking-Codes dauert es in der Regel ca. 24 Stunden, bis '.
         'die ersten Tracking-Daten in Analytics zur Verf&uuml;gung stehen.',
 
-    'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                            => 'Kampagnen Grundeinstellungen',
-    'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'              => 'Kampagnendaten <span style="font-weight: '.
-        'bold;">nicht</span> &uuml;bertragen',
+    'D3_GOOGLEANALYTICS_ADWORDSGENERAL'                            => 'Conversion-Tracking',
+    'D3_GOOGLEANALYTICS_ADWORDS_SETCONVERSIONTRACKING'             => 'Conversion-Tracking-Code aktivieren',
+    'D3_GOOGLEANALYTICS_ADWORDS_CONVID'                            => 'Conversion-ID',
+    'D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL'                         => 'Conversion-Label',
+
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN'                               => 'Kampagnen-Tracking',
+    'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'              => 'AdWords-Kampagnendaten <span style="'.
+        'font-weight: bold;">nicht</span> &uuml;bertragen',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK_DESC'         => 'Das Kampagnentracking ist im Standard '.
         'aktiviert. Setzen Sie diesen Haken, um die Kampagnen&uuml;bertragung zu deaktivieren.',
-    'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY'       => 'Kampagnendaten nur in Bestellabschlussseite '.
-        'verwenden',
-    'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTHANKYOUONLY_DESC'  => 'Ist dieser Haken nicht gesetzt, wird der '.
-        'Kampagnencode shopweit eingef&uuml;gt. Das AdWords-Conversion Tracking erwartet die Daten jedoch nur bei '.
-        'Bestellabschluss. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion Tracking Anbieter.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT'      => 'Kampagnenlaufzeit (optional, sonst 6 Monate) - '.
         'nur f&uuml;r Async-Code',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_DESC' => 'Geben Sie hier eine optionale Laufzeit dieser '.
         'Kampagne in Millisekunden an.<br><br>30 Tage = 2592000000<br>365 Tage = 31536000000<br><br>F&uuml;r '.
         'Universal Analytics tragen Sie diesen Wert bitte in Ihrem Analytics-Konto nach.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPAIGNCOOKIETIMEOUT_MS'   => 'Millisekunden',
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY'                  => 'zwingend verwendete Kampagne (optional)',
+    'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY'                  => 'erzwinge Verwendung der folgenden Kampagne',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNOKEY_DESC'             => 'die hier festgelegte Kampagne wird zwingend '.
         'verwendet, auch wenn die Cookie-Einstellungen schon eine andere Kampagne liefern.',
-
-    'D3_GOOGLEANALYTICS_ADWORDSCODE'                               => 'Kampagnen-Code',
-    'D3_GOOGLEANALYTICS_ADWORDSCODE_CODE'                          => 'AdWords-Code',
-    'D3_GOOGLEANALYTICS_ADWORDSCODE_CODE_DESC'                     => 'Kopieren Sie hier den Kampagnen-Tracking-Code '.
-        'ein, den Sie auf Ihrer AdWords-Seite finden. Kopieren Sie auch das "script"-Tag mit. Dieser Code wird 1:1 in '.
-        'den Seitenquelltext eingef&uuml;gt und nicht geparst.',
-
-    'D3_GOOGLEANALYTICS_ADWORDSMAIN'                               => 'Individualisierung der Kampagnentrackings',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPIDKEY'                  => 'Kampagnen-ID (optional)',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPIDKEY_DESC'             => 'Geben Sie hier die ID dieser Kamapagne an.<br>'.
         '<br>Weitere Informationen finden Sie hier: <ul><li>Universal: <a href="https://developers.google.com/'.
@@ -234,6 +226,29 @@ $aLang = array(
         'code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampContentKey" '.
         'target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/'.
         'collection/analyticsjs/field-reference#campaignContent" target="gahelp">hier</a></li></ul>',
+
+    'D3_GOOGLEANALYTICS_ADWORDSREMARKETING'                        => 'Remarketing',
+    'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING'                    => 'Remarketing-Code aktivieren',
+    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID'                 => 'Conversion-ID',
+    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID_DESC'            => 'Tragen Sie hier die zu Ihrem eingerichteten '.
+        'Remarketing zugehörige Conversion-ID ein. Diese kann mit Ihrer AdWords-Conversion-Tracking-ID identisch '.
+        'sein. Auch Abweichungen sind möglich.',
+    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL'              => 'Conversion-Label (optional)',
+
+    'd3tbclgoogleanalytics_campaigns'                              => 'andere Kampagnen',
+    'D3_GOOGLEANALYTICS_CAMPAIGNSETTINGS'                          => 'Kampagnen-Einstellungen',
+    'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK'                          => 'Kampagnencode übertragen',
+    'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK_DESC'                     => 'Nur mit dieser Option wird der eingegebene '.
+        'Kampagnencode ausgeliefert',
+    'D3_GOOGLEANALYTICS_SETCAMPAIGNTHANKYOUONLY'                   => 'Kampagnendaten nur in Bestellabschlussseite '.
+        'verwenden',
+    'D3_GOOGLEANALYTICS_SETCAMPAIGNTHANKYOUONLY_DESC'              => 'Ist dieser Haken nicht gesetzt, wird der '.
+        'Kampagnencode shopweit eingef&uuml;gt. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion '.
+        'Tracking Anbieter.',
+    'D3_GOOGLEANALYTICS_CAMPAIGNCODE_CODE'                         => 'Code',
+    'D3_GOOGLEANALYTICS_CAMPAIGNCODE_CODE_DESC'                    => 'Kopieren Sie hier den Kampagnen-Tracking-Code '.
+        'ein, den Sie vom Anbieter erhalten haben. Kopieren Sie auch ein eventuell vorhandenes "script"-Tag mit. '.
+        'Dieser Code wird 1:1 in den Seitenquelltext eingef&uuml;gt und nicht geparst.',
 
     'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Analytics Schnittstelle',
     'D3_GOOGLEANALYTICS_METADATA_DESC'                             => 'Dieses Modul stellt Ihnen die schnelle und '.

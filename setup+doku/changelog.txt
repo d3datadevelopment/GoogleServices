@@ -2,6 +2,8 @@
 - Universal-Analytics Tracking-Code implementiert
 - zusätzliche Steuerungsparameter eingefügt
 - Trichtererfassung vereinfacht
+- konfigurierbarerer AdWords Conversion-Trackingcode integriert
+- Remarketing-Tags integriert
 
 => 3.0.0.3
 - Precheck angepasst

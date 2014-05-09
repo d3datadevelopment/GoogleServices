@@ -8,7 +8,7 @@
     [{/if}]
 
     [{capture name="d3GATrackCode"}]
-            [{strip}]
+        [{strip}]
             <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', '[{ $oD3GASettings->getValue('sD3GAId') }]']);
@@ -30,6 +30,10 @@
 
                 [{if $oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]
                     _gaq.push(['_setSiteSpeedSampleRate', '[{$oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]']);
+                [{/if}]
+
+                [{if $oD3GASettings->getValue('iD3GASampleRate')}]
+                    _gaq.push(['_setSampleRate', '[{$oD3GASettings->getValue('iD3GASampleRate')}]']);
                 [{/if}]
 
                 [{if $oD3GASettings->getValue('blD3GAAllowDomainLinker')}]
@@ -89,7 +93,7 @@
                 [{/if}]
 
                 [{if $oD3GASettings->getValue('blD3GAUseCustomVars')}]
-    [{* /*** add custom variables here ***/ *}]
+                [{**** add custom variables here ****}]
                     [{if $oxcmp_user}]
                         _gaq.push(['_setCustomVar',
                             1,           [{*// This custom var is set to slot #1.  Required parameter.*}]

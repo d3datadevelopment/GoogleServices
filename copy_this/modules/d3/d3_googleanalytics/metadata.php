@@ -52,13 +52,15 @@ $aModule = array(
     ),
     'files' => array(
         'd3_cfg_googleanalytics'           => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php',
+        'd3_cfg_googleanalytics_adwords' =>
+            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_adwords.php',
         'd3_cfg_googleanalytics_campaigns' =>
             'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_campaigns.php',
         'd3_cfg_googleanalytics_licence'   =>
             'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php',
         'd3_cfg_googleanalytics_list'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php',
         'd3_cfg_googleanalytics_main'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php',
-        'd3_googleanalytics_update'        => 'd3/d3_googleanalytics/models/d3_googleanalytics_update.php',
+        'd3_googleanalytics_update'        => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',
     ),
     'templates' => array(
         'd3_googleanalytics.tpl'                => 'd3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl',
@@ -67,12 +69,19 @@ $aModule = array(
             'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_custom.tpl',
         'd3ga_universal_ecommerce.tpl'          =>
             'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_ecommerce.tpl',
-        'd3ga_universal_campaigns.tpl'          =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigns.tpl',
+        'd3ga_universal_adwords.tpl'          =>
+            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwords.tpl',
+        'd3ga_universal_adwordscode.tpl'          =>
+            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwordscode.tpl',
+        'd3ga_universal_remarketing.tpl'          =>
+            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_remarketing.tpl',
         'd3ga_universal_campaigncode.tpl'       =>
             'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigncode.tpl',
+
         'd3_cfg_googleanalytics_main.tpl'       =>
             'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
+        'd3_cfg_googleanalytics_adwords.tpl'  =>
+            'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',
         'd3_cfg_googleanalytics_campaigns.tpl'  =>
             'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl',
     ),
@@ -84,6 +93,11 @@ $aModule = array(
             'template' => 'layout/base.tpl',
             'block'=>'head_css',
             'file'=>'/views/blocks/layout/d3_base_googleanalytics.tpl'
+        ),
+        array(
+            'template' => 'layout/base.tpl',
+            'block'=>'base_js',
+            'file'=>'/views/blocks/layout/d3_base_googleadwordscode.tpl'
         ),
     ),
 );

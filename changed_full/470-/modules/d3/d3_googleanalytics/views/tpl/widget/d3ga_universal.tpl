@@ -14,24 +14,24 @@
                     a.src=g;
                     m.parentNode.insertBefore(a,m)
                 })(
-                    window,document,'script','//www.google-analytics.com/analytics.js','d3ga'
+                    window,document,'script','//www.google-analytics.com/analytics.js','ga'
                 );
 
-                d3ga('create', '[{$oD3GASettings->getValue('sD3GAId')}]', '[{$sD3CurrentShopUrl}]' [{$sD3GACreateParameter}]);
+                ga('create', '[{$oD3GASettings->getValue('sD3GAId')}]', '[{$sD3CurrentShopUrl}]' [{$sD3GACreateParameter}]);
 
                 [{if $oD3GASettings->getValue('blD3GAAnonymizeIP')}]
-                    d3ga('set', 'anonymizeIp', true);
+                    ga('set', 'anonymizeIp', true);
                 [{/if}]
 
-                [{include file="d3ga_universal_campaigns.tpl"}]
+                [{include file="d3ga_universal_adwords.tpl"}]
 
                 [{include file="d3ga_universal_custom.tpl"}]
 
                 [{if $oD3GASettings->getValue('blD3GAUseRemarketing')}]
-                    d3ga('require', 'displayfeatures');
+                    ga('require', 'displayfeatures');
                 [{/if}]
 
-                d3ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
+                ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
 
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
                     var perfData = window.performance.timing;
@@ -47,13 +47,12 @@
                     else if (pageLoadTime < 10000) { loadTime = "6-10 seconds"; }
                     else { loadTime = "10+ seconds"; }
 
-                    d3ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': true});
+                    ga('set', 'metric1', loadTime);
+                    [{*ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': true});*}]
                 [{/if}]
 
                 [{include file="d3ga_universal_ecommerce.tpl"}]
             </script>
-
-            [{include file="d3ga_universal_campaigncode.tpl"}]
 
         [{/strip}]
     [{/capture}]
