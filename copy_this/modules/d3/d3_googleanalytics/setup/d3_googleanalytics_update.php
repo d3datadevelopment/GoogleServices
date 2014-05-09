@@ -23,7 +23,7 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModVersion = '3.1.0.0';
 
-    public $sModRevision = '121';
+    public $sModRevision = '133';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
     public $sBaseConf =
