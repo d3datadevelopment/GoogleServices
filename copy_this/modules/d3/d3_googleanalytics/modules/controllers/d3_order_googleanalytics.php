@@ -19,9 +19,10 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch) & aikme GmbH
  */
 
-class d3_order_googleanalytics extends d3_order_googleanalytics_parent {
+class d3_order_googleanalytics extends d3_order_googleanalytics_parent
+{
 
-    public function init() 
+    public function init()
     {
         parent::init();
 

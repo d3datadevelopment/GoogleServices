@@ -25,8 +25,7 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
      */
     public function getPayment()
     {
-        if (!$this->_oPayment)
-        {
+        if (!$this->_oPayment) {
             $this->_oPayment = oxNew('oxpayment');
             $this->_oPayment->Load($this->getFieldData('oxpaymenttype'));
         }
@@ -44,8 +43,7 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
         $aVoucherIds       = (array) oxDb::getDb()->getArray($sSelect);
         $aVoucherSerieList = array();
 
-        foreach ($aVoucherIds as $aVoucherId)
-        {
+        foreach ($aVoucherIds as $aVoucherId) {
             $oVoucherSerie = oxNew('oxvoucherserie');
             $oVoucherSerie->Load($aVoucherId[0]);
             $aVoucherSerieList[] = $oVoucherSerie;

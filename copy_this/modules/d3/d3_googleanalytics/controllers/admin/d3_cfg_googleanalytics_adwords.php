@@ -18,26 +18,21 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
-/**
- * Smarty plugin
- * -------------------------------------------------------------
- * add [{d3getArticleFromOrderArticle aid="articleid"}] where you want to display content
- * -------------------------------------------------------------
- *
- * @param array  $params  params
- * @param Smarty &$smarty clever simulation of a method
- *
- * @return string
- */
-function smarty_function_d3getArticleFromOrderArticle( $params, &$smarty )
+class d3_cfg_googleanalytics_adwords extends d3_cfg_mod_main
 {
-    $sArtId = $params['aid'];
-    $oArticle = oxNew('oxarticle');
-    $oArticle->Load($sArtId);
+    protected $_sThisTemplate = 'd3_cfg_googleanalytics_adwords.tpl';
 
-    if (isset($params['assign']) && $params['assign']) {
-        $smarty->assign($params['assign'], $oArticle);
+    protected $_sModId = 'd3_googleanalytics';
+
+    /**
+     * @return mixed
+     */
+    public function getGaType()
+    {
+        if ($this->d3GetSet()->getValue('sD3GAType') == 'async') {
+            return 'async';
+        }
+
+        return 'universal';
     }
-
-    return "use assign param";
 }

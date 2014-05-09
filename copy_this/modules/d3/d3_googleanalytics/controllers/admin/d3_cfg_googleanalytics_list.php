@@ -20,7 +20,7 @@
 
 class d3_cfg_googleanalytics_list extends d3_cfg_mod_list
 {
-    protected $_blD3ShowLangSwitch = TRUE;
+    protected $_blD3ShowLangSwitch = false;
 
     /**
      * @return null|string
