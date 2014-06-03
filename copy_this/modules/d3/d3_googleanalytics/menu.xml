@@ -8,6 +8,9 @@
                 <TAB id="d3tbclgoogleanalytics_campaigns" cl="d3_cfg_googleanalytics_campaigns" />
                 <TAB id="d3tbcl_licence" cl="d3_cfg_googleanalytics_licence" />
             </SUBMENU>
+            <SUBMENU id ="d3mxlog" cl="d3_cfg_googleanalyticslog" list="d3_cfg_googleanalyticslog_list">
+                <TAB id="d3tbcllog_main" cl="d3_cfg_log_main" />
+            </SUBMENU>
         </MAINMENU>
     </OXMENU>
 </OX>
