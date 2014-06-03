@@ -176,6 +176,8 @@ copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php -text
+copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php -text
+copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php -text
 copy_this/modules/d3/d3_googleanalytics/core/smarty/plugins/function.d3getArticleFromOrderArticle.php -text
 copy_this/modules/d3/d3_googleanalytics/menu.xml -text
 copy_this/modules/d3/d3_googleanalytics/metadata.php -text
