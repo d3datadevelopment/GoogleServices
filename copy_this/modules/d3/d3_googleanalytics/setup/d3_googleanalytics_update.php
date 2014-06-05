@@ -21,18 +21,18 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModName = 'Google Analytics Schnittstelle';
 
-    public $sModVersion = '3.1.0.0';
+    public $sModVersion = '3.1.0.1';
 
-    public $sModRevision = '133';
+    public $sModRevision = '139';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
     public $sBaseConf =
-    "8ZEb1MwM201blJ3TDltMzJCdVcydUZMa3BNbFZhenJYSlZMbXRnUm82clRwcUVpTkdIS2orbmVOR0N1S
-     DEwb1Iwcmh1QTNXc002U2V1L25oL1krQkIyNVZaV2ZYMWtSaWxWZWhIdG9xdjVnM21CNmpMekx5NEpPa
-     0FBU090Y29KSU5kVjNUTC9laTNpQnhPWHJpMlZyOGc1aE1BTUthcWk2N3krYStHenRMQ0RiWG1BU1MyY
-     zk4bmd3em1VemJFUUZEUHRCbkZ1TTFTbWp4cUxWVlRkb1loQ0MxZGZyTW00ejV1Sy9Qa0dJTXAySGU5T
-     E9YMEhCblpabm02elJWYXhtSkd0TDdaQ21FSmVpbFp1aU5QYUZtM2VONVVoWUc4b0MzcGRFbWtQczN3c
-     Hc9";
+    "JycSFpDSXZYWEpRK1B2dERSbVg5VDVraUJ1VXBIOGpiY0NrY3M4Yzlrc1Q2Z2pPTms4SFRZODhGQTRwN
+05QWktLUUozaXhSVVM2eU9VdWdMdklpL2hrV29YMS9lY1BMOUVsYjBiMmJOKzFQSjgzRGlqOGlwMUVVN
+UxJY0plT3lBNkptc0VwcXNZT3YzY2hUTTB2QlF6RUIrbTJtVXRmNkppcTJreUJVd0xaUGI1RytmN1VkM
+zBaTjNxQkZ5dTg0c05qRUcreDV0WFo0WFZrWjlZd1ltMVpJOTQybDYvQkNDWmVPQzRSdHkrOXpwMld6a
+VVFTTBLWjRLTG1uT3k3ZUxXVUYwZlVCR2lQT0ZBWFRVZkd6UmtrOUN0bnFRczdzMnRudHAvMGttaGlhd
+EE9";
 
     public $sRequirements = '';
 

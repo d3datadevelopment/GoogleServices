@@ -1,3 +1,6 @@
+=> 3.1.0.1
+- Universal-Trackingcode für Multi-Domain-Nutzung angepasst
+
 => 3.1.0.0
 - Universal-Analytics Tracking-Code implementiert
 - zusätzliche Steuerungsparameter eingefügt

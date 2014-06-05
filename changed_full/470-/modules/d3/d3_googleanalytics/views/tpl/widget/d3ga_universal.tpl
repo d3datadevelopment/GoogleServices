@@ -19,6 +19,11 @@
 
                 ga('create', '[{$oD3GASettings->getValue('sD3GAId')}]', '[{$sD3CurrentShopUrl}]' [{$sD3GACreateParameter}]);
 
+                [{if $oD3GASettings->getValue('blD3GAAllowDomainLinker')}]
+                    ga('require', 'linker');
+                    ga('linker:autoLink', [[{$sAFEGetMoreUrls}]]);
+                [{/if}]
+
                 [{if $oD3GASettings->getValue('blD3GAAnonymizeIP')}]
                     ga('set', 'anonymizeIp', true);
                 [{/if}]
