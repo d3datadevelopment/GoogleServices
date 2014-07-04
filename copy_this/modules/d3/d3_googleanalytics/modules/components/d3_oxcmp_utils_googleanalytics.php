@@ -291,7 +291,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         $aArticleList = array();
         $aArticleList[] = $oView->getProduct();
-        return $this->_d3GetGAProdList($aArticleList);
+        return $this->_d3GetGAProductList($aArticleList);
     }
 
     /**
@@ -302,7 +302,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAalistProdList($oView)
     {
         $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProdList($oArticleList);
+        return $this->_d3GetGAProductList($oArticleList);
     }
 
     /**
@@ -313,7 +313,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAsearchProdList($oView)
     {
         $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProdList($oArticleList);
+        return $this->_d3GetGAProductList($oArticleList);
     }
 
     /**
@@ -324,7 +324,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAvendorlistProdList($oView)
     {
         $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProdList($oArticleList);
+        return $this->_d3GetGAProductList($oArticleList);
     }
 
     /**
@@ -335,7 +335,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAmanufacturerlistProdList($oView)
     {
         $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProdList($oArticleList);
+        return $this->_d3GetGAProductList($oArticleList);
     }
 
     /**
@@ -346,7 +346,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAbasketProdList($oView)
     {
         $aArticleList = $oView->getBasketArticles();
-        return $this->_d3GetGAProdList($aArticleList);
+        return $this->_d3GetGAProductList($aArticleList);
     }
 
     /**
@@ -357,7 +357,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAorderProdList($oView)
     {
         $aArticleList = $oView->getBasketArticles();
-        return $this->_d3GetGAProdList($aArticleList);
+        return $this->_d3GetGAProductList($aArticleList);
     }
 
     /**
@@ -368,7 +368,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAcompareProdList($oView)
     {
         $aArticleList = $oView->getCompArtList();
-        return $this->_d3GetGAProdList($aArticleList);
+        return $this->_d3GetGAProductList($aArticleList);
     }
 
     /**
@@ -380,7 +380,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAaccount_noticelistProdList($oView)
     {
         $aArticleList = $oView->getNoticeProductList();
-        return $this->_d3GetGAProdList($aArticleList);
+        return $this->_d3GetGAProductList($aArticleList);
     }
 
     /**
@@ -392,7 +392,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GetGAaccount_wishlistProdList($oView)
     {
         $aArticleList = $oView->getWishProductList();
-        return $this->_d3GetGAProdList($aArticleList);
+        return $this->_d3GetGAProductList($aArticleList);
     }
 
     /**
@@ -400,7 +400,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      *
      * @return array
      */
-    protected function _d3GetGAProdList($aArticleList)
+    protected function _d3GetGAProductList($aArticleList)
     {
         $aArticleIds = array();
         $dPrice = 0;
