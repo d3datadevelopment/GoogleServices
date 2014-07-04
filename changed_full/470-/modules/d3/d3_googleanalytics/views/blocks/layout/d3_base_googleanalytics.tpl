@@ -1,5 +1,10 @@
 [{$smarty.block.parent}]
 
 [{d3modcfgcheck modid="d3_googleanalytics"}]
-    [{include file=$sD3GATTpl}]
 [{/d3modcfgcheck}]
+
+[{if $mod_d3_googleanalytics}]
+    [{* Content shouldn't rendered in disabled module!
+        Because of this reason, it can't included in d3modcfgcheck block. *}]
+    [{include file=$sD3GATTpl}]
+[{/if}]
