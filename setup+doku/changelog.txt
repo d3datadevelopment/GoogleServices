@@ -1,3 +1,6 @@
+=> ??
+- Tracking für gekaufte Artikel enthält Daten zur Kategorie / Seite, aus der die Artikel zuerst in den Warenkorb gelegt wurden
+
 => 3.1.0.2
 - Bugfix: deaktiviertes Modul kann benötigtes Objekt nicht laden
 - Bugfix: Seiten ohne Klassenangaben (z.B. 404-Seiten) versuchen Artikellisten für Remarketing zu laden

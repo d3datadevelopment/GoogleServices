@@ -44,12 +44,29 @@ mM9";
             'do'    => 'updateModCfgItemExist'
         ),
         array(
+            'check' => 'checkFields',
+            'do'    => 'fixFields'
+        ),
+        array(
             'check' => 'checkContentGANoticeItemExist',
             'do'    => 'updateContentGANoticeItemExist'
         ),
         array(
             'check' => 'checkModCfgSameRevision',
             'do'    => 'updateModCfgSameRevision'
+        ),
+    );
+
+    public $aFields = array(
+        'D3_GALOCATOR'        => array(
+            'sTableName'  => 'oxorderarticles',
+            'sFieldName'  => 'D3_GALOCATOR',
+            'sType'       => 'VARCHAR(255)',
+            'blNull'      => false,
+            'sDefault'    => '',
+            'sComment'    => '',
+            'sExtra'      => '',
+            'blMultilang' => false,
         ),
     );
 
