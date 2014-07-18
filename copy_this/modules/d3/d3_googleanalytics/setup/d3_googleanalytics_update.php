@@ -103,50 +103,62 @@ mM9";
                         'OXID'           => array(
                             'content'      => "md5('" . $this->sModKey . " " . $oShop->getId() . "')",
                             'force_update' => false,
+                            'use_quote'    => false,
                         ),
                         'OXSHOPID'       => array(
-                            'content'      => "'" . $oShop->getId() . "'",
+                            'content'      => $oShop->getId(),
                             'force_update' => false,
+                            'use_quote'    => true,
                         ),
                         'OXMODID'        => array(
-                            'content'      => "'" . $this->sModKey . "'",
+                            'content'      => $this->sModKey,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXNAME'         => array(
-                            'content'      => "'" . $this->sModName . "'",
+                            'content'      => $this->sModName,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXACTIVE'       => array(
                             'content'      => "0",
                             'force_update' => false,
+                            'use_quote'    => false,
                         ),
                         'OXBASECONFIG'   => array(
-                            'content'      => "'" . $this->sBaseConf . "'",
+                            'content'      => $this->sBaseConf,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXINSTALLDATE'  => array(
                             'content'      => "NOW()",
                             'force_update' => true,
+                            'use_quote'    => false,
                         ),
                         'OXVERSION'      => array(
-                            'content'      => "'" . $this->sModVersion . "'",
+                            'content'      => $this->sModVersion,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXSHOPVERSION'  => array(
-                            'content'      => "'" . oxRegistry::getConfig()->getEdition() . "'",
+                            'content'      => oxRegistry::getConfig()->getEdition(),
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXREQUIREMENTS' => array(
-                            'content'      => "'" . $this->sRequirements . "'",
+                            'content'      => $this->sRequirements,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXVALUE'        => array(
-                            'content'      => "'" . $this->sBaseValue . "'",
+                            'content'      => $this->sBaseValue,
                             'force_update' => false,
+                            'use_quote'    => true,
                         ),
                         'OXNEWREVISION'  => array(
-                            'content'      => "'" . $this->sModRevision . "'",
+                            'content'      => $this->sModRevision,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                     );
                     $aRet          = $this->_updateTableItem('d3_cfg_mod', $aInsertFields, $aWhere);
