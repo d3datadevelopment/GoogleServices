@@ -21,18 +21,18 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModName = 'Google Analytics Schnittstelle';
 
-    public $sModVersion = '3.1.0.2';
+    public $sModVersion = '3.2.0.0';
 
-    public $sModRevision = '149';
+    public $sModRevision = '160';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
     public $sBaseConf =
-    "a5FNTc1SGxNdytZSnNIRnVhOTRXa3l4bE44aGFJMDR6Z1psc1krMXRXejdQS1loaFhoaW9HamM3Zjdte
-EdtZHhHc21PWTVBQ3gvOWZPeE9ZRjl3SEJpZ1IyR0ExaFdwdW9CUkpYb2lHN0lsbVEwY0JkMk5DdW1mT
-lI2TUhCZ05NNW40Y0pOK1B0cW5Jdi9YdGxvVUp2NjJIM1crbStsd3Naa0s0Yi9WYllaR0lYTVozSmlCb
-EoxbkdjSFpFbHNiQ3BvZU5DRDZqdHNUb1VlNS9LazRmc2lvQXFoWjhFL21UbEovRXNyL2dJcVFkWkF6T
-nFJUTRhZENTdy90OWxsV1ZaNmZaMWpDdHBSQ0tKVFh1Sk4zUnp2UEpja0VZT2U1U2IrVWt4WkpsSlJNU
-jQ9";
+    "5IMVHBFY1o4enRHdU9YZ1VvQlhIbFI5K3V0MjlJZUVHTVV4WEtGb1BPeVBvMUJvN3hrbGl3cXB1RzU3W
+GJrNTFuV0N5MHVUM1oyKzBURGU3QjJVdXkwUmtYOWNmUklWVFJJN0x3TTVrSzZmTXVUVWRRbEdFRjdIR
+Go0RWNSZm1GQVBhbitKMVluYzJsS2szbmNCSkh2OWVqZ08zM051RGtKQ2pkSi9kMTlZMmREVHFhMmFtV
+3pPa1RGNmpoU21iRVB1d0lkRWcvUDB5SFZVdW5lSW9SUUp5bS9YaWhoU0R2dGphODdMRUxOY0dWN3JmZ
+Gl5UmJGRnp5SEtwL1BmOVJsYldGbk1QdnNsYzZvRGNrSGxQSDBsT2s1cndGNHNSbXFaUlZNK2RXV1VsT
+FE9";
 
     public $sRequirements = '';
 
@@ -44,12 +44,29 @@ jQ9";
             'do'    => 'updateModCfgItemExist'
         ),
         array(
+            'check' => 'checkFields',
+            'do'    => 'fixFields'
+        ),
+        array(
             'check' => 'checkContentGANoticeItemExist',
             'do'    => 'updateContentGANoticeItemExist'
         ),
         array(
             'check' => 'checkModCfgSameRevision',
             'do'    => 'updateModCfgSameRevision'
+        ),
+    );
+
+    public $aFields = array(
+        'D3_GALOCATOR'        => array(
+            'sTableName'  => 'oxorderarticles',
+            'sFieldName'  => 'D3_GALOCATOR',
+            'sType'       => 'VARCHAR(255)',
+            'blNull'      => false,
+            'sDefault'    => '',
+            'sComment'    => '',
+            'sExtra'      => '',
+            'blMultilang' => false,
         ),
     );
 
@@ -103,50 +120,62 @@ jQ9";
                         'OXID'           => array(
                             'content'      => "md5('" . $this->sModKey . " " . $oShop->getId() . "')",
                             'force_update' => false,
+                            'use_quote'    => false,
                         ),
                         'OXSHOPID'       => array(
-                            'content'      => "'" . $oShop->getId() . "'",
+                            'content'      => $oShop->getId(),
                             'force_update' => false,
+                            'use_quote'    => true,
                         ),
                         'OXMODID'        => array(
-                            'content'      => "'" . $this->sModKey . "'",
+                            'content'      => $this->sModKey,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXNAME'         => array(
-                            'content'      => "'" . $this->sModName . "'",
+                            'content'      => $this->sModName,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXACTIVE'       => array(
                             'content'      => "0",
                             'force_update' => false,
+                            'use_quote'    => false,
                         ),
                         'OXBASECONFIG'   => array(
-                            'content'      => "'" . $this->sBaseConf . "'",
+                            'content'      => $this->sBaseConf,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXINSTALLDATE'  => array(
                             'content'      => "NOW()",
                             'force_update' => true,
+                            'use_quote'    => false,
                         ),
                         'OXVERSION'      => array(
-                            'content'      => "'" . $this->sModVersion . "'",
+                            'content'      => $this->sModVersion,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXSHOPVERSION'  => array(
-                            'content'      => "'" . oxRegistry::getConfig()->getEdition() . "'",
+                            'content'      => oxRegistry::getConfig()->getEdition(),
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXREQUIREMENTS' => array(
-                            'content'      => "'" . $this->sRequirements . "'",
+                            'content'      => $this->sRequirements,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                         'OXVALUE'        => array(
-                            'content'      => "'" . $this->sBaseValue . "'",
+                            'content'      => $this->sBaseValue,
                             'force_update' => false,
+                            'use_quote'    => true,
                         ),
                         'OXNEWREVISION'  => array(
-                            'content'      => "'" . $this->sModRevision . "'",
+                            'content'      => $this->sModRevision,
                             'force_update' => true,
+                            'use_quote'    => true,
                         ),
                     );
                     $aRet          = $this->_updateTableItem('d3_cfg_mod', $aInsertFields, $aWhere);
