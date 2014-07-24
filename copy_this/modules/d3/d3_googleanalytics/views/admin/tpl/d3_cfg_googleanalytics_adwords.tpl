@@ -237,7 +237,7 @@ function _groupExp(el) {
                                 <label for="sD3GAAdWordConversionId">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_CONVID"}]</label>
                             </dt>
                             <dd>
-                                <input type="text" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GAAdWordConversionId]" value="[{$edit->getValue('sD3GAAdWordConversionId')}]">
+                                <input type="text" class="edittext ext_edittext" size="15" maxlength="50" name="value[sD3GAAdWordConversionId]" value="[{$edit->getValue('sD3GAAdWordConversionId')}]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_CONVID_DESC"}]
                             </dd>
                         </dl>
@@ -246,7 +246,7 @@ function _groupExp(el) {
                                 <label for="sD3GAAdWordConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL"}]</label>
                             </dt>
                             <dd>
-                                <input type="text" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GAAdWordConversionLabel]" value="[{$edit->getValue('sD3GAAdWordConversionLabel')}]">
+                                <input type="text" class="edittext ext_edittext" size="15" maxlength="50" name="value[sD3GAAdWordConversionLabel]" value="[{$edit->getValue('sD3GAAdWordConversionLabel')}]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL_DESC"}]
                             </dd>
                         </dl>
