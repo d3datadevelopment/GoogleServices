@@ -138,7 +138,7 @@
 
                     _gaq.push(['_addTrans',
                         '[{$order->oxorder__oxordernr->value}]',          [{* // order ID - required *}]
-                        '[{$oxcmp_shop->oxshops__oxname->value}]',         [{* // affiliation or store name *}]
+                        '[{$oxcmp_shop->oxshops__oxname->value|escape:"quotes"}]',         [{* // affiliation or store name *}]
                         [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
                              '[{math equation="s / r" s=$order->getOrderNetSum() r=$currate format="%.2f"}]',                [{* // total - required - has to be gross sum *}]
                         [{else}]
@@ -146,17 +146,17 @@
                         [{/if}]
                         '[{math equation="s - r" s=$order->getTotalOrderSum() r=$order->getOrderNetSum() format="%.2f"}]', [{* // tax *}]
                         '[{math equation="s / r" s=$order->oxorder__oxdelcost->value r=$currate format="%.2f"}]',          [{* // shipping *}]
-                        '[{$order->oxorder__oxbillcity->value}]',         [{* // city *}]
-                        '[{$order->oxorder__oxbillstate->value}]',        [{* // state or province *}]
-                        '[{$order->oxorder__oxbillcountry->value}]'       [{* // country *}]
+                        '[{$order->oxorder__oxbillcity->value|escape:"quotes"}]',         [{* // city *}]
+                        '[{$order->oxorder__oxbillstate->value|escape:"quotes"}]',        [{* // state or province *}]
+                        '[{$order->oxorder__oxbillcountry->value|escape:"quotes"}]'       [{* // country *}]
                     ]);
 
                     [{foreach from=$order->getOrderArticles() item=oOrderArticle}]
                         _gaq.push(['_addItem',
                             '[{$order->oxorder__oxordernr->value}]',                      [{* // order ID - required *}]
-                            '[{$oOrderArticle->oxorderarticles__oxartnum->value}]',       [{* // SKU/code *}]
-                            '[{$oOrderArticle->oxorderarticles__oxtitle->value}]',        [{* // product name *}]
-                            '[{$oOrderArticle->oxorderarticles__d3_galocator->value}]',   [{* // category or variation *}]
+                            '[{$oOrderArticle->oxorderarticles__oxartnum->value|escape:"quotes"}]',       [{* // SKU/code *}]
+                            '[{$oOrderArticle->oxorderarticles__oxtitle->value|escape:"quotes"}]',        [{* // product name *}]
+                            '[{$oOrderArticle->oxorderarticles__d3_galocator->value|escape:"quotes"}]',   [{* // category or variation *}]
                             [{*'[{$oOrderArticle->oxorderarticles__oxselvariant->value}]',   [{* // category or variation *}]
                             [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
                                 [{assign var="oPrice" value=$oOrderArticle->getPrice()}]
