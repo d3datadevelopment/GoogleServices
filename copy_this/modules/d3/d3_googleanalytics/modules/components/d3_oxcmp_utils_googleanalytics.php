@@ -147,19 +147,31 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, $aUrls)
     {
-        $sUrl    = str_replace('http://', '', $aLanguageUrls[$oVal->id]);
-        $sSslUrl = str_replace('https://', '', $aSslLanguageUrls[$oVal->id]);
+        $blIsSsl = oxRegistry::getConfig()->isSsl();
 
-        if ($aLanguageUrls[$oVal->id] != $aLanguageUrls[oxRegistry::getLang()->getBaseLanguage()]) {
+        if ($this->_d3CheckLanguageUrlsToList($aLanguageUrls, $oVal, $blIsSsl)) {
+            $sUrl    = str_replace('http://', '', $aLanguageUrls[$oVal->id]);
             $aUrls[] = "'" . $sUrl . "'";
         }
-        if ($aSslLanguageUrls[$oVal->id] != $aSslLanguageUrls[oxRegistry::getLang()->getBaseLanguage()]) {
-            $aUrls[] = "'" . $sSslUrl . "'";
 
-            return $aUrls;
+        if ($this->_d3CheckLanguageUrlsToList($aSslLanguageUrls, $oVal, !$blIsSsl)) {
+            $sSslUrl = str_replace('https://', '', $aSslLanguageUrls[$oVal->id]);
+            $aUrls[] = "'" . $sSslUrl . "'";
         }
 
         return $aUrls;
+    }
+
+    /**
+     * @param $aLanguageUrls
+     * @param $oVal
+     * @param $blIsSsl
+     *
+     * @return bool
+     */
+    protected function _d3CheckLanguageUrlsToList($aLanguageUrls, $oVal, $blIsSsl)
+    {
+        return $blIsSsl || $aLanguageUrls[$oVal->id] != $aLanguageUrls[oxRegistry::getLang()->getBaseLanguage()];
     }
 
     /**
