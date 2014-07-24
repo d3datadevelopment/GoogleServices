@@ -51,4 +51,46 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
 
         return $aVoucherSerieList;
     }
+
+    /**
+     * @param array $aArticleList
+     *
+     * @return null|void
+     */
+    protected function _setOrderArticles( $aArticleList )
+    {
+        parent::_setOrderArticles($aArticleList);
+
+        /** @var d3_oxbasketitem_googleanalytics $oBasketItem */
+        foreach ($aArticleList as $oBasketItem) {
+            $oOrderArticle = $this->_d3getOrderArticleFromBasketItem($oBasketItem);
+            if ($oOrderArticle) {
+                $aContent['d3_galocator'] = $oBasketItem->d3GetLocatorTitle();
+                $oOrderArticle->assign($aContent);
+                $oOrderArticle->save();
+            }
+        }
+    }
+
+    /**
+     * @param oxbasketitem $oBasketItem
+     *
+     * @return false|oxorderarticle
+     */
+    protected function _d3getOrderArticleFromBasketItem($oBasketItem)
+    {
+        $aPersParams = $oBasketItem->getPersParams();
+
+        /** @var oxorderarticle $oOrderArticle */
+        foreach ($this->_oArticles as $sArticleId => $oOrderArticle) {
+            if ($oOrderArticle->getFieldData('oxartid') == $oBasketItem->getProductId() &&
+                $oOrderArticle->getFieldData('oxamount') == $oBasketItem->getAmount() &&
+                (null == $aPersParams || $oOrderArticle->getFieldData('oxpersparam') == $aPersParams)
+            ) {
+                return $this->_oArticles->offsetGet($sArticleId);
+            }
+        }
+
+        return false;
+    }
 }

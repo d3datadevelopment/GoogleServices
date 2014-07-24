@@ -33,7 +33,8 @@
             'id': '[{$order->oxorder__oxordernr->value}]',                          [{* Transaktions-ID *}]
             'name': '[{$oOrderArticle->oxorderarticles__oxtitle->value}]',          [{* Produktname *}]
             'sku': '[{$oOrderArticle->oxorderarticles__oxartnum->value}]',          [{* SKU/Code *}]
-            'category': '[{$oOrderArticle->oxorderarticles__oxselvariant->value}]', [{* Kategorie oder Ausführung *}]
+            'category': '[{$oOrderArticle->oxorderarticles__d3_galocator->value}]', [{* Kategorie oder Ausführung *}]
+            [{*'category': '[{$oOrderArticle->oxorderarticles__oxselvariant->value}]', [{* Kategorie oder Ausführung *}]
             'price': '[{$sPrice}]',                                                 [{* Preis pro Einheit *}]
             'quantity': '[{$oOrderArticle->oxorderarticles__oxamount->value}]'      [{* Menge *}]
         });

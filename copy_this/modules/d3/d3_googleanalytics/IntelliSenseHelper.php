@@ -30,3 +30,9 @@ class d3_order_googleanalytics_parent extends order {}
 
 /** */
 class d3_oxutilsview_googleanalytics_parent extends oxUtilsView {}
+
+/** */
+class d3_oxbasket_googleanalytics_parent extends oxbasket {}
+
+/** */
+class d3_oxbasketitem_googleanalytics_parent extends oxBasketItem {}
