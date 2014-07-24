@@ -123,21 +123,40 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         $myConfig = oxRegistry::getConfig();
         $aLanguageUrls = $myConfig->getConfigParam('aLanguageURLs');
-        $aUrls = array();
-        /** @var oxUBase $oActView */
-        $oActView = $myConfig->getTopActiveView();
+        $aSslLanguageUrls = $myConfig->getConfigParam('aLanguageSSLURLs');
 
+        $aUrls = array();
         if ($myConfig->getConfigParam('bl_perfLoadLanguages')) {
             $aLanguages = oxRegistry::getLang()->getLanguageArray(null, true, true);
             reset($aLanguages);
-            while ((list($sKey, $oVal) = each($aLanguages))) {
-                $aLanguages[$sKey]->link = $oActView->getLink($oVal->id);
-                $sUrl = str_replace('http://', '', $aLanguageUrls[$oVal->id]);
-
-                if ($aLanguageUrls[$oVal->id] != $aLanguageUrls[oxRegistry::getLang()->getBaseLanguage()]) {
-                    $aUrls[] = "'".$sUrl."'";
-                }
+            foreach ($aLanguages as $oVal) {
+                $aUrls = $this->_d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, $aUrls);
             }
+        }
+
+        return $aUrls;
+    }
+
+    /**
+     * @param $aLanguageUrls
+     * @param $oVal
+     * @param $aSslLanguageUrls
+     * @param $aUrls
+     *
+     * @return array
+     */
+    protected function _d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, $aUrls)
+    {
+        $sUrl    = str_replace('http://', '', $aLanguageUrls[$oVal->id]);
+        $sSslUrl = str_replace('https://', '', $aSslLanguageUrls[$oVal->id]);
+
+        if ($aLanguageUrls[$oVal->id] != $aLanguageUrls[oxRegistry::getLang()->getBaseLanguage()]) {
+            $aUrls[] = "'" . $sUrl . "'";
+        }
+        if ($aSslLanguageUrls[$oVal->id] != $aSslLanguageUrls[oxRegistry::getLang()->getBaseLanguage()]) {
+            $aUrls[] = "'" . $sSslUrl . "'";
+
+            return $aUrls;
         }
 
         return $aUrls;
