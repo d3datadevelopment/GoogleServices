@@ -14,7 +14,7 @@
 
     ga('ecommerce:addTransaction', {
         'id':           '[{$order->oxorder__oxordernr->value}]',        [{* Transaction ID. Required *}]
-        'affiliation':  '[{$oxcmp_shop->oxshops__oxname->value}]',      [{* Affiliation or store name *}]
+        'affiliation':  '[{$oxcmp_shop->oxshops__oxname->value|escape:"quotes"}]',      [{* Affiliation or store name *}]
         'revenue':      '[{$sTotal}]',                                  [{* Gesamtwert *}]
         'shipping':     '[{$sShipping}]',                               [{* Versand *}]
         'tax':          '[{$sTax}]'                                     [{* Steuer *}]
@@ -31,9 +31,10 @@
 
         ga('ecommerce:addItem', {
             'id': '[{$order->oxorder__oxordernr->value}]',                          [{* Transaktions-ID *}]
-            'name': '[{$oOrderArticle->oxorderarticles__oxtitle->value}]',          [{* Produktname *}]
-            'sku': '[{$oOrderArticle->oxorderarticles__oxartnum->value}]',          [{* SKU/Code *}]
-            'category': '[{$oOrderArticle->oxorderarticles__oxselvariant->value}]', [{* Kategorie oder Ausführung *}]
+            'name': '[{$oOrderArticle->oxorderarticles__oxtitle->value|escape:"quotes"}]',          [{* Produktname *}]
+            'sku': '[{$oOrderArticle->oxorderarticles__oxartnum->value|escape:"quotes"}]',          [{* SKU/Code *}]
+            'category': '[{$oOrderArticle->oxorderarticles__d3_galocator->value|escape:"quotes"}]', [{* Kategorie oder Ausführung *}]
+            [{*'category': '[{$oOrderArticle->oxorderarticles__oxselvariant->value}]', [{* Kategorie oder Ausführung *}]
             'price': '[{$sPrice}]',                                                 [{* Preis pro Einheit *}]
             'quantity': '[{$oOrderArticle->oxorderarticles__oxamount->value}]'      [{* Menge *}]
         });

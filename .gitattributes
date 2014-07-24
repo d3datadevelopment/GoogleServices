@@ -180,6 +180,8 @@ copy_this/modules/d3/d3_googleanalytics/modules/components/d3_oxcmp_utils_google
 copy_this/modules/d3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalytics.php -text
+copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalytics.php -text
+copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/picture.png -text
 copy_this/modules/d3/d3_googleanalytics/setup/d3_googleanalytics_update.php -text

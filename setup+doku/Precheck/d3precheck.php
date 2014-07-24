@@ -6,7 +6,7 @@ class requConfig
 
     public $sModId = 'd3_googleanalytics';
 
-    public $sModVersion = '3.1.0.2';
+    public $sModVersion = '3.2.0.0';
 
     /********************** check configuration section ************************/
 
