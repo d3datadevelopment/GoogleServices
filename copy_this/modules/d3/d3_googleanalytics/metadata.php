@@ -103,5 +103,10 @@ $aModule = array(
             'block'=>'base_js',
             'file'=>'/views/blocks/layout/d3_base_googleadwordscode.tpl'
         ),
+        array(
+          'template' => 'layout/footer.tpl',
+          'block' => 'footer_main',
+          'file' => '/views/blocks/layout/d3_base_optout.tpl',
+        ),
     ),
 );

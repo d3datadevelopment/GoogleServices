@@ -101,8 +101,6 @@
                         <input type="submit" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_NOCONFIG_BTN"}]">
                         <span></span>
                     </span>
-                </form>
-                </div>
             [{else}]
 
                 [{if $oView->getGaType() == 'universal'}]
@@ -195,6 +193,16 @@
                                 <input type="hidden" name="value[blD3GAUseRemarketing]" value="0">
                                 <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="blD3GAUseOptOut">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blD3GAUseOptOut]" value="0">
+                                <input id="blD3GAUseOptOut" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseOptOut')}]checked[{/if}] name="value[blD3GAUseOptOut]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -362,6 +370,7 @@
         </td>
     </tr>
 </table>
+</form>
 
 [{assign var="incpath" value=$oViewConf->getModulePath('d3modcfg_lib')|cat:"views/admin/tpl/d3_cfg_mod_inc.tpl"}]
 [{include file="d3_cfg_mod_inc.tpl"}]

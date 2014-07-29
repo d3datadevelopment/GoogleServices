@@ -155,6 +155,7 @@ Sources/doku/12_gaTrackingOverview-Dateien/star_off.gif -text
 Sources/doku/12_gaTrackingOverview.html -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/blocks/layout/d3_base_googleadwordscode.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/blocks/layout/d3_base_googleanalytics.tpl -text
+changed_full/470-/modules/d3/d3_googleanalytics/views/blocks/layout/d3_base_optout.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/d3ga_universal.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwords.tpl -text
@@ -183,8 +184,11 @@ copy_this/modules/d3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalyt
 copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics.php -text
+copy_this/modules/d3/d3_googleanalytics/out/src/d3_googleanalytics.css -text
 copy_this/modules/d3/d3_googleanalytics/picture.png -text
 copy_this/modules/d3/d3_googleanalytics/setup/d3_googleanalytics_update.php -text
+copy_this/modules/d3/d3_googleanalytics/translations/de/d3_googleanalytics_lang.php -text
+copy_this/modules/d3/d3_googleanalytics/translations/en/d3_googleanalytics_lang.php -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/de/d3_googleanalytics_lang.php -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/en/d3_googleanalytics_lang.php -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl -text
