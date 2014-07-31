@@ -38,7 +38,7 @@ $aModule = array(
             'en'   => 'Provides a quick and easy integration with your Google Analytics account to your shop.',
     ),
     'thumbnail'    => 'picture.png',
-    'version'      => '3.2.0.0',
+    'version'      => '3.2.1.0',
     'author'       => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
@@ -102,6 +102,11 @@ $aModule = array(
             'template' => 'layout/base.tpl',
             'block'=>'base_js',
             'file'=>'/views/blocks/layout/d3_base_googleadwordscode.tpl'
+        ),
+        array(
+          'template' => 'layout/footer.tpl',
+          'block' => 'footer_main',
+          'file' => '/views/blocks/layout/d3_base_optout.tpl',
         ),
     ),
 );

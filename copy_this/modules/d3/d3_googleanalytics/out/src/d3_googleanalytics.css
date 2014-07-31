@@ -1,0 +1,16 @@
+#d3GAOptOut {
+    position      : fixed;
+    bottom        : -3px;
+    left          : -5px;
+    font-size     : 11px;
+    padding       : 4px 20px 6px 17px;
+    background    : none repeat scroll 0 0 #fff;
+    opacity       : 0.6;
+    z-index       : 9999;
+    border        : 1px solid #d3d3d3;
+    border-radius : 3px;
+}
+
+#d3GAOptOut a {
+    display : block;
+}

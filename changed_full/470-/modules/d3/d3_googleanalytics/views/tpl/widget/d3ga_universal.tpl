@@ -1,6 +1,21 @@
 [{if $blD3GoogleAnalyticsActive && $oD3GASettings->getValue('sD3GAId')}]
     [{capture name="d3GATrackCode"}]
         [{strip}]
+            [{if $oD3GASettings->getValue('blD3GAUseOptOut')}]
+                <script type="text/javascript">
+                    var gaProperty = '[{$oD3GASettings->getValue('sD3GAId')}]';
+                    var disableStr = 'ga-disable-' + gaProperty;
+                    if (document.cookie.indexOf(disableStr + '=true') > -1) {
+                        window[disableStr] = true;
+                    }
+
+                    function gaOptout() {
+                        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                        window[disableStr] = true;
+                    }
+                </script>
+            [{/if}]
+
             <script type="text/javascript">
                 (function(i,s,o,g,r,a,m){
                     i['GoogleAnalyticsObject']=r;

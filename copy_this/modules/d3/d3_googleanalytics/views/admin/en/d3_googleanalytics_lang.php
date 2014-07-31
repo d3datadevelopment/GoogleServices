@@ -256,6 +256,12 @@ $aLang = array(
         '&uuml;ber standardisierte Schnittstellen die Besucherdaten und eCommerce-Daten zu Google &uuml;bertragen. '.
         'Ebenfalls &uuml;bermittelt werden Daten der Website-Suche. Dem Modul liegen angepa&szlig;te Templates bei, '.
         'mit denen auch die Trichter ordentlich protokolliert werden.',
+    'D3_GOOGLEANALYTICS_MAIN_USEOPTOUT'                            => 'Opt Out anbieten',
+    'D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC'                       => 'Wird dieser Haken gesetzt, wird im Frontend '.
+        'ein Opt-Out-Bereich im Header angezeigt. In dem Bereich kann der Benutzer einen Link anklicken, '.
+        'mit dem das Tracking für diese Seite deaktiviert wird. Weitere Informationen finden Sie '.
+        '<a href="https://developers.google.com/analytics/devguides/collection/gajs/?hl=de#disable" target="gahelp">'.
+        'hier</a>.',
 );
 
 

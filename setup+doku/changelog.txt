@@ -1,3 +1,6 @@
+=> 3.2.1.0
+- neue Option "Opt Out anzeigen lassen"
+
 => 3.2.0.0
 - Tracking für gekaufte Artikel enthält Daten zur Kategorie / Seite, aus der die Artikel zuerst in den Warenkorb gelegt wurden
 - Bugfix: Artikeltitel werden escaped, sofern Quotes enthalten sind
