@@ -51,6 +51,23 @@
                     ga('require', 'displayfeatures');
                 [{/if}]
 
+                [{* bounce optimization*}]
+                setTimeout('ga(\'send\', \'event\', \'NoBounce\', \'Over defined seconds\')',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
+
+                [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
+                    window.addEventListener ?
+                        window.addEventListener('scroll', testScroll, false) :
+                        window.attachEvent('onscroll', testScroll);
+
+                    var scrollCount = 0;
+                    function testScroll() {
+                        ++scrollCount;
+                        if (scrollCount == 2) {
+                            ga('send', 'event', 'window', 'scrolled');
+                        }
+                    }
+                [{/if}]
+
                 ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
 
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]

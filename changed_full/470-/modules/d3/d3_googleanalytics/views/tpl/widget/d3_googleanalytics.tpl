@@ -172,6 +172,23 @@
 
                 [{/if}]
 
+                [{* bounce optimization*}]
+                setTimeout('_gaq.push([\'_trackEvent\', \'NoBounce\', \'Over defined seconds\'])',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
+
+                [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
+                    window.addEventListener ?
+                        window.addEventListener('scroll', testScroll, false) :
+                        window.attachEvent('onscroll', testScroll);
+
+                    var scrollCount = 0;
+                    function testScroll() {
+                        ++scrollCount;
+                        if (scrollCount == 2) {
+                            _gaq.push(['_trackEvent', 'window', 'scrolled']);
+                        }
+                    }
+                [{/if}]
+
                 (function() {
                     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 

@@ -212,6 +212,36 @@
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
                             <span style="font-weight: bold;">
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_BOUNCEOPT"}]
+                            </span>
+                        </a>
+                        <dl>
+                            <dt>
+                                <label for="iSendNoBounceEventTime">[{oxmultilang ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT1"}]</label>
+                            </dt>
+                            <dd>
+                                <input id="iSendNoBounceEventTime" class="edittext ext_edittext" type="text" size="5" maxlength="5" value="[{if $edit->getValue('iSendNoBounceEventTime')}][{$edit->getValue('iSendNoBounceEventTime')}][{else}]10000[{/if}]" name="value[iSendNoBounceEventTime]">
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT2"}]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="blSendNoBounceEventScroll">[{oxmultilang ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SENDSCROLLEVENT"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blSendNoBounceEventScroll]" value="0">
+                                <input id="blSendNoBounceEventScroll" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blSendNoBounceEventScroll')}]checked[{/if}] name="value[blSendNoBounceEventScroll]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SENDSCROLLEVENT_DESC"}]
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE"}]
                             </span>
                         </a>

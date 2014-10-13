@@ -91,6 +91,30 @@ $aLang = array(
         'Produkte wie AdWords. Je nach verwendetem Tracking-Typ muss die Erfassung von Informationen aus dem Display-'.
         'Netzwerk im Analytics-Konto aktiviert werden.',
 
+    'D3_GOOGLEANALYTICS_BOUNCEOPT'                                 => 'Bounce rate optimzation',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT1'                  => 'Seitenbesucher nicht als Abbrecher werten nach',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT2'                  => 'Millisekunden (1000 = 1 Sekunde)',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT_DESC'              => '<p>Analytics wertet alle Seitenbucher, die '.
+        'sich nur eine Seite angesehen habe und dann den Shop verlassen, automatisch als Abbrecher. Zur '.
+        'Informationsbeschaffung reicht dem Kunden jedoch möglicherweise dieser eine Seitenbesuch aus. Sein Ziel '.
+        'konnte er erreichen. Demnach ist er eigentlich kein Abbrecher. Das Modul sendet automatisch nach der '.
+        'angegebenen Sekundenzahl ein EventTracking. Damit wertet Analytics diesen Besucher nur als Abbrecher, wenn '.
+        'er den Shop vor Ablauf dieser Zeit wieder verlässt. Verweilt er länger im Shop, wird der Besuch dann als '.
+        'Erfolg gewertet.</p><p>Diese Tracking-Veränderung stellt die Absprungrate daher im Analytics wesentlich '.
+        'genauer dar. Der Standardwert ist auf 10 Sekunden gesetzt. Ändern Sie bei Bedarf diese Angabe.</p><p>Weitere '.
+        'Informationen zu dieser Option finden Sie in der '.
+        '<a href="https://www.google.de/search?q=_trackEvent+noBounce">Google-Suche</a>.</p>',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDSCROLLEVENT'                 => 'Seitenbesucher nicht als Abbrecher werten, '.
+        'wenn gescrollt wurde',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDSCROLLEVENT_DESC'            => '<p>Analytics wertet alle Seitenbucher, die '.
+        'sich nur eine Seite angesehen habe und dann den Shop verlassen, automatisch als Abbrecher. Zur '.
+        'Informationsbeschaffung reicht dem Kunden jedoch möglicherweise dieser eine Seitenbesuch aus. Sein Ziel '.
+        'konnte er erreichen. Demnach ist er eigentlich kein Abbrecher. Das Modul sendet automatisch ein '.
+        'EventTracking, wenn der Besucher die Seite gescrollt hat. Damit wertet Analytics diesen Besucher nur als '.
+        'Abbrecher, wenn er den Shop ohne Scrollen wieder verlässt.</p><p>Diese Tracking-Veränderung stellt die '.
+        'Absprungrate daher im Analytics wesentlich genauer dar.</p><p>Weitere Informationen zu dieser Option finden '.
+        'Sie in der <a href="https://www.google.de/search?q=_trackEvent+noBounce+scroll">Google-Suche</a>.</p>',
+
     'D3_GOOGLEANALYTICS_ECOMMERCE'                                 => 'eCommerce settings',
     'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA'                        => 'eCommerce-Daten &uuml;bertragen',
     'D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC'                   => 'Mit dieser Einstellung werden Warenkorbdaten '.
