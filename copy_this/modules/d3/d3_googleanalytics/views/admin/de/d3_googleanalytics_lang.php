@@ -31,6 +31,7 @@ $aLang = array(
     'd3mxgoogleanalytics_settings'                                 => 'Einstellungen',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
+    'd3tbclgoogleanalytics_trustedstore'                           => 'Google zertifizierter Shop',
 
     'D3_GOOGLEANALYTICS_CFG_TITLE'                                 => 'Google Analytics Schnittstelle - Einstellungen',
 
@@ -274,6 +275,9 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_CAMPAIGNCODE_CODE_DESC'                    => 'Kopieren Sie hier den Kampagnen-Tracking-Code '.
         'ein, den Sie vom Anbieter erhalten haben. Kopieren Sie auch ein eventuell vorhandenes "script"-Tag mit. '.
         'Dieser Code wird 1:1 in den Seitenquelltext eingef&uuml;gt und nicht geparst.',
+
+    'D3_GOOGLEANALYTICS_TS_ACTIVE'                                 => 'Trusted Store aktivieren',
+    'D3_GOOGLEANALYTICS_TS_ID'                                     => 'Trusted Store-ID',
 
     'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Analytics Schnittstelle',
     'D3_GOOGLEANALYTICS_METADATA_DESC'                             => 'Dieses Modul stellt Ihnen die schnelle und '.

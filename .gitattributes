@@ -164,6 +164,7 @@ changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/inc/d3ga_univer
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_custom.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_ecommerce.tpl -text
 changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_remarketing.tpl -text
+changed_full/470-/modules/d3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_trustedstore.tpl -text
 copy_this/.noencode -text
 copy_this/modules/d3/d3_googleanalytics/IntelliSenseHelper.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php -text
@@ -172,6 +173,7 @@ copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php -text
+copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_trustedstore.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php -text
 copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php -text
 copy_this/modules/d3/d3_googleanalytics/core/smarty/plugins/function.d3getArticleFromOrderArticle.php -text
@@ -194,6 +196,7 @@ copy_this/modules/d3/d3_googleanalytics/views/admin/en/d3_googleanalytics_lang.p
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl -text
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl -text
+copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_trustedstore.tpl -text
 setup+doku/Google[!!-~]AdWords-Einrichtung.pdf -text svneol=unset#unset
 setup+doku/Google[!!-~]Analytics-Einrichtung.pdf -text svneol=unset#unset
 setup+doku/Google[!!-~]Analytics-Installation.pdf -text

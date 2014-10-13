@@ -100,3 +100,7 @@
 
     [{$smarty.capture.d3GATrackCode}]
 [{/if}]
+
+[{if $blD3GoogleAnalyticsActive && $oD3GASettings->getValue('sD3GATSActive') && $oD3GASettings->getValue('sD3GATSId')}]
+    [{include file="d3ga_universal_trustedstore.tpl"}]
+[{/if}]

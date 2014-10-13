@@ -61,6 +61,8 @@ $aModule = array(
             'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php',
         'd3_cfg_googleanalytics_list'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php',
         'd3_cfg_googleanalytics_main'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php',
+        'd3_cfg_googleanalytics_trustedstore'      =>
+            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_trustedstore.php',
         'd3_cfg_googleanalyticslog'        => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php',
         'd3_cfg_googleanalyticslog_list'   =>
             'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php',
@@ -81,6 +83,8 @@ $aModule = array(
             'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_remarketing.tpl',
         'd3ga_universal_campaigncode.tpl'  =>
             'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigncode.tpl',
+        'd3ga_universal_trustedstore.tpl'  =>
+            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_trustedstore.tpl',
 
         'd3_cfg_googleanalytics_main.tpl'      =>
             'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
@@ -88,6 +92,8 @@ $aModule = array(
             'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',
         'd3_cfg_googleanalytics_campaigns.tpl' =>
             'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl',
+        'd3_cfg_googleanalytics_trustedstore.tpl' =>
+            'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_trustedstore.tpl',
     ),
     'events'       => array(
         'onActivate'                      => 'd3install::checkUpdateStart',

@@ -6,6 +6,7 @@
                 <TAB id="d3tbclgoogleanalytics_main" cl="d3_cfg_googleanalytics_main" />
                 <TAB id="d3tbclgoogleanalytics_adwords" cl="d3_cfg_googleanalytics_adwords" />
                 <TAB id="d3tbclgoogleanalytics_campaigns" cl="d3_cfg_googleanalytics_campaigns" />
+                <TAB id="d3tbclgoogleanalytics_trustedstore" cl="d3_cfg_googleanalytics_trustedstore" />
                 <TAB id="d3tbcl_licence" cl="d3_cfg_googleanalytics_licence" />
             </SUBMENU>
             <SUBMENU id ="d3mxlog" cl="d3_cfg_googleanalyticslog" list="d3_cfg_googleanalyticslog_list">
