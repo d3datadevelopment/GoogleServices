@@ -55,6 +55,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('sAFEGetMoreUrls', $this->afGetMoreUrls());
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
             $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
+            $oParentView->addTplParam('sD3CurrentGTSLang', $this->d3GetGTSLang());
 
             if ($oSet->getValue('blD3GASetRemarketing')) {
                 $aInfos = $this->d3GetGAProdInfos();
@@ -99,6 +100,14 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             return 'auto';
         }
 
+        return $this->d3GetCurrentShopUrl();
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetCurrentShopUrl()
+    {
         return oxRegistry::getConfig()->getActiveShop()->getFieldData('oxurl');
     }
 
@@ -273,6 +282,21 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         };
 
         return 'Siteview';
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetGTSLang()
+    {
+        $aHomeCountries = oxRegistry::getConfig()->getConfigParam('aHomeCountry');
+        $sHomeCountryId = $aHomeCountries[array_keys($aHomeCountries)[0]];
+        /** @var oxcountry $oCountry */
+        $oCountry = oxNew('oxcountry');
+        $oCountry->load($sHomeCountryId);
+
+        return strtolower(oxRegistry::getLang()->getLanguageAbbr()).'_'.
+            strtoupper($oCountry->getFieldData('OXISOALPHA2'));
     }
 
     /**
