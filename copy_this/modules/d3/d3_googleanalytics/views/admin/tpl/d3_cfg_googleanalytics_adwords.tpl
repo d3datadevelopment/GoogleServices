@@ -121,12 +121,12 @@ function _groupExp(el) {
                         </a>
                         <dl>
                             <dt>
-                                <label for="blD3GASetCampaignTrack">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK"}]</label>
+                                <label for="blD3GASetAdWordsCampaignTrack">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK"}]</label>
                                 [{*  _gaq.push(['_setCampaignTrack', false]);  *}]
                             </dt>
                             <dd>
-                                <input type="hidden" name="value[blD3GASetCampaignTrack]" value="0">
-                                <input id="blD3GASetCampaignTrack" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASetCampaignTrack')}]checked[{/if}] name="value[blD3GASetCampaignTrack]">
+                                <input type="hidden" name="value[blD3GASetAdWordsCampaignTrack]" value="0">
+                                <input id="blD3GASetAdWordsCampaignTrack" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASetAdWordsCampaignTrack')}]checked[{/if}] name="value[blD3GASetAdWordsCampaignTrack]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK_DESC"}]
                             </dd>
                         </dl>
