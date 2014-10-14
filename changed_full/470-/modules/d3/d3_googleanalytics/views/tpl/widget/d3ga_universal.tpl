@@ -70,6 +70,8 @@
 
                 ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
 
+                [{include file="d3ga_universal_ecommerce.tpl"}]
+
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
                     var perfData = window.performance.timing;
                     var pageLoadTime = perfData.domComplete - perfData.navigationStart;
@@ -87,8 +89,6 @@
                     ga('set', 'metric1', loadTime);
                     [{*ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': true});*}]
                 [{/if}]
-
-                [{include file="d3ga_universal_ecommerce.tpl"}]
             </script>
 
         [{/strip}]
