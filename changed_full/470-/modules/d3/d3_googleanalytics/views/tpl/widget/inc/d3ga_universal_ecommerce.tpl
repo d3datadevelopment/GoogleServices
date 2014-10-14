@@ -1,7 +1,7 @@
 [{if $oD3GASettings->getValue('blD3GASendECommerce') && $oViewConf->getActiveClassName() == 'thankyou'}][{strip}]
     [{assign var="order" value=$oView->getOrder()}]
 
-    ga('require', 'ecommerce', 'ecommerce.js');
+    ga('require', 'ecommerce');
 
     [{assign var="currate" value=$order->oxorder__oxcurrate->value}]
     [{if $oD3GASettings->getValue('blD3GAUseNetto')}]

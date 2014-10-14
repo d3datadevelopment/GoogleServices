@@ -30,7 +30,7 @@
     [{assign var="oOrder" value=$oView->getOrder()}]
     [{assign var="oOrderCurrency" value=$oOrder->getOrderCurrency()}]
     [{assign var="oUser" value=$oOrder->getOrderUser()}]
-    [{assign var="oUserCountry" value=$oUser->getUserCountry()}]
+    [{assign var="oUserCountry" value=$oD3GACountry}]
     [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
         [{assign var="sTotal" value=$oOrder->getOrderNetSum()}]   [{* // total - required - has to be gross sum *}]
     [{else}]
@@ -43,21 +43,20 @@
                 <span id="gts-o-id">[{$oOrder->getFieldData('oxordernr')}]</span>
                 <span id="gts-o-domain">[{$oxcmp_shop->oxshops__oxurl->value}]</span>
                 <span id="gts-o-email">[{$oUser->getFieldData('oxusername')}]</span>
-                <span id="gts-o-country">[{$oCountry->getFieldData('OXISOALPHA2')}]</span>
+                <span id="gts-o-country">[{$oUserCountry->getFieldData('oxisoalpha2')}]</span>
                 <span id="gts-o-currency">[{$oOrderCurrency->name}]</span>
                 <span id="gts-o-total">[{$sTotal|string_format:"%.2f"}]</span>
                 <span id="gts-o-discounts">-[{$oOrder->getFieldData('oxdiscount')}]</span>
                 <span id="gts-o-shipping-total">[{$oOrder->getFieldData('oxdelcost')}]</span>
                 <span id="gts-o-tax-total">[{math equation="fi + se + th + fo" fi=$oOrder->getFieldData('oxartvatprice1') se=$oOrder->getFieldData('oxartvatprice2') th=$oOrder->getFieldData('oxpayvat') fo=$oOrder->getFieldData('oxdelvat') format="%.2f"}]</span>
-                <span id="gts-o-est-ship-date">MERCHANT_ORDER_ID</span>
-                <span id="gts-o-est-delivery-date">MERCHANT_ORDER_ID</span>
-                <span id="gts-o-est-has-preorder">MERCHANT_ORDER_ID</span>
-                <span id="gts-o-est-has-digital">MERCHANT_ORDER_ID</span>
+                <span id="gts-o-est-ship-date">has_completed</span>
+                <span id="gts-o-est-delivery-date">has_completed</span>
+                <span id="gts-o-est-has-preorder">has_completed</span>
+                <span id="gts-o-est-has-digital">has_completed</span>
             <!-- end order and merchant information -->
 
             <!-- start repeated item specific information -->
             [{foreach from=$order->getOrderArticles() item=oOrderArticle}]
-
                 [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
                     [{assign var="oPrice" value=$oOrderArticle->getPrice()}]
                     [{assign var="sPrice" value=$oPrice->getNettoPrice()}]
