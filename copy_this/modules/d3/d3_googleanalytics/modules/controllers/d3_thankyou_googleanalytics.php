@@ -48,4 +48,115 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
             $sGACode
         );
     }
+
+    /**
+     * @return oxcountry
+     */
+    public function d3GAGetUserCountry()
+    {
+        $sCountryId = $this->getOrder()->getFieldData('oxbillcountryid');
+        /** @var oxcountry $oCountry */
+        $oCountry = oxNew('oxcountry');
+        $oCountry->load($sCountryId);
+
+        return $oCountry;
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GAgetEstimatedShippingDate()
+    {
+        return $this->d3GAgetEstimatedDate('iEstShippingTimeValue');
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GAgetEstimatedDeliveryDate()
+    {
+        return $this->d3GAgetEstimatedDate('iEstDeliveryTimeValue');
+    }
+
+    /**
+     * @param $sModCfgVarName
+     *
+     * @return string
+     */
+    public function d3GAgetEstimatedDate($sModCfgVarName)
+    {
+        $iTimeValue = d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
+
+        return date(
+            'Y-m-d',
+            strtotime('+ '.$iTimeValue.' day')
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GAhasBackorderPreorder()
+    {
+        if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
+            /** @var oxorderarticle $oOrderArticle */
+            foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
+                /** @var oxarticle $oArticle */
+                $oArticle = $oOrderArticle->getArticle();
+
+                if ($oArticle->getFieldData('oxstockflag') != 4         // Fremdlager
+                    && $oOrderArticle->getFieldData('oxamount') > $oOrderArticle->getFieldData('oxstock')
+                ) {
+                    return 'Y';
+                }
+            };
+        }
+
+        return 'N';
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GAhasDigitalGoods()
+    {
+        if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
+            /** @var oxorderarticle $oOrderArticle */
+            foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
+                /** @var oxarticle $oArticle */
+                $oArticle = $oOrderArticle->getArticle();
+                $aArticleFiles = $oArticle->getArticleFiles();
+
+                if ($oArticle->getFieldData('oxisdownloadable')
+                    && count($aArticleFiles)
+                ) {
+                    /** @var oxfile $oArticleFile */
+                    foreach ($aArticleFiles as $oArticleFile) {
+                        if ($oArticleFile->getFieldData('oxpurchasedonly')) {
+                            return 'Y';
+                        }
+                    }
+                }
+            };
+        }
+
+        return 'N';
+    }
+
+    /**
+     * @param oxorderarticle $oOrderArticle
+     *
+     * @return string
+     */
+    public function d3GAgetProductId($oOrderArticle)
+    {
+        switch (d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId')) {
+            case 'oxartnum':
+                return $oOrderArticle->getFieldData('oxartnum');
+            case 'oxid':
+                return $oOrderArticle->getFieldData('oxartid');
+        };
+
+        return $oOrderArticle->getFieldData(d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId'));
+    }
 }

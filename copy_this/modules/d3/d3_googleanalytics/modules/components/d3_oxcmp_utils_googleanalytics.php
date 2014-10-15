@@ -56,7 +56,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
             $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
             $oParentView->addTplParam('sD3CurrentGTSLang', $this->d3GetGTSLang());
-            $oParentView->addTplParam('oD3GACountry', $this->d3GAGetUserCountry());
 
             if ($oSet->getValue('blD3GASetRemarketing')) {
                 $aInfos = $this->d3GetGAProdInfos();
@@ -620,23 +619,5 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         return $aParameter;
-    }
-
-    /**
-     * @return oxcountry
-     */
-    public function d3GAGetUserCountry()
-    {
-        /** @var thankyou $oCurrentView */
-        $oCurrentView = oxRegistry::getConfig()->getActiveView();
-        /** @var oxcountry $oCountry */
-        $oCountry = oxNew('oxcountry');
-
-        if (method_exists($oCurrentView, 'getOrder')) {
-            $sCountryId = $oCurrentView->getOrder()->getFieldData('oxbillcountryid');
-            $oCountry->load($sCountryId);
-        }
-
-        return $oCountry;
     }
 }

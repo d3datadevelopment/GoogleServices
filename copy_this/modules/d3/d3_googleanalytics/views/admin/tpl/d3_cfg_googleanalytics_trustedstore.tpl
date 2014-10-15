@@ -114,69 +114,85 @@
                             [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_ID_DESC"}]
                         </dd>
                     </dl>
+                    <dl>
+                        <dt>
+                            <label for="iEstShippingTimeValue">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER"}]</label>
+                        </dt>
+                        <dd>
+                            <input id="iEstShippingTimeValue" type="text" name="value[iEstShippingTimeValue]" class="edittext ext_edittext" size="3" maxlength="5" value="[{if $edit->getValue('iEstShippingTimeValue')}][{$edit->getValue('iEstShippingTimeValue')}][{else}]1[{/if}]" [{$readonly}]>
+                            [{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS"}]
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DESC"}]
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label for="iEstDeliveryTimeValue">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER"}]</label>
+                        </dt>
+                        <dd>
+                            <input id="iEstDeliveryTimeValue" type="text" name="value[iEstDeliveryTimeValue]" class="edittext ext_edittext" size="3" maxlength="5" value="[{if $edit->getValue('iEstDeliveryTimeValue')}][{$edit->getValue('iEstDeliveryTimeValue')}][{else}]1[{/if}]" [{$readonly}]>
+                            [{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DAYS"}]
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DESC"}]
+                        </dd>
+                    </dl>
+                </div>
+            </div>
 
-[{*
+            <div class="groupExp">
+                <div class="">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            [{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPING"}]
+                        </span>
+                    </a>
                     <dl>
                         <dt>
-                            <label for="blD3GAAnonymizeIP">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP"}]</label>
+                            <label for="sD3GATSShoppingActive">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="value[blD3GAAnonymizeIP]" value="0">
-                            <input id="blD3GAAnonymizeIP" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAAnonymizeIP')}]checked[{/if}] name="value[blD3GAAnonymizeIP]">
-                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC"}]
+                            <input type="hidden" name="" value="0">
+                            <input id="sD3GATSShoppingActive" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('sD3GATSShoppingActive')}]checked[{/if}] name="value[sD3GATSShoppingActive]">
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE_DESC"}]
                         </dd>
                     </dl>
                     <dl>
                         <dt>
-                            <label for="blD3GASampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE"}]</label>
+                            <label for="sD3GATSShoppingAccountId">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGACCOUNTID"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="value[iD3GASampleRate]" value="0">
-                            <input type="text" id="iD3GASampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASampleRate')}][{$edit->getValue('iD3GASampleRate')}][{else}]100[{/if}]" size="5" maxlength="3" name="value[iD3GASampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_1"}]
-                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_DESC"}]
+                            <input type="text" id="sD3GATSShoppingAccountId" class="edittext ext_edittext" value="[{if $edit->getValue('sD3GATSShoppingAccountId')}][{$edit->getValue('sD3GATSShoppingAccountId')}][{/if}]" size="20" maxlength="20" name="value[sD3GATSShoppingAccountId]">
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_SHOPPINGACCOUNTID_DESC"}]
                         </dd>
                     </dl>
                     <dl>
                         <dt>
-                            <label for="blD3GATrackPageLoadTime">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME"}]</label>
+                            <label for="sD3GATSShoppingCountry">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="value[blD3GATrackPageLoadTime]" value="0">
-                            <input id="blD3GATrackPageLoadTime" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GATrackPageLoadTime')}]checked[{/if}] name="value[blD3GATrackPageLoadTime]">
-                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC"}]
+                            <input type="text" id="sD3GATSShoppingCountry" class="edittext ext_edittext" value="[{if $edit->getValue('sD3GATSShoppingCountry')}][{$edit->getValue('sD3GATSShoppingCountry')}][{else}]DE[{/if}]" size="5" maxlength="2" name="value[sD3GATSShoppingCountry]">
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY_DESC"}]
                         </dd>
                     </dl>
                     <dl>
                         <dt>
-                            <label for="blD3GASiteSpeedSampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE"}]</label>
+                            <label for="sD3GATSShoppingLanguage">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="value[iD3GASiteSpeedSampleRate]" value="0">
-                            <input type="text" id="iD3GASiteSpeedSampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASiteSpeedSampleRate')}][{$edit->getValue('iD3GASiteSpeedSampleRate')}][{else}]1[{/if}]" size="5" maxlength="3" name="value[iD3GASiteSpeedSampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_1"}]
-                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_DESC"}]
+                            <input type="text" id="sD3GATSShoppingLanguage" class="edittext ext_edittext" value="[{if $edit->getValue('sD3GATSShoppingLanguage')}][{$edit->getValue('sD3GATSShoppingLanguage')}][{else}]de[{/if}]" size="5" maxlength="2" name="value[sD3GATSShoppingLanguage]">
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE_DESC"}]
                         </dd>
                     </dl>
                     <dl>
                         <dt>
-                            <label for="blD3GAUseRemarketing">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING"}]</label>
+                            <label for="sD3GATSShoppingArtId">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGARTID"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="value[blD3GAUseRemarketing]" value="0">
-                            <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
-                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC"}]
+                            <select id="sD3GATSShoppingArtId" name="value[sD3GATSShoppingArtId]" size="1" class="edittext ext_edittext">
+                                <option value="oxartnum" [{if $edit->getValue('sD3GATSShoppingArtId') == 'oxartnum'}]selected[{/if}]>[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_ARTNUM"}]</option>
+                                <option value="oxid" [{if $edit->getValue('sD3GATSShoppingArtId') == 'oxid'}]selected[{/if}]>[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_OXID"}]</option>
+                            </select>
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_DESC"}]
                         </dd>
                     </dl>
-                    <dl>
-                        <dt>
-                            <label for="blD3GAUseOptOut">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT"}]</label>
-                        </dt>
-                        <dd>
-                            <input type="hidden" name="value[blD3GAUseOptOut]" value="0">
-                            <input id="blD3GAUseOptOut" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseOptOut')}]checked[{/if}] name="value[blD3GAUseOptOut]">
-                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC"}]
-                        </dd>
-                    </dl>
-*}]
                 </div>
             </div>
 

@@ -6,12 +6,12 @@
     gts.push(["id", "[{$oD3GASettings->getValue('sD3GATSId')}]"]);
     gts.push(["badge_position", "BOTTOM_RIGHT"]);
     gts.push(["locale", "[{$sD3CurrentGTSLang}]"]);
-[{*
-    gts.push(["google_base_offer_id", "foo"]);
-    gts.push(["google_base_subaccount_id", "foo"]);
-    gts.push(["google_base_country", "foo"]);
-    gts.push(["google_base_language", "foo"]);
-*}]
+    [{if $oD3GASettings->getValue('sD3GATSShoppingActive')}]
+[{*gts.push(["google_base_offer_id", ""]);*}]
+        gts.push(["google_base_subaccount_id", "[{$oD3GASettings->getValue('sD3GATSShoppingAccountId')}]"]);
+        gts.push(["google_base_country", "[{$oD3GASettings->getValue('sD3GATSShoppingCountry')|upper}]"]);
+        gts.push(["google_base_language", "[{$oD3GASettings->getValue('sD3GATSShoppingLanguage')|lower}]"]);
+    [{/if}]
 
     (function() {
         var gts = document.createElement("script");
@@ -30,7 +30,7 @@
     [{assign var="oOrder" value=$oView->getOrder()}]
     [{assign var="oOrderCurrency" value=$oOrder->getOrderCurrency()}]
     [{assign var="oUser" value=$oOrder->getOrderUser()}]
-    [{assign var="oUserCountry" value=$oD3GACountry}]
+    [{assign var="oUserCountry" value=$oView->d3GAGetUserCountry()}]
     [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
         [{assign var="sTotal" value=$oOrder->getOrderNetSum()}]   [{* // total - required - has to be gross sum *}]
     [{else}]
@@ -49,10 +49,10 @@
                 <span id="gts-o-discounts">-[{$oOrder->getFieldData('oxdiscount')}]</span>
                 <span id="gts-o-shipping-total">[{$oOrder->getFieldData('oxdelcost')}]</span>
                 <span id="gts-o-tax-total">[{math equation="fi + se + th + fo" fi=$oOrder->getFieldData('oxartvatprice1') se=$oOrder->getFieldData('oxartvatprice2') th=$oOrder->getFieldData('oxpayvat') fo=$oOrder->getFieldData('oxdelvat') format="%.2f"}]</span>
-                <span id="gts-o-est-ship-date">has_completed</span>
-                <span id="gts-o-est-delivery-date">has_completed</span>
-                <span id="gts-o-est-has-preorder">has_completed</span>
-                <span id="gts-o-est-has-digital">has_completed</span>
+                <span id="gts-o-est-delivery-date">[{$oView->d3GAgetEstimatedDeliveryDate()}]</span>
+                <span id="gts-o-est-ship-date">[{$oView->d3GAgetEstimatedShippingDate()}]</span>
+                <span id="gts-o-est-has-preorder">[{$oView->d3GAhasBackorderPreorder()}]</span>
+                <span id="gts-o-est-has-digital">[{$oView->d3GAhasDigitalGoods()}]</span>
             <!-- end order and merchant information -->
 
             <!-- start repeated item specific information -->
@@ -68,12 +68,10 @@
                     <span class="gts-i-name">[{$oOrderArticle->oxorderarticles__oxtitle->value|escape:"quotes"}]</span>
                     <span class="gts-i-price">[{$sPrice|string_format:"%.2f"}]</span>
                     <span class="gts-i-quantity">[{$oOrderArticle->getFieldData('oxamount')}]</span>
-[{*
-                    <span class="gts-i-prodsearch-id">ITEM_NAME</span>
-                    <span class="gts-i-prodsearch-store-id">ITEM_NAME</span>
-                    <span class="gts-i-prodsearch-country">ITEM_NAME</span>
-                    <span class="gts-i-prodsearch-language">ITEM_NAME</span>
-*}]
+                    <span class="gts-i-prodsearch-id">[{$oView->d3GAgetProductId($oOrderArticle)}]</span>
+                    <span class="gts-i-prodsearch-store-id">[{$oD3GASettings->getValue('sD3GATSShoppingAccountId')}]</span>
+                    <span class="gts-i-prodsearch-country">[{$oD3GASettings->getValue('sD3GATSShoppingCountry')|upper}]</span>
+                    <span class="gts-i-prodsearch-language">[{$oD3GASettings->getValue('sD3GATSShoppingLanguage')|lower}]</span>
                 </span>
             [{/foreach}]
             <!-- end repeated item specific informations -->
