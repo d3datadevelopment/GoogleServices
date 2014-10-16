@@ -86,7 +86,11 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAgetEstimatedShippingDate()
     {
-        return $this->_d3GAgetEstimatedDate('iEstShippingTimeValue', time());
+        startProfile(__METHOD__);
+        $iTimeStamp = $this->_d3GAgetEstimatedDate('iEstShippingTimeValue', time());
+        stopProfile(__METHOD__);
+
+        return $iTimeStamp;
     }
 
     /**
@@ -94,8 +98,12 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAgetEstimatedDeliveryDate()
     {
+        startProfile(__METHOD__);
         $iShippingDate = $this->d3GAgetEstimatedShippingDate();
-        return $this->_d3GAgetEstimatedDate('iEstDeliveryTimeValue', $iShippingDate);
+        $iTimeStamp = $this->_d3GAgetEstimatedDate('iEstDeliveryTimeValue', $iShippingDate);
+        stopProfile(__METHOD__);
+
+        return $iTimeStamp;
     }
 
     /**
@@ -107,12 +115,16 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
     protected function _d3GAgetEstimatedDate($sModCfgVarName, $iTimestamp)
     {
         $iTimeValue = d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
-        $iTimestamp = strtotime('+ ' . $iTimeValue . ' day', $iTimestamp);
 
-        do {
-            $this->_blD3GADateChanged = false;
-            $iTimestamp = $this->_d3GAavoidIdlePeriod($iTimestamp);
-        } while ($this->_blD3GADateChanged === true);
+        for ($i = 0; $i < $iTimeValue; $i++) {
+            $iTimestamp += 86400;
+
+            // check, if transportation day is a working day, else transportation has a break
+            do {
+                $this->_blD3GADateChanged = false;
+                $iTimestamp = $this->_d3GAskipIdlePeriod($iTimestamp);
+            } while ($this->_blD3GADateChanged === true);
+        }
 
         return $iTimestamp;
     }
@@ -122,17 +134,20 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      *
      * @return int
      */
-    protected function _d3GAavoidIdlePeriod($iTimestamp)
+    protected function _d3GAskipIdlePeriod($iTimestamp)
     {
+        startProfile(__METHOD__);
         $iWeekday = date('N', $iTimestamp);
 
         if (in_array($iWeekday, $this->aD3GAWeekendDays)) {
             $iOffset = 8 - $iWeekday;
-            $iTimestamp = strtotime('+ '.$iOffset.' day', $iTimestamp);
+            $iTimestamp += $iOffset * 86400;
             $this->_blD3GADateChanged = true;
         }
 
-        return $this->_d3GAavoidFeastDays($iTimestamp);
+        stopProfile(__METHOD__);
+
+        return $this->_d3GAskipFeastDays($iTimestamp);
     }
 
     /**
@@ -140,12 +155,16 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      *
      * @return int
      */
-    protected function _d3GAavoidFeastDays($iTimestamp)
+    protected function _d3GAskipFeastDays($iTimestamp)
     {
+        startProfile(__METHOD__);
+
         while (in_array(date('d-m', $iTimestamp), $this->aD3GAfixFeastDays)) {
-            $iTimestamp = strtotime('+ 1 day', $iTimestamp);
+            $iTimestamp += 86400;
             $this->_blD3GADateChanged = true;
         }
+
+        stopProfile(__METHOD__);
 
         return $iTimestamp;
     }

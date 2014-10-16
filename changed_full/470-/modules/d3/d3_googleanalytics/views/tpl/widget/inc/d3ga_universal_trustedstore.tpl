@@ -68,10 +68,12 @@
                     <span class="gts-i-name">[{$oOrderArticle->oxorderarticles__oxtitle->value|escape:"quotes"}]</span>
                     <span class="gts-i-price">[{$sPrice|string_format:"%.2f"}]</span>
                     <span class="gts-i-quantity">[{$oOrderArticle->getFieldData('oxamount')}]</span>
-                    <span class="gts-i-prodsearch-id">[{$oView->d3GAgetProductId($oOrderArticle)}]</span>
-                    <span class="gts-i-prodsearch-store-id">[{$oD3GASettings->getValue('sD3GATSShoppingAccountId')}]</span>
-                    <span class="gts-i-prodsearch-country">[{$oD3GASettings->getValue('sD3GATSShoppingCountry')|upper}]</span>
-                    <span class="gts-i-prodsearch-language">[{$oD3GASettings->getValue('sD3GATSShoppingLanguage')|lower}]</span>
+                    [{if $oD3GASettings->getValue('sD3GATSShoppingActive')}]
+                        <span class="gts-i-prodsearch-id">[{$oView->d3GAgetProductId($oOrderArticle)}]</span>
+                        <span class="gts-i-prodsearch-store-id">[{$oD3GASettings->getValue('sD3GATSShoppingAccountId')}]</span>
+                        <span class="gts-i-prodsearch-country">[{$oD3GASettings->getValue('sD3GATSShoppingCountry')|upper}]</span>
+                        <span class="gts-i-prodsearch-language">[{$oD3GASettings->getValue('sD3GATSShoppingLanguage')|lower}]</span>
+                    [{/if}]
                 </span>
             [{/foreach}]
             <!-- end repeated item specific informations -->

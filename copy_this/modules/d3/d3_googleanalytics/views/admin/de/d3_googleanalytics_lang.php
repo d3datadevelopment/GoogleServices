@@ -279,7 +279,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_TS_ACTIVE'                                 => 'Trusted Store aktivieren',
     'D3_GOOGLEANALYTICS_TS_ID'                                     => 'Trusted Store-ID',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER'                       => 'Zeitraum vom Bestelleingang bis zum Versand',
-    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS'                  => 'Kalendertag(e)',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS'                  => 'Werktag(e)',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DESC'                  => '<p>Google teilt Ihrem Kunden per Mail mit, '.
         'nach welchem Zeitraum ausgehend vom Bestelleingang die bestellten Artikel versendet werden. Geben Sie hier '.
         'den für Normalfälle größten Zeitraum bis zum Versand in Tagen an (z.B. 3 bei "1 bis 3 Tage"). Nach dem '.
@@ -289,7 +289,7 @@ $aLang = array(
         'erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p>',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER'                        => 'Zeitraum vom Versand bis zur Lieferung beim '.
         'Empfänger',
-    'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DAYS'                   => 'Kalendertag(e)',
+    'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DAYS'                   => 'Werktag(e)',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DESC'                   => '<p>Google teilt Ihrem Kunden per Mail mit, '.
         'nach welchem Zeitraum die bestellten Artikel in der Regel beim Kunden eintreffen. Geben Sie hier den für '.
         'Normalfälle größten Zeitraum für die Lieferung in Tagen an (z.B. 4 bei "1 bis 4 Tage"). Der errechnete '.
