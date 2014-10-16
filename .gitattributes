@@ -179,6 +179,8 @@ copy_this/modules/d3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics
 copy_this/modules/d3/d3_googleanalytics/core/smarty/plugins/function.d3getArticleFromOrderArticle.php -text
 copy_this/modules/d3/d3_googleanalytics/menu.xml -text
 copy_this/modules/d3/d3_googleanalytics/metadata.php -text
+copy_this/modules/d3/d3_googleanalytics/models/d3_google_remarketing_articlelister.php -text
+copy_this/modules/d3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics.php -text

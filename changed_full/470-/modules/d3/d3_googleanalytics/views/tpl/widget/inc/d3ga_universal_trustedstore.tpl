@@ -7,7 +7,7 @@
     gts.push(["badge_position", "BOTTOM_RIGHT"]);
     gts.push(["locale", "[{$sD3CurrentGTSLang}]"]);
     [{if $oD3GASettings->getValue('sD3GATSShoppingActive')}]
-[{*gts.push(["google_base_offer_id", ""]);*}]
+        gts.push(["google_base_offer_id", "[{$sD3GATSProdId}]"]);
         gts.push(["google_base_subaccount_id", "[{$oD3GASettings->getValue('sD3GATSShoppingAccountId')}]"]);
         gts.push(["google_base_country", "[{$oD3GASettings->getValue('sD3GATSShoppingCountry')|upper}]"]);
         gts.push(["google_base_language", "[{$oD3GASettings->getValue('sD3GATSShoppingLanguage')|lower}]"]);
