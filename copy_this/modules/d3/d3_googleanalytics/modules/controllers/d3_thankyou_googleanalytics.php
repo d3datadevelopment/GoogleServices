@@ -23,6 +23,25 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
 {
     private $_sModCfgId = 'd3_googleanalytics';
 
+    public $aD3GAWeekendDays = array(
+        6,  // Samstag
+        7,  // Sonntag
+    );
+
+    /**
+     * Format Tag-Monat (jeweils mit führenden Nullen)
+     * @var array
+     */
+    public $aD3GAfixFeastDays = array(
+        '01-01',    // Neujahr
+        '01-05',    // Tag der Arbeit
+        '03-10',    // Tag der deutschen Einheit
+        '25-12',    // 1. Weihnachtsfeiertag
+        '26-12',    // 2. Weihnachtsfeiertag
+    );
+
+    protected $_blD3GADateChanged = false;
+
     /**
      * @return int
      */
@@ -67,7 +86,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAgetEstimatedShippingDate()
     {
-        return $this->d3GAgetEstimatedDate('iEstShippingTimeValue');
+        return $this->_d3GAgetEstimatedDate('iEstShippingTimeValue', time());
     }
 
     /**
@@ -75,22 +94,60 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAgetEstimatedDeliveryDate()
     {
-        return $this->d3GAgetEstimatedDate('iEstDeliveryTimeValue');
+        $iShippingDate = $this->d3GAgetEstimatedShippingDate();
+        return $this->_d3GAgetEstimatedDate('iEstDeliveryTimeValue', $iShippingDate);
     }
 
     /**
-     * @param $sModCfgVarName
+     * @param string $sModCfgVarName
+     * @param int $iTimestamp
      *
-     * @return string
+     * @return int
      */
-    public function d3GAgetEstimatedDate($sModCfgVarName)
+    protected function _d3GAgetEstimatedDate($sModCfgVarName, $iTimestamp)
     {
         $iTimeValue = d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
+        $iTimestamp = strtotime('+ ' . $iTimeValue . ' day', $iTimestamp);
 
-        return date(
-            'Y-m-d',
-            strtotime('+ '.$iTimeValue.' day')
-        );
+        do {
+            $this->_blD3GADateChanged = false;
+            $iTimestamp = $this->_d3GAavoidIdlePeriod($iTimestamp);
+        } while ($this->_blD3GADateChanged === true);
+
+        return $iTimestamp;
+    }
+
+    /**
+     * @param $iTimestamp
+     *
+     * @return int
+     */
+    protected function _d3GAavoidIdlePeriod($iTimestamp)
+    {
+        $iWeekday = date('N', $iTimestamp);
+
+        if (in_array($iWeekday, $this->aD3GAWeekendDays)) {
+            $iOffset = 8 - $iWeekday;
+            $iTimestamp = strtotime('+ '.$iOffset.' day', $iTimestamp);
+            $this->_blD3GADateChanged = true;
+        }
+
+        return $this->_d3GAavoidFeastDays($iTimestamp);
+    }
+
+    /**
+     * @param $iTimestamp
+     *
+     * @return int
+     */
+    protected function _d3GAavoidFeastDays($iTimestamp)
+    {
+        while (in_array(date('d-m', $iTimestamp), $this->aD3GAfixFeastDays)) {
+            $iTimestamp = strtotime('+ 1 day', $iTimestamp);
+            $this->_blD3GADateChanged = true;
+        }
+
+        return $iTimestamp;
     }
 
     /**
@@ -101,18 +158,32 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
         if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
             /** @var oxorderarticle $oOrderArticle */
             foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
-                /** @var oxarticle $oArticle */
-                $oArticle = $oOrderArticle->getArticle();
-
-                if ($oArticle->getFieldData('oxstockflag') != 4         // Fremdlager
-                    && $oOrderArticle->getFieldData('oxamount') > $oOrderArticle->getFieldData('oxstock')
-                ) {
+                if ($this->_d3GAhasArticleBackorderPreorder($oOrderArticle)) {
                     return 'Y';
                 }
             };
         }
 
         return 'N';
+    }
+
+    /**
+     * @param oxorderarticle $oOrderArticle
+     *
+     * @return bool
+     */
+    protected function _d3GAhasArticleBackorderPreorder(oxorderarticle $oOrderArticle)
+    {
+        /** @var oxarticle $oArticle */
+        $oArticle = $oOrderArticle->getArticle();
+
+        if ($oArticle->getFieldData('oxstockflag') != 4         // Fremdlager
+            && $oOrderArticle->getFieldData('oxamount') > $oOrderArticle->getFieldData('oxstock')
+        ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -123,24 +194,52 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
         if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
             /** @var oxorderarticle $oOrderArticle */
             foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
-                /** @var oxarticle $oArticle */
-                $oArticle = $oOrderArticle->getArticle();
-                $aArticleFiles = $oArticle->getArticleFiles();
-
-                if ($oArticle->getFieldData('oxisdownloadable')
-                    && count($aArticleFiles)
-                ) {
-                    /** @var oxfile $oArticleFile */
-                    foreach ($aArticleFiles as $oArticleFile) {
-                        if ($oArticleFile->getFieldData('oxpurchasedonly')) {
-                            return 'Y';
-                        }
-                    }
+                if ($this->_d3GAhasArticleDigitalGoods($oOrderArticle)) {
+                    return 'Y';
                 }
             };
         }
 
         return 'N';
+    }
+
+    /**
+     * @param oxorderarticle $oOrderArticle
+     *
+     * @return bool
+     */
+    protected function _d3GAhasArticleDigitalGoods(oxorderarticle $oOrderArticle)
+    {
+        /** @var oxarticle $oArticle */
+        $oArticle = $oOrderArticle->getArticle();
+        $oArticleFileList = $oArticle->getArticleFiles();
+
+        if ($oArticle->getFieldData('oxisdownloadable')
+            && $oArticleFileList->count()
+        ) {
+            if ($this->_d3GAhasArticlePurchasedDownload($oArticleFileList)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param oxList $oArticleFileList
+     *
+     * @return bool
+     */
+    protected function _d3GAhasArticlePurchasedDownload(oxList $oArticleFileList)
+    {
+        /** @var oxfile $oArticleFile */
+        foreach ($oArticleFileList->getArray() as $oArticleFile) {
+            if ($oArticleFile->getFieldData('oxpurchasedonly')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

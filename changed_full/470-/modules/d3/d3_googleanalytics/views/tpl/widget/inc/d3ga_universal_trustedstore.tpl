@@ -46,11 +46,11 @@
                 <span id="gts-o-country">[{$oUserCountry->getFieldData('oxisoalpha2')}]</span>
                 <span id="gts-o-currency">[{$oOrderCurrency->name}]</span>
                 <span id="gts-o-total">[{$sTotal|string_format:"%.2f"}]</span>
-                <span id="gts-o-discounts">-[{$oOrder->getFieldData('oxdiscount')}]</span>
-                <span id="gts-o-shipping-total">[{$oOrder->getFieldData('oxdelcost')}]</span>
+                <span id="gts-o-discounts">-[{$oOrder->getFieldData('oxdiscount')|string_format:"%.2f"}]</span>
+                <span id="gts-o-shipping-total">[{$oOrder->getFieldData('oxdelcost')|string_format:"%.2f"}]</span>
                 <span id="gts-o-tax-total">[{math equation="fi + se + th + fo" fi=$oOrder->getFieldData('oxartvatprice1') se=$oOrder->getFieldData('oxartvatprice2') th=$oOrder->getFieldData('oxpayvat') fo=$oOrder->getFieldData('oxdelvat') format="%.2f"}]</span>
-                <span id="gts-o-est-delivery-date">[{$oView->d3GAgetEstimatedDeliveryDate()}]</span>
-                <span id="gts-o-est-ship-date">[{$oView->d3GAgetEstimatedShippingDate()}]</span>
+                <span id="gts-o-est-delivery-date">[{$oView->d3GAgetEstimatedDeliveryDate()|date_format:"%Y-%m-%d"}]</span>
+                <span id="gts-o-est-ship-date">[{$oView->d3GAgetEstimatedShippingDate()|date_format:"%Y-%m-%d"}]</span>
                 <span id="gts-o-est-has-preorder">[{$oView->d3GAhasBackorderPreorder()}]</span>
                 <span id="gts-o-est-has-digital">[{$oView->d3GAhasDigitalGoods()}]</span>
             <!-- end order and merchant information -->
