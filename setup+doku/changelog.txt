@@ -1,3 +1,6 @@
+=> 3.3.0.0
+- Google Zertifierte Händler eingefügt
+
 => 3.2.1.0
 - neue Option "Opt Out anzeigen lassen"
 

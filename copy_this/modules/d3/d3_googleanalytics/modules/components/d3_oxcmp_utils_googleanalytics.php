@@ -33,9 +33,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         'order'             => 'purchase',
     );
 
-    public $sD3GARemarketingSKUField = 'oxartnum';
-    public $blD3GARemarketingUseBrutto = true;
-
     /**
      * @return null
      */
@@ -55,6 +52,12 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('sAFEGetMoreUrls', $this->afGetMoreUrls());
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
             $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
+
+            if ($oSet->getValue('sD3GATSActive') && $oSet->getValue('sD3GATSShoppingActive')) {
+                $aInfos = $this->d3GATSGetProdInfos();
+                $oParentView->addTplParam('sD3CurrentGTSLang', $this->d3GetGTSLang());
+                $oParentView->addTplParam('sD3GATSProdId', $this->d3GATSGetProdIdList($aInfos['aArtIdList']));
+            }
 
             if ($oSet->getValue('blD3GASetRemarketing')) {
                 $aInfos = $this->d3GetGAProdInfos();
@@ -99,6 +102,14 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             return 'auto';
         }
 
+        return $this->d3GetCurrentShopUrl();
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetCurrentShopUrl()
+    {
         return oxRegistry::getConfig()->getActiveShop()->getFieldData('oxurl');
     }
 
@@ -278,6 +289,60 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     /**
      * @return string
      */
+    public function d3GetGTSLang()
+    {
+        $aHomeCountries = oxRegistry::getConfig()->getConfigParam('aHomeCountry');
+        $sHomeCountryId = $aHomeCountries[array_keys($aHomeCountries)[0]];
+        /** @var oxcountry $oCountry */
+        $oCountry = oxNew('oxcountry');
+        $oCountry->load($sHomeCountryId);
+
+        return strtolower(oxRegistry::getLang()->getLanguageAbbr()).'_'.
+            strtoupper($oCountry->getFieldData('OXISOALPHA2'));
+    }
+
+    /**
+     * @return array
+     */
+    public function d3GATSGetProdInfos()
+    {
+        startProfile(__METHOD__);
+
+        $oCurrentView = oxRegistry::getConfig()->getActiveView();
+
+        $aArticleIds = array();
+
+        $sMethodName = 'get'.ucfirst($oCurrentView->getClassName())."ProdList";
+        $oArticleLister = oxNew('d3_google_trustedstore_articlelister');
+
+        if (method_exists($oArticleLister, $sMethodName)) {
+            stopProfile(__METHOD__);
+            return call_user_func(array($oArticleLister, $sMethodName), $oCurrentView);
+        }
+
+        stopProfile(__METHOD__);
+
+        return array('aArtIdList' => $aArticleIds);
+    }
+
+
+    /**
+     * @param array $aArticleIds
+     *
+     * @return string
+     */
+    public function d3GATSGetProdIdList($aArticleIds)
+    {
+        if (count($aArticleIds)) {
+            return $aArticleIds[array_keys($aArticleIds)[0]];
+        } else {
+            return "not_set";
+        }
+    }
+
+    /**
+     * @return string
+     */
     public function d3GetGAProdInfos()
     {
         startProfile(__METHOD__);
@@ -287,11 +352,12 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $aArticleIds = array();
         $dPrice = 0;
 
-        $sMethodName = '_d3GetGA'.$oCurrentView->getClassName()."ProdList";
+        $sMethodName = 'get'.ucfirst($oCurrentView->getClassName())."ProdList";
+        $oArticleLister = oxNew('d3_google_remarketing_articlelister');
 
-        if (method_exists($this, $sMethodName)) {
+        if (method_exists($oArticleLister, $sMethodName)) {
             stopProfile(__METHOD__);
-            return call_user_func(array($this, $sMethodName), $oCurrentView);
+            return call_user_func(array($oArticleLister, $sMethodName), $oCurrentView);
         }
 
         stopProfile(__METHOD__);
@@ -311,144 +377,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         } else {
             return "''";
         }
-    }
-
-    /**
-     * @param details $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAdetailsProdList($oView)
-    {
-        $aArticleList = array();
-        $aArticleList[] = $oView->getProduct();
-        return $this->_d3GetGAProductList($aArticleList);
-    }
-
-    /**
-     * @param alist $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAalistProdList($oView)
-    {
-        $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProductList($oArticleList);
-    }
-
-    /**
-     * @param search $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAsearchProdList($oView)
-    {
-        $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProductList($oArticleList);
-    }
-
-    /**
-     * @param vendorlist $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAvendorlistProdList($oView)
-    {
-        $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProductList($oArticleList);
-    }
-
-    /**
-     * @param manufacturerlist $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAmanufacturerlistProdList($oView)
-    {
-        $oArticleList = $oView->getArticleList();
-        return $this->_d3GetGAProductList($oArticleList);
-    }
-
-    /**
-     * @param basket $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAbasketProdList($oView)
-    {
-        $aArticleList = $oView->getBasketArticles();
-        return $this->_d3GetGAProductList($aArticleList);
-    }
-
-    /**
-     * @param order $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAorderProdList($oView)
-    {
-        $aArticleList = $oView->getBasketArticles();
-        return $this->_d3GetGAProductList($aArticleList);
-    }
-
-    /**
-     * @param compare $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAcompareProdList($oView)
-    {
-        $aArticleList = $oView->getCompArtList();
-        return $this->_d3GetGAProductList($aArticleList);
-    }
-
-    /**
-     * don't change method name, it was dynamically generated
-     * @param account_noticelist $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAaccount_noticelistProdList($oView)
-    {
-        $aArticleList = $oView->getNoticeProductList();
-        return $this->_d3GetGAProductList($aArticleList);
-    }
-
-    /**
-     * don't change method name, it was dynamically generated
-     * @param account_wishlist $oView
-     *
-     * @return array
-     */
-    protected function _d3GetGAaccount_wishlistProdList($oView)
-    {
-        $aArticleList = $oView->getWishProductList();
-        return $this->_d3GetGAProductList($aArticleList);
-    }
-
-    /**
-     * @param $aArticleList
-     *
-     * @return array
-     */
-    protected function _d3GetGAProductList($aArticleList)
-    {
-        $aArticleIds = array();
-        $dPrice = 0;
-
-        /** @var oxarticle $oArticle */
-        if (isset($aArticleList)) {
-            foreach ($aArticleList as $oArticle) {
-                $aArticleIds[] = $oArticle->getFieldData($this->sD3GARemarketingSKUField);
-                if ($this->blD3GARemarketingUseBrutto) {
-                    $dPrice += $oArticle->getPrice()->getBruttoPrice();
-                } else {
-                    $dPrice += $oArticle->getPrice()->getNettoPrice();
-                }
-            }
-        }
-
-        return array('aArtIdList' => $aArticleIds, 'dPrice' => $dPrice);
     }
 
     /**

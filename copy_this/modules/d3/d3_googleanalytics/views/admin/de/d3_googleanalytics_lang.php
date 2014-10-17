@@ -31,6 +31,7 @@ $aLang = array(
     'd3mxgoogleanalytics_settings'                                 => 'Einstellungen',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
+    'd3tbclgoogleanalytics_trustedstore'                           => 'Google zertifizierter Shop',
 
     'D3_GOOGLEANALYTICS_CFG_TITLE'                                 => 'Google Analytics Schnittstelle - Einstellungen',
 
@@ -274,6 +275,49 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_CAMPAIGNCODE_CODE_DESC'                    => 'Kopieren Sie hier den Kampagnen-Tracking-Code '.
         'ein, den Sie vom Anbieter erhalten haben. Kopieren Sie auch ein eventuell vorhandenes "script"-Tag mit. '.
         'Dieser Code wird 1:1 in den Seitenquelltext eingef&uuml;gt und nicht geparst.',
+
+    'D3_GOOGLEANALYTICS_TS_ACTIVE'                                 => 'Trusted Store aktivieren',
+    'D3_GOOGLEANALYTICS_TS_ID'                                     => 'Trusted Store-ID',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER'                       => 'Zeitraum vom Bestelleingang bis zum Versand',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS'                  => 'Werktag(e)',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DESC'                  => '<p>Google teilt Ihrem Kunden per Mail mit, '.
+        'nach welchem Zeitraum ausgehend vom Bestelleingang die bestellten Artikel versendet werden. Geben Sie hier '.
+        'den für Normalfälle größten Zeitraum bis zum Versand in Tagen an (z.B. 3 bei "1 bis 3 Tage"). Nach dem '.
+        'voraussichtlichen Versanddatum erhält der Kunde eine Umfrage zum abgeschlossenen Kauf.</p><p>Fällt der '.
+        'errechnete Termin auf ein Wochenende oder einen festen Feiertag, wird der nächstmögliche Termin verwendet. '.
+        'Bewegliche und regionale Feiertage werden nicht berücksichtigt. Um die Liste der Ausnahmen anzupassen, '.
+        'erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p>',
+    'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER'                        => 'Zeitraum vom Versand bis zur Lieferung beim '.
+        'Empfänger',
+    'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DAYS'                   => 'Werktag(e)',
+    'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DESC'                   => '<p>Google teilt Ihrem Kunden per Mail mit, '.
+        'nach welchem Zeitraum die bestellten Artikel in der Regel beim Kunden eintreffen. Geben Sie hier den für '.
+        'Normalfälle größten Zeitraum für die Lieferung in Tagen an (z.B. 4 bei "1 bis 4 Tage"). Der errechnete '.
+        'Termin wird dem Kunden per Mail mitgeteilt.</p><p>Fällt der errechnete Termin auf ein Wochenende oder einen '.
+        'festen Feiertag, wird der nächstmögliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht '.
+        'berücksichtigt. Um die Liste der Ausnahmen anzupassen, erweitern Sie die Überladung der thankyou-Klasse '.
+        'entsprechend.</p>',
+    'D3_GOOGLEANALYTICS_TS_SHOPPING'                               => 'Verbindung zu Google Shopping',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE'                         => 'zusätzliche Daten aus Google Shopping '.
+        'übertragen',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE_DESC'                    => 'Verwenden Sie Google Shopping und möchten '.
+        'zusätzliche Daten zur Identifizierung übertragen, setzen Sie diesen Haken. Die folgenden Angaben sind dann '.
+        'ebenfalls erforderlich.',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGACCOUNTID'                      => 'Google Shopping Kontonummer',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGACCOUNTID_DESC'                 => 'Tragen Sie hier die Kontonummer (Account ID) '.
+        'aus Google Shopping ein.',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY'                        => 'Kürzel des Landes Ihres Google Shopping-Kontos',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY_DESC'                   => 'Geben Sie hier das Land Ihres Google Shopping '.
+        'Kontos an. Erwartet wird der ISO-3166-Ländercode (z.B.: DE, CH, AT, FR).',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE'                       => 'Kürzel der Sprache Ihres Google Shopping-Kontos',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE_DESC'                  => 'Geben Sie hier die Sprache Ihres Google '.
+        'Shopping Kontos an. Erwartet wird der ISO-639-1-Sprachcode (z.B.: de, en, fr).',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID'                          => 'Identifikation Ihrer Artikel bei Google '.
+        'Shopping',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_ARTNUM'                   => 'Artikelnummer (oxartnum)',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_OXID'                     => 'interne Ident-Nummer (oxid)',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_DESC'                     => 'Über welches Feld kann Google Shopping die '.
+        'dort hinterlegten Artikel identfizieren?',
 
     'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Analytics Schnittstelle',
     'D3_GOOGLEANALYTICS_METADATA_DESC'                             => 'Dieses Modul stellt Ihnen die schnelle und '.
