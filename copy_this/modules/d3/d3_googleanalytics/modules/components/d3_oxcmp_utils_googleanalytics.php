@@ -336,7 +336,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         if (count($aArticleIds)) {
             return $aArticleIds[array_keys($aArticleIds)[0]];
         } else {
-            return "";
+            return "not_set";
         }
     }
 

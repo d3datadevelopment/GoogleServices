@@ -7,7 +7,9 @@
     gts.push(["badge_position", "BOTTOM_RIGHT"]);
     gts.push(["locale", "[{$sD3CurrentGTSLang}]"]);
     [{if $oD3GASettings->getValue('sD3GATSShoppingActive')}]
-        gts.push(["google_base_offer_id", "[{$sD3GATSProdId}]"]);
+        [{if $sD3GATSProdId}]
+            gts.push(["google_base_offer_id", "[{$sD3GATSProdId}]"]);
+        [{/if}]
         gts.push(["google_base_subaccount_id", "[{$oD3GASettings->getValue('sD3GATSShoppingAccountId')}]"]);
         gts.push(["google_base_country", "[{$oD3GASettings->getValue('sD3GATSShoppingCountry')|upper}]"]);
         gts.push(["google_base_language", "[{$oD3GASettings->getValue('sD3GATSShoppingLanguage')|lower}]"]);
@@ -51,8 +53,8 @@
                 <span id="gts-o-tax-total">[{math equation="fi + se + th + fo" fi=$oOrder->getFieldData('oxartvatprice1') se=$oOrder->getFieldData('oxartvatprice2') th=$oOrder->getFieldData('oxpayvat') fo=$oOrder->getFieldData('oxdelvat') format="%.2f"}]</span>
                 <span id="gts-o-est-delivery-date">[{$oView->d3GAgetEstimatedDeliveryDate()|date_format:"%Y-%m-%d"}]</span>
                 <span id="gts-o-est-ship-date">[{$oView->d3GAgetEstimatedShippingDate()|date_format:"%Y-%m-%d"}]</span>
-                <span id="gts-o-est-has-preorder">[{$oView->d3GAhasBackorderPreorder()}]</span>
-                <span id="gts-o-est-has-digital">[{$oView->d3GAhasDigitalGoods()}]</span>
+                <span id="gts-o-has-preorder">[{$oView->d3GAhasBackorderPreorder()}]</span>
+                <span id="gts-o-has-digital">[{$oView->d3GAhasDigitalGoods()}]</span>
             <!-- end order and merchant information -->
 
             <!-- start repeated item specific information -->
