@@ -19,9 +19,9 @@ class d3_googleanalytics_update extends d3install_updatebase
 {
     public $sModKey = 'd3_googleanalytics';
 
-    public $sModName = 'Google Analytics Schnittstelle';
+    public $sModName = 'Google Services Schnittstelle';
 
-    public $sModVersion = '3.2.1.0';
+    public $sModVersion = '3.3.0.0';
 
     public $sModRevision = '171';
 

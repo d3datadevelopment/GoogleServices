@@ -27,7 +27,7 @@ $aLang = array(
 
 //Navigation
     'charset'                                                      => 'ISO-8859-15',
-    'd3mxgoogleanalytics'                                          => 'Google Analytics',
+    'd3mxgoogleanalytics'                                          => 'Google Services',
     'd3mxgoogleanalytics_settings'                                 => 'Einstellungen',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
@@ -332,7 +332,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_DESC'                     => 'Über welches Feld kann Google Shopping die '.
         'dort hinterlegten Artikel identfizieren?',
 
-    'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Analytics Schnittstelle',
+    'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Services Schnittstelle',
     'D3_GOOGLEANALYTICS_METADATA_DESC'                             => 'Dieses Modul stellt Ihnen die schnelle und '.
         'unkomplizierte Einbindung Ihres Google-Analytics-Kontos in Ihren Shop zur Verf&uuml;gung. Hierbei werden '.
         '&uuml;ber standardisierte Schnittstellen die Besucherdaten und eCommerce-Daten zu Google &uuml;bertragen. '.

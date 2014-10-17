@@ -29,16 +29,18 @@ $sMetadataVersion = '1.1';
 $aModule = array(
     'id'           => 'd3_googleanalytics',
     'title'        => (class_exists('d3utils')?d3utils::getInstance()->getD3Logo():'D&sup3;').
-        ' Google Analytics Schnittstelle',
+        ' Google Services Schnittstelle',
     'description'  => array(
             'de'   => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-'.
                 'Kontos in Ihren Shop zur Verf&uuml;gung. Hierbei werden &uuml;ber standardisierte Schnittstellen die '.
                 'Besucherdaten und eCommerce-Daten zu Google &uuml;bertragen. Ebenfalls &uuml;bermittelt werden Daten '.
-                'der Website-Suche.',
-            'en'   => 'Provides a quick and easy integration with your Google Analytics account to your shop.',
+                'der Website-Suche. Weiterhin können über das Modul Shopdaten an Google Adwords und Google Trusted '.
+                'Shops übertragen werden.',
+            'en'   => 'Provides a quick and easy integration with your Google Analytics, Google Adwords and Google '.
+                'Trusted Shops account to your shop.',
     ),
     'thumbnail'    => 'picture.png',
-    'version'      => '3.2.1.0',
+    'version'      => '3.3.0.0',
     'author'       => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',
