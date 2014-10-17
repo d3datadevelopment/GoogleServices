@@ -60,6 +60,18 @@
     td.edittext {
         white-space: normal;
     }
+
+    .servicedesc {
+        background-color: #d4ffd4;
+        border: 1px solid green;
+        margin-bottom: 10px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .servicedesc a {
+        text-decoration: underline;
+    }
     -->
 </style>
 
@@ -88,6 +100,7 @@
     <tr>
         <td valign="top" class="edittext">
 
+            <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_DESC"}]</div>
             <div class="groupExp">
                 <div class="">
                     <a class="rc" onclick="_groupExp(this); return false;" href="#">

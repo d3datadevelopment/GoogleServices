@@ -31,7 +31,7 @@ $aLang = array(
     'd3mxgoogleanalytics_settings'                                 => 'Settings',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
-    'd3tbclgoogleanalytics_trustedstore'                           => 'Google Trusted Shop',
+    'd3tbclgoogleanalytics_trustedstore'                           => 'Trusted Store',
 
     'D3_GOOGLEANALYTICS_CFG_TITLE'                                 => 'Google Analytics Connector - Settings',
 
@@ -39,6 +39,10 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_MAIN_DEBUG'                                => 'Aktivieren Sie mit dem Schalter den Debugmodus.'.
         ' Nach dem erfolgreichen &Uuml;bertragen des Trackingcodes erhalten Sie eine Meldung im Browser gezeigt. '.
         'Deaktivieren Sie die Funktion f&uuml;r den Livebetrieb.',
+
+    'D3_GOOGLEANALYTICS_DESC'                                      => 'Diese Einstellungen betreffen den Dienst '.
+        '<a href="http://www.google.com/analytics/" target="_blank">"Google Analytics"</a>. '.
+        'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE'                               => 'Tracking code type',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL'                     => 'Universal',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC'                => 'F&uuml;r den Wechsel auf den Universal-'.
@@ -200,6 +204,9 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_ADWORDS_CONVID'                            => 'Conversion-ID',
     'D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL'                         => 'Conversion-Label',
 
+    'D3_GOOGLEANALYTICS_ADWORDS_DESC'                              => 'Diese Einstellungen betreffen den Dienst '.
+        '<a href="http://www.google.de/AdWords" target="_blank">"Google Adwords"</a>. '.
+        'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN'                               => 'Kampagnen-Tracking',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'              => 'AdWords-Kampagnendaten <span style="'.
         'font-weight: bold;">nicht</span> &uuml;bertragen',
@@ -261,6 +268,9 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL'              => 'Conversion-Label (optional)',
 
     'd3tbclgoogleanalytics_campaigns'                              => 'andere Kampagnen',
+    'D3_GOOGLEANALYTICS_CAMPAIGNS_DESC'                            => 'Diese Einstellungen betreffen andere (auch '.
+        'google-fremde) Kampagnen, die mit den Leistungen des Moduls nicht abgedeckt sind. Details zu den Kampagnen '.
+        'und dessen Implementierung erhalten Sie beim jeweiligen Anbieter.',
     'D3_GOOGLEANALYTICS_CAMPAIGNSETTINGS'                          => 'Kampagnen-Einstellungen',
     'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK'                          => 'Kampagnencode übertragen',
     'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK_DESC'                     => 'Nur mit dieser Option wird der eingegebene '.
@@ -275,8 +285,11 @@ $aLang = array(
         'ein, den Sie vom Anbieter erhalten haben. Kopieren Sie auch ein eventuell vorhandenes "script"-Tag mit. '.
         'Dieser Code wird 1:1 in den Seitenquelltext eingef&uuml;gt und nicht geparst.',
 
-    'D3_GOOGLEANALYTICS_TS_ACTIVE'                                 => 'Trusted Store aktivieren',
-    'D3_GOOGLEANALYTICS_TS_ID'                                     => 'Trusted Store-ID',
+    'D3_GOOGLEANALYTICS_TS_DESC'                                   => 'Diese Einstellungen betreffen den Dienst '.
+        '<a href="http://www.google.com/trustedstores/" target="_blank">"Google Zertifizierter Händler"</a>. '.
+        'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
+    'D3_GOOGLEANALYTICS_TS_ACTIVE'                                 => 'activate "Trusted Store" in shop',
+    'D3_GOOGLEANALYTICS_TS_ID'                                     => 'account id',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER'                       => 'Zeitraum vom Bestelleingang bis zum Versand',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS'                  => 'Werktag(e)',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DESC'                  => '<p>Google teilt Ihrem Kunden per Mail mit, '.
