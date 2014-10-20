@@ -34,8 +34,8 @@ $aModule = array(
             'de'   => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-'.
                 'Kontos in Ihren Shop zur Verf&uuml;gung. Hierbei werden &uuml;ber standardisierte Schnittstellen die '.
                 'Besucherdaten und eCommerce-Daten zu Google &uuml;bertragen. Ebenfalls &uuml;bermittelt werden Daten '.
-                'der Website-Suche. Weiterhin können über das Modul Shopdaten an Google Adwords und Google Trusted '.
-                'Shops übertragen werden.',
+                'der Website-Suche. Weiterhin k&ouml;nnen &uuml;ber das Modul Shopdaten an Google Adwords und Google '.
+                'Trusted Shops &uuml;bertragen werden.',
             'en'   => 'Provides a quick and easy integration with your Google Analytics, Google Adwords and Google '.
                 'Trusted Shops account to your shop.',
     ),

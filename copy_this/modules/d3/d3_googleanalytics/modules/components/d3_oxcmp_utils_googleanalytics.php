@@ -52,6 +52,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('sAFEGetMoreUrls', $this->afGetMoreUrls());
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
             $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
+            $oParentView->addTplParam('blD3GAIsMobile', $this->d3isMobile());
 
             if ($oSet->getValue('sD3GATSActive') && $oSet->getValue('sD3GATSShoppingActive')) {
                 $aInfos = $this->d3GATSGetProdInfos();
@@ -523,5 +524,15 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         return $aParameter;
+    }
+
+    /**
+     * @return bool
+     */
+    public function d3isMobile()
+    {
+        /** @var oeThemeSwitcherThemeManager $oThemeManager */
+        $oThemeManager = oxNew('oeThemeSwitcherThemeManager');
+        return $oThemeManager->isMobileThemeRequested();
     }
 }

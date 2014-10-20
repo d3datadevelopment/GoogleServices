@@ -45,6 +45,7 @@ copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalyti
 copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics.php -text
 copy_this/modules/d3/d3_googleanalytics/out/src/d3_googleanalytics.css -text
+copy_this/modules/d3/d3_googleanalytics/out/src/d3_googleanalytics_mobile.css -text
 copy_this/modules/d3/d3_googleanalytics/picture.png -text
 copy_this/modules/d3/d3_googleanalytics/setup/d3_googleanalytics_update.php -text
 copy_this/modules/d3/d3_googleanalytics/translations/de/d3_googleanalytics_lang.php -text
