@@ -124,7 +124,7 @@ function _groupExp(el) {
                     [{assign var="blAsyncDisabled" value=""}]
                 [{/if}]
 
-                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_DESC"}]</div>
+                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_DESC"}] [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_DESC1"}]</div>
 
                 <div class="groupExp">
                     <div class="">

@@ -113,7 +113,7 @@ function _groupExp(el) {
                 </div>
             [{else}]
 
-                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_CAMPAIGNS_DESC"}]</div>
+                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_CAMPAIGNS_DESC"}] [{oxinputhelp ident="D3_GOOGLEANALYTICS_CAMPAIGNS_DESC1"}]</div>
 
                 <div class="groupExp">
                     <div class="">

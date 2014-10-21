@@ -100,7 +100,7 @@
     <tr>
         <td valign="top" class="edittext">
 
-            <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_DESC"}]</div>
+            <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_DESC"}] [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_DESC1"}]</div>
             <div class="groupExp">
                 <div class="">
                     <a class="rc" onclick="_groupExp(this); return false;" href="#">
