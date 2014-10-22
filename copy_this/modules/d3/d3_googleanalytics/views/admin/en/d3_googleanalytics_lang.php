@@ -290,6 +290,8 @@ $aLang = array(
 
     'D3_GOOGLEANALYTICS_ADWORDSREMARKETING'                        => 'Remarketing',
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING'                    => 'Remarketing-Code aktivieren',
+    'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING_DESC'               => 'Die Option aktiviert den Remarketing-Code. '.
+        'Dann ist die Eingabe der Conversion-ID obligatorisch.',
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID'                 => 'Conversion-ID',
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID_DESC'            => 'Tragen Sie hier die zu Ihrem eingerichteten '.
         'Remarketing zugehörige Conversion-ID ein. Diese kann mit Ihrer AdWords-Conversion-Tracking-ID identisch '.

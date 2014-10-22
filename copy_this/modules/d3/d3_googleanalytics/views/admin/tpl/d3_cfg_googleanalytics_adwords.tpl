@@ -295,7 +295,7 @@ function _groupExp(el) {
                         </dl>
                         <dl>
                             <dt>
-                                <label for="sD3GARemarketingConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL"}]</label>
+                                <label for="sD3GARemarketingConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL"}]</label>
                             </dt>
                             <dd>
                                 <input type="text" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GARemarketingConversionLabel]" value="[{$edit->getValue('sD3GARemarketingConversionLabel')}]">
