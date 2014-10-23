@@ -22,6 +22,7 @@ class d3_oxbasket_googleanalytics extends d3_oxbasket_googleanalytics_parent
     public function d3GetCurrentLocatorTitle()
     {
         $sTitle = '';
+        /** @var oxview $oView */
         $oView = oxRegistry::getConfig()->getActiveView();
 
         if (method_exists($oView, 'getBreadCrumb') &&
@@ -32,8 +33,13 @@ class d3_oxbasket_googleanalytics extends d3_oxbasket_googleanalytics_parent
             }
         } elseif ($oView->getClassName() == 'details' &&
             (
-                ($oCatPath = $oView->getCategoryTree()->getPath()) ||
-                ($oCatPath = $oView->getManufacturerTree()->getPath())
+                (
+                    ($oCatTree = $oView->getCategoryTree()) &&
+                    ($oCatPath = $oCatTree->getPath())
+                ) || (
+                    ($oCatTree = $oView->getManufacturerTree()) &&
+                    ($oCatPath = $oCatTree->getPath())
+                )
             )
         ) {
             foreach ($oCatPath as $oCat) {
