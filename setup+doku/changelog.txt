@@ -1,5 +1,5 @@
 => 3.3.0.0
-- Google Zertifierte Händler eingefügt
+- Google Zertifizierte Händler eingefügt
 - Hilfetexte erweitert
 - Integration ins Mobile-Theme
 - Optimierung der Transaktionsübergaben
