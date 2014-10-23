@@ -113,9 +113,9 @@ class requConfig
         'hasMaxShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
-                'PE' => '4.8.7',
-                'CE' => '4.8.7',
-                'EE' => '5.1.7'
+                'PE' => '4.9.0',
+                'CE' => '4.9.0',
+                'EE' => '5.2.0'
             ),
         ),
 

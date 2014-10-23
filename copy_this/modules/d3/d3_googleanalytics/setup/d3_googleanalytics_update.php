@@ -23,16 +23,16 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModVersion = '3.3.0.0';
 
-    public $sModRevision = '171';
+    public $sModRevision = '196';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
     public $sBaseConf =
-    "tYxMWQ3cjRoZHVTZjBya3J5Q3FINkFCOElrc1lScTJyczZIUzVmRHR5U3VIUGlKbjlGOXVuVzgraHAwR
-UVnbjZKODdOUkk1KzBITURySjNIWDFtWGZWeW1zdTQ3MHRLOWhaYWdCQ3M2Q1pIbFdsL0lzeSsrTi94N
-y9qWHZLM3pGdlhHdVBadGFvMmVPVTZJMGYyTW5QYUh0ZDEwUkhpRTFhQVZPQlF1SVcvcDErQUpDOTNXT
-mFtemw4K2ZpL1Brb2dpdW41R1hqRVIwK2NiU3YvUk9FR2RRUGRtcjlPTGliRWo2bjY1TUw0YU9acEplN
-VRtQUVJVHRVd2Y2OWRpZkZlV3J1Qys2UjJZSFZOWTduUVVtTW5CQUdZbytGZ3Q3TnZyMGd1OHZmeWdRM
-zA9";
+    "2kGUVVXMXJZNUlFdkwvcCtzTEJ1QkxvSW1HSm5zV3M4a1UxTU90VEtBaGNIeTZKSGVPRXJ6MDc0UTk4O
+FpodEtKUEZuc2hxSDZnUEhaQmtqRFBoN3dqN21ncm9zY1FGaEdqUE15T0JoSGllSU8rWVZUbWhHSnpxM
+UNXSnpyUm1GYWZaN092Rkw1T2tEZXliTml4OFFlRTZGWnY5emxKa0JjV1VTZ2I5T2FETklZOEwyd2Rnc
+FF3S3pHMklCbkZyVGNvQkIvUDlQWENNTHBJQmNPKzBvSFZnUUxVSTVYOUU3OW9YeWJqRkxZZUs5YjFSS
+XNCYTJ0SzNZZ1J4bUFNK25HM1FkQ3NxLzRvWkYwYjVvdXZKNXdWV0FZT0FPemsyRjI5TGJUbWZJMnU2Q
+nc9";
 
     public $sRequirements = '';
 

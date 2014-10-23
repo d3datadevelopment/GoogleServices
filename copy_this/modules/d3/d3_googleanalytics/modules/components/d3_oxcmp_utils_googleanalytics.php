@@ -531,8 +531,13 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function d3isMobile()
     {
-        /** @var oeThemeSwitcherThemeManager $oThemeManager */
-        $oThemeManager = oxNew('oeThemeSwitcherThemeManager');
-        return $oThemeManager->isMobileThemeRequested();
+        if (class_exists('oeThemeSwitcherThemeManager')) {
+            /** @var oeThemeSwitcherThemeManager $oThemeManager */
+            $oThemeManager = oxNew('oeThemeSwitcherThemeManager');
+
+            return $oThemeManager->isMobileThemeRequested();
+        }
+
+        return false;
     }
 }
