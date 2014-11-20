@@ -13,11 +13,10 @@
  *
  *    For further informations, see <http://www.gnu.org/licenses/>.
  *
- * @link      http://www.oxidmodule.com
- * @link      http://www.shopmodule.com
+ * @link          http://www.oxidmodule.com
+ * @link          http://www.shopmodule.com
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
-
 class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
 {
     /**
@@ -57,40 +56,21 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
      *
      * @return null|void
      */
-    protected function _setOrderArticles( $aArticleList )
+    protected function _setOrderArticles($aArticleList)
     {
         parent::_setOrderArticles($aArticleList);
 
         /** @var d3_oxbasketitem_googleanalytics $oBasketItem */
         foreach ($aArticleList as $oBasketItem) {
-            $oOrderArticle = $this->_d3getOrderArticleFromBasketItem($oBasketItem);
-            if ($oOrderArticle) {
-                $aContent['d3_galocator'] = $oBasketItem->d3GetLocatorTitle();
-                $oOrderArticle->assign($aContent);
-                $oOrderArticle->save();
+            /** @var oxorderarticle $oOrderArticle */
+            foreach ($this->_oArticles as $sArticleId => $oOrderArticle) {
+                $blArtIdMatch     = $oOrderArticle->getFieldData('oxartid') == $oBasketItem->getProductId();
+                $blAmountMatch    = $oOrderArticle->getFieldData('oxamount') == $oBasketItem->getAmount();
+                $blPersParamMatch = (null == $oBasketItem->getPersParams() || $oOrderArticle->getFieldData('oxpersparam') == $oBasketItem->getPersParams());
+                if ($blArtIdMatch && $blAmountMatch && $blPersParamMatch) {
+                    $this->_oArticles->offsetGet($sArticleId)->assign(array('d3_galocator' => $oBasketItem->d3GetLocatorTitle()));
+                }
             }
         }
-    }
-
-    /**
-     * @param oxbasketitem $oBasketItem
-     *
-     * @return false|oxorderarticle
-     */
-    protected function _d3getOrderArticleFromBasketItem($oBasketItem)
-    {
-        $aPersParams = $oBasketItem->getPersParams();
-
-        /** @var oxorderarticle $oOrderArticle */
-        foreach ($this->_oArticles as $sArticleId => $oOrderArticle) {
-            if ($oOrderArticle->getFieldData('oxartid') == $oBasketItem->getProductId() &&
-                $oOrderArticle->getFieldData('oxamount') == $oBasketItem->getAmount() &&
-                (null == $aPersParams || $oOrderArticle->getFieldData('oxpersparam') == $aPersParams)
-            ) {
-                return $this->_oArticles->offsetGet($sArticleId);
-            }
-        }
-
-        return false;
     }
 }

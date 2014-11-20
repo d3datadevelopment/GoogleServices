@@ -1,3 +1,6 @@
+=> 3.3.0.1
+- Kompatibilität zu Egate Media PayPal verbessert
+
 => 3.3.0.0
 - Google Zertifizierte Händler eingefügt
 - Hilfetexte erweitert

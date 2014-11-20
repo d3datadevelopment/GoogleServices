@@ -293,7 +293,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     public function d3GetGTSLang()
     {
         $aHomeCountries = oxRegistry::getConfig()->getConfigParam('aHomeCountry');
-        $sHomeCountryId = $aHomeCountries[array_keys($aHomeCountries)[0]];
+        $aKeys          = array_keys($aHomeCountries);
+        $sHomeCountryId = $aHomeCountries[current($aKeys)];
         /** @var oxcountry $oCountry */
         $oCountry = oxNew('oxcountry');
         $oCountry->load($sHomeCountryId);
@@ -326,7 +327,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         return array('aArtIdList' => $aArticleIds);
     }
 
-
     /**
      * @param array $aArticleIds
      *
@@ -335,7 +335,9 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     public function d3GATSGetProdIdList($aArticleIds)
     {
         if (count($aArticleIds)) {
-            return $aArticleIds[array_keys($aArticleIds)[0]];
+            $aKeys = array_keys($aArticleIds);
+
+            return $aArticleIds[current($aKeys)];
         } else {
             return "not_set";
         }
