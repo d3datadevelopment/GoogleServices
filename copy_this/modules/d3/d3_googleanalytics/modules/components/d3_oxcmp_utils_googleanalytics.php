@@ -142,9 +142,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $aLanguages = oxRegistry::getLang()->getLanguageArray(null, true, true);
             reset($aLanguages);
             foreach ($aLanguages as $oVal) {
-                $aUrls = $this->_d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, $aUrls);
+                $this->_d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, $aUrls);
             }
         }
+
+        $this->_d3UnsetCurrentUrl($aUrls);
 
         return $aUrls;
     }
@@ -157,21 +159,43 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      *
      * @return array
      */
-    protected function _d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, $aUrls)
+    protected function _d3AddLanguageUrlsToList($aLanguageUrls, $oVal, $aSslLanguageUrls, &$aUrls)
     {
         $blIsSsl = oxRegistry::getConfig()->isSsl();
 
         if ($this->_d3CheckLanguageUrlsToList($aLanguageUrls, $oVal, $blIsSsl)) {
-            $sUrl    = str_replace('http://', '', $aLanguageUrls[$oVal->id]);
-            $aUrls[] = "'" . $sUrl . "'";
+            $sUrl    = $this->_d3GANormalizeUrl($aLanguageUrls[$oVal->id]);
+            $aUrls[md5($sUrl)] = "'" . $sUrl . "'";
         }
 
         if ($this->_d3CheckLanguageUrlsToList($aSslLanguageUrls, $oVal, !$blIsSsl)) {
-            $sSslUrl = str_replace('https://', '', $aSslLanguageUrls[$oVal->id]);
-            $aUrls[] = "'" . $sSslUrl . "'";
+            $sSslUrl = $this->_d3GANormalizeUrl($aLanguageUrls[$oVal->id]);
+            $aUrls[md5($sSslUrl)] = "'" . $sSslUrl . "'";
         }
 
         return $aUrls;
+    }
+
+    /**
+     * @param $sUrl
+     *
+     * @return string
+     */
+    protected function _d3GANormalizeUrl($sUrl)
+    {
+        $sPattern = "^http(s?)://";
+        /** @var d3str $oD3Str */
+        $oD3Str = oxNew('d3str');
+
+        return preg_replace('@'.$sPattern.'@', '', $oD3Str->untrailingslashit($sUrl));
+    }
+
+    /**
+     * @param $aUrls
+     */
+    protected function _d3UnsetCurrentUrl(&$aUrls)
+    {
+        unset($aUrls[md5($this->_d3GANormalizeUrl(oxRegistry::getConfig()->getCurrentShopUrl()))]);
     }
 
     /**
