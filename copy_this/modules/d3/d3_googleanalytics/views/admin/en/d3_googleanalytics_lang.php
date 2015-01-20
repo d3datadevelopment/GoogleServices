@@ -112,6 +112,9 @@ $aLang = array(
         '</p>',
 
     'D3_GOOGLEANALYTICS_BOUNCEOPT'                                 => 'Bounce rate optimzation',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SWITCH'                          => 'Absprungdaten-Optimierung aktivieren',
+    'D3_GOOGLEANALYTICS_BOUNCEOPT_SWITCH_DESC'                     => 'Analytics wertet jeden Benutzer, der nicht '.
+        'innerhalb der Seite einen Link anklickt, als Abbrecher. Mit dieser Option kann der Wert optimiert werden.',
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT1'                  => 'Seitenbesucher nicht als Abbrecher werten nach',
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT2'                  => 'Millisekunden (1000 = 1 Sekunde)',
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT_DESC'              => '<p>Analytics wertet alle Seitenbucher, die '.

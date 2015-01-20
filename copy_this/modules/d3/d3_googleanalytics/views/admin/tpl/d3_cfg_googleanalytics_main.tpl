@@ -233,6 +233,16 @@
                         </a>
                         <dl>
                             <dt>
+                                <label for="blUseBounceRateOptimization">[{oxmultilang ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SWITCH"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blUseBounceRateOptimization]" value="0">
+                                <input id="blUseBounceRateOptimization" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blUseBounceRateOptimization')}]checked[{/if}] name="value[blUseBounceRateOptimization]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SWITCH_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
                                 <label for="iSendNoBounceEventTime">[{oxmultilang ident="D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT1"}]</label>
                             </dt>
                             <dd>

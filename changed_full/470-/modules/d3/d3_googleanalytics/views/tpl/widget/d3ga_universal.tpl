@@ -52,21 +52,27 @@
                 [{/if}]
 
                 [{* bounce optimization*}]
-                setTimeout('ga(\'send\', \'event\', \'NoBounce\', \'Over defined seconds\')',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
+                [{block name="d3ga_bounceoptimzation"}]
+                    [{if $oD3GASettings->getValue('blUseBounceRateOptimization')}]
+                        [{if $oD3GASettings->getValue('iSendNoBounceEventTime')}]
+                            setTimeout('ga(\'send\', \'event\', \'NoBounce\', \'Over defined seconds\')',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
+                        [{/if}]
 
-                [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
-                    window.addEventListener ?
-                        window.addEventListener('scroll', testScroll, false) :
-                        window.attachEvent('onscroll', testScroll);
+                        [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
+                            window.addEventListener ?
+                                window.addEventListener('scroll', testScroll, false) :
+                                window.attachEvent('onscroll', testScroll);
 
-                    var scrollCount = 0;
-                    function testScroll() {
-                        ++scrollCount;
-                        if (scrollCount == 2) {
-                            ga('send', 'event', 'window', 'scrolled');
-                        }
-                    }
-                [{/if}]
+                            var scrollCount = 0;
+                            function testScroll() {
+                                ++scrollCount;
+                                if (scrollCount == 2) {
+                                    ga('send', 'event', 'window', 'scrolled');
+                                }
+                            }
+                        [{/if}]
+                    [{/if}]
+                [{/block}]
 
                 ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
 
