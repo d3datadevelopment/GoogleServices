@@ -3,10 +3,10 @@
 <script type="text/javascript">
     var gts = gts || [];
 
-    gts.push(["id", "[{$oD3GASettings->getValue('sD3GATSId')}]"]);
-    gts.push(["badge_position", "BOTTOM_RIGHT"]);
-    gts.push(["locale", "[{$sD3CurrentGTSLang}]"]);
     [{if $oD3GASettings->getValue('sD3GATSShoppingActive')}]
+        gts.push(["id", "[{$oD3GASettings->getValue('sD3GATSId')}]"]);
+        gts.push(["badge_position", "BOTTOM_RIGHT"]);
+        gts.push(["locale", "[{$sD3CurrentGTSLang}]"]);
         [{if $sD3GATSProdId}]
             gts.push(["google_base_offer_id", "[{$sD3GATSProdId}]"]);
         [{/if}]
