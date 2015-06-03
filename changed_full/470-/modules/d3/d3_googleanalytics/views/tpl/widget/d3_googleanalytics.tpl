@@ -173,11 +173,9 @@
                 [{/if}]
 
                 [{* bounce optimization*}]
-                [{block name="d3ga_bounceoptimzation"}]
+                [{block name="d3ga_bounceoptimization"}]
                     [{if $oD3GASettings->getValue('blUseBounceRateOptimization')}]
-                        [{if $oD3GASettings->getValue('iSendNoBounceEventTime')}]
-                            setTimeout('_gaq.push([\'_trackEvent\', \'NoBounce\', \'Over defined seconds\'])',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
-                        [{/if}]
+                        setTimeout('_gaq.push([\'_trackEvent\', \'NoBounce\', \'Over defined seconds\'])',[{$iD3GASendNoBounceEventTime}]);
 
                         [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
                             window.addEventListener ?

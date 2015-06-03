@@ -53,6 +53,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
             $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
             $oParentView->addTplParam('blD3GAIsMobile', $this->d3isMobile());
+            $oParentView->addTplParam('iD3GASendNoBounceEventTime', $this->d3GetSendNoBounceEventTime());
 
             if ($oSet->getValue('sD3GATSActive') && $oSet->getValue('sD3GATSShoppingActive')) {
                 $aInfos = $this->d3GATSGetProdInfos();
@@ -565,5 +566,19 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         return false;
+    }
+
+    /**
+     * @return int
+     */
+    public function d3GetSendNoBounceEventTime()
+    {
+        $iTime = d3_cfg_mod::get($this->_sModId)->getValue('iSendNoBounceEventTime');
+
+        if (isset($iTime) && is_int($iTime)) {
+            return $iTime;
+        }
+
+        return 10000;
     }
 }
