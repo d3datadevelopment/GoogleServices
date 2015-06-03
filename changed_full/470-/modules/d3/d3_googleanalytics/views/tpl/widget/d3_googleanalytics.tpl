@@ -58,37 +58,37 @@
                     _gaq.push(['_setDetectTitle', true]);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack')}]
                     _gaq.push(['_setCampaignTrack', true]);
                 [{else}]
                     _gaq.push(['_setCampaignTrack', false]);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampaignCookieTimeout')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampaignCookieTimeout')}]
                     _gaq.push(['_setCampaignCookieTimeout', '[{$oD3GASettings->getValue('sD3GASetCampaignCookieTimeout')}]']);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampNameKey')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampNameKey')}]
                     _gaq.push(['_setCampNameKey', '[{$oD3GASettings->getValue('sD3GASetCampNameKey')}]']);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampMediumKey')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampMediumKey')}]
                     _gaq.push(['_setCampMediumKey', '[{$oD3GASettings->getValue('sD3GASetCampMediumKey')}]']);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampSourceKey')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampSourceKey')}]
                     _gaq.push(['_setCampSourceKey', '[{$oD3GASettings->getValue('sD3GASetCampSourceKey')}]']);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampTermKey')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampTermKey')}]
                     _gaq.push(['_setCampTermKey', '[{$oD3GASettings->getValue('sD3GASetCampTermKey')}]']);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampContentKey')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampContentKey')}]
                     _gaq.push(['_setCampContentKey', '[{$oD3GASettings->getValue('sD3GASetCampContentKey')}]']);
                 [{/if}]
 
-                [{if !$oD3GASettings->getValue('blD3GASetCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampContentKey')}]
+                [{if !$oD3GASettings->getValue('blD3GASetAdWordsCampaignTrack') && $oD3GASettings->getValue('sD3GASetCampContentKey')}]
                     _gaq.push(['_setCampNOKey', 'ga_nooverride']);
                 [{/if}]
 
@@ -170,6 +170,23 @@
 
                     _gaq.push(['_trackTrans']);
 
+                [{/if}]
+
+                [{* bounce optimization*}]
+                setTimeout('_gaq.push([\'_trackEvent\', \'NoBounce\', \'Over defined seconds\'])',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
+
+                [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
+                    window.addEventListener ?
+                        window.addEventListener('scroll', testScroll, false) :
+                        window.attachEvent('onscroll', testScroll);
+
+                    var scrollCount = 0;
+                    function testScroll() {
+                        ++scrollCount;
+                        if (scrollCount == 2) {
+                            _gaq.push(['_trackEvent', 'window', 'scrolled']);
+                        }
+                    }
                 [{/if}]
 
                 (function() {

@@ -1,3 +1,12 @@
+=> 3.3.0.0
+- Google Zertifierte Händler eingefügt
+- Hilfetexte erweitert
+- Integration ins Mobile-Theme
+- Optimierung der Transaktionsübergaben
+- getrackte Absprungrate optimiert
+- Konfigurationsvariablen korrgiert
+- Fehler bei "toBasket" auf Detailseie ohne Kategorieangabe korrigert
+
 => 3.2.1.0
 - neue Option "Opt Out anzeigen lassen"
 

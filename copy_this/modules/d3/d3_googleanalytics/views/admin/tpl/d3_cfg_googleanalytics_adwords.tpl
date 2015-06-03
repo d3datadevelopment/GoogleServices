@@ -60,6 +60,18 @@ function _groupExp(el) {
     td.edittext {
         white-space: normal;
     }
+
+    .servicedesc {
+        background-color: #d4ffd4;
+        border: 1px solid green;
+        margin-bottom: 10px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .servicedesc a {
+        text-decoration: underline;
+    }
     -->
 </style>
 
@@ -112,6 +124,8 @@ function _groupExp(el) {
                     [{assign var="blAsyncDisabled" value=""}]
                 [{/if}]
 
+                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_DESC"}] [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_DESC1"}]</div>
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -121,12 +135,12 @@ function _groupExp(el) {
                         </a>
                         <dl>
                             <dt>
-                                <label for="blD3GASetCampaignTrack">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK"}]</label>
+                                <label for="blD3GASetAdWordsCampaignTrack">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK"}]</label>
                                 [{*  _gaq.push(['_setCampaignTrack', false]);  *}]
                             </dt>
                             <dd>
-                                <input type="hidden" name="value[blD3GASetCampaignTrack]" value="0">
-                                <input id="blD3GASetCampaignTrack" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASetCampaignTrack')}]checked[{/if}] name="value[blD3GASetCampaignTrack]">
+                                <input type="hidden" name="value[blD3GASetAdWordsCampaignTrack]" value="0">
+                                <input id="blD3GASetAdWordsCampaignTrack" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASetAdWordsCampaignTrack')}]checked[{/if}] name="value[blD3GASetAdWordsCampaignTrack]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK_DESC"}]
                             </dd>
                         </dl>
@@ -281,7 +295,7 @@ function _groupExp(el) {
                         </dl>
                         <dl>
                             <dt>
-                                <label for="sD3GARemarketingConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL"}]</label>
+                                <label for="sD3GARemarketingConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL"}]</label>
                             </dt>
                             <dd>
                                 <input type="text" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GARemarketingConversionLabel]" value="[{$edit->getValue('sD3GARemarketingConversionLabel')}]">

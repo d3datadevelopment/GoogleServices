@@ -1,5 +1,9 @@
 [{$smarty.block.parent}]
-[{if $oD3GASettings->getValue('blD3GAUseOptOut')}]
+
+[{d3modcfgcheck modid="d3_googleanalytics"}]
+[{/d3modcfgcheck}]
+
+[{if $mod_d3_googleanalytics && $oD3GASettings->getValue('blD3GAUseOptOut')}]
     <div id="d3GAOptOut">
         <a href="javascript:gaOptout();">[{oxmultilang ident="D3_GOOGLEANALYTICS_OPTOUT"}]</a>
         [{assign var='sGaId' value=$oD3GASettings->getValue('sD3GAId')}]
