@@ -1,3 +1,10 @@
+=> 3.3.1.0
+- Lieferzeitangabe kann nun für lagernde und nicht lagernde Artikel getrennt angegeben werden
+- Domainliste bei Verwendung mehrerer Shop-Domains korrigiert
+- Schalter für Absprungratenermittlung integriert
+- "Zertifizierte Händler"-Variablen werden nur gezeigt, wenn "Zertifizierter Händler" aktiv ist
+- JS-Fehler bei unkonfigurierter Absprung-Zeit korrigiert
+
 => 3.3.0.1
 - Kompatibilität zu Egate Media PayPal verbessert
 

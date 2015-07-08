@@ -334,15 +334,27 @@ $aLang = array(
         'in den Quelltext Ihres Shops ein. Ob Sie das Gütesiegel im Shop sehen, entscheidet jedoch nur Google intern. '.
         'Sind Sie der Meinung, das Siegel sollte angezeigt werden, wenden Sie sich bitte an Ihren Betreuer bei Google.',
     'D3_GOOGLEANALYTICS_TS_ID'                                     => 'account id',
-    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER'                       => 'Zeitraum vom Bestelleingang bis zum Versand',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER'                       => 'Zeitraum vom Bestelleingang bis zum Versand '.
+        'bei lagernden Artikeln',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS'                  => 'Werktag(e)',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DESC'                  => '<p>Google teilt Ihrem Kunden per Mail mit, '.
         'nach welchem Zeitraum ausgehend vom Bestelleingang die bestellten Artikel versendet werden. Geben Sie hier '.
-        'den für Normalfälle größten Zeitraum bis zum Versand in Tagen an (z.B. 3 bei "1 bis 3 Tage"). Nach dem '.
-        'voraussichtlichen Versanddatum erhält der Kunde eine Umfrage zum abgeschlossenen Kauf.</p><p>Fällt der '.
-        'errechnete Termin auf ein Wochenende oder einen festen Feiertag, wird der nächstmögliche Termin verwendet. '.
-        'Bewegliche und regionale Feiertage werden nicht berücksichtigt. Um die Liste der Ausnahmen anzupassen, '.
-        'erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p>',
+        'den für am Lager befindlicher Artikel im Normalfall größten Zeitraum bis zum Versand in Tagen an (z.B. 3 bei '.
+        '"1 bis 3 Tage"). Nach dem voraussichtlichen Versanddatum erhält der Kunde eine Umfrage zum abgeschlossenen '.
+        'Kauf.</p><p>Fällt der errechnete Termin auf ein Wochenende oder einen festen Feiertag, wird der '.
+        'nächstmögliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht berücksichtigt. Um die '.
+        'Liste der Ausnahmen anzupassen, erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p><p>Die '.
+        'Unterscheidung zwischen lagernden und nicht lagernden Artikeln wird nur bei aktivierter '.
+        'Lagerstandsverwaltung getroffen. Sonst werden alle Artikel als "lagernd" angesehen.</p>',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_OUTOFSTOCK'            => 'Zeitraum vom Bestelleingang bis zum Versand '.
+        'bei <b>nicht</b> lagernden Artikeln',
+    'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTEROUTOFSTOCK_DESC'        => '<p>Google teilt Ihrem Kunden per Mail mit, '.
+        'nach welchem Zeitraum ausgehend vom Bestelleingang die bestellten Artikel versendet werden. Geben Sie hier '.
+        'den für <b>nicht</b> am Lager befindlicher Artikel im Normalfall größten Zeitraum bis zum Versand in Tagen '.
+        'an (z.B. 3 bei "1 bis 3 Tage"). Nach dem voraussichtlichen Versanddatum erhält der Kunde eine Umfrage zum '.
+        'abgeschlossenen Kauf.</p><p>Fällt der errechnete Termin auf ein Wochenende oder einen festen Feiertag, '.
+        'wird der nächstmögliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht berücksichtigt. '.
+        'Um die Liste der Ausnahmen anzupassen, erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p>',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER'                        => 'Zeitraum vom Versand bis zur Lieferung beim '.
         'Empfänger',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DAYS'                   => 'Werktag(e)',
