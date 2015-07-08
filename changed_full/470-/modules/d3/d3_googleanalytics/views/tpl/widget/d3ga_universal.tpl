@@ -2,18 +2,20 @@
     [{capture name="d3GATrackCode"}]
         [{strip}]
             [{if $oD3GASettings->getValue('blD3GAUseOptOut')}]
-                <script type="text/javascript">
-                    var gaProperty = '[{$oD3GASettings->getValue('sD3GAId')}]';
-                    var disableStr = 'ga-disable-' + gaProperty;
-                    if (document.cookie.indexOf(disableStr + '=true') > -1) {
-                        window[disableStr] = true;
-                    }
+                [{block name="d3ga_optoutscript"}]
+                    <script type="text/javascript">
+                        var gaProperty = '[{$oD3GASettings->getValue('sD3GAId')}]';
+                        var disableStr = 'ga-disable-' + gaProperty;
+                        if (document.cookie.indexOf(disableStr + '=true') > -1) {
+                            window[disableStr] = true;
+                        }
 
-                    function gaOptout() {
-                        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-                        window[disableStr] = true;
-                    }
-                </script>
+                        function gaOptout() {
+                            document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                            window[disableStr] = true;
+                        }
+                    </script>
+                [{/block}]
             [{/if}]
 
             <script type="text/javascript">
@@ -52,42 +54,48 @@
                 [{/if}]
 
                 [{* bounce optimization*}]
-                setTimeout('ga(\'send\', \'event\', \'NoBounce\', \'Over defined seconds\')',[{$oD3GASettings->getValue('iSendNoBounceEventTime')}]);
+                [{block name="d3ga_bounceoptimization"}]
+                    [{if $oD3GASettings->getValue('blUseBounceRateOptimization')}]
+                        setTimeout('ga(\'send\', \'event\', \'NoBounce\', \'Over defined seconds\')',[{$iD3GASendNoBounceEventTime}]);
 
-                [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
-                    window.addEventListener ?
-                        window.addEventListener('scroll', testScroll, false) :
-                        window.attachEvent('onscroll', testScroll);
+                        [{if $oD3GASettings->getValue('blSendNoBounceEventScroll')}]
+                            window.addEventListener ?
+                                window.addEventListener('scroll', testScroll, false) :
+                                window.attachEvent('onscroll', testScroll);
 
-                    var scrollCount = 0;
-                    function testScroll() {
-                        ++scrollCount;
-                        if (scrollCount == 2) {
-                            ga('send', 'event', 'window', 'scrolled');
-                        }
-                    }
-                [{/if}]
+                            var scrollCount = 0;
+                            function testScroll() {
+                                ++scrollCount;
+                                if (scrollCount == 2) {
+                                    ga('send', 'event', 'window', 'scrolled');
+                                }
+                            }
+                        [{/if}]
+                    [{/if}]
+                [{/block}]
 
                 ga('send', 'pageview' [{$sD3GASendPageViewParameter}]);
 
                 [{include file="d3ga_universal_ecommerce.tpl"}]
 
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
-                    var perfData = window.performance.timing;
-                    var pageLoadTime = perfData.domComplete - perfData.navigationStart;
-                    var loadTime = "";
+                    [{block name="d3ga_trackpageloadtime"}]
+                        var perfData = window.performance.timing;
+                        var pageLoadTime = perfData.domComplete - perfData.navigationStart;
+                        var loadTime = "";
 
-                    if (pageLoadTime < 1000) { loadTime = "0-1 seconds"; }
-                    else if (pageLoadTime < 2000) { loadTime = "1-2 seconds"; }
-                    else if (pageLoadTime < 3000) { loadTime = "2-3 seconds"; }
-                    else if (pageLoadTime < 4000) { loadTime = "3-4 seconds"; }
-                    else if (pageLoadTime < 5000) { loadTime = "4-5 seconds"; }
-                    else if (pageLoadTime < 6000) { loadTime = "5-6 seconds"; }
-                    else if (pageLoadTime < 10000) { loadTime = "6-10 seconds"; }
-                    else { loadTime = "10+ seconds"; }
+                        if (pageLoadTime < 1000) { loadTime = "0-1 seconds"; }
+                        else if (pageLoadTime < 2000) { loadTime = "1-2 seconds"; }
+                        else if (pageLoadTime < 3000) { loadTime = "2-3 seconds"; }
+                        else if (pageLoadTime < 4000) { loadTime = "3-4 seconds"; }
+                        else if (pageLoadTime < 5000) { loadTime = "4-5 seconds"; }
+                        else if (pageLoadTime < 6000) { loadTime = "5-6 seconds"; }
+                        else if (pageLoadTime < 10000) { loadTime = "6-10 seconds"; }
+                        else { loadTime = "10+ seconds"; }
 
-                    ga('set', 'metric1', loadTime);
-                    [{*ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': true});*}]
+                        ga('set', 'metric1', loadTime);
+                        [{*ga('send', 'event', 'Page Load Time', loadTime, {'nonInteraction': true});*}]
+                    [{/block}]
                 [{/if}]
             </script>
 

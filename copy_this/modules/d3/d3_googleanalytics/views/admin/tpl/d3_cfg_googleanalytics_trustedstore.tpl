@@ -139,6 +139,16 @@
                     </dl>
                     <dl>
                         <dt>
+                            <label for="iEstShippingTimeValueOutOfStock">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_OUTOFSTOCK"}]</label>
+                        </dt>
+                        <dd>
+                            <input id="iEstShippingTimeValueOutOfStock" type="text" name="value[iEstShippingTimeValueOutOfStock]" class="edittext ext_edittext" size="3" maxlength="5" value="[{if $edit->getValue('iEstShippingTimeValueOutOfStock')}][{$edit->getValue('iEstShippingTimeValueOutOfStock')}][{else}]1[{/if}]" [{$readonly}]>
+                            [{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS"}]
+                            [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTEROUTOFSTOCK_DESC"}]
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
                             <label for="iEstDeliveryTimeValue">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER"}]</label>
                         </dt>
                         <dd>

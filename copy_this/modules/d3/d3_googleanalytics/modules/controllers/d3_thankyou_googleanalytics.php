@@ -114,6 +114,11 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     protected function _d3GAgetEstimatedDate($sModCfgVarName, $iTimestamp)
     {
+        // change shipping time for not on stock articles
+        if ($sModCfgVarName == 'iEstShippingTimeValue' && $this->hasOutOfStockArticles()) {
+            $sModCfgVarName = 'iEstShippingTimeValueOutOfStock';
+        }
+
         $iTimeValue = d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
 
         for ($i = 0; $i < $iTimeValue; $i++) {
@@ -174,16 +179,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAhasBackorderPreorder()
     {
-        if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
-            /** @var oxorderarticle $oOrderArticle */
-            foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
-                if ($this->_d3GAhasArticleBackorderPreorder($oOrderArticle)) {
-                    return 'Y';
-                }
-            };
-        }
-
-        return 'N';
+        return $this->hasOutOfStockArticles() ? 'Y' : 'N';
     }
 
     /**
@@ -210,14 +206,12 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAhasDigitalGoods()
     {
-        if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
-            /** @var oxorderarticle $oOrderArticle */
-            foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
-                if ($this->_d3GAhasArticleDigitalGoods($oOrderArticle)) {
-                    return 'Y';
-                }
-            };
-        }
+        /** @var oxorderarticle $oOrderArticle */
+        foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
+            if ($this->_d3GAhasArticleDigitalGoods($oOrderArticle)) {
+                return 'Y';
+            }
+        };
 
         return 'N';
     }
@@ -276,5 +270,21 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
         };
 
         return $oOrderArticle->getFieldData(d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId'));
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasOutOfStockArticles()
+    {
+        if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
+            foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
+                if ($this->_d3GAhasArticleBackorderPreorder($oOrderArticle)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

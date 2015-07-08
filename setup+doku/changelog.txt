@@ -1,11 +1,21 @@
+=> 3.3.1.0
+- Lieferzeitangabe kann nun für lagernde und nicht lagernde Artikel getrennt angegeben werden
+- Domainliste bei Verwendung mehrerer Shop-Domains korrigiert
+- Schalter für Absprungratenermittlung integriert
+- "Zertifizierte Händler"-Variablen werden nur gezeigt, wenn "Zertifizierter Händler" aktiv ist
+- JS-Fehler bei unkonfigurierter Absprung-Zeit korrigiert
+
+=> 3.3.0.1
+- Kompatibilität zu Egate Media PayPal verbessert
+
 => 3.3.0.0
-- Google Zertifierte Händler eingefügt
+- Google Zertifizierte Händler eingefügt
 - Hilfetexte erweitert
 - Integration ins Mobile-Theme
 - Optimierung der Transaktionsübergaben
 - getrackte Absprungrate optimiert
-- Konfigurationsvariablen korrgiert
-- Fehler bei "toBasket" auf Detailseie ohne Kategorieangabe korrigert
+- Konfigurationsvariablen korrigiert
+- Fehler bei "toBasket" auf Detailseite ohne Kategorieangabe korrigiert
 
 => 3.2.1.0
 - neue Option "Opt Out anzeigen lassen"
