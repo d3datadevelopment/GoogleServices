@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId = 'd3_googleanalytics';
 
-    public $sModVersion = '3.3.0.1';
+    public $sModVersion = '3.3.1.0';
 
     /********************** check configuration section ************************/
 
@@ -60,7 +60,7 @@ class requConfig
         'hasMaxPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
-                'version' => '5.4.200'
+                'version' => '5.6.200'
             )
         ),
 
@@ -69,7 +69,7 @@ class requConfig
             'blExec'  => 1,
             'aParams' => array(
                 'from' => '5.2.0',
-                'to'   => '5.4.200',
+                'to'   => '5.6.200',
             )
         ),
 
@@ -132,7 +132,9 @@ class requConfig
         ),
 
         // benötigt Modul-Connector
-        'hasModCfg'              => array('blExec' => 1),
+        'hasModCfg'              => array(
+            'blExec' => 1
+        ),
 
         // benötigt mindestens diese Erweiterungen / Version lt. d3_cfg_mod (kaskadierbar (siehe "Desc1"))
         'hasMinModCfgVersion'    => array(
@@ -1239,7 +1241,7 @@ class requTranslations
                     'Shopedition.</div>'.
                     '<div>Bei Fragen wenden Sie sich bitte an <a href="mailto:support@shopmodule.com">'.
                     'support@shopmodule.com</a>.</div>',
-                'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) oder Zend Guard Loader (PHP 5.3, 5.4) '.
+                'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) oder Zend Guard Loader (PHP 5.3, 5.4, 5.5, 5.6) '.
                     'installiert',
                 'hasZendLoaderOptimizer_DESC' => '<div>Das Modul erfordert (je nach PHP-Version) den Zend Optimizer '.
                     'bzw. den Zend Guard Loader.</div>'.
@@ -1380,7 +1382,7 @@ class requTranslations
                     'fulfilled. The module can\'t installed or executed.</div>'.
                     '<div>The [+] button show details for all tested directories. If you have any questions, please '.
                     'contact us at support@shopmodule.com.</div>',
-                'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) or Zend Guard Loader (PHP 5.3, 5.4) installed',
+                'hasZendLoaderOptimizer' => 'Zend Optimizer (PHP 5.2) or Zend Guard Loader (PHP 5.3, 5.4, 5.5, 5.6) installed',
                 'hasZendLoaderOptimizer_DESC' => '<div>requirement check result</div>'.
                     '<div><div class="squ_bullet" style="background-color: green;"></div> This requirement is '.
                     'fulfilled.</div>'.
@@ -1987,7 +1989,7 @@ class requTests
                 function_exists('zend_optimizer_version')
             ) || (
                 version_compare(phpversion(), '5.3.0', '>=') &&
-                version_compare(phpversion(), '5.4.900', '<') &&
+                version_compare(phpversion(), '5.6.900', '<') &&
                 function_exists('zend_loader_version')
             )
         ) {
