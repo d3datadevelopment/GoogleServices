@@ -73,4 +73,51 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
             }
         }
     }
+
+    /**
+     * @return float
+     */
+    public function d3GetOrderPayVat()
+    {
+        return $this->getFieldData('oxpaycost') / 100 * $this->getFieldData('oxpayvat');
+    }
+
+    /**
+     * @return float
+     */
+    public function d3GetOrderDelVat()
+    {
+        return $this->getFieldData('oxdelcost') / 100 * $this->getFieldData('oxdelvat');
+    }
+
+    /**
+     * @return float
+     */
+    public function d3GetOrderWrapVat()
+    {
+        return $this->getFieldData('oxwrapcost') / 100 * $this->getFieldData('oxwrapvat');
+    }
+
+    /**
+     * @return float
+     */
+    public function d3GetOrderCardVat()
+    {
+        return $this->getFieldData('oxcardcost') / 100 * $this->getFieldData('oxcardvat');
+    }
+
+    /**
+     * @return float
+     */
+    public function d3GetTaxTotal()
+    {
+        $dVat =  $this->getFieldData('oxartvatprice1')
+            + $this->getFieldData('oxartvatprice2')
+            + $this->d3GetOrderPayVat()
+            + $this->d3GetOrderDelVat()
+            + $this->d3GetOrderWrapVat()
+            + $this->d3GetOrderCardVat();
+
+        return sprintf('%.2f', $dVat);
+    }
 }
