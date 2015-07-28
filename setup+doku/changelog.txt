@@ -1,3 +1,13 @@
+=> 3.3.2.0
+- fix: Optionen im Admin können nicht deaktivert werden
+       - "Zertifizierter Händler" im Shop aktivieren
+       - zusätzliche Daten aus Google Shopping übertragen
+- fix: Zertifizierte Händler, „locale“ Eintrag auch ohne 
+       aktive Option "zusätzliche Daten aus Google Shopping übertragen"
+- fix: Kampagnencode wurde nicht übertragen	   
+- Link "Hilfe starten" korrigieren
+- Aktualisierung der Modulinstallationsanleitung / Vorabprüfung (d3precheck) 
+
 => 3.3.1.0
 - Lieferzeitangabe kann nun für lagernde und nicht lagernde Artikel getrennt angegeben werden
 - Domainliste bei Verwendung mehrerer Shop-Domains korrigiert
