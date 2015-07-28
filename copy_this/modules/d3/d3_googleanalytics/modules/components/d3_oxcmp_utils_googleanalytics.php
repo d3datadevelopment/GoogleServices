@@ -55,9 +55,12 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('blD3GAIsMobile', $this->d3isMobile());
             $oParentView->addTplParam('iD3GASendNoBounceEventTime', $this->d3GetSendNoBounceEventTime());
 
+            if ($oSet->getValue('sD3GATSActive')) {
+                $oParentView->addTplParam('sD3CurrentGTSLang', $this->d3GetGTSLang());
+            }
+
             if ($oSet->getValue('sD3GATSActive') && $oSet->getValue('sD3GATSShoppingActive')) {
                 $aInfos = $this->d3GATSGetProdInfos();
-                $oParentView->addTplParam('sD3CurrentGTSLang', $this->d3GetGTSLang());
                 $oParentView->addTplParam('sD3GATSProdId', $this->d3GATSGetProdIdList($aInfos['aArtIdList']));
             }
 
