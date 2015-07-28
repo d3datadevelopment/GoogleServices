@@ -113,7 +113,7 @@
                             <label for="sD3GATSActive">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_ACTIVE"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="" value="0">
+                            <input type="hidden" name="value[sD3GATSActive]" value="0">
                             <input id="sD3GATSActive" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('sD3GATSActive')}]checked[{/if}] name="value[sD3GATSActive]">
                             [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_ACTIVE_DESC"}]
                         </dd>
@@ -172,7 +172,7 @@
                             <label for="sD3GATSShoppingActive">[{oxmultilang ident="D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE"}]</label>
                         </dt>
                         <dd>
-                            <input type="hidden" name="" value="0">
+                            <input type="hidden" name="value[sD3GATSShoppingActive]" value="0">
                             <input id="sD3GATSShoppingActive" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('sD3GATSShoppingActive')}]checked[{/if}] name="value[sD3GATSShoppingActive]">
                             [{oxinputhelp ident="D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE_DESC"}]
                         </dd>
