@@ -50,7 +50,7 @@
                 <span id="gts-o-total">[{$sTotal|string_format:"%.2f"}]</span>
                 <span id="gts-o-discounts">-[{$oOrder->getFieldData('oxdiscount')|string_format:"%.2f"}]</span>
                 <span id="gts-o-shipping-total">[{$oOrder->getFieldData('oxdelcost')|string_format:"%.2f"}]</span>
-                <span id="gts-o-tax-total">[{math equation="fi + se + th + fo" fi=$oOrder->getFieldData('oxartvatprice1') se=$oOrder->getFieldData('oxartvatprice2') th=$oOrder->getFieldData('oxpayvat') fo=$oOrder->getFieldData('oxdelvat') format="%.2f"}]</span>
+                <span id="gts-o-tax-total">[{$oOrder->d3GetTaxTotal()}]</span>
                 <span id="gts-o-est-delivery-date">[{$oView->d3GAgetEstimatedDeliveryDate()|date_format:"%Y-%m-%d"}]</span>
                 <span id="gts-o-est-ship-date">[{$oView->d3GAgetEstimatedShippingDate()|date_format:"%Y-%m-%d"}]</span>
                 <span id="gts-o-has-preorder">[{$oView->d3GAhasBackorderPreorder()}]</span>

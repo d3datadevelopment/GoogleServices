@@ -398,6 +398,9 @@ $aLang = array(
         'mit dem für diesen Nutzer das Tracking für diese Seite deaktiviert wird.</p><p>Weitere Informationen zu '.
         'dieser Option finden Sie in der <a href="https://www.google.de/search?q=Analytics+_opt+out+script" '.
         'target="gahelp">Google-Suche</a>.</p>',
+
+    // Erweiterung des Links in der Fussnote "Hilfe Starten"
+    'D3_GOOGLEANALYTICS_HELPLINK' => 'Fragen-zu-speziellen-Modulen/Google-Analytics/',
 );
 
 

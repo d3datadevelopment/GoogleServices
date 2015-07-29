@@ -5,7 +5,7 @@ Sources/FireShot[!!-~]Screen[!!-~]Capture[!!-~]#251[!!-~]-[!!-~]'Conversion-Trac
 Sources/FireShot[!!-~]Screen[!!-~]Capture[!!-~]#252[!!-~]-[!!-~]'Google[!!-~]Analytics'[!!-~]-[!!-~]www_google_com_analytics_web__authuser=0#management_Settings_a50621059w82651812p85583465__m_page=CustomMetrics.png -text
 Sources/Google[!!-~]AdWords-Einrichtung.docx -text
 Sources/Google[!!-~]Analytics-Einrichtung.docx -text
-Sources/Google[!!-~]Analytics-Installation.docx -text
+Sources/Google[!!-~]Services-Installation.docx -text
 Sources/UGA_Custom_Dimensions.jpg -text
 Sources/UGA_Einstellungen.jpg -text
 Sources/UGA_Trichtereinrichtung.jpg -text
@@ -60,6 +60,6 @@ copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_m
 copy_this/modules/d3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_trustedstore.tpl -text
 setup+doku/Google[!!-~]AdWords-Einrichtung.pdf -text svneol=unset#unset
 setup+doku/Google[!!-~]Analytics-Einrichtung.pdf -text svneol=unset#unset
-setup+doku/Google[!!-~]Analytics-Installation.pdf -text
+setup+doku/Google[!!-~]Services-Installation.pdf -text
 setup+doku/Precheck/d3precheck.php -text
 setup+doku/changelog.txt -text

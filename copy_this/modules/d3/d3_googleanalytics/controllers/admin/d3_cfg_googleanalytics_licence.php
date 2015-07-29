@@ -27,4 +27,12 @@ class d3_cfg_googleanalytics_licence extends d3_cfg_mod_licence
     protected $_hasNewsletterForm = false;
 
     protected $_hasUpdate = true;
+
+    protected $_sDefaultHelpLinkAdd = 'Fragen-zu-speziellen-Modulen/Google-Analytics/';
+    /**
+     * additional multilang item, which will added as last part to help url
+     *
+     * @var string
+     */
+    protected $_sHelpLinkMLAdd = '';
 }

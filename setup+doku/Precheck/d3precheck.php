@@ -41,9 +41,9 @@ class requConfig
 {
     public $sModName = 'D³ Google Services';
 
-    public $sModId = 'd3_googleanalytics';
+    public $sModId   = 'd3_googleanalytics';
 
-    public $sModVersion = '3.3.1.0';
+    public $sModVersion = '3.3.2.0';
 
     /********************** check configuration section ************************/
 
@@ -113,9 +113,9 @@ class requConfig
         'hasMaxShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
-                'PE' => '4.9.0',
-                'CE' => '4.9.0',
-                'EE' => '5.2.0'
+                'PE' => '4.9.4',
+                'CE' => '4.9.4',
+                'EE' => '5.2.4'
             ),
         ),
 
@@ -143,7 +143,7 @@ class requConfig
                 'aParams' => array(
                     'id'      => 'd3modcfg_lib',
                     'name'    => 'Modul-Connector',
-                    'version' => '4.0.0.0',
+                    'version' => '4.3.3.0',
                 ),
             ),
         ),
