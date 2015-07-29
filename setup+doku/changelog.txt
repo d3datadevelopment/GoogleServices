@@ -7,6 +7,7 @@
 - fix: Kampagnencode wurde nicht übertragen	   
 - Link "Hilfe starten" korrigieren
 - Aktualisierung der Modulinstallationsanleitung / Vorabprüfung (d3precheck) 
+- freigegeben bis PHP 5.6
 
 => 3.3.1.0
 - Lieferzeitangabe kann nun für lagernde und nicht lagernde Artikel getrennt angegeben werden
