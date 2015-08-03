@@ -60,8 +60,7 @@
             <!-- start repeated item specific information -->
             [{foreach from=$order->getOrderArticles() item=oOrderArticle}]
                 [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
-                    [{assign var="oPrice" value=$oOrderArticle->getPrice()}]
-                    [{assign var="sPrice" value=$oPrice->getNettoPrice()}]
+                    [{assign var="sPrice" value=$oOrderArticle->oxorderarticles__oxnprice->value}]
                 [{else}]
                     [{assign var="sPrice" value=$oOrderArticle->oxorderarticles__oxprice->value}]
                 [{/if}]
