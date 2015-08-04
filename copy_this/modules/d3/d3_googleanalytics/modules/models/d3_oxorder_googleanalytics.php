@@ -79,7 +79,11 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
      */
     public function d3GetOrderPayVat()
     {
-        return $this->getFieldData('oxpaycost') / 100 * $this->getFieldData('oxpayvat');
+        return round(
+            ($this->getFieldData('oxpaycost') / (1 + $this->getFieldData('oxpayvat') / 100))
+            * ($this->getFieldData('oxpayvat')),
+            $this->getOrderCurrency()->decimal
+        ) / 100;
     }
 
     /**
@@ -87,7 +91,11 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
      */
     public function d3GetOrderDelVat()
     {
-        return $this->getFieldData('oxdelcost') / 100 * $this->getFieldData('oxdelvat');
+        return round(
+            ($this->getFieldData('oxdelcost') / (1 + $this->getFieldData('oxdelvat') / 100))
+            * ($this->getFieldData('oxdelvat')),
+            $this->getOrderCurrency()->decimal
+        ) / 100;
     }
 
     /**
@@ -95,7 +103,11 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
      */
     public function d3GetOrderWrapVat()
     {
-        return $this->getFieldData('oxwrapcost') / 100 * $this->getFieldData('oxwrapvat');
+        return round(
+            ($this->getFieldData('oxwrapcost') / (1 + $this->getFieldData('oxwrapvat') / 100))
+            * ($this->getFieldData('oxwrapvat')),
+            $this->getOrderCurrency()->decimal
+        ) / 100;
     }
 
     /**
@@ -103,7 +115,11 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
      */
     public function d3GetOrderCardVat()
     {
-        return $this->getFieldData('oxcardcost') / 100 * $this->getFieldData('oxcardvat');
+        return round(
+            ($this->getFieldData('oxcardcost') / (1 + $this->getFieldData('oxcardvat') / 100))
+            * ($this->getFieldData('oxcardvat')),
+            $this->getOrderCurrency()->decimal
+        ) / 100;
     }
 
     /**
