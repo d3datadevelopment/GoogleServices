@@ -29,7 +29,7 @@
                 [{/if}]
 
                 [{if $oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]
-                    _gaq.push(['_setSiteSpeedSampleRate', '[{$oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]']);
+                    _gaq.push(['_setSiteSpeedSampleRate', [{$oD3GASettings->getValue('iD3GASiteSpeedSampleRate')}]]);
                 [{/if}]
 
                 [{if $oD3GASettings->getValue('iD3GASampleRate')}]
