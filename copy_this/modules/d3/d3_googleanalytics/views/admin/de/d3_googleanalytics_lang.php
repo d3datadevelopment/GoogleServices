@@ -27,7 +27,7 @@ $aLang = array(
 
 //Navigation
     'charset'                                                      => 'ISO-8859-15',
-    'd3mxgoogleanalytics'                                          => "<i class='fa fa-area-chart'></i> Google Services",
+    'd3mxgoogleanalytics'                                          => "<i class='fa fa-google'></i> Google Services",
     'd3mxgoogleanalytics_settings'                                 => 'Einstellungen',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',

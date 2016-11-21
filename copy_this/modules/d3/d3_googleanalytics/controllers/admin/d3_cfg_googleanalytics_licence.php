@@ -35,4 +35,5 @@ class d3_cfg_googleanalytics_licence extends d3_cfg_mod_licence
      * @var string
      */
     protected $_sHelpLinkMLAdd = '';
+    protected $_sMenuItemTitle = 'd3mxgoogleanalytics';
 }

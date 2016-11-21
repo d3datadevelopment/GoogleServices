@@ -322,13 +322,3 @@ function _groupExp(el) {
 </table>
 
 [{include file="d3_cfg_mod_inc.tpl"}]
-
-<script type="text/javascript">
-    if (parent.parent) {
-        parent.parent.sShopTitle = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
-        parent.parent.sMenuItem = "[{oxmultilang ident="d3mxgoogleanalytics"}]";
-        parent.parent.sMenuSubItem = "[{oxmultilang ident="d3tbclgoogleanalytics_adwords"}]";
-        parent.parent.sWorkArea = "[{$_act}]";
-        parent.parent.setTitle();
-    }
-</script>

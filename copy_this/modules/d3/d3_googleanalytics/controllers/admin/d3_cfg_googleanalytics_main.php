@@ -24,6 +24,8 @@ class d3_cfg_googleanalytics_main extends d3_cfg_mod_main
     protected $_sModId = 'd3_googleanalytics';
     protected $_blHasDebugSwitch = true;
     protected $_sDebugHelpTextIdent = 'D3_GOOGLEANALYTICS_MAIN_DEBUG';
+    protected $_sMenuItemTitle = 'd3mxgoogleanalytics';
+    protected $_sMenuSubItemTitle = 'd3tbclgoogleanalytics_main';
 
     /**
      * @return mixed
