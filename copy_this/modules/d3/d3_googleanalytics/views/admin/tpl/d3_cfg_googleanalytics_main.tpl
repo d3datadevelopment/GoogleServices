@@ -393,6 +393,26 @@
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
                             <span style="font-weight: bold;">
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ANALYTICSREMARKETING"}]
+                            </span>
+                        </a>
+                        <dl>
+                            <dt>
+                                <label for="blD3GAUseAnalyticsRemarketing">[{oxmultilang ident="D3_GOOGLEANALYTICS_ANALYTICSREMARKETING_TRANSMIT"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blD3GAUseAnalyticsRemarketing]" value="0">
+                                <input id="blD3GAUseAnalyticsRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseAnalyticsRemarketing')}]checked[{/if}] name="value[blD3GAUseAnalyticsRemarketing]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_ANALYTICSREMARKETING_TRANSMIT_DESC"}]
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_CUSTOMVARS"}]
                             </span>
                         </a>

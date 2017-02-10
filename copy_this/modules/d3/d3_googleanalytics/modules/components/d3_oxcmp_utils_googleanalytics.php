@@ -64,7 +64,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
                 $oParentView->addTplParam('sD3GATSProdId', $this->d3GATSGetProdIdList($aInfos['aArtIdList']));
             }
 
-            if ($oSet->getValue('blD3GASetRemarketing')) {
+            if ($oSet->getValue('blD3GASetRemarketing') || $oSet->getValue('blD3GAUseAnalyticsRemarketing')) {
                 $aInfos = $this->d3GetGAProdInfos();
                 $oParentView->addTplParam('sD3GARemarketingProdId', $this->d3GetGAProdIdList($aInfos['aArtIdList']));
                 $oParentView->addTplParam(
