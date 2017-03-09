@@ -18,6 +18,42 @@ class d3_google_trustedstore_articlelister
 {
     private $_sModId = 'd3_googleanalytics';
 
+    public $aStartListMethodNames = array(
+        'getArticleList',
+        'getTopArticleList',
+        'getNewestArticles',
+        'getFirstArticle',
+        'getCatOfferArticleList',
+    );
+
+    /**
+     * @param start $oView
+     *
+     * @return array
+     */
+    public function getStartProdList($oView)
+    {
+        /** @var oxArticleList $oArticleList */
+        $oArticleList = oxNew('oxarticlelist');
+
+        if (is_array($this->aStartListMethodNames) && count($this->aStartListMethodNames)) {
+            foreach ($this->aStartListMethodNames as $sListName) {
+                /** @var oxArticleList $oList */
+                $mList = call_user_func(array($oView, $sListName));
+
+                if ($mList instanceof oxArticleList) {
+                    if ($mList->count()) {
+                        foreach ($mList->getArray() as $sID => $oArticle) {
+                            $oArticleList->offsetSet($sID, $oArticle);
+                        }
+                    }
+                }
+            }
+        }
+
+        return $this->_getProductList($oArticleList);
+    }
+
     /**
      * @param details $oView
      *
