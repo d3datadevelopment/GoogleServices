@@ -29,6 +29,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         'manufacturerlist'  => 'category',
         'vendorlist'        => 'category',
         'details'           => 'product',
+        'oxwarticledetails' => 'product',
         'basket'            => 'cart',
         'order'             => 'purchase',
     );
@@ -67,6 +68,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             if ($oSet->getValue('blD3GASetRemarketing') || $oSet->getValue('blD3GAUseAnalyticsRemarketing')) {
                 $aInfos = $this->d3GetGAProdInfos();
                 $oParentView->addTplParam('sD3GARemarketingProdId', $this->d3GetGAProdIdList($aInfos['aArtIdList']));
+                $oParentView->addTplParam('sD3GARemarketingProdId2', $this->d3GetGAProdIdList($aInfos['aArtIdList'], false));
                 $oParentView->addTplParam(
                     'sD3GARemarketingPrice',
                     $aInfos['dPrice'] > 0 ? number_format($aInfos['dPrice'], 2, '.', ''): ''
@@ -388,7 +390,9 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
         if (method_exists($oArticleLister, $sMethodName)) {
             stopProfile(__METHOD__);
-            return call_user_func(array($oArticleLister, $sMethodName), $oCurrentView);
+            $aRet = call_user_func(array($oArticleLister, $sMethodName), $oCurrentView);
+            stopProfile(__METHOD__);
+            return $aRet;
         }
 
         stopProfile(__METHOD__);
@@ -401,12 +405,16 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      *
      * @return string
      */
-    public function d3GetGAProdIdList($aArticleIds)
+    public function d3GetGAProdIdList($aArticleIds, $blFormatArray = true)
     {
         if (count($aArticleIds)) {
-            return "['".implode("', '", $aArticleIds)."']";
+            return $blFormatArray ?
+                "['".implode("', '", $aArticleIds)."']" :
+                "'".implode(", ", $aArticleIds)."'";
         } else {
-            return "''";
+            return $blFormatArray ?
+                "''" :
+                false;
         }
     }
 

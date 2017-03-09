@@ -31,6 +31,18 @@ class d3_google_trustedstore_articlelister
     }
 
     /**
+     * @param oxwArticleDetails $oView
+     *
+     * @return array
+     */
+    public function getOxwarticledetailsProdList($oView)
+    {
+        $aArticleList = array();
+        $aArticleList[] = $oView->getProduct();
+        return $this->_getProductList($aArticleList);
+    }
+
+    /**
      * @param alist $oView
      *
      * @return array

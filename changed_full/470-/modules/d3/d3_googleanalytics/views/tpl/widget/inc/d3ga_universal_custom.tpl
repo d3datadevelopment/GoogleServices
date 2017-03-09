@@ -10,19 +10,19 @@
     [{assign var="iDimensionCount" value=0}]
 
     [{if $oD3GASettings->getValue('blD3GAUseAnalyticsRemarketing')}]
-        [{* dimension 2 set payment type *}]
+        [{* dimension 1 set product ids *}]
         [{assign var="iDimensionCount" value=$iDimensionCount+1}]
-        [{if $oViewConf->getActiveClassName() == 'thankyou'}]
+        [{if $sD3GARemarketingProdId2}]
             ga(
                 'set',
                 'dimension[{$iDimensionCount}]',
-                [{$sD3GARemarketingProdId}]
+                [{$sD3GARemarketingProdId2}]
             );
         [{/if}]
 
-        [{* dimension 2 set payment type *}]
+        [{* dimension 2 set page type *}]
         [{assign var="iDimensionCount" value=$iDimensionCount+1}]
-        [{if $oViewConf->getActiveClassName() == 'thankyou'}]
+        [{if $sD3GARemarketingPageType}]
             ga(
                 'set',
                 'dimension[{$iDimensionCount}]',
@@ -30,9 +30,9 @@
             );
         [{/if}]
 
-        [{* dimension 2 set payment type *}]
+        [{* dimension 3 set product total price *}]
         [{assign var="iDimensionCount" value=$iDimensionCount+1}]
-        [{if $oViewConf->getActiveClassName() == 'thankyou'}]
+        [{if $sD3GARemarketingPrice}]
             ga(
                 'set',
                 'dimension[{$iDimensionCount}]',
