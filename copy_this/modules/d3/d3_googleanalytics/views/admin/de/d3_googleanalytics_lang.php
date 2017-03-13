@@ -27,7 +27,7 @@ $aLang = array(
 
 //Navigation
     'charset'                                                      => 'ISO-8859-15',
-    'd3mxgoogleanalytics'                                          => 'Google Services',
+    'd3mxgoogleanalytics'                                          => "<i class='fa fa-google'></i> Google Services",
     'd3mxgoogleanalytics_settings'                                 => 'Einstellungen',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
@@ -198,6 +198,15 @@ $aLang = array(
         '_gat.GA_Tracker_._setDetectTitle" target="gahelp">hier</a>. Diese Einstellung steht f&uuml;r Universal '.
         'Analytics nicht mehr zur Verf&uuml;gung',
 
+    'D3_GOOGLEANALYTICS_ANALYTICSREMARKETING'                      => 'Remarketing (via Analytics)',
+    'D3_GOOGLEANALYTICS_ANALYTICSREMARKETING_TRANSMIT'             => 'Remarketingdaten als individuelle Daten &uuml;bertragen',
+    'D3_GOOGLEANALYTICS_ANALYTICSREMARKETING_TRANSMIT_DESC'        => 'Aktivieren Sie die Option, wenn Sie die '.
+        'Remarketingdaten au&szlig;erhalb von AdWords &uuml;bertragen m&ouml;chten. Diese werden dann als '.
+        'individuelle Daten gesendet. Richten Sie die Dimensionen so ein, wie dies unter '.
+        '<a href="https://support.google.com/analytics/answer/3455600?hl=de&ref_topic=3455490" target="gahelp">dem '.
+        'Google-Beitrag</a> beschrieben ist.<br>Zus&auml;tzliche &quot;individuelle Daten&quot; werden dann ab der '.
+        '4. Dimension &uuml;bermittelt.',
+
     'D3_GOOGLEANALYTICS_CUSTOMVARS'                                => 'individuelle Daten',
     'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT'                       => 'individuelle Daten &uuml;bertragen',
     'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC'                  => 'Mit individuellen Daten k&ouml;nnen Sie '.
@@ -291,7 +300,7 @@ $aLang = array(
         'target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/'.
         'collection/analyticsjs/field-reference#campaignContent" target="gahelp">hier</a></li></ul>',
 
-    'D3_GOOGLEANALYTICS_ADWORDSREMARKETING'                        => 'Remarketing',
+    'D3_GOOGLEANALYTICS_ADWORDSREMARKETING'                        => 'Remarketing (via AdWords)',
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING'                    => 'Remarketing-Code aktivieren',
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING_DESC'               => 'Die Option aktiviert den Remarketing-Code. '.
         'Dann ist die Eingabe der Conversion-ID obligatorisch.',
@@ -315,7 +324,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_SETCAMPAIGNTHANKYOUONLY'                   => 'Kampagnendaten nur in Bestellabschlussseite '.
         'verwenden',
     'D3_GOOGLEANALYTICS_SETCAMPAIGNTHANKYOUONLY_DESC'              => 'Ist dieser Haken nicht gesetzt, wird der '.
-        'Kampagnencode shopweit eingefügt. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion '.
+        'Kampagnencode shopweit eingef&uuml;gt. Ob diese Einstellung notwendig ist, erfahren Sie bei Ihrem Conversion '.
         'Tracking Anbieter.',
     'D3_GOOGLEANALYTICS_CAMPAIGNCODE_CODE'                         => 'Code',
     'D3_GOOGLEANALYTICS_CAMPAIGNCODE_CODE_DESC'                    => 'Kopieren Sie hier den Kampagnen-Tracking-Code '.

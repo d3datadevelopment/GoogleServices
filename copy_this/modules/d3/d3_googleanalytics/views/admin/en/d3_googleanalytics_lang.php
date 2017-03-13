@@ -27,7 +27,7 @@ $aLang = array(
 
 //Navigation
     'charset'                                                      => 'ISO-8859-15',
-    'd3mxgoogleanalytics'                                          => 'Google Services',
+    'd3mxgoogleanalytics'                                          => "<i class='fa fa-google'></i> Google Services",
     'd3mxgoogleanalytics_settings'                                 => 'Settings',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
@@ -198,6 +198,15 @@ $aLang = array(
         '_gat.GA_Tracker_._setDetectTitle" target="gahelp">hier</a>. Diese Einstellung steht f&uuml;r Universal '.
         'Analytics nicht mehr zur Verf&uuml;gung',
 
+    'D3_GOOGLEANALYTICS_ANALYTICSREMARKETING'                      => 'Remarketing (via Analytics)',
+    'D3_GOOGLEANALYTICS_ANALYTICSREMARKETING_TRANSMIT'             => 'Remarketingdaten als individuelle Daten &uuml;bertragen',
+    'D3_GOOGLEANALYTICS_ANALYTICSREMARKETING_TRANSMIT_DESC'        => 'Aktivieren Sie die Option, wenn Sie die '.
+        'Remarketingdaten au&szlig;erhalb von AdWords &uuml;bertragen m&ouml;chten. Diese werden dann als '.
+        'individuelle Daten gesendet. Richten Sie die Dimensionen so ein, wie dies unter '.
+        '<a href="https://support.google.com/analytics/answer/3455600?hl=de&ref_topic=3455490" target="gahelp">dem '.
+        'Google-Beitrag</a> beschrieben ist.<br>Zus&auml;tzliche &quot;individuelle Daten&quot; werden dann ab der '.
+        '4. Dimension &uuml;bermittelt.',
+
     'D3_GOOGLEANALYTICS_CUSTOMVARS'                                => 'individuelle Daten',
     'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT'                       => 'individuelle Daten &uuml;bertragen',
     'D3_GOOGLEANALYTICS_CUSTOMVARS_TRANSMIT_DESC'                  => 'Mit individuellen Daten k&ouml;nnen Sie '.
@@ -291,7 +300,7 @@ $aLang = array(
         'target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/'.
         'collection/analyticsjs/field-reference#campaignContent" target="gahelp">hier</a></li></ul>',
 
-    'D3_GOOGLEANALYTICS_ADWORDSREMARKETING'                        => 'Remarketing',
+    'D3_GOOGLEANALYTICS_ADWORDSREMARKETING'                        => 'Remarketing (via AdWords)',
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING'                    => 'Remarketing-Code aktivieren',
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING_DESC'               => 'Die Option aktiviert den Remarketing-Code. '.
         'Dann ist die Eingabe der Conversion-ID obligatorisch.',
@@ -395,9 +404,9 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_MAIN_USEOPTOUT'                            => 'Opt Out anbieten',
     'D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC'                       => '<p>Wird dieser Haken gesetzt, wird im Frontend '.
         'ein Opt-Out-Bereich im Header angezeigt. In dem Bereich kann der Benutzer einen Link anklicken, '.
-        'mit dem für diesen Nutzer das Tracking für diese Seite deaktiviert wird.</p><p>Weitere Informationen zu '.
-        'dieser Option finden Sie in der <a href="https://www.google.de/search?q=Analytics+_opt+out+script" '.
-        'target="gahelp">Google-Suche</a>.</p>',
+        'mit dem das Tracking für diese Seite deaktiviert wird.</p><p>Weitere Informationen zu dieser Option finden '.
+        'Sie in der <a href="https://www.google.de/search?q=Analytics+_opt+out+script" target="gahelp">Google-Suche'.
+        '</a>.</p>',
 
     // Erweiterung des Links in der Fussnote "Hilfe Starten"
     'D3_GOOGLEANALYTICS_HELPLINK' => 'Fragen-zu-speziellen-Modulen/Google-Analytics/',
@@ -405,7 +414,5 @@ $aLang = array(
 
 
 /*
-
-[{ oxmultilang ident="GENERAL_YOUWANTTODELETE" }]
-
+[{oxmultilang ident="GENERAL_YOUWANTTODELETE"}]
 */

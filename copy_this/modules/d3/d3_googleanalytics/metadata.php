@@ -40,7 +40,7 @@ $aModule = array(
                 'Trusted Shops account to your shop.',
     ),
     'thumbnail'    => 'picture.png',
-    'version'      => '3.3.2.0',
+    'version'      => '3.4.0.0',
     'author'       => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'        => 'support@shopmodule.com',
     'url'          => 'http://www.oxidmodule.com/',

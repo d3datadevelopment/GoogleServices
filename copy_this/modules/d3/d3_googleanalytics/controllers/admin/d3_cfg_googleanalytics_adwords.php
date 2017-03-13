@@ -24,6 +24,9 @@ class d3_cfg_googleanalytics_adwords extends d3_cfg_mod_main
 
     protected $_sModId = 'd3_googleanalytics';
 
+    protected $_sMenuItemTitle = 'd3mxgoogleanalytics';
+    protected $_sMenuSubItemTitle = 'd3tbclgoogleanalytics_adwords';
+
     /**
      * @return mixed
      */

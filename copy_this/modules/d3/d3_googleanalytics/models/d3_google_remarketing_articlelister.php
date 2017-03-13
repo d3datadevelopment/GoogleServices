@@ -20,12 +20,60 @@ class d3_google_remarketing_articlelister
 
     public $blD3GARemarketingUseBrutto = true;
 
+    public $aStartListMethodNames = array(
+        'getArticleList',
+        'getTopArticleList',
+        'getNewestArticles',
+        'getFirstArticle',
+        'getCatOfferArticleList',
+    );
+
+    /**
+     * @param start $oView
+     *
+     * @return array
+     */
+    public function getStartProdList($oView)
+    {
+        /** @var oxArticleList $oArticleList */
+        $oArticleList = oxNew('oxarticlelist');
+
+        if (is_array($this->aStartListMethodNames) && count($this->aStartListMethodNames)) {
+            foreach ($this->aStartListMethodNames as $sListName) {
+                /** @var oxArticleList $oList */
+                $mList = call_user_func(array($oView, $sListName));
+
+                if ($mList instanceof oxArticleList) {
+                    if ($mList->count()) {
+                        foreach ($mList->getArray() as $sID => $oArticle) {
+                            $oArticleList->offsetSet($sID, $oArticle);
+                        }
+                    }
+                }
+            }
+        }
+
+        return $this->_getProductList($oArticleList);
+    }
+
     /**
      * @param details $oView
      *
      * @return array
      */
     public function getDetailsProdList($oView)
+    {
+        $aArticleList = array();
+        $aArticleList[] = $oView->getProduct();
+        return $this->_getProductList($aArticleList);
+    }
+
+    /**
+     * @param oxwArticleDetails $oView
+     *
+     * @return array
+     */
+    public function getOxwarticledetailsProdList($oView)
     {
         $aArticleList = array();
         $aArticleList[] = $oView->getProduct();
