@@ -1,5 +1,11 @@
-=> 3.3.3.0
+=> 3.4.0.0
 - Remarketing (via Analytics) eingefügt
+- Remarketing-Liste für Startseite eingefügt
+- Template-Blöcke eingefügt
+- Titel der Konfigurationsseiten angepasst
+- Staffelpreisübergaben korrigiert (#3679)
+- Steuerberechnung korrigiert
+- Scriptsyntax angepasst
 
 => 3.3.2.0
 - fix: Optionen im Admin können nicht deaktivert werden
