@@ -1,3 +1,6 @@
+=> 3.4.0.1
+- #5078: ecomm_totalvalue darf nicht in Apostrophen stehen
+
 => 3.4.0.0
 - Remarketing (via Analytics) eingefügt
 - Remarketing-Liste für Startseite eingefügt

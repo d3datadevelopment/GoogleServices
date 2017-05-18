@@ -13,7 +13,7 @@
             var google_tag_params = {
                 ecomm_prodid: [{$sD3GARemarketingProdId}],
                 ecomm_pagetype: '[{$sD3GARemarketingPageType}]',
-                ecomm_totalvalue: '[{$sD3GARemarketingPrice}]'
+                ecomm_totalvalue: [{$sD3GARemarketingPrice}]
             };
         </script>
         <script type="text/javascript">
