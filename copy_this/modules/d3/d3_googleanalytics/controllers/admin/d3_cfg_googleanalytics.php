@@ -29,4 +29,19 @@ class d3_cfg_googleanalytics extends d3_cfg_mod_
         $this->addTplParam('sMainClass', 'd3_cfg_googleanalytics_main');
         return parent::render();
     }
+
+    public function getAdditionalHeadContent()
+    {
+        $oViewConf = oxRegistry::getConfig()->getActiveView()->getViewConfig();
+        $sScriptUrl = $oViewConf->getModuleUrl('d3_googleanalytics', 'out/src/d3_googleanalytics_test.js');
+
+        return parent::getAdditionalHeadContent().'
+            <script src="'.$sScriptUrl.'"></script>
+            <script type="text/javascript">
+                if(null === document.getElementById("SePiRENuJOBWx")){
+                    alert("'.oxRegistry::getLang()->translateString('D3_GOOGLEANALYTICS_ADBLOCKER', null, true).'");
+                }
+            </script>
+        ';
+    }
 }
