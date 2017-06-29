@@ -2,6 +2,7 @@
 - #5078: ecomm_totalvalue darf nicht in Apostrophen stehen
 - #4814: Remarketing: Werte für ecomm_pagetype anpassen
 - #4509: changed_full entfernen
+- AdBlock-Checker in Admin integriert, da dieser die Darstellung des Adminbereichs blockieren kann
 
 => 3.4.0.0
 - Remarketing (via Analytics) eingefügt
