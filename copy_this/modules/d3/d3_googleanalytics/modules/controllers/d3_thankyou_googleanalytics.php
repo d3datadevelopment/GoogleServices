@@ -58,7 +58,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function logCode($sGACode)
     {
-        d3_cfg_mod::get($this->_sModCfgId)->d3getLog()->log(
+        \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->d3getLog()->log(
             d3log::NOTICE,
             __CLASS__,
             __FUNCTION__,
@@ -119,7 +119,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
             $sModCfgVarName = 'iEstShippingTimeValueOutOfStock';
         }
 
-        $iTimeValue = d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
+        $iTimeValue = \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
 
         for ($i = 0; $i < $iTimeValue; $i++) {
             $iTimestamp += 86400;
@@ -262,14 +262,14 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAgetProductId($oOrderArticle)
     {
-        switch (d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId')) {
+        switch (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId')) {
             case 'oxartnum':
                 return $oOrderArticle->getFieldData('oxartnum');
             case 'oxid':
                 return $oOrderArticle->getFieldData('oxartid');
         };
 
-        return $oOrderArticle->getFieldData(d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId'));
+        return $oOrderArticle->getFieldData(\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId'));
     }
 
     /**

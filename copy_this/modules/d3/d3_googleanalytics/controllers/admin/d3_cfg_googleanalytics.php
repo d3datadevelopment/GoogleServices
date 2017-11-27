@@ -18,7 +18,7 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
-class d3_cfg_googleanalytics extends d3_cfg_mod_
+class d3_cfg_googleanalytics extends D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_
 {
     /**
      * @return string

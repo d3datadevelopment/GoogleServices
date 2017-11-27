@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId   = 'd3_googleanalytics';
 
-    public $sModVersion = '3.4.0.0';
+    public $sModVersion = '4.0.0.0';
 
     /********************** check configuration section ************************/
 
@@ -52,7 +52,7 @@ class requConfig
         'hasMinPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
-                'version' => '5.2.0'
+                'version' => '7.0.0'
             )
         ),
 
@@ -60,7 +60,7 @@ class requConfig
         'hasMaxPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
-                'version' => '5.6.200'
+                'version' => '7.99.200'
             )
         ),
 
@@ -124,9 +124,9 @@ class requConfig
         'hasMinShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
-                'PE' => '4.9.0',
-                'CE' => '4.9.0',
-                'EE' => '5.2.0'
+                'PE' => '6.0.0',
+                'CE' => '6.0.0',
+                'EE' => '6.0.0'
             ),
         ),
 
@@ -134,9 +134,9 @@ class requConfig
         'hasMaxShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
-                'PE' => '4.10.3',
-                'CE' => '4.10.3',
-                'EE' => '5.3.3'
+                'PE' => '6.0.10',
+                'CE' => '6.0.10',
+                'EE' => '6.0.10'
             ),
         ),
 
@@ -164,7 +164,7 @@ class requConfig
                 'aParams' => array(
                     'id'      => 'd3modcfg_lib',
                     'name'    => 'Modul-Connector',
-                    'version' => '4.3.3.0',
+                    'version' => '5.0.0.1',
                 ),
             ),
         ),
@@ -176,7 +176,7 @@ class requConfig
                 'aParams' => array(
                     'id'      => 'd3modcfg_lib',
                     'name'    => 'Modul-Connector',
-                    'version' => '3.9.0.5',
+                    'version' => '5.0.1.0',
                 ),
             ),
         ),

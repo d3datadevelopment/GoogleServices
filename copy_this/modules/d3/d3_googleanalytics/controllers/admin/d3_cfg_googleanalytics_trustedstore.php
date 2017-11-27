@@ -18,7 +18,7 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
-class d3_cfg_googleanalytics_trustedstore extends d3_cfg_mod_main
+class d3_cfg_googleanalytics_trustedstore extends D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main
 {
     protected $_sThisTemplate = 'd3_cfg_googleanalytics_trustedstore.tpl';
     protected $_sModId = 'd3_googleanalytics';

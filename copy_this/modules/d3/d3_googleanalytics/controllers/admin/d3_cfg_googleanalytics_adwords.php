@@ -18,7 +18,7 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
-class d3_cfg_googleanalytics_adwords extends d3_cfg_mod_main
+class d3_cfg_googleanalytics_adwords extends D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main
 {
     protected $_sThisTemplate = 'd3_cfg_googleanalytics_adwords.tpl';
 

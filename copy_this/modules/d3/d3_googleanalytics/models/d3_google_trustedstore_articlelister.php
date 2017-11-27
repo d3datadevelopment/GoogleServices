@@ -170,7 +170,7 @@ class d3_google_trustedstore_articlelister
         if (isset($aArticleList)) {
             foreach ($aArticleList as $oArticle) {
                 $aArticleIds[] = $oArticle->getFieldData(
-                    d3_cfg_mod::get($this->_sModId)->getValue('sD3GATSShoppingArtId')
+                    \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GATSShoppingArtId')
                 );
             }
         }

@@ -13,7 +13,7 @@
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
  * @link      http://www.oxidmodule.com
  */
-class d3_cfg_googleanalyticslog_list extends d3_cfg_log_list
+class d3_cfg_googleanalyticslog_list extends D3\ModCfg\Application\Controller\Admin\Log\d3_cfg_log_list
 {
     protected $_sModId = 'd3_googleanalytics';
 }

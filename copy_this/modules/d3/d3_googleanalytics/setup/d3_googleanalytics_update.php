@@ -1,5 +1,7 @@
 <?php
 
+use D3\ModCfg\Application\Model\Install\d3install_updatebase;
+
 /**
  * This Software is the property of Data Development and is protected
  * by copyright law - it is NOT Freeware.
@@ -21,18 +23,21 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModName = 'Google Services Schnittstelle';
 
-    public $sModVersion = '3.4.0.0';
+    public $sModVersion = '4.0.0.0';
 
-    public $sModRevision = '242';
+    public $sModRevision = '243';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
-    public $sBaseConf =
-    "ZJ0MzB1N2F3em43V1dqWXkvVnc1WXVOeStnMU95aHM2d1BiZEJlbGVhbzNIcE5nTVJxQlZYOEFwU2RrK
-2dBSUlQNm43Ly9ldkNZUlFEemNNNmVvVXlTNWRwSVp5RGk4UGxKb2xTckQ4U2pRWUZKVFR1bWx3N0dRU
-3FzbThEOGNqSWcvZDFXNVJhSlUydEFwejZ2OFRRektPai9nNVcvWGJURGV2SGJpTkZxMjBOM1pXMkJRU
-jVoN1dybnBhTlFWQ0s2Lzh4NjMvZXZMMlJHV21LTnNJcDBIWngxSkJVM3hDODZ4bzBaWS9zRHZ1WC9jY
-UtkNFB6WEdzR2NLMG8yWGpMdG9XTmZsQ0lCNkdGSzZ1N0JRMFVlV3JhRXhtZ2tNUi9pd3hsMDIwRlNHY
-np5bjJIQjE5aGIycW4wSGpCQXI5alVwYmJreTBRS3NMckNQODZvYXJnZjdBPT0=";
+    public $sBaseConf = <<<KEY
+--------------------------------------------------------------------------------
+3b2v2==UkRnWmZRNldtbEprOUd1YnFzNTltbmFxQnhhVW5OVTArUklIYzlyMFRDRmZXckYzaXZMWEhpY
+lRaOW05M0xBUlBUbncvaXpQWFBkNEJETWd1blZpK1pZYmMxaFJRdnRER2dkSVpGK0VDcmxXT1prUUxGV
+m1EZEtBakpVK0FZR1U5UGZoaER0YXF0YXFSLzJ3ODcvcUdyRk5rcVhGck9yT0x0SlVUQmZGS3NJRTZIV
+EphRjNzMlVSLzYrZUx6L2s1OXdhOWFBRGFPaEdpWmdqcmR2QnczV1V2OVEyQ0FVWFFtMXhSUWhqZXJjM
+lhUUm11Y2VsTG9jRkRHNHJsMEpkZzlweEM4VTc3ay91RTkveUZIMEliN0RHWU1WTHZibERkaGZJbERnb
+GhDdTJnNEVzS1VMSm92NVJqZXI4azZKcm9qYStwTXZERnB2Nnk2cWZMYWVrelR3PT0=
+--------------------------------------------------------------------------------
+KEY;
 
     public $sRequirements = '';
 

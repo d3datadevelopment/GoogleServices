@@ -18,7 +18,7 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
-class d3_cfg_googleanalytics_list extends d3_cfg_mod_list
+class d3_cfg_googleanalytics_list extends D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_list
 {
     protected $_blD3ShowLangSwitch = false;
 

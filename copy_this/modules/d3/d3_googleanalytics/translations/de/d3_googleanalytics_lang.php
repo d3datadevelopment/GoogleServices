@@ -8,6 +8,6 @@ $sLangName = "Deutsch";
 $aLang = array(
 
     //Navigation
-    'charset'                   => 'ISO-8859-15',
+    'charset'                   => 'UTF-8',
     'D3_GOOGLEANALYTICS_OPTOUT' => 'Klicken Sie hier, um Google Analytics zu deaktivieren.',
 );

@@ -41,7 +41,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         $ret = parent::render();
 
-        $oSet = d3_cfg_mod::get($this->_d3getModId());
+        $oSet = \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_d3getModId());
 
         if ($oSet->isActive()) {
             /** @var $oParentView oxView */
@@ -93,7 +93,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function d3getGATTpl()
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
             return 'd3_googleanalytics.tpl';
         }
 
@@ -105,7 +105,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function d3GetCreateCurrentShopUrl()
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
             return 'auto';
         }
 
@@ -125,7 +125,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function afGetMoreUrls()
     {
-        if (false == d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
+        if (false == \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
             return '';
         }
 
@@ -241,7 +241,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function d3getSendPageViewParameters()
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
             return $this->_d3getAsyncSendpageViewParameters();
         }
 
@@ -425,10 +425,10 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getCreateDomainNameParameter($aParameter)
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName')) {
-            $aParameter[] = "'cookieDomain': '" . d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName') . "'";
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName')) {
+            $aParameter[] = "'cookieDomain': '" . \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName') . "'";
             $aParameter[] = "'legacyCookieDomain': '" .
-                d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName') . "'";
+                \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetDomainName') . "'";
 
             return $aParameter;
         }
@@ -443,8 +443,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getCreateCookiePathParameter($aParameter)
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetCookiePath')) {
-            $aParameter[] = "'cookiePath': '" . d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetCookiePath') . "'";
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetCookiePath')) {
+            $aParameter[] = "'cookiePath': '" . \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GASetCookiePath') . "'";
 
             return $aParameter;
         }
@@ -459,7 +459,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getCreateDomainLinkerParameter($aParameter)
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
             $aParameter[] = "'allowLinker': true";
 
             return $aParameter;
@@ -475,9 +475,9 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getCreateSpeedSamplerateParameter($aParameter)
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate')) {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate')) {
             $aParameter[] = "'siteSpeedSampleRate': " .
-                d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate');
+                \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('iD3GASiteSpeedSampleRate');
 
             return $aParameter;
         }
@@ -492,8 +492,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getCreateSamplerateParameter($aParameter)
     {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('iD3GASampleRate')) {
-            $aParameter[] = "'sampleRate': " . d3_cfg_mod::get($this->_sModId)->getValue('iD3GASampleRate');
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('iD3GASampleRate')) {
+            $aParameter[] = "'sampleRate': " . \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('iD3GASampleRate');
 
             return $aParameter;
         }
@@ -551,7 +551,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getUniversalSendPageViewDebugParameter($aParameter)
     {
-        if (d3_cfg_mod::get($this->_sModId)->hasDebugMode()) {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->hasDebugMode()) {
             $aParameter[] = "
                 'hitCallback': function() {
                     alert('analytics.js done sending data');
@@ -584,7 +584,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     public function d3GetSendNoBounceEventTime()
     {
-        $iTime = d3_cfg_mod::get($this->_sModId)->getValue('iSendNoBounceEventTime');
+        $iTime = \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('iSendNoBounceEventTime');
 
         if (isset($iTime) && is_int($iTime)) {
             return $iTime;

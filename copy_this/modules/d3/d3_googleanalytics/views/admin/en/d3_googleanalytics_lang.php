@@ -26,7 +26,7 @@ $sLangName = "English";
 $aLang = array(
 
 //Navigation
-    'charset'                                                      => 'ISO-8859-15',
+    'charset'                                                      => 'UTF-8',
     'd3mxgoogleanalytics'                                          => "<i class='fa fa-google'></i> Google Services",
     'd3mxgoogleanalytics_settings'                                 => 'Settings',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
@@ -42,9 +42,9 @@ $aLang = array(
 
     'D3_GOOGLEANALYTICS_DESC'                                      => 'Diese Einstellungen betreffen den Dienst '.
         '<a href="http://www.google.com/analytics/" target="_blank">"Google Analytics"</a>. '.
-        'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
-    'D3_GOOGLEANALYTICS_DESC1'                                     => 'Während der Anmeldung werden Sie aufgefordert, '.
-        'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul für Sie. '.
+        'MÃ¶chten Sie diesen nutzen, melden Sie sich auf der Webseite dafÃ¼r an.',
+    'D3_GOOGLEANALYTICS_DESC1'                                     => 'WÃ¤hrend der Anmeldung werden Sie aufgefordert, '.
+        'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul fÃ¼r Sie. '.
         'Die Einstellungen zum Trackingcode nehmen Sie ebenfalls hier vor.',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE'                               => 'Tracking code type',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL'                     => 'Universal',
@@ -119,22 +119,22 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT2'                  => 'Millisekunden (1000 = 1 Sekunde)',
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDTIMEEVENT_DESC'              => '<p>Analytics wertet alle Seitenbucher, die '.
         'sich nur eine Seite angesehen habe und dann den Shop verlassen, automatisch als Abbrecher. Zur '.
-        'Informationsbeschaffung reicht dem Kunden jedoch möglicherweise dieser eine Seitenbesuch aus. Sein Ziel '.
+        'Informationsbeschaffung reicht dem Kunden jedoch mÃ¶glicherweise dieser eine Seitenbesuch aus. Sein Ziel '.
         'konnte er erreichen. Demnach ist er eigentlich kein Abbrecher. Das Modul sendet automatisch nach der '.
         'angegebenen Sekundenzahl ein EventTracking. Damit wertet Analytics diesen Besucher nur als Abbrecher, wenn '.
-        'er den Shop vor Ablauf dieser Zeit wieder verlässt. Verweilt er länger im Shop, wird der Besuch dann als '.
-        'Erfolg gewertet.</p><p>Diese Tracking-Veränderung stellt die Absprungrate daher im Analytics wesentlich '.
-        'genauer dar. Der Standardwert ist auf 10 Sekunden gesetzt. Ändern Sie bei Bedarf diese Angabe.</p><p>Weitere '.
+        'er den Shop vor Ablauf dieser Zeit wieder verlÃ¤sst. Verweilt er lÃ¤nger im Shop, wird der Besuch dann als '.
+        'Erfolg gewertet.</p><p>Diese Tracking-VerÃ¤nderung stellt die Absprungrate daher im Analytics wesentlich '.
+        'genauer dar. Der Standardwert ist auf 10 Sekunden gesetzt. Ã„ndern Sie bei Bedarf diese Angabe.</p><p>Weitere '.
         'Informationen zu dieser Option finden Sie in der '.
         '<a href="https://www.google.de/search?q=Analytics+_trackEvent+noBounce" target="gahelp">Google-Suche</a>.</p>',
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDSCROLLEVENT'                 => 'Seitenbesucher nicht als Abbrecher werten, '.
         'wenn gescrollt wurde',
     'D3_GOOGLEANALYTICS_BOUNCEOPT_SENDSCROLLEVENT_DESC'            => '<p>Analytics wertet alle Seitenbucher, die '.
         'sich nur eine Seite angesehen habe und dann den Shop verlassen, automatisch als Abbrecher. Zur '.
-        'Informationsbeschaffung reicht dem Kunden jedoch möglicherweise dieser eine Seitenbesuch aus. Sein Ziel '.
+        'Informationsbeschaffung reicht dem Kunden jedoch mÃ¶glicherweise dieser eine Seitenbesuch aus. Sein Ziel '.
         'konnte er erreichen. Demnach ist er eigentlich kein Abbrecher. Das Modul sendet automatisch ein '.
         'EventTracking, wenn der Besucher die Seite gescrollt hat. Damit wertet Analytics diesen Besucher nur als '.
-        'Abbrecher, wenn er den Shop ohne Scrollen wieder verlässt.</p><p>Diese Tracking-Veränderung stellt die '.
+        'Abbrecher, wenn er den Shop ohne Scrollen wieder verlÃ¤sst.</p><p>Diese Tracking-VerÃ¤nderung stellt die '.
         'Absprungrate daher im Analytics wesentlich genauer dar.</p><p>Weitere Informationen zu dieser Option finden '.
         'Sie in der <a href="https://www.google.de/search?q=_trackEvent+noBounce+scroll" target="gahelp">Google-Suche'.
         '</a>.</p>',
@@ -244,9 +244,9 @@ $aLang = array(
 
     'D3_GOOGLEANALYTICS_ADWORDS_DESC'                              => 'Diese Einstellungen betreffen den Dienst '.
         '<a href="http://www.google.de/AdWords" target="_blank">"Google Adwords"</a>. '.
-        'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
-    'D3_GOOGLEANALYTICS_ADWORDS_DESC1'                             => 'Während der Anmeldung werden Sie aufgefordert, '.
-        'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul für Sie. '.
+        'MÃ¶chten Sie diesen nutzen, melden Sie sich auf der Webseite dafÃ¼r an.',
+    'D3_GOOGLEANALYTICS_ADWORDS_DESC1'                             => 'WÃ¤hrend der Anmeldung werden Sie aufgefordert, '.
+        'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul fÃ¼r Sie. '.
         'Die Einstellungen zum Trackingcode nehmen Sie ebenfalls hier vor.',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN'                               => 'Kampagnen-Tracking',
     'D3_GOOGLEANALYTICS_ADWORDSCODE_SETCAMPAIGNTRACK'              => 'AdWords-Kampagnendaten <span style="'.
@@ -306,19 +306,19 @@ $aLang = array(
         'Dann ist die Eingabe der Conversion-ID obligatorisch.',
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID'                 => 'Conversion-ID',
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID_DESC'            => 'Tragen Sie hier die zu Ihrem eingerichteten '.
-        'Remarketing zugehörige Conversion-ID ein. Diese kann mit Ihrer AdWords-Conversion-Tracking-ID identisch '.
-        'sein. Auch Abweichungen sind möglich.',
+        'Remarketing zugehÃ¶rige Conversion-ID ein. Diese kann mit Ihrer AdWords-Conversion-Tracking-ID identisch '.
+        'sein. Auch Abweichungen sind mÃ¶glich.',
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL'              => 'Conversion-Label (optional)',
 
     'd3tbclgoogleanalytics_campaigns'                              => 'andere Kampagnen',
     'D3_GOOGLEANALYTICS_CAMPAIGNS_DESC'                            => 'Diese Einstellungen betreffen andere (auch '.
         'google-fremde) Kampagnen, die mit den Leistungen des Moduls nicht abgedeckt sind. Details zu den Kampagnen '.
         'und dessen Implementierung erhalten Sie beim jeweiligen Anbieter.',
-    'D3_GOOGLEANALYTICS_CAMPAIGNS_DESC1'                           => 'Während der Anmeldung werden Sie aufgefordert, '.
+    'D3_GOOGLEANALYTICS_CAMPAIGNS_DESC1'                           => 'WÃ¤hrend der Anmeldung werden Sie aufgefordert, '.
         'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Konfigurieren Sie diesen bei Ihem '.
         'Kampagnenanbieter und tragen Sie diesen dann hier ein das Eingabefeld ein.',
     'D3_GOOGLEANALYTICS_CAMPAIGNSETTINGS'                          => 'Kampagnen-Einstellungen',
-    'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK'                          => 'Kampagnencode übertragen',
+    'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK'                          => 'Kampagnencode Ã¼bertragen',
     'D3_GOOGLEANALYTICS_SETCAMPAIGNTRACK_DESC'                     => 'Nur mit dieser Option wird der eingegebene '.
         'Kampagnencode ausgeliefert',
     'D3_GOOGLEANALYTICS_SETCAMPAIGNTHANKYOUONLY'                   => 'Kampagnendaten nur in Bestellabschlussseite '.
@@ -332,15 +332,15 @@ $aLang = array(
         'Dieser Code wird 1:1 in den Seitenquelltext eingef&uuml;gt und nicht geparst.',
 
     'D3_GOOGLEANALYTICS_TS_DESC'                                   => 'Diese Einstellungen betreffen den Dienst '.
-        '<a href="http://www.google.com/trustedstores/" target="_blank">"Google Zertifizierter Händler"</a>. '.
-        'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
-    'D3_GOOGLEANALYTICS_TS_DESC1'                                  => 'Während der Aktivierung werden Sie '.
+        '<a href="http://www.google.com/trustedstores/" target="_blank">"Google Zertifizierter HÃ¤ndler"</a>. '.
+        'MÃ¶chten Sie diesen nutzen, melden Sie sich auf der Webseite dafÃ¼r an.',
+    'D3_GOOGLEANALYTICS_TS_DESC1'                                  => 'WÃ¤hrend der Aktivierung werden Sie '.
         'aufgefordert, einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dieser wird von unserem Modul '.
-        'eingebunden. Damit können Sie die Qualifizierungsphase starten. Erst nach erfolgreicher Beendigung sehen Sie '.
-        'das "Google Zertifizierter Händler"-Siegel. Über dessen Darstellung entscheidet allein Google.',
+        'eingebunden. Damit kÃ¶nnen Sie die Qualifizierungsphase starten. Erst nach erfolgreicher Beendigung sehen Sie '.
+        'das "Google Zertifizierter HÃ¤ndler"-Siegel. Ãœber dessen Darstellung entscheidet allein Google.',
     'D3_GOOGLEANALYTICS_TS_ACTIVE'                                 => 'activate "Trusted Store" in shop',
-    'D3_GOOGLEANALYTICS_TS_ACTIVE_DESC'                            => 'Dieser Haken bindet die nötigen Trackingcodes '.
-        'in den Quelltext Ihres Shops ein. Ob Sie das Gütesiegel im Shop sehen, entscheidet jedoch nur Google intern. '.
+    'D3_GOOGLEANALYTICS_TS_ACTIVE_DESC'                            => 'Dieser Haken bindet die nÃ¶tigen Trackingcodes '.
+        'in den Quelltext Ihres Shops ein. Ob Sie das GÃ¼tesiegel im Shop sehen, entscheidet jedoch nur Google intern. '.
         'Sind Sie der Meinung, das Siegel sollte angezeigt werden, wenden Sie sich bitte an Ihren Betreuer bei Google.',
     'D3_GOOGLEANALYTICS_TS_ID'                                     => 'account id',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER'                       => 'Zeitraum vom Bestelleingang bis zum Versand '.
@@ -348,52 +348,52 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DAYS'                  => 'Werktag(e)',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_DESC'                  => '<p>Google teilt Ihrem Kunden per Mail mit, '.
         'nach welchem Zeitraum ausgehend vom Bestelleingang die bestellten Artikel versendet werden. Geben Sie hier '.
-        'den für am Lager befindlicher Artikel im Normalfall größten Zeitraum bis zum Versand in Tagen an (z.B. 3 bei '.
-        '"1 bis 3 Tage"). Nach dem voraussichtlichen Versanddatum erhält der Kunde eine Umfrage zum abgeschlossenen '.
-        'Kauf.</p><p>Fällt der errechnete Termin auf ein Wochenende oder einen festen Feiertag, wird der '.
-        'nächstmögliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht berücksichtigt. Um die '.
-        'Liste der Ausnahmen anzupassen, erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p><p>Die '.
+        'den fÃ¼r am Lager befindlicher Artikel im Normalfall grÃ¶ÃŸten Zeitraum bis zum Versand in Tagen an (z.B. 3 bei '.
+        '"1 bis 3 Tage"). Nach dem voraussichtlichen Versanddatum erhÃ¤lt der Kunde eine Umfrage zum abgeschlossenen '.
+        'Kauf.</p><p>FÃ¤llt der errechnete Termin auf ein Wochenende oder einen festen Feiertag, wird der '.
+        'nÃ¤chstmÃ¶gliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht berÃ¼cksichtigt. Um die '.
+        'Liste der Ausnahmen anzupassen, erweitern Sie die Ãœberladung der thankyou-Klasse entsprechend.</p><p>Die '.
         'Unterscheidung zwischen lagernden und nicht lagernden Artikeln wird nur bei aktivierter '.
         'Lagerstandsverwaltung getroffen. Sonst werden alle Artikel als "lagernd" angesehen.</p>',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTER_OUTOFSTOCK'            => 'Zeitraum vom Bestelleingang bis zum Versand '.
         'bei <b>nicht</b> lagernden Artikeln',
     'D3_GOOGLEANALYTICS_TS_ESTSHIPDATEAFTEROUTOFSTOCK_DESC'        => '<p>Google teilt Ihrem Kunden per Mail mit, '.
         'nach welchem Zeitraum ausgehend vom Bestelleingang die bestellten Artikel versendet werden. Geben Sie hier '.
-        'den für <b>nicht</b> am Lager befindlicher Artikel im Normalfall größten Zeitraum bis zum Versand in Tagen '.
-        'an (z.B. 3 bei "1 bis 3 Tage"). Nach dem voraussichtlichen Versanddatum erhält der Kunde eine Umfrage zum '.
-        'abgeschlossenen Kauf.</p><p>Fällt der errechnete Termin auf ein Wochenende oder einen festen Feiertag, '.
-        'wird der nächstmögliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht berücksichtigt. '.
-        'Um die Liste der Ausnahmen anzupassen, erweitern Sie die Überladung der thankyou-Klasse entsprechend.</p>',
+        'den fÃ¼r <b>nicht</b> am Lager befindlicher Artikel im Normalfall grÃ¶ÃŸten Zeitraum bis zum Versand in Tagen '.
+        'an (z.B. 3 bei "1 bis 3 Tage"). Nach dem voraussichtlichen Versanddatum erhÃ¤lt der Kunde eine Umfrage zum '.
+        'abgeschlossenen Kauf.</p><p>FÃ¤llt der errechnete Termin auf ein Wochenende oder einen festen Feiertag, '.
+        'wird der nÃ¤chstmÃ¶gliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht berÃ¼cksichtigt. '.
+        'Um die Liste der Ausnahmen anzupassen, erweitern Sie die Ãœberladung der thankyou-Klasse entsprechend.</p>',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER'                        => 'Zeitraum vom Versand bis zur Lieferung beim '.
-        'Empfänger',
+        'EmpfÃ¤nger',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DAYS'                   => 'Werktag(e)',
     'D3_GOOGLEANALYTICS_TS_ESTDELDATEAFTER_DESC'                   => '<p>Google teilt Ihrem Kunden per Mail mit, '.
-        'nach welchem Zeitraum die bestellten Artikel in der Regel beim Kunden eintreffen. Geben Sie hier den für '.
-        'Normalfälle größten Zeitraum für die Lieferung in Tagen an (z.B. 4 bei "1 bis 4 Tage"). Der errechnete '.
-        'Termin wird dem Kunden per Mail mitgeteilt.</p><p>Fällt der errechnete Termin auf ein Wochenende oder einen '.
-        'festen Feiertag, wird der nächstmögliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht '.
-        'berücksichtigt. Um die Liste der Ausnahmen anzupassen, erweitern Sie die Überladung der thankyou-Klasse '.
+        'nach welchem Zeitraum die bestellten Artikel in der Regel beim Kunden eintreffen. Geben Sie hier den fÃ¼r '.
+        'NormalfÃ¤lle grÃ¶ÃŸten Zeitraum fÃ¼r die Lieferung in Tagen an (z.B. 4 bei "1 bis 4 Tage"). Der errechnete '.
+        'Termin wird dem Kunden per Mail mitgeteilt.</p><p>FÃ¤llt der errechnete Termin auf ein Wochenende oder einen '.
+        'festen Feiertag, wird der nÃ¤chstmÃ¶gliche Termin verwendet. Bewegliche und regionale Feiertage werden nicht '.
+        'berÃ¼cksichtigt. Um die Liste der Ausnahmen anzupassen, erweitern Sie die Ãœberladung der thankyou-Klasse '.
         'entsprechend.</p>',
     'D3_GOOGLEANALYTICS_TS_SHOPPING'                               => 'Verbindung zu Google Shopping',
-    'D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE'                         => 'zusätzliche Daten aus Google Shopping '.
-        'übertragen',
-    'D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE_DESC'                    => 'Verwenden Sie Google Shopping und möchten '.
-        'zusätzliche Daten zur Identifizierung übertragen, setzen Sie diesen Haken. Die folgenden Angaben sind dann '.
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE'                         => 'zusÃ¤tzliche Daten aus Google Shopping '.
+        'Ã¼bertragen',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGACTIVE_DESC'                    => 'Verwenden Sie Google Shopping und mÃ¶chten '.
+        'zusÃ¤tzliche Daten zur Identifizierung Ã¼bertragen, setzen Sie diesen Haken. Die folgenden Angaben sind dann '.
         'ebenfalls erforderlich.',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGACCOUNTID'                      => 'Google Shopping Kontonummer',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGACCOUNTID_DESC'                 => 'Tragen Sie hier die Kontonummer (Account ID) '.
         'aus Google Shopping ein.',
-    'D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY'                        => 'Kürzel des Landes Ihres Google Shopping-Kontos',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY'                        => 'KÃ¼rzel des Landes Ihres Google Shopping-Kontos',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGCOUNTRY_DESC'                   => 'Geben Sie hier das Land Ihres Google Shopping '.
-        'Kontos an. Erwartet wird der ISO-3166-Ländercode (z.B.: DE, CH, AT, FR).',
-    'D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE'                       => 'Kürzel der Sprache Ihres Google Shopping-Kontos',
+        'Kontos an. Erwartet wird der ISO-3166-LÃ¤ndercode (z.B.: DE, CH, AT, FR).',
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE'                       => 'KÃ¼rzel der Sprache Ihres Google Shopping-Kontos',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGLANGUAGE_DESC'                  => 'Geben Sie hier die Sprache Ihres Google '.
         'Shopping Kontos an. Erwartet wird der ISO-639-1-Sprachcode (z.B.: de, en, fr).',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID'                          => 'Identifikation Ihrer Artikel bei Google '.
         'Shopping',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_ARTNUM'                   => 'Artikelnummer (oxartnum)',
     'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_OXID'                     => 'interne Ident-Nummer (oxid)',
-    'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_DESC'                     => 'Über welches Feld kann Google Shopping die '.
+    'D3_GOOGLEANALYTICS_TS_SHOPPINGARTID_DESC'                     => 'Ãœber welches Feld kann Google Shopping die '.
         'dort hinterlegten Artikel identfizieren?',
 
     'D3_GOOGLEANALYTICS_METADATA_TITLE'                            => 'Google Services Schnittstelle',
@@ -404,7 +404,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_MAIN_USEOPTOUT'                            => 'Opt Out anbieten',
     'D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC'                       => '<p>Wird dieser Haken gesetzt, wird im Frontend '.
         'ein Opt-Out-Bereich im Header angezeigt. In dem Bereich kann der Benutzer einen Link anklicken, '.
-        'mit dem das Tracking für diese Seite deaktiviert wird.</p><p>Weitere Informationen zu dieser Option finden '.
+        'mit dem das Tracking fÃ¼r diese Seite deaktiviert wird.</p><p>Weitere Informationen zu dieser Option finden '.
         'Sie in der <a href="https://www.google.de/search?q=Analytics+_opt+out+script" target="gahelp">Google-Suche'.
         '</a>.</p>',
 
