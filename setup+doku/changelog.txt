@@ -1,6 +1,3 @@
-=> 4.0.0.0
-Oxid V6 Release
-
 => 3.4.0.0
 - Remarketing (via Analytics) eingefügt
 - Remarketing-Liste für Startseite eingefügt
@@ -9,6 +6,12 @@ Oxid V6 Release
 - Staffelpreisübergaben korrigiert (#3679)
 - Steuerberechnung korrigiert
 - Scriptsyntax angepasst
+
+=> 3.4.0.1
+- #5078: ecomm_totalvalue darf nicht in Apostrophen stehen
+- #4814: Remarketing: Werte für ecomm_pagetype anpassen
+- #4509: changed_full entfernen
+- AdBlock-Checker in Admin integriert, da dieser die Darstellung des Adminbereichs blockieren kann
 
 => 3.3.2.0
 - fix: Optionen im Admin können nicht deaktivert werden

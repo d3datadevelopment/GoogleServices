@@ -31,7 +31,10 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         'details'           => 'product',
         'oxwarticledetails' => 'product',
         'basket'            => 'cart',
-        'order'             => 'purchase',
+        'user'              => 'cart',
+        'payment'           => 'cart',
+        'order'             => 'cart',
+        'thankyou'          => 'purchase',
     );
 
     /**
@@ -302,19 +305,29 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     }
 
     /**
+     * Indicates the type of page that the tag is on. Valid values:
+     *
+     *  home - Used on the home page or landing page of your site.
+     *  searchresults - Used on pages where the results of a user's search are displayed.
+     *  category - Used on pages that list multiple items within a category, for example a page showing all shoes in a given style.
+     *  product - Used on individual product pages.
+     *  cart - Used on the cart/basket/checkout page.
+     *  purchase - Used on the page shown once a user has purchased (and so converted), for example a "Thank You" or confirmation page.
+     *  other - Used where the page does not fit into the other types of page, for example a "Contact Us" or "About Us" page.
+     *
+     * @link https://developers.google.com/adwords-remarketing-tag/parameters#retail-sites
      * @return string
      */
     public function d3GetGAPageType()
     {
         $oCurrentView = oxRegistry::getConfig()->getActiveView();
 
-        if (is_array($this->aD3GAPageTypes) &&
-            isset($this->aD3GAPageTypes[strtolower($oCurrentView->getClassName())])
-        ) {
-            return $this->aD3GAPageTypes[strtolower($oCurrentView->getClassName())];
+        $key = strtolower($oCurrentView->getClassName());
+        if (array_key_exists($key, $this->aD3GAPageTypes)) {
+            return $this->aD3GAPageTypes[$key];
         };
 
-        return 'Siteview';
+        return 'other';
     }
 
     /**
