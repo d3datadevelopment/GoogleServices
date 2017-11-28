@@ -308,7 +308,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID_DESC'            => 'Tragen Sie hier die zu Ihrem eingerichteten '.
         'Remarketing zugehörige Conversion-ID ein. Diese kann mit Ihrer AdWords-Conversion-Tracking-ID identisch '.
         'sein. Auch Abweichungen sind möglich.',
-    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL'              => 'Conversion-Label (optional)',
+    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL'              => 'Remarketing Conversion-Label (optional)',
 
     'd3tbclgoogleanalytics_campaigns'                              => 'andere Kampagnen',
     'D3_GOOGLEANALYTICS_CAMPAIGNS_DESC'                            => 'Diese Einstellungen betreffen andere (auch '.
