@@ -304,7 +304,7 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING'                    => 'Remarketing-Code aktivieren',
     'D3_GOOGLEANALYTICS_ADWORDS_SETREMARKETING_DESC'               => 'Die Option aktiviert den Remarketing-Code. '.
         'Dann ist die Eingabe der Conversion-ID obligatorisch.',
-    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID'                 => 'Conversion-ID',
+    'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID'                 => 'Remarketing Conversion-ID',
     'D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID_DESC'            => 'Tragen Sie hier die zu Ihrem eingerichteten '.
         'Remarketing zugeh√∂rige Conversion-ID ein. Diese kann mit Ihrer AdWords-Conversion-Tracking-ID identisch '.
         'sein. Auch Abweichungen sind m√∂glich.',
@@ -408,8 +408,8 @@ $aLang = array(
         'Sie in der <a href="https://www.google.de/search?q=Analytics+_opt+out+script" target="gahelp">Google-Suche'.
         '</a>.</p>',
 
-    'D3_GOOGLEANALYTICS_ADBLOCKER' => 'AdBlocker entdeckt - Bitte deaktivieren Sie diesen f¸r diese Seite, da sonst '.
-        'Teile des Admin-Bereichs nicht richtig geladen werden kˆnnen.',
+    'D3_GOOGLEANALYTICS_ADBLOCKER' => 'AdBlocker entdeckt - Bitte deaktivieren Sie diesen fÔøΩr diese Seite, da sonst '.
+        'Teile des Admin-Bereichs nicht richtig geladen werden kÔøΩnnen.',
 
     // Erweiterung des Links in der Fussnote "Hilfe Starten"
     'D3_GOOGLEANALYTICS_HELPLINK' => 'Fragen-zu-speziellen-Modulen/Google-Analytics/',

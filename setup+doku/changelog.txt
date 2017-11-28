@@ -1,3 +1,7 @@
+=> 4.0.0.0
+- Oxid V6 Release
+- 6419: Korrektur der Benamung der Eingabefelder für Remarketing
+
 => 3.4.0.0
 - Remarketing (via Analytics) eingefügt
 - Remarketing-Liste für Startseite eingefügt
