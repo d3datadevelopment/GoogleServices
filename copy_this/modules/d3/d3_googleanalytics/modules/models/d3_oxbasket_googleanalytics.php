@@ -22,7 +22,7 @@ class d3_oxbasket_googleanalytics extends d3_oxbasket_googleanalytics_parent
     public function d3GetCurrentLocatorTitle()
     {
         $sTitle = '';
-        /** @var oxview $oView */
+        /** @var \OxidEsales\Eshop\Application\Controller\FrontendController $oView */
         $oView = oxRegistry::getConfig()->getActiveView();
 
         if (method_exists($oView, 'getBreadCrumb') &&

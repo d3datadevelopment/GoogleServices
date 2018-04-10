@@ -28,7 +28,7 @@ $sMetadataVersion = '1.1';
  */
 $aModule = array(
     'id'             => 'd3_googleanalytics',
-    'title'          => (class_exists('d3utils') ? d3utils::getInstance()->getD3Logo() : 'D&sup3;').
+    'title'          => (class_exists(\D3\ModCfg\Application\Model\d3utils::class) ? \D3\ModCfg\Application\Model\d3utils::getInstance()->getD3Logo() : 'D&sup3;').
         ' Google Services Schnittstelle',
     'description'    => array(
         'de' => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-'.
@@ -63,7 +63,6 @@ $aModule = array(
         'd3_cfg_googleanalytics_trustedstore'  => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_trustedstore.php',
         'd3_cfg_googleanalyticslog'            => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php',
         'd3_cfg_googleanalyticslog_list'       => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php',
-        'd3_googleanalytics_update'            => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',
         'd3_google_remarketing_articlelister'  => 'd3/d3_googleanalytics/models/d3_google_remarketing_articlelister.php',
         'd3_google_trustedstore_articlelister' => 'd3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php',
         'd3_googleanalytics_update'            => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',

@@ -39,7 +39,7 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
     {
         $sSelect           =
             "SELECT oxvoucherserieid FROM oxvouchers WHERE oxorderid =  " . oxDb::getDb()->quote($this->getId());
-        $aVoucherIds       = (array) oxDb::getDb()->getArray($sSelect);
+        $aVoucherIds       = (array) oxDb::getDb()->getAll($sSelect);
         $aVoucherSerieList = array();
 
         foreach ($aVoucherIds as $aVoucherId) {

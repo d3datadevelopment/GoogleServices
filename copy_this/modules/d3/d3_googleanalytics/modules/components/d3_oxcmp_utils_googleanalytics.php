@@ -193,8 +193,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3GANormalizeUrl($sUrl)
     {
         $sPattern = "^http(s?)://";
-        /** @var d3str $oD3Str */
-        $oD3Str = oxNew('d3str');
+        /** @var \D3\ModCfg\Application\Model\d3str $oD3Str */
+        $oD3Str = oxNew(\D3\ModCfg\Application\Model\d3str::class);
 
         return preg_replace('@'.$sPattern.'@', '', $oD3Str->untrailingslashit($sUrl));
     }
@@ -387,7 +387,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function d3GetGAProdInfos()
     {
