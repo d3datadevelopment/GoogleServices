@@ -1,48 +1,51 @@
+=> 4.0.0.1
+- "weiÃŸe" Thankyou-Seite behoben
+
 => 4.0.0.0
 - Oxid V6 Release
-- 6419: Korrektur der Benamung der Eingabefelder für Remarketing
+- 6419: Korrektur der Benamung der Eingabefelder fÃ¼r Remarketing
 
 => 3.4.0.0
-- Remarketing (via Analytics) eingefügt
-- Remarketing-Liste für Startseite eingefügt
-- Template-Blöcke eingefügt
+- Remarketing (via Analytics) eingefÃ¼gt
+- Remarketing-Liste fÃ¼r Startseite eingefÃ¼gt
+- Template-BlÃ¶cke eingefÃ¼gt
 - Titel der Konfigurationsseiten angepasst
-- Staffelpreisübergaben korrigiert (#3679)
+- StaffelpreisÃ¼bergaben korrigiert (#3679)
 - Steuerberechnung korrigiert
 - Scriptsyntax angepasst
 
 => 3.4.0.1
 - #5078: ecomm_totalvalue darf nicht in Apostrophen stehen
-- #4814: Remarketing: Werte für ecomm_pagetype anpassen
+- #4814: Remarketing: Werte fÃ¼r ecomm_pagetype anpassen
 - #4509: changed_full entfernen
 - AdBlock-Checker in Admin integriert, da dieser die Darstellung des Adminbereichs blockieren kann
 
 => 3.3.2.0
-- fix: Optionen im Admin können nicht deaktivert werden
-       - "Zertifizierter Händler" im Shop aktivieren
-       - zusätzliche Daten aus Google Shopping übertragen
-- fix: Zertifizierte Händler, „locale“ Eintrag auch ohne 
-       aktive Option "zusätzliche Daten aus Google Shopping übertragen"
-- fix: Kampagnencode wurde nicht übertragen	   
+- fix: Optionen im Admin kÃ¶nnen nicht deaktivert werden
+       - "Zertifizierter HÃ¤ndler" im Shop aktivieren
+       - zusÃ¤tzliche Daten aus Google Shopping Ã¼bertragen
+- fix: Zertifizierte HÃ¤ndler, Â„localeÂ“ Eintrag auch ohne 
+       aktive Option "zusÃ¤tzliche Daten aus Google Shopping Ã¼bertragen"
+- fix: Kampagnencode wurde nicht Ã¼bertragen	   
 - Link "Hilfe starten" korrigieren
-- Aktualisierung der Modulinstallationsanleitung / Vorabprüfung (d3precheck) 
+- Aktualisierung der Modulinstallationsanleitung / VorabprÃ¼fung (d3precheck) 
 - freigegeben bis PHP 5.6
 
 => 3.3.1.0
-- Lieferzeitangabe kann nun für lagernde und nicht lagernde Artikel getrennt angegeben werden
+- Lieferzeitangabe kann nun fÃ¼r lagernde und nicht lagernde Artikel getrennt angegeben werden
 - Domainliste bei Verwendung mehrerer Shop-Domains korrigiert
-- Schalter für Absprungratenermittlung integriert
-- "Zertifizierte Händler"-Variablen werden nur gezeigt, wenn "Zertifizierter Händler" aktiv ist
+- Schalter fÃ¼r Absprungratenermittlung integriert
+- "Zertifizierte HÃ¤ndler"-Variablen werden nur gezeigt, wenn "Zertifizierter HÃ¤ndler" aktiv ist
 - JS-Fehler bei unkonfigurierter Absprung-Zeit korrigiert
 
 => 3.3.0.1
-- Kompatibilität zu Egate Media PayPal verbessert
+- KompatibilitÃ¤t zu Egate Media PayPal verbessert
 
 => 3.3.0.0
-- Google Zertifizierte Händler eingefügt
+- Google Zertifizierte HÃ¤ndler eingefÃ¼gt
 - Hilfetexte erweitert
 - Integration ins Mobile-Theme
-- Optimierung der Transaktionsübergaben
+- Optimierung der TransaktionsÃ¼bergaben
 - getrackte Absprungrate optimiert
 - Konfigurationsvariablen korrigiert
 - Fehler bei "toBasket" auf Detailseite ohne Kategorieangabe korrigiert
@@ -51,70 +54,70 @@
 - neue Option "Opt Out anzeigen lassen"
 
 => 3.2.0.0
-- Tracking für gekaufte Artikel enthält Daten zur Kategorie / Seite, aus der die Artikel zuerst in den Warenkorb gelegt wurden
+- Tracking fÃ¼r gekaufte Artikel enthÃ¤lt Daten zur Kategorie / Seite, aus der die Artikel zuerst in den Warenkorb gelegt wurden
 - Bugfix: Artikeltitel werden escaped, sofern Quotes enthalten sind
-- AutoLinker-URL enthält auch abweichende SSL-URLs
+- AutoLinker-URL enthÃ¤lt auch abweichende SSL-URLs
 
 => 3.1.0.2
-- Bugfix: deaktiviertes Modul kann benötigtes Objekt nicht laden
-- Bugfix: Seiten ohne Klassenangaben (z.B. 404-Seiten) versuchen Artikellisten für Remarketing zu laden
+- Bugfix: deaktiviertes Modul kann benÃ¶tigtes Objekt nicht laden
+- Bugfix: Seiten ohne Klassenangaben (z.B. 404-Seiten) versuchen Artikellisten fÃ¼r Remarketing zu laden
 
 => 3.1.0.1
-- Universal-Trackingcode für Multi-Domain-Nutzung angepasst
+- Universal-Trackingcode fÃ¼r Multi-Domain-Nutzung angepasst
 
 => 3.1.0.0
 - Universal-Analytics Tracking-Code implementiert
-- zusätzliche Steuerungsparameter eingefügt
+- zusÃ¤tzliche Steuerungsparameter eingefÃ¼gt
 - Trichtererfassung vereinfacht
 - konfigurierbarerer AdWords Conversion-Trackingcode integriert
 - Remarketing-Tags integriert
 
 => 3.0.0.3
 - Precheck angepasst
-- Templates für 4.8.0 / 5.1.0 hinzugefügt
+- Templates fÃ¼r 4.8.0 / 5.1.0 hinzugefÃ¼gt
 
 => 3.0.0.2
 - automatische Installation angepasst
 
 => 3.0.0.1
 - Umstellung auf teilautomatische Installation
-- Übergabe der Steuer
+- Ãœbergabe der Steuer
 
 => 3.0.0.0
 - Umstellung auf Struktur des OXID 4.7 / 5.0
-- benutzerdefinierte Variablen um "Neukunde" ergänzt
+- benutzerdefinierte Variablen um "Neukunde" ergÃ¤nzt
 - Trackingcode in <head> verschoben
 - optionales Logging integriert
 
 => 2.4.1
-- Templates für OXID 4.6.4 kompatibel
+- Templates fÃ¼r OXID 4.6.4 kompatibel
 
 => 2.4.0
-- Remarketing-Option eingefügt
-- Metadaten vervollständigt
+- Remarketing-Option eingefÃ¼gt
+- Metadaten vervollstÃ¤ndigt
 - Syntaxfehler im JS-Code entfernt
 
 => 2.3.0
-- Templates für OXID 4.5.11 und 4.6.2 kompatibel
-- weitere Beispiele für benutzerdefinierte Variablen eingefügt
+- Templates fÃ¼r OXID 4.5.11 und 4.6.2 kompatibel
+- weitere Beispiele fÃ¼r benutzerdefinierte Variablen eingefÃ¼gt
 
 => 2.2.3
-- Templates für OXID 4.6 eingefügt
-- Metadaten eingefügt
-- Templates für OXID 4.5.9 kompatibel
+- Templates fÃ¼r OXID 4.6 eingefÃ¼gt
+- Metadaten eingefÃ¼gt
+- Templates fÃ¼r OXID 4.5.9 kompatibel
 
 => 2.2.2
-- Templates für OXID 4.5.8 kompatibel
+- Templates fÃ¼r OXID 4.5.8 kompatibel
 - Syntaxfehler im JS-Code entfernt
 
 => 2.2.1
-- Templates für OXID 4.5.3 bis 4.5.6 kompatibel
+- Templates fÃ¼r OXID 4.5.3 bis 4.5.6 kompatibel
 - Syntaxfehler im JS-Code entfernt
 
 => 2.2.0
-- Kampagnen können unabhängig von deren Code deaktiviert werden
-- Ladezeit-Log hinzugefügt
-- Preise werden in Shophauptwährung übertragen
-- Templates für OXID 4.5.1 kompatibel
+- Kampagnen kÃ¶nnen unabhÃ¤ngig von deren Code deaktiviert werden
+- Ladezeit-Log hinzugefÃ¼gt
+- Preise werden in ShophauptwÃ¤hrung Ã¼bertragen
+- Templates fÃ¼r OXID 4.5.1 kompatibel
 
 ...
