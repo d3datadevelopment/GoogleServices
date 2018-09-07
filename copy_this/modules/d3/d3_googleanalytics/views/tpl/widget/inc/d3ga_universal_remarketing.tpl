@@ -2,10 +2,10 @@
     $oD3GASettings->getValue('sD3GARemarketingConversionId')}]
 
     [{block name="UniversalAdwordsRemarketing"}]
-        [{*-- Google Code für ein Remarketing-Tag --
+        [{*-- Google Code fï¿½r ein Remarketing-Tag --
             --------------------------------------------------
-            Remarketing-Tags dürfen nicht mit personenbezogenen Daten verknüpft oder auf Seiten platziert werden,
-            die sensiblen Kategorien angehören. Weitere Informationen und Anleitungen zur Einrichtung des Tags
+            Remarketing-Tags dï¿½rfen nicht mit personenbezogenen Daten verknï¿½pft oder auf Seiten platziert werden,
+            die sensiblen Kategorien angehï¿½ren. Weitere Informationen und Anleitungen zur Einrichtung des Tags
             erhalten Sie unter: http://google.com/ads/remarketingsetup
         ---------------------------------------------------*}]
 

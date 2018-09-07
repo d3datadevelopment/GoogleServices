@@ -74,7 +74,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
                 $oParentView->addTplParam('sD3GARemarketingProdId2', $this->d3GetGAProdIdList($aInfos['aArtIdList'], false));
                 $oParentView->addTplParam(
                     'sD3GARemarketingPrice',
-                    $aInfos['dPrice'] > 0 ? number_format($aInfos['dPrice'], 2, '.', ''): ''
+                    $aInfos['dPrice'] > 0 ? number_format($aInfos['dPrice'], 2, '.', ''): 0
                 );
                 $oParentView->addTplParam('sD3GARemarketingPageType', $this->d3GetGAPageType());
             }

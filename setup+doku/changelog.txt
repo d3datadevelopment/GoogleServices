@@ -1,5 +1,6 @@
 => 4.0.0.1
 - "weiße" Thankyou-Seite behoben
+- 7740: ecomm_totalvalue: [{$sD3GARemarketingPrice}] - als Standardewrt wird nun 0 übergeben, damit ecomm_totalvalue nicht leer bleibt und dadurch Syntaxfehler verursacht
 
 => 4.0.0.0
 - Oxid V6 Release
