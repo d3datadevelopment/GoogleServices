@@ -68,8 +68,8 @@ class requConfig
         'hasFromToPhpVersion'    => array(
             'blExec'  => 1,
             'aParams' => array(
-                'from' => '5.3.0',
-                'to'   => '5.6.200',
+                'from' => '7.0.0',
+                'to'   => '7.2.200',
             )
         ),
 
