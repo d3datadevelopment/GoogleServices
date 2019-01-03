@@ -117,3 +117,35 @@ Sie uns bitte unter den folgenden Möglichkeiten:
 
 Geben Sie bitte an, wo und wie wir gegebenenfalls vorhandene Schwierigkeiten nachvollziehen können. Sind Ihre Fragen
 shopspezifisch, benötigen wir möglicherweise Zugangsdaten zum betreffenden Shop.
+
+Oxid-Shop spüezifische Informationen für die Einrichtung des Analytics-Kontos
+=============================================================================
+
+Folgend nun einige Informationen über Shop-Spezifische Informationen, um einige der Features von den Google Diensten besser einsetzen zu können.
+
+"Standardseite"
+------------------------
+
+Die Startseite des Shops ist über folgende URLs Aufrufbar:
+- www.meine-website.de
+- www.meine-website.de/index.php
+- www.meine-website.de/startseite/
+
+"Zielvorhaben"
+--------------
+
+Bestellabschluss: Bei Abschluss einer Bestellung wird der Shop mit der URI: `/index.php?cl=thankyou` aufgerufen.
+
+Für das Einrichten eines Trichters können folgende Informationen genutzt werden:
+
+| Seite | Teil der URL 
+| ----- | ------------ 
+| Warenkorb | /warenkorb/
+| Bezahlung/Versand | /index.php?cl=payment
+| Bestellübersicht | /index.php?cl=order
+| Thankyou | /index.php?cl=thankyou 
+
+"Suchparameter"
+---------------
+
+Bei Nutzung der shopinternen Suche, kommt `searchparam` als Suchparameter zum Einsatz.
