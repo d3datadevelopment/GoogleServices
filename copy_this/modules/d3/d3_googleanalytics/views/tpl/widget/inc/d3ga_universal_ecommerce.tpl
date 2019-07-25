@@ -10,7 +10,7 @@
         [{else}]
             [{math equation="s / r" s=$order->getTotalOrderSum() r=$currate format="%.2f" assign="sTotal"}] [{* // total - required *}]
         [{/if}]
-        [{math equation="s - r" s=$order->getTotalOrderSum() r=$order->getOrderNetSum() format="%.2f" assign="sTax"}]
+        [{math equation="s - r" s=$order->oxorder__oxartvatprice1->value r=$order->oxorder__oxartvatprice2->value format="%.2f" assign="sTax"}]
         [{math equation="s / r" s=$order->oxorder__oxdelcost->value r=$currate format="%.2f" assign="sShipping"}]
 
         ga('ecommerce:addTransaction', {
