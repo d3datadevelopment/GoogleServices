@@ -32,10 +32,6 @@ class d3_cfg_googleanalytics_main extends d3_cfg_mod_main
      */
     public function getGaType()
     {
-        if ($this->d3GetSet()->getValue('sD3GAType') == 'async') {
-            return 'async';
-        }
-
-        return 'universal';
+        return $this->d3GetSet()->getValue('sD3GAType');
     }
 }

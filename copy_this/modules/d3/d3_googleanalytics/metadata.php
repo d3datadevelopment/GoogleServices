@@ -92,14 +92,13 @@ $aModule = array(
         'd3ga_universal_trustedstore.tpl'  =>
             'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_trustedstore.tpl',
 
-        'd3_cfg_googleanalytics_main.tpl'      =>
-            'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
-        'd3_cfg_googleanalytics_adwords.tpl'   =>
-            'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',
-        'd3_cfg_googleanalytics_campaigns.tpl' =>
-            'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl',
-        'd3_cfg_googleanalytics_trustedstore.tpl' =>
-            'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_trustedstore.tpl',
+        'd3ga_gtag.tpl'                   => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_gtag.tpl',
+        'd3ga_gtag_ecommerce.tpl'         => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerce.tpl',
+
+        'd3_cfg_googleanalytics_main.tpl'         => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
+        'd3_cfg_googleanalytics_adwords.tpl'      => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',
+        'd3_cfg_googleanalytics_campaigns.tpl'    => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl',
+        'd3_cfg_googleanalytics_trustedstore.tpl' => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_trustedstore.tpl',
     ),
     'events'       => array(
         'onActivate'                      => 'd3install::checkUpdateStart',

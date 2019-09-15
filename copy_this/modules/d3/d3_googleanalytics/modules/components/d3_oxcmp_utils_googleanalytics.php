@@ -1,5 +1,9 @@
 <?php
 
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -98,9 +102,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
             return 'd3_googleanalytics.tpl';
+        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universaal') {
+            return 'd3ga_universal.tpl';
+        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
+            return 'd3ga_gtag.tpl';
         }
-
-        return 'd3ga_universal.tpl';
     }
 
     /**
@@ -226,6 +232,16 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         $aParameter = array();
 
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
+            $aParameter = $this->_d3getCreateAnonymizeIpParameter($aParameter);
+
+            /** @var oxUBase $oCurrentView */
+            $oCurrentView = oxRegistry::getConfig()->getActiveView();
+            $oCurrentView->getIsOrderStep();
+
+            $aParameter = $this->_d3getGtagSendPageViewPageParameter($oCurrentView, $aParameter);
+        }
+
         $aParameter = $this->_d3getCreateDomainNameParameter($aParameter);
         $aParameter = $this->_d3getCreateCookiePathParameter($aParameter);
         $aParameter = $this->_d3getCreateDomainLinkerParameter($aParameter);
@@ -246,9 +262,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
             return $this->_d3getAsyncSendpageViewParameters();
+        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universal') {
+            return $this->_d3getUniversalSendPageViewParameters();
+        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
+            return $this->_d3getGtagSendPageViewParameters();
         }
-
-        return $this->_d3getUniversalSendPageViewParameters();
     }
 
     /**
@@ -289,6 +307,11 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             return ", {" . implode(',', $aParameter) . "}";
         }
 
+        return '';
+    }
+
+    protected function _d3getGtagSendPageViewParameters()
+    {
         return '';
     }
 
@@ -515,6 +538,22 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     }
 
     /**
+     * @param $aParameter
+     * @return array
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    protected function _d3getCreateAnonymizeIpParameter($aParameter)
+    {
+        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAnonymizeIP')) {
+            $aParameter[] = "'anonymize_ip': true'";
+        }
+
+        return $aParameter;
+    }
+
+    /**
      * @param oxUBase $oCurrentView
      * @param array $aParameter
      *
@@ -540,18 +579,14 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      *
      * @return array
      */
-    protected function _d3getUniversalSendPageViewPageParameter($oCurrentView, $aParameter)
+    protected function _d3getGtagSendPageViewPageParameter($oCurrentView, $aParameter)
     {
         if ($oCurrentView->getIsOrderStep() || strtolower($oCurrentView->getClassName()) == 'thankyou') {
-            $aParameter[] = "'page':  '/{$oCurrentView->getClassName()}.html'";
-            $aParameter[] = "'title': 'Checkout: " . ucfirst($oCurrentView->getClassName()) . "'";
-
-            return $aParameter;
+            $aParameter[] = "'page_path':  '/{$oCurrentView->getClassName()}.html'";
+            $aParameter[] = "'page_title': 'Checkout: " . ucfirst($oCurrentView->getClassName()) . "'";
         } elseif ($this->_d3HasNoPageParameter()) {
-            $aParameter[] = "'page':  '/{$oCurrentView->getClassName()}.html'";
-            $aParameter[] = "'title': '" . ucfirst($oCurrentView->getClassName()) . "'";
-
-            return $aParameter;
+            $aParameter[] = "'page_path':  '/{$oCurrentView->getClassName()}.html'";
+            $aParameter[] = "'page_title': '" . ucfirst($oCurrentView->getClassName()) . "'";
         }
 
         return $aParameter;
