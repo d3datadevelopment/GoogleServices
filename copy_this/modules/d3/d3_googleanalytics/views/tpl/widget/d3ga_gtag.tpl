@@ -1,6 +1,6 @@
 [{if $blD3GoogleAnalyticsActive && $oD3GASettings->getValue('sD3GAId')}]
     [{capture name="d3GATrackCode"}]
-        [{strip}]
+        [{*strip*}]
             [{if $oD3GASettings->getValue('blD3GAUseOptOut')}]
                 [{block name="d3ga_optoutscript"}]
                     <script type="text/javascript">
@@ -18,62 +18,73 @@
                 [{/block}]
             [{/if}]
 
-## nach head ## https://developers.google.com/analytics/devguides/collection/gtagjs/
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/ *}]
             <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=[{$oD3GASettings->getValue('sD3GAId')}]"></script>
             <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/setting-values
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/setting-values *}]
                 gtag('set', {
-                    'currency': 'USD',
-                    'country': 'US'
+                    'currency': '[{$oD3GAActCurrency->name}]',
+                    'country': 'US',
                 });
 
                 gtag(
-                    'config', 'GA_MEASUREMENT_ID',
+                    'config', '[{$oD3GASettings->getValue('sD3GAId')}]',
                     {
-## https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-                        'page_title' : 'homepage',
-                        'page_path': '/home',
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/pages *}]
+                        'page_title' : '[{$sD3GAPageTitle}]',
+                        'page_location' : '[{$sD3GAPageLocation}]',
+                        'page_path': '/[{$sD3GAPagePath}]',
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id
-                        'cookie_prefix': 'MyCookie',
-                        'cookie_domain': 'blog.example.com',
-                        'cookie_expires': 28 * 24 * 60 * 60  // 28 days, in seconds
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id *}]
+                        [{if $oD3GASettings->getValue('sD3GACookiePrefix')}]
+                            'cookie_prefix': '[{$oD3GASettings->getValue('sD3GACookiePrefix')}]',
+                        [{/if}]
+                        [{if $oD3GASettings->getValue('sD3GACookieDomain')}]
+                            'cookie_domain': '[{$oD3GASettings->getValue('sD3GACookieDomain')}]',
+                        [{/if}]
+                        [{if $oD3GASettings->getValue('sD3GACookieExpiration')}]
+                            'cookie_expires': [{$oD3GASettings->getValue('sD3GACookieExpiration')}],  // in seconds
+                        [{/if}]
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id !!! Anonymize
-                        'user_id': 'USER_ID'
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id *}]
+                        [{if $sD3GAUserId}]
+                            'user_id': '[{$sD3GAUserId}]',
+                        [{/if}]
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/cross-domain
-                        'linker': { 'domains': ['example-1.com', 'example-2.com'] }
-## https://developers.google.com/analytics/devguides/collection/gtagjs/cross-domain
-                        'linker': { 'accept_incoming': true }
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/cross-domain *}]
+                        'linker': { 'domains': ['example-1.com', 'example-2.com'] },
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/cross-domain *}]
+                        'linker': { 'accept_incoming': true },
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets
-## siehe auch Event
-                        'custom_map': {'dimension2': 'age'}
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets
+    siehe auch Event *}]
+                        'custom_map': {'dimension2': 'age'},
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
-                        'anonymize_ip': true
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization *}]
+                        [{if $oD3GASettings->getValue('blD3GAAnonymizeIP')}]
+                            'anonymize_ip': true,
+                        [{/if}]
                     }
                 );
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/ *}]
                 gtag('config', 'GA_MEASUREMENT_ID_2');
 
-## https://developers.google.com/gtagjs/devguide/snippet
+[{* https://developers.google.com/gtagjs/devguide/snippet *}]
                 gtag('config', 'AW-CONVERSION_ID');
 
-## https://developers.google.com/gtagjs/devguide/snippet
+[{* https://developers.google.com/gtagjs/devguide/snippet *}]
                 gtag('config', 'DC-FLOODLIGHT_ID');
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/events
-                gtag('event', <action>, { 'event_category': <category>, 'event_label': <label>, 'value': <value> });
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/events *}]
+                gtag('event', 'ACTION', { 'event_category': 'CATEGORY', 'event_label': 'LABEL', 'value': 'VALUE' });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/user-timings
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/user-timings *}]
                 // Feature detects Navigation Timing API support.
                 if (window.performance) {
                     // Gets the number of milliseconds since page load
@@ -88,17 +99,17 @@
                     });
                 }
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/exceptions
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/exceptions *}]
                 gtag('event', 'exception', {
                     'description': 'error_description',
                     'fatal': false   // set to true if the error is fatal
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets *}]
                 gtag ('event', 'age_dimension', {'age': 12});
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/ecommerce
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/ecommerce *}]
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'purchase', {
                     "transaction_id": "24.031608523954162",
                     "affiliation": "Google online store",
@@ -132,7 +143,7 @@
                     ]
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'view_item_list', {
                     "items": [
                         {
@@ -160,7 +171,7 @@
                     ]
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'view_item', {
                     "items": [
                         {
@@ -177,7 +188,7 @@
                     ]
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'add_to_cart', {
                     "items": [
                         {
@@ -194,7 +205,7 @@
                     ]
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'remove_from_cart', {
                     "items": [
                         {
@@ -211,7 +222,7 @@
                     ]
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'begin_checkout', {
                     "items": [
                         {
@@ -229,7 +240,7 @@
                     "coupon": ""
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'checkout_progress', {
                     "items": [
                         {
@@ -247,7 +258,7 @@
                     "coupon": "SUMMER_DISCOUNT"
                 });
 
-## https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
                 gtag('event', 'set_checkout_option', {
                     "checkout_step": 1,
                     "checkout_option": "shipping method",
@@ -343,7 +354,7 @@
                 [{/if}]
             </script>
 
-        [{/strip}]
+        [{*/strip*}]
     [{/capture}]
 
     [{if $oViewConf->getActiveClassName() == 'thankyou'}]

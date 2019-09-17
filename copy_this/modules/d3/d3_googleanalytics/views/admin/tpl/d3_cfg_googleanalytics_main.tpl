@@ -115,6 +115,95 @@
                     </span>
             [{else}]
 
+                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_DESC"}] [{oxinputhelp ident="D3_GOOGLEANALYTICS_DESC1"}]</div>
+
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN"}]
+                            </span>
+                        </a>
+                        <dl>
+                            <dt style="height: 25px;">
+                                <label for="sD3GAType">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="radio" name="value[sD3GAType]" value="gtag" checked> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_GTAG"}]
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="sD3GAId">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GAID"}]</label>
+                            </dt>
+                            <dd>
+                                <input id="sD3GAId" class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$edit->getValue('sD3GAId')}]" name="value[sD3GAId]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GAID_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="blD3GAAnonymizeIP">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blD3GAAnonymizeIP]" value="0">
+                                <input id="blD3GAAnonymizeIP" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAAnonymizeIP')}]checked[{/if}] name="value[blD3GAAnonymizeIP]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC"}]
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>
+                                <label for="blD3GAUseOptOut">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blD3GAUseOptOut]" value="0">
+                                <input id="blD3GAUseOptOut" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseOptOut')}]checked[{/if}] name="value[blD3GAUseOptOut]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC"}]
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                                <span style="font-weight: bold;">
+                                    [{oxmultilang ident="D3_GOOGLEANALYTICS_COOKIE"}]
+                                </span>
+                        </a>
+                        <dl>
+                            <dt>
+                                <label for="sD3GACookiePrefix">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_COOKIEPREFIX"}]</label>
+                            </dt>
+                            <dd>
+                                <input id="sD3GACookiePrefix" class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$edit->getValue('sD3GACookiePrefix')}]" name="value[sD3GACookiePrefix]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_COOKIEPREFIX_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="sD3GACookieDomain">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_COOKIEDOMAIN"}]</label>
+                            </dt>
+                            <dd>
+                                <input id="sD3GACookieDomain" class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$edit->getValue('sD3GACookieDomain')}]" name="value[sD3GACookieDomain]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_COOKIEDOMAIN_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="sD3GACookieExpiration">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_COOKIEEXPIRATION"}]</label>
+                            </dt>
+                            <dd>
+                                <input id="sD3GACookieExpiration" class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$edit->getValue('sD3GACookieExpiration')}]" name="value[sD3GACookieExpiration]"> in Sekunden
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_COOKIEEXPIRATION_DESC"}]
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+[{*--------------------------------------*}]
+
                 [{if $oView->getGaType() == 'universal'}]
                     [{assign var="blUniversalDisabled" value="disabled readonly"}]
                     [{assign var="blAsyncDisabled" value=""}]
@@ -137,38 +226,6 @@
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN"}]
                             </span>
                         </a>
-                        <dl>
-                            <dt style="height: 25px;">
-                                <label for="sD3GAType">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE"}]</label>
-                            </dt>
-                            <dd>
-                                <input type="radio" name="value[sD3GAType]" value="gtag" [{if $oView->getGaType() == 'gtag'}]checked[{/if}]> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_GTAG"}]<br>
-                                <input type="radio" name="value[sD3GAType]" value="universal" [{if $oView->getGaType() == 'universal'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL"}]<br>
-                                <input type="radio" name="value[sD3GAType]" value="async" [{if $oView->getGaType() == 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC"}]
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="sD3GAId">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GAID"}]</label>
-[{*  _gaq.push(['_setAccount', 'UA_XXX']); *}]
-                            </dt>
-                            <dd>
-                                <input id="sD3GAId" class="edittext ext_edittext" type="text" size="15" maxlength="20" value="[{$edit->getValue('sD3GAId')}]" name="value[sD3GAId]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GAID_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="blD3GAAnonymizeIP">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP"}]</label>
-[{*  _gaq.push(['_gat._anonymizeIp']); *}]
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GAAnonymizeIP]" value="0">
-                                <input id="blD3GAAnonymizeIP" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAAnonymizeIP')}]checked[{/if}] name="value[blD3GAAnonymizeIP]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP_DESC"}]
-                            </dd>
-                        </dl>
                         <dl>
                             <dt>
                                 <label for="blD3GASampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE"}]</label>
@@ -210,16 +267,6 @@
                                 <input type="hidden" name="value[blD3GAUseRemarketing]" value="0">
                                 <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="blD3GAUseOptOut">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT"}]</label>
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GAUseOptOut]" value="0">
-                                <input id="blD3GAUseOptOut" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseOptOut')}]checked[{/if}] name="value[blD3GAUseOptOut]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC"}]
                             </dd>
                         </dl>
                     </div>
