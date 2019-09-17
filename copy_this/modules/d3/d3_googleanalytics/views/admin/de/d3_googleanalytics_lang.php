@@ -47,24 +47,9 @@ $aLang = array(
         'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul für Sie. '.
         'Die Einstellungen zum Trackingcode nehmen Sie ebenfalls hier vor.',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE'                               => 'TrackingCode-Typ',
-    'D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL'                     => 'Universal',
-    'D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC'                => 'F&uuml;r den Wechsel auf den Universal-'.
-        'Analytics-Trackingcode sind vorab &Auml;nderungen in Ihrem Analytics-Konto durchzuf&uuml;hren. Bitte '.
-        'konsultieren Sie vorab den Analytics-Migrationsleitfaden. Den Link finden Sie im Erkl&auml;rungstext '.
-        'dieser Option.\\n\\nBitte beachten Sie, dass mit Wechsel des Trackingcodes m&ouml;glicherweise andere '.
-        'Optionen im Modul verf&uuml;gbar sind. Kontrollieren Sie diese bitte noch einmal.',
-    'D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC'                         => 'asynchron',
-    'D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC_DESC'                    => 'Ein Wechsel vom neuen Universal-Analytics-'.
-        'Trackingcode zum bisherigen asynchronen Trackingcode wird von Google nicht angeboten. &Auml;ndern Sie diese '.
-        'Einstellung nur, wenn Ihr Analytics-Account noch auf dem asynchronen Trackingcode basiert.\\n\\nBitte '.
-        'beachten Sie, dass mit Wechsel des Trackingcodes m&ouml;glicherweise andere Optionen im Modul verf&uuml;gbar '.
-        'sind. Kontrollieren Sie diese bitte noch einmal.',
+    'D3_GOOGLEANALYTICS_MAIN_GATYPE_GTAG'                          => 'gtag (nicht Google Tag Manager)',
     'D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC'                          => 'Aktuell priorisiert Google den Trackingtyp '.
-        '"Universal". Setzen Sie hier den Typ, den Sie in Ihrem Analytics-Konto auch verwenden. Nutzen Sie noch den '.
-        'asynchronen Trackingcode, lesen Sie vor der Umstellung den <a href="'.
-        'https://support.google.com/analytics/answer/3450662?hl=de" target="gahelp">Leitfaden</a> zum Wechsel.<br><br>'.
-        'Manche der folgenden Optionen stehen Ihnen nur f&uuml;r einen Tracking-Typ zur Verf&uuml;gung und sind daher '.
-        'm&ouml;glicherweise ausgegraut.',
+        '"gtag". Für frühere Trackingtypen verwenden Sie bitte die entsprechenden Versionen unseres Moduls.',
     'D3_GOOGLEANALYTICS_MAIN_GAID'                                 => 'Analyics-ID',
     'D3_GOOGLEANALYTICS_MAIN_GAID_DESC'                            => 'F&uuml;gen Sie hier die Google Analytics '.
         'Konto-ID ein. Diese finden Sie in Ihrem GA-Konto und beginnt im Normalfall mit "UA-".',

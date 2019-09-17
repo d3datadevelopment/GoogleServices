@@ -1,8 +1,10 @@
 <?php
 
 use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Application\Controller\FrontendController;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  *    This module is free software: you can redistribute it and/or modify
@@ -51,10 +53,20 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $oSet = \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_d3getModId());
 
         if ($oSet->isActive()) {
-            /** @var $oParentView oxView */
+            /** @var $oParentView FrontendController */
             $oParentView = $this->getParent();
             $oParentView->addTplParam('blD3GoogleAnalyticsActive', $oSet->isActive());
             $oParentView->addTplParam('oD3GASettings', $oSet);
+            $oParentView->addTplParam('oD3GAActCurrency', Registry::getConfig()->getActShopCurrencyObject());
+            $oParentView->addTplParam('sD3GAPageLocation', $oParentView->getBaseLink());
+            $oParentView->addTplParam('sD3GAPagePath', str_replace(Registry::getConfig()->getShopUrl(), '', $oParentView->getBaseLink()));
+            $oParentView->addTplParam('sD3GAPageTitle', $oParentView->getTitle());
+
+            if (Registry::getSession()->getUser() && ($sUserId = Registry::getSession()->getUser()->getId())) {
+                $oParentView->addTplParam('sD3GAUserId', md5($sUserId));
+            }
+
+
             $oParentView->addTplParam('sD3GATTpl', $this->d3getGATTpl());
             $oParentView->addTplParam('sD3GACreateParameter', $this->d3getCreateParameters());
             $oParentView->addTplParam('sAFEGetMoreUrls', $this->afGetMoreUrls());
