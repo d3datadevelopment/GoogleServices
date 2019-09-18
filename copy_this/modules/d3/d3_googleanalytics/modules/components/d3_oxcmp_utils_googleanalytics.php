@@ -1,9 +1,13 @@
 <?php
 
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 
 /**
@@ -45,6 +49,12 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
     /**
      * @return null
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     * @throws StandardException
      */
     public function render()
     {
@@ -60,8 +70,10 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('oD3GAActCurrency', Registry::getConfig()->getActShopCurrencyObject());
             $oParentView->addTplParam('sD3GAPageLocation', $oParentView->getBaseLink());
             $oParentView->addTplParam('sD3GAPagePath', str_replace(Registry::getConfig()->getShopUrl(), '', $oParentView->getBaseLink()));
-            $oParentView->addTplParam('sD3GAPageTitle', $oParentView->getTitle());
-
+            // prevent overwriting with empty title from later loaded widgets
+            if ($oParentView->getTitle() && false == $oParentView->getViewDataElement('sD3GAPageTitle')) {
+                $oParentView->addTplParam('sD3GAPageTitle', $oParentView->getTitle());
+            }
             if (Registry::getSession()->getUser() && ($sUserId = Registry::getSession()->getUser()->getId())) {
                 $oParentView->addTplParam('sD3GAUserId', md5($sUserId));
             }
@@ -114,9 +126,9 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
             return 'd3_googleanalytics.tpl';
-        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universaal') {
+        } elseif (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universaal') {
             return 'd3ga_universal.tpl';
-        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
+        } elseif (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
             return 'd3ga_gtag.tpl';
         }
     }
@@ -244,7 +256,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         $aParameter = array();
 
-        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
+        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
             $aParameter = $this->_d3getCreateAnonymizeIpParameter($aParameter);
 
             /** @var oxUBase $oCurrentView */
@@ -274,9 +286,9 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
             return $this->_d3getAsyncSendpageViewParameters();
-        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universal') {
+        } elseif (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universal') {
             return $this->_d3getUniversalSendPageViewParameters();
-        } elseif (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
+        } elseif (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
             return $this->_d3getGtagSendPageViewParameters();
         }
     }
@@ -558,7 +570,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
      */
     protected function _d3getCreateAnonymizeIpParameter($aParameter)
     {
-        if (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAnonymizeIP')) {
+        if (d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAnonymizeIP')) {
             $aParameter[] = "'anonymize_ip': true'";
         }
 
