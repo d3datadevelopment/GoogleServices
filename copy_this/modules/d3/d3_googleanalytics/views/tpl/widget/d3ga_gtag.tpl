@@ -109,6 +109,7 @@
                     }
                 [{/if}]
 
+                [{* track page load time *}]
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
                     [{block name="d3ga_trackpageloadtime"}]
                         let perfData = window.performance.timing;
@@ -125,8 +126,7 @@
                     [{/block}]
                 [{/if}]
 
-
-                [{* bounce optimization*}]
+                [{* bounce optimization *}]
                 [{block name="d3ga_bounceoptimization"}]
                     [{if $oD3GASettings->getValue('blUseBounceRateOptimization')}]
                         setTimeout("gtag('event', 'NoBounce', {" +
@@ -151,6 +151,8 @@
                     [{/if}]
                 [{/block}]
 
+                [{include file="d3ga_gtag_ecommerce.tpl"}]
+
 [{* https://developers.google.com/analytics/devguides/collection/gtagjs/events *}]
 [{* login, logout, toBasket, fromBasket, sendContact *}]
 gtag('event', 'ACTION', { 'event_category': 'CATEGORY', 'event_label': 'LABEL', 'value': 'VALUE' });
@@ -158,164 +160,6 @@ gtag('event', 'ACTION', { 'event_category': 'CATEGORY', 'event_label': 'LABEL', 
 
 [{* https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets *}]
                 gtag ('event', 'age_dimension', {'age': 12});
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/ecommerce *}]
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'purchase', {
-                    "transaction_id": "24.031608523954162",
-                    "affiliation": "Google online store",
-                    "value": 23.07,
-                    "currency": "USD",
-                    "tax": 1.24,
-                    "shipping": 0,
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": '2.0'
-                        },
-                        {
-                            "id": "P67890",
-                            "name": "Flame challenge TShirt",
-                            "list_name": "Search Results",
-                            "brand": "MyBrand",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Red",
-                            "list_position": 2,
-                            "quantity": 1,
-                            "price": '3.0'
-                        }
-                    ]
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'view_item_list', {
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": 2
-                        },
-                        {
-                            "id": "P67890",
-                            "name": "Flame challenge TShirt",
-                            "list_name": "Search Results",
-                            "brand": "MyBrand",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Red",
-                            "list_position": 2,
-                            "quantity": 1,
-                            "price": 3
-                        }
-                    ]
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'view_item', {
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": '2.0'
-                        }
-                    ]
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'add_to_cart', {
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": '2.0'
-                        }
-                    ]
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'remove_from_cart', {
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": '2.0'
-                        }
-                    ]
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'begin_checkout', {
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": '2.0'
-                        }
-                    ],
-                    "coupon": ""
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'checkout_progress', {
-                    "items": [
-                        {
-                            "id": "P12345",
-                            "name": "Android Warhol T-Shirt",
-                            "list_name": "Search Results",
-                            "brand": "Google",
-                            "category": "Apparel/T-Shirts",
-                            "variant": "Black",
-                            "list_position": 1,
-                            "quantity": 2,
-                            "price": '2.0'
-                        }
-                    ],
-                    "coupon": "SUMMER_DISCOUNT"
-                });
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-                gtag('event', 'set_checkout_option', {
-                    "checkout_step": 1,
-                    "checkout_option": "shipping method",
-                    "value": "USPS"
-                });
-
 
             </script>
 
@@ -342,8 +186,6 @@ gtag('event', 'ACTION', { 'event_category': 'CATEGORY', 'event_label': 'LABEL', 
                 [{include file="d3ga_universal_adwords.tpl"}]
 
                 [{include file="d3ga_universal_custom.tpl"}]
-
-                [{*[{include file="d3ga_universal_ecommerce.tpl"}]*}]
             </script>
 
         [{*/strip*}]
