@@ -144,6 +144,15 @@
                         </dl>
                         <dl>
                             <dt>
+                                <label for="sD3GAAdditionalProperties">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_ADDPROP"}]</label>
+                            </dt>
+                            <dd>
+                                <textarea id="sD3GAAdditionalProperties" class="confinput" name="valuearr[sD3GAAdditionalProperties]">[{$edit->getEditValue('sD3GAAdditionalProperties')}]</textarea>
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_COOKIEPREFIX_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
                                 <label for="blD3GAAnonymizeIP">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_ANONYMIZEIP"}]</label>
                             </dt>
                             <dd>
@@ -161,6 +170,17 @@
                                 <input type="hidden" name="value[blD3GAUseOptOut]" value="0">
                                 <input id="blD3GAUseOptOut" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseOptOut')}]checked[{/if}] name="value[blD3GAUseOptOut]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEOPTOUT_DESC"}]
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="blD3GATrackPageLoadTime">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME"}]</label>
+                                [{*  _gaq.push(['_gat._trackPageLoadTime']); *}]
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blD3GATrackPageLoadTime]" value="0">
+                                <input id="blD3GATrackPageLoadTime" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GATrackPageLoadTime')}]checked[{/if}] name="value[blD3GATrackPageLoadTime]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -202,71 +222,40 @@
                         </dl>
                     </div>
                 </div>
-[{*--------------------------------------*}]
-
-                [{if $oView->getGaType() == 'universal'}]
-                    [{assign var="blUniversalDisabled" value="disabled readonly"}]
-                    [{assign var="blAsyncDisabled" value=""}]
-                [{elseif  $oView->getGaType() == 'async'}]
-                    [{assign var="blUniversalDisabled" value=""}]
-                    [{assign var="blAsyncDisabled" value="disabled readonly"}]
-                [{else}]
-                    [{assign var="blUniversalDisabled" value=""}]
-                    [{assign var="blAsyncDisabled" value=""}]
-                [{/if}]
-
-                <hr>
-
-                <div class="servicedesc">[{oxmultilang ident="D3_GOOGLEANALYTICS_DESC"}] [{oxinputhelp ident="D3_GOOGLEANALYTICS_DESC1"}]</div>
 
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
                             <span style="font-weight: bold;">
-                                [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN"}]
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_CROSSDOMAIN"}]
                             </span>
                         </a>
                         <dl>
                             <dt>
-                                <label for="blD3GASampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE"}]</label>
-[{* _gaq.push(['_setSampleRate', 5]); *}]
+                                <label for="sD3GACrossDomainDomain">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_CROSSDOMAINDOMAINS"}]</label>
                             </dt>
                             <dd>
-                                <input type="hidden" name="value[iD3GASampleRate]" value="0">
-                                <input type="text" id="iD3GASampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASampleRate')}][{$edit->getValue('iD3GASampleRate')}][{else}]100[{/if}]" size="5" maxlength="3" name="value[iD3GASampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_1"}]
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE_DESC"}]
+                                <textarea id="sD3GACrossDomainDomain" class="confinput" name="valuearr[sD3GACrossDomainDomain]">[{$edit->getEditValue('sD3GACrossDomainDomain')}]</textarea>
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_COOKIEPREFIX_DESC"}]
                             </dd>
                         </dl>
+                    </div>
+                </div>
+
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_DIMENSIONS"}]
+                            </span>
+                        </a>
                         <dl>
                             <dt>
-                                <label for="blD3GATrackPageLoadTime">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME"}]</label>
-[{*  _gaq.push(['_gat._trackPageLoadTime']); *}]
+                                <label for="sD3GADimensionList">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_DIMENSIONSLIST"}]</label>
                             </dt>
                             <dd>
-                                <input type="hidden" name="value[blD3GATrackPageLoadTime]" value="0">
-                                <input id="blD3GATrackPageLoadTime" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GATrackPageLoadTime')}]checked[{/if}] name="value[blD3GATrackPageLoadTime]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_TRACKPAGELOADTIME_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="blD3GASiteSpeedSampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE"}]</label>
-[{* _gaq.push(['_setSiteSpeedSampleRate', 5]); *}]
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[iD3GASiteSpeedSampleRate]" value="0">
-                                <input type="text" id="iD3GASiteSpeedSampleRate" class="edittext ext_edittext" value="[{if $edit->getValue('iD3GASiteSpeedSampleRate')}][{$edit->getValue('iD3GASiteSpeedSampleRate')}][{else}]1[{/if}]" size="5" maxlength="3" name="value[iD3GASiteSpeedSampleRate]"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_1"}]
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="blD3GAUseRemarketing">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING"}]</label>
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GAUseRemarketing]" value="0">
-                                <input id="blD3GAUseRemarketing" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseRemarketing')}]checked[{/if}] name="value[blD3GAUseRemarketing]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_USEREMARKETING_DESC"}]
+                                <textarea id="sD3GADimensionList" class="confinput" name="valuearr[sD3GADimensionList]">[{$edit->getEditValue('sD3GADimensionList')}]</textarea>
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_COOKIEPREFIX_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -312,6 +301,23 @@
                     </div>
                 </div>
 
+                <table width="100%">
+                    <tr>
+                        <td class="edittext ext_edittext" align="left"><br>
+                            <span class="d3modcfg_btn icon status_ok">
+                                <input type="submit" name="save" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_SAVE"}]">
+                                <span></span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+
+                <br><br>[{oxmultilang ident="D3_GOOGLEANALYTICS_SECURITYINFORMATIONS"}]
+
+[{*--------------------------------------*}]
+
+                <hr>
+
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">
@@ -337,101 +343,6 @@
                                 <input type="hidden" name="value[blD3GAUseNetto]" value="0">
                                 <input id="blD3GAUseNetto" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAUseNetto')}]checked[{/if}] name="value[blD3GAUseNetto]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO_DESC"}]
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-
-                <div class="groupExp">
-                    <div class="">
-                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
-                            <span style="font-weight: bold;">
-                                [{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN"}]
-                            </span>
-                        </a>
-                        <dl>
-                            <dt>
-                                <label for="blD3GAAllowDomainLinker">[{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER"}]</label>
-[{*  _gaq.push(['_setAllowLinker', true]);  *}]
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GAAllowDomainLinker]" value="0">
-                                <input id="blD3GAAllowDomainLinker" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GAAllowDomainLinker')}]checked[{/if}] name="value[blD3GAAllowDomainLinker]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETALLOWLINKER_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="sD3GASetDomainName">[{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME"}]</label>
-[{*  _gaq.push(['_setDomainName', '.example-petstore.com']);   *}]
-[{*  if used _gaq.push(['_setAllowHash', false]);   *}]
-                            </dt>
-                            <dd>
-                                <input id="sD3GASetDomainName" class="edittext ext_edittext" type="text" size="30" maxlength="200" value="[{$edit->getValue('sD3GASetDomainName')}]" name="value[sD3GASetDomainName]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETDOMAINNAME_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="sD3GASetCookiePath">[{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_SETCOOKIEPATH"}]</label>
-[{* _gaq.push(['_setCookiePath', '/path/of/cookie/']);   *}]
-                            </dt>
-                            <dd>
-                                <input id="sD3GASetCookiePath" class="edittext ext_edittext" type="text" size="30" maxlength="150" value="[{$edit->getValue('sD3GASetCookiePath')}]" name="value[sD3GASetCookiePath]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_SETCOOKIEPATH_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="sD3GACookiePathCopy">[{oxmultilang ident="D3_GOOGLEANALYTICS_DOMAIN_COOKIEPATHCOPY"}]</label>
-[{* _gaq.push(['_cookiePathCopy', '/path/of/cookie/']);   *}]
-                            </dt>
-                            <dd>
-                                <input id="sD3GACookiePathCopy"  [{$blUniversalDisabled}] class="edittext ext_edittext" type="text" size="30" maxlength="150" value="[{$edit->getValue('sD3GACookiePathCopy')}]" name="value[sD3GACookiePathCopy]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_DOMAIN_COOKIEPATHCOPY_DESC"}]
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-
-                <div class="groupExp">
-                    <div class="">
-                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
-                            <span style="font-weight: bold;">
-                                [{oxmultilang ident="D3_GOOGLEANALYTICS_BROWSER"}]
-                            </span>
-                        </a>
-                        <dl>
-                            <dt>
-                                <label for="blD3GASetClientInfo">[{oxmultilang ident="D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO"}]</label>
-[{*  _gaq.push(['_setClientInfo', false]);  *}]
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GASetClientInfo]" value="0">
-                                <input id="blD3GASetClientInfo" class="edittext ext_edittext" type="checkbox" [{$blUniversalDisabled}] value="1" [{if $edit->getValue('blD3GASetClientInfo')}]checked[{/if}] name="value[blD3GASetClientInfo]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETCLIENTINFO_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="blD3GASetDetectFlash">[{oxmultilang ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH"}]</label>
-[{*  _gaq.push(['_setDetectFlash', false]);  *}]
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GASetDetectFlash]" value="0">
-                                <input id="blD3GASetDetectFlash" class="edittext ext_edittext" type="checkbox" value="1" [{$blUniversalDisabled}] [{if $edit->getValue('blD3GASetDetectFlash')}]checked[{/if}] name="value[blD3GASetDetectFlash]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTFLASH_DESC"}]
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                <label for="blD3GASetDetectTitle">[{oxmultilang ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE"}]</label>
-[{*  _gaq.push(['_setDetectTitle', false]);  *}]
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GASetDetectTitle]" value="0">
-                                <input id="blD3GASetDetectTitle" class="edittext ext_edittext" type="checkbox" value="1" [{$blUniversalDisabled}] [{if $edit->getValue('blD3GASetDetectTitle')}]checked[{/if}] name="value[blD3GASetDetectTitle]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_BROWSER_SETDETECTTITLE_DESC"}]
                             </dd>
                         </dl>
                     </div>
@@ -477,19 +388,6 @@
                         </dl>
                     </div>
                 </div>
-
-                <table width="100%">
-                    <tr>
-                        <td class="edittext ext_edittext" align="left"><br>
-                            <span class="d3modcfg_btn icon status_ok">
-                                <input type="submit" name="save" value="[{oxmultilang ident="D3_CFG_MOD_GENERAL_SAVE"}]">
-                                <span></span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-
-                <br><br>[{oxmultilang ident="D3_GOOGLEANALYTICS_SECURITYINFORMATIONS"}]
             [{/if}]
         </td>
     </tr>
