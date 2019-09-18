@@ -18,6 +18,8 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
+use D3\ModCfg\Application\Model\d3utils;
+
 /**
  * Metadata version
  */
@@ -28,7 +30,7 @@ $sMetadataVersion = '1.1';
  */
 $aModule = array(
     'id'             => 'd3_googleanalytics',
-    'title'          => (class_exists(\D3\ModCfg\Application\Model\d3utils::class) ? \D3\ModCfg\Application\Model\d3utils::getInstance()->getD3Logo() : 'D&sup3;').
+    'title'          => (class_exists(d3utils::class) ? d3utils::getInstance()->getD3Logo() : 'D&sup3;').
         ' Google Services Schnittstelle',
     'description'    => array(
         'de' => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-'.
@@ -68,11 +70,6 @@ $aModule = array(
         'd3_googleanalytics_update'            => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',
     ),
     'templates'      => array(
-        'd3_googleanalytics.tpl'          => 'd3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl',
-        'd3ga_universal.tpl'              => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_universal.tpl',
-        'd3ga_universal_custom.tpl'       => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_custom.tpl',
-        'd3ga_universal_ecommerce.tpl'    => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_ecommerce.tpl',
-        'd3ga_universal_adwords.tpl'      => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwords.tpl',
         'd3ga_universal_adwordscode.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwordscode.tpl',
         'd3ga_universal_remarketing.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_remarketing.tpl',
         'd3ga_universal_campaigncode.tpl' => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigncode.tpl',
@@ -80,6 +77,8 @@ $aModule = array(
 
         'd3ga_gtag.tpl'                   => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_gtag.tpl',
         'd3ga_gtag_ecommerce.tpl'         => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerce.tpl',
+        'd3ga_gtag_adwords.tpl'           => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_adwords.tpl',
+        'd3ga_gtag_custom.tpl'            => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_custom.tpl',
 
         'd3_cfg_googleanalytics_main.tpl'         => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
         'd3_cfg_googleanalytics_adwords.tpl'      => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',

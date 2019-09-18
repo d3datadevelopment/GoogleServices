@@ -153,6 +153,10 @@
 
                 [{include file="d3ga_gtag_ecommerce.tpl"}]
 
+                [{include file="d3ga_gtag_adwords.tpl"}]
+
+                [{include file="d3ga_gtag_custom.tpl"}]
+
 [{* https://developers.google.com/analytics/devguides/collection/gtagjs/events *}]
 [{* login, logout, toBasket, fromBasket, sendContact *}]
 gtag('event', 'ACTION', { 'event_category': 'CATEGORY', 'event_label': 'LABEL', 'value': 'VALUE' });
@@ -162,32 +166,6 @@ gtag('event', 'ACTION', { 'event_category': 'CATEGORY', 'event_label': 'LABEL', 
                 gtag ('event', 'age_dimension', {'age': 12});
 
             </script>
-
----------------------------------------------------------------------
-
-            <script type="text/javascript">
-                (function(i,s,o,g,r,a,m){
-                    i['GoogleAnalyticsObject']=r;
-                    i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)
-                    },
-                    i[r].l=1*new Date();
-                    a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];
-                    a.async=1;
-                    a.src=g;
-                    m.parentNode.insertBefore(a,m)
-                })(
-                    window,document,'script','//www.google-analytics.com/analytics.js','ga'
-                );
-
-                ga('create', '[{$oD3GASettings->getValue('sD3GAId')}]', '[{$sD3CurrentShopUrl}]' [{$sD3GACreateParameter}]);
-
-                [{include file="d3ga_universal_adwords.tpl"}]
-
-                [{include file="d3ga_universal_custom.tpl"}]
-            </script>
-
         [{*/strip*}]
     [{/capture}]
 
