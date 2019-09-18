@@ -79,8 +79,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             }
 
 
-            $oParentView->addTplParam('sD3GATTpl', $this->d3getGATTpl());
-            $oParentView->addTplParam('sD3GACreateParameter', $this->d3getCreateParameters());
             $oParentView->addTplParam('sAFEGetMoreUrls', $this->afGetMoreUrls());
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
             $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
@@ -117,20 +115,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     private function _d3getModId()
     {
         return $this->_sModId;
-    }
-
-    /**
-     * @return string
-     */
-    public function d3getGATTpl()
-    {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'async') {
-            return 'd3_googleanalytics.tpl';
-        } elseif (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'universaal') {
-            return 'd3ga_universal.tpl';
-        } elseif (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
-            return 'd3ga_gtag.tpl';
-        }
     }
 
     /**
@@ -247,36 +231,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     protected function _d3CheckLanguageUrlsToList($aLanguageUrls, $oVal, $blIsSsl)
     {
         return $blIsSsl || $aLanguageUrls[$oVal->id] != $aLanguageUrls[oxRegistry::getLang()->getBaseLanguage()];
-    }
-
-    /**
-     * @return string
-     */
-    public function d3getCreateParameters()
-    {
-        $aParameter = array();
-
-        if (d3_cfg_mod::get($this->_sModId)->getValue('sD3GAType') == 'gtag') {
-            $aParameter = $this->_d3getCreateAnonymizeIpParameter($aParameter);
-
-            /** @var oxUBase $oCurrentView */
-            $oCurrentView = oxRegistry::getConfig()->getActiveView();
-            $oCurrentView->getIsOrderStep();
-
-            $aParameter = $this->_d3getGtagSendPageViewPageParameter($oCurrentView, $aParameter);
-        }
-
-        $aParameter = $this->_d3getCreateDomainNameParameter($aParameter);
-        $aParameter = $this->_d3getCreateCookiePathParameter($aParameter);
-        $aParameter = $this->_d3getCreateDomainLinkerParameter($aParameter);
-        $aParameter = $this->_d3getCreateSpeedSamplerateParameter($aParameter);
-        $aParameter = $this->_d3getCreateSamplerateParameter($aParameter);
-
-        if (count($aParameter)) {
-            return ", {".implode(',', $aParameter)."}";
-        }
-
-        return '';
     }
 
     /**

@@ -18,6 +18,8 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
+use D3\ModCfg\Application\Model\d3utils;
+
 /**
  * Metadata version
  */
@@ -74,26 +76,16 @@ $aModule = array(
         'd3_google_trustedstore_articlelister'  =>
             'd3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php',
     ),
-    'templates' => array(
-        'd3_googleanalytics.tpl'           => 'd3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl',
-        'd3ga_universal.tpl'               => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_universal.tpl',
-        'd3ga_universal_custom.tpl'        =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_custom.tpl',
-        'd3ga_universal_ecommerce.tpl'     =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_ecommerce.tpl',
-        'd3ga_universal_adwords.tpl'       =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwords.tpl',
-        'd3ga_universal_adwordscode.tpl'   =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwordscode.tpl',
-        'd3ga_universal_remarketing.tpl'   =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_remarketing.tpl',
-        'd3ga_universal_campaigncode.tpl'  =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigncode.tpl',
-        'd3ga_universal_trustedstore.tpl'  =>
-            'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_trustedstore.tpl',
+    'templates'      => array(
+        'd3ga_universal_adwordscode.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwordscode.tpl',
+        'd3ga_universal_remarketing.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_remarketing.tpl',
+        'd3ga_universal_campaigncode.tpl' => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_campaigncode.tpl',
+        'd3ga_universal_trustedstore.tpl' => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_trustedstore.tpl',
 
         'd3ga_gtag.tpl'                   => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_gtag.tpl',
         'd3ga_gtag_ecommerce.tpl'         => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerce.tpl',
+        'd3ga_gtag_adwords.tpl'           => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_adwords.tpl',
+        'd3ga_gtag_custom.tpl'            => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_custom.tpl',
 
         'd3_cfg_googleanalytics_main.tpl'         => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_main.tpl',
         'd3_cfg_googleanalytics_adwords.tpl'      => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',
