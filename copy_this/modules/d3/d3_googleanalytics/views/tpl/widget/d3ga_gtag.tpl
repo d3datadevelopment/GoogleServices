@@ -4,8 +4,8 @@
             [{if $oD3GASettings->getValue('blD3GAUseOptOut')}]
                 [{block name="d3ga_optoutscript"}]
                     <script type="text/javascript">
-                        let gaProperty = '[{$oD3GASettings->getValue('sD3GAId')}]';
-                        let disableStr = 'ga-disable-' + gaProperty;
+                        var gaProperty = '[{$oD3GASettings->getValue('sD3GAId')}]';
+                        var disableStr = 'ga-disable-' + gaProperty;
                         if (document.cookie.indexOf(disableStr + '=true') > -1) {
                             window[disableStr] = true;
                         }

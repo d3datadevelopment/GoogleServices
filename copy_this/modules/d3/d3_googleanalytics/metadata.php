@@ -55,26 +55,20 @@ $aModule = array(
         'oxutilsview' => 'd3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalytics',
         'thankyou'    => 'd3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics',
     ),
-    'files' => array(
-        'd3_cfg_googleanalytics'           => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php',
-        'd3_cfg_googleanalytics_adwords'   =>
-            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_adwords.php',
-        'd3_cfg_googleanalytics_campaigns' =>
-            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_campaigns.php',
-        'd3_cfg_googleanalytics_licence'   =>
-            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php',
-        'd3_cfg_googleanalytics_list'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php',
-        'd3_cfg_googleanalytics_main'      => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php',
-        'd3_cfg_googleanalytics_trustedstore'      =>
-            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_trustedstore.php',
-        'd3_cfg_googleanalyticslog'        => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php',
-        'd3_cfg_googleanalyticslog_list'   =>
-            'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php',
-        'd3_googleanalytics_update'        => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',
-        'd3_google_remarketing_articlelister'   =>
-            'd3/d3_googleanalytics/models/d3_google_remarketing_articlelister.php',
-        'd3_google_trustedstore_articlelister'  =>
-            'd3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php',
+    'files'          => array(
+        'd3_cfg_googleanalytics'               => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php',
+        'd3_cfg_googleanalytics_adwords'       => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_adwords.php',
+        'd3_cfg_googleanalytics_campaigns'     => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_campaigns.php',
+        'd3_cfg_googleanalytics_licence'       => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_licence.php',
+        'd3_cfg_googleanalytics_list'          => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_list.php',
+        'd3_cfg_googleanalytics_main'          => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_main.php',
+        'd3_cfg_googleanalytics_trustedstore'  => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_trustedstore.php',
+        'd3_cfg_googleanalyticslog'            => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php',
+        'd3_cfg_googleanalyticslog_list'       => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php',
+        'd3_google_articlelister'              => 'd3/d3_googleanalytics/models/d3_google_articlelister.php',
+        'd3_google_remarketing_articlelister'  => 'd3/d3_googleanalytics/models/d3_google_remarketing_articlelister.php',
+        'd3_google_trustedstore_articlelister' => 'd3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php',
+        'd3_googleanalytics_update'            => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',
     ),
     'templates'      => array(
         'd3ga_universal_adwordscode.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_adwordscode.tpl',

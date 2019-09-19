@@ -1,6 +1,6 @@
 <?php
 
-use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use OxidEsales\Eshop\Application\Model\ArticleList;
 
 /**
  * This Software is the property of Data Development and is protected
@@ -15,10 +15,8 @@ use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
  * @link      http://www.oxidmodule.com
  */
 
-class d3_google_trustedstore_articlelister extends d3_google_articlelister
+class d3_google_articlelister
 {
-    private $_sModId = 'd3_googleanalytics';
-
     public $aStartListMethodNames = array(
         'getArticleList',
         'getTopArticleList',
@@ -86,19 +84,17 @@ class d3_google_trustedstore_articlelister extends d3_google_articlelister
      */
     public function getAlistProdList($oView)
     {
-        $oArticleList = $oView->getArticleList();
-        return $this->_getProductList($oArticleList);
+        return $oView->getArticleList();
     }
 
     /**
      * @param search $oView
      *
-     * @return array
+     * @return ArticleList
      */
     public function getSearchProdList($oView)
     {
-        $oArticleList = parent::getSearchProdList($oView);
-        return $this->_getProductList($oArticleList);
+        return $oView->getArticleList();
     }
 
     /**
@@ -108,8 +104,7 @@ class d3_google_trustedstore_articlelister extends d3_google_articlelister
      */
     public function getVendorlistProdList($oView)
     {
-        $oArticleList = $oView->getArticleList();
-        return $this->_getProductList($oArticleList);
+        return $oView->getArticleList();
     }
 
     /**
@@ -119,8 +114,29 @@ class d3_google_trustedstore_articlelister extends d3_google_articlelister
      */
     public function getManufacturerlistProdList($oView)
     {
-        $oArticleList = $oView->getArticleList();
-        return $this->_getProductList($oArticleList);
+        return $oView->getArticleList();
+    }
+
+    /**
+     * @param basket $oView
+     *
+     * @return array
+     */
+    public function getBasketProdList($oView)
+    {
+        $aArticleList = $oView->getBasketArticles();
+        return $this->_getProductList($aArticleList);
+    }
+
+    /**
+     * @param order $oView
+     *
+     * @return array
+     */
+    public function getOrderProdList($oView)
+    {
+        $aArticleList = $oView->getBasketArticles();
+        return $this->_getProductList($aArticleList);
     }
 
     /**
@@ -166,16 +182,20 @@ class d3_google_trustedstore_articlelister extends d3_google_articlelister
     protected function _getProductList($aArticleList)
     {
         $aArticleIds = array();
+        $dPrice = 0;
 
         /** @var oxarticle $oArticle */
         if (isset($aArticleList)) {
             foreach ($aArticleList as $oArticle) {
-                $aArticleIds[] = $oArticle->getFieldData(
-                    d3_cfg_mod::get($this->_sModId)->getValue('sD3GATSShoppingArtId')
-                );
+                $aArticleIds[] = $oArticle->getFieldData($this->sD3GARemarketingSKUField);
+                if ($this->blD3GARemarketingUseBrutto) {
+                    $dPrice += $oArticle->getPrice()->getBruttoPrice();
+                } else {
+                    $dPrice += $oArticle->getPrice()->getNettoPrice();
+                }
             }
         }
 
-        return array('aArtIdList' => $aArticleIds);
+        return array('aArtIdList' => $aArticleIds, 'dPrice' => $dPrice);
     }
 }
