@@ -301,6 +301,26 @@
                     </div>
                 </div>
 
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
+                                [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE"}]
+                            </span>
+                        </a>
+                        <dl>
+                            <dt>
+                                <label for="blD3GASendECommerce">[{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]</label>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="value[blD3GASendECommerce]" value="0">
+                                <input id="blD3GASendECommerce" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASendECommerce')}]checked[{/if}] name="value[blD3GASendECommerce]">
+                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC"}]
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
                 <table width="100%">
                     <tr>
                         <td class="edittext ext_edittext" align="left"><br>
@@ -325,16 +345,6 @@
                                 [{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE"}]
                             </span>
                         </a>
-                        <dl>
-                            <dt>
-                                <label for="blD3GASendECommerce">[{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA"}]</label>
-                            </dt>
-                            <dd>
-                                <input type="hidden" name="value[blD3GASendECommerce]" value="0">
-                                <input id="blD3GASendECommerce" class="edittext ext_edittext" type="checkbox" value="1" [{if $edit->getValue('blD3GASendECommerce')}]checked[{/if}] name="value[blD3GASendECommerce]">
-                                [{oxinputhelp ident="D3_GOOGLEANALYTICS_ECOMMERCE_SENDDATA_DESC"}]
-                            </dd>
-                        </dl>
                         <dl>
                             <dt>
                                 <label for="blD3GAUseNetto">[{oxmultilang ident="D3_GOOGLEANALYTICS_ECOMMERCE_USENETTO"}]</label>

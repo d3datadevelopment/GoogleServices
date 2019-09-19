@@ -65,6 +65,7 @@ $aModule = array(
         'd3_cfg_googleanalytics_trustedstore'  => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_trustedstore.php',
         'd3_cfg_googleanalyticslog'            => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog.php',
         'd3_cfg_googleanalyticslog_list'       => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalyticslog_list.php',
+        'd3_google_articlelister'              => 'd3/d3_googleanalytics/models/d3_google_articlelister.php',
         'd3_google_remarketing_articlelister'  => 'd3/d3_googleanalytics/models/d3_google_remarketing_articlelister.php',
         'd3_google_trustedstore_articlelister' => 'd3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php',
         'd3_googleanalytics_update'            => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',

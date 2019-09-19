@@ -33,33 +33,29 @@ gtag('event', 'purchase', {
     ]
 });
 
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'view_item_list', {
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": 2
-        },
-        {
-            "id": "P67890",
-            "name": "Flame challenge TShirt",
-            "list_name": "Search Results",
-            "brand": "MyBrand",
-            "category": "Apparel/T-Shirts",
-            "variant": "Red",
-            "list_position": 2,
-            "quantity": 1,
-            "price": 3
-        }
-    ]
-});
+[{if $blIsImpressionViewList}]
+    [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
+    gtag('event', 'view_item_list', {
+        "items": [
+            [{foreach from=$aD3GAProdInfos name="itemlist" item="item"}]
+                [{assign var="oPrice" value=$item->getPrice()}]
+                [{assign var="oManufacturer" value=$item->getManufacturer()}]
+                [{assign var="oCategory" value=$item->getCategory()}]
+                {
+                    "id": "[{$item->getFieldData('oxartnum')}]",
+                    "name": "[{$item->getFieldData('oxtitle')}]",
+                    "list_name": "[{$sImpressionListType}]",
+                    "brand": "[{if $oManufacturer}][{$oManufacturer->getTitle()}][{/if}]",
+                    "category": "[{if $oCategory}][{$oCategory->getTitle()}][{/if}]",
+                    "variant": "",
+                    "list_position": [{$smarty.foreach.itemlist.iteration}],
+                    "quantity": 1,
+                    "price": [{$oPrice->getPrice()}]
+                },
+            [{/foreach}]
+        ]
+    });
+[{/if}]
 
 [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
 gtag('event', 'view_item', {

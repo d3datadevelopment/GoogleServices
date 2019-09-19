@@ -1,20 +1,18 @@
 <?php
- /**
+/**
  * This Software is the property of Data Development and is protected
  * by copyright law - it is NOT Freeware.
- *
  * Any unauthorized use of this software without a valid license
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
- *
  * http://www.shopmodule.com
  *
- * @copyright © D³ Data Development, Thomas Dartsch
- * @author    D³ Data Development - Daniel Seifert <ds@shopmodule.com>
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
  * @link      http://www.oxidmodule.com
  */
 
-class d3_google_remarketing_articlelister
+class d3_google_remarketing_articlelister extends d3_google_articlelister
 {
     public $sD3GARemarketingSKUField = 'oxartnum';
 
@@ -98,7 +96,7 @@ class d3_google_remarketing_articlelister
      */
     public function getSearchProdList($oView)
     {
-        $oArticleList = $oView->getArticleList();
+        $oArticleList = parent::getSearchProdList($oView);
         return $this->_getProductList($oArticleList);
     }
 

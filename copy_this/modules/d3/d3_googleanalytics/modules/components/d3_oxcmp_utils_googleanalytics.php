@@ -5,6 +5,7 @@ use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
+use OxidEsales\Eshop\Application\Model\ArticleList;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -89,6 +90,8 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
                 $oParentView->addTplParam('sD3CurrentGTSLang', $this->d3GetGTSLang());
             }
 
+            $this->setECommerceParams();
+
             if ($oSet->getValue('sD3GATSActive') && $oSet->getValue('sD3GATSShoppingActive')) {
                 $aInfos = $this->d3GATSGetProdInfos();
                 $oParentView->addTplParam('sD3GATSProdId', $this->d3GATSGetProdIdList($aInfos['aArtIdList']));
@@ -107,6 +110,57 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         }
 
         return $ret;
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function setECommerceParams()
+    {
+        /** @var $oParentView FrontendController */
+        $oParentView = $this->getParent();
+
+        $oSet = d3_cfg_mod::get($this->_d3getModId());
+
+        if ($oSet->getValue('blD3GASendECommerce')) {
+            $oParentView->addTplParam('blIsImpressionViewList', false);
+
+            if ($this->isImpressionViewList()) {
+                $oParentView->addTplParam('blIsImpressionViewList', true);
+                $oParentView->addTplParam('aD3GAProdInfos', $this->d3GAGetProdInfos());
+                $oParentView->addTplParam('sImpressionListType', $this->d3GAGetImpressionListType());
+            }
+        }
+
+    }
+
+    public function isImpressionViewList()
+    {
+// ToDo: has to be completed
+        $impressionViews = ['search', 'start', 'alist', 'vendorlist', 'manufacturerlist'];
+        $oCurrentView = Registry::getConfig()->getActiveView();
+
+        return in_array($oCurrentView->getClassKey(), $impressionViews);
+    }
+
+    public function d3GAGetImpressionListType()
+    {
+        $oCurrentView = Registry::getConfig()->getActiveView();
+// ToDo: has to be completed
+        switch ($oCurrentView->getClassKey()) {
+            case 'search':
+                return "Search Results";
+            case 'start':
+                return "Start Page Results";
+            case 'alist':
+                return "Category Results";
+            case 'vendorlist':
+                return "Vendor List Results";
+            case 'manufacturerlist':
+                return "Manufacturer List Results";
+        }
     }
 
     /**
@@ -354,12 +408,36 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     {
         startProfile(__METHOD__);
 
-        $oCurrentView = oxRegistry::getConfig()->getActiveView();
+        $oCurrentView = Registry::getConfig()->getActiveView();
 
         $aArticleIds = array();
 
-        $sMethodName = 'get'.ucfirst($oCurrentView->getClassName())."ProdList";
+        $sMethodName = 'get'.ucfirst($oCurrentView->getClassKey())."ProdList";
         $oArticleLister = oxNew('d3_google_trustedstore_articlelister');
+
+        if (method_exists($oArticleLister, $sMethodName)) {
+            stopProfile(__METHOD__);
+            return call_user_func(array($oArticleLister, $sMethodName), $oCurrentView);
+        }
+
+        stopProfile(__METHOD__);
+
+        return array('aArtIdList' => $aArticleIds);
+    }
+
+    /**
+     * @return ArticleList
+     */
+    public function d3GAGetProdInfos()
+    {
+        startProfile(__METHOD__);
+
+        $oCurrentView = Registry::getConfig()->getActiveView();
+
+        $aArticleIds = array();
+
+        $sMethodName = 'get'.ucfirst($oCurrentView->getClassKey())."ProdList";
+        $oArticleLister = oxNew('d3_google_articlelister');
 
         if (method_exists($oArticleLister, $sMethodName)) {
             stopProfile(__METHOD__);
