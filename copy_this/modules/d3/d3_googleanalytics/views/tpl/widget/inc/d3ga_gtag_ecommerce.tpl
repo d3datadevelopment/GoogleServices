@@ -35,7 +35,7 @@ gtag('event', 'purchase', {
 
 [{if $blIsImpressionViewList}]
     [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-    gtag('event', 'view_item_list', {
+    gtag('event', '[{$sImpressionViewType}]', {
         "items": [
             [{foreach from=$aD3GAProdInfos name="itemlist" item="item"}]
                 [{assign var="oPrice" value=$item->getPrice()}]
@@ -50,29 +50,12 @@ gtag('event', 'purchase', {
                     "variant": "",
                     "list_position": [{$smarty.foreach.itemlist.iteration}],
                     "quantity": 1,
-                    "price": [{$oPrice->getPrice()}]
+                    "price": '[{$oPrice->getPrice()}]'
                 },
             [{/foreach}]
         ]
     });
 [{/if}]
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'view_item', {
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": '2.0'
-        }
-    ]
-});
 
 [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
 gtag('event', 'add_to_cart', {
