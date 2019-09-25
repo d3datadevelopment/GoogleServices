@@ -1,5 +1,7 @@
 <?php
 
+use OxidEsales\Eshop\Application\Component\Widget\ArticleDetails;
+use OxidEsales\Eshop\Application\Controller\ArticleDetailsController;
 use OxidEsales\Eshop\Application\Model\ArticleList;
 
 /**
@@ -54,15 +56,16 @@ class d3_google_articlelister
     }
 
     /**
-     * @param details $oView
-     *
-     * @return array
+     * @param ArticleDetailsController $oView
+     * @return ArticleList
      */
     public function getDetailsProdList($oView)
     {
-        $aArticleList = array();
-        $aArticleList[] = $oView->getProduct();
-        return $this->_getProductList($aArticleList);
+        $oArticle = $oView->getProduct();
+        $oArticleList = oxNew(ArticleList::class);
+        $oArticleList->offsetSet($oArticle->getId(), $oArticle);
+
+        return $oArticleList;
     }
 
     /**
@@ -70,11 +73,17 @@ class d3_google_articlelister
      *
      * @return array
      */
+    /**
+     * @param ArticleDetails $oView
+     * @return ArticleList
+     */
     public function getOxwarticledetailsProdList($oView)
     {
-        $aArticleList = array();
-        $aArticleList[] = $oView->getProduct();
-        return $this->_getProductList($aArticleList);
+        $oArticle = $oView->getProduct();
+        $oArticleList = oxNew(ArticleList::class);
+        $oArticleList->offsetSet($oArticle->getId(), $oArticle);
+
+        return $oArticleList;
     }
 
     /**

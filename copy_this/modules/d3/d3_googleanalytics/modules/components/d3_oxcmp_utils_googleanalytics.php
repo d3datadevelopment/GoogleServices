@@ -131,6 +131,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
                 $oParentView->addTplParam('blIsImpressionViewList', true);
                 $oParentView->addTplParam('aD3GAProdInfos', $this->d3GAGetProdInfos());
                 $oParentView->addTplParam('sImpressionListType', $this->d3GAGetImpressionListType());
+                $oParentView->addTplParam('sImpressionViewType', $this->d3GAGetImpressionViewType());
             }
         }
 
@@ -139,10 +140,21 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     public function isImpressionViewList()
     {
 // ToDo: has to be completed
-        $impressionViews = ['search', 'start', 'alist', 'vendorlist', 'manufacturerlist'];
+        $impressionViews = ['search', 'start', 'alist', 'vendorlist', 'manufacturerlist', 'details', 'oxwarticledetails'];
         $oCurrentView = Registry::getConfig()->getActiveView();
 
         return in_array($oCurrentView->getClassKey(), $impressionViews);
+    }
+
+    public function d3GAGetImpressionViewType()
+    {
+        switch (Registry::getConfig()->getActiveView()->getClassKey()) {
+            case 'details':
+            case 'oxwarticledetails':
+                return 'view_item';
+            default:
+                return 'view_item_list';
+        }
     }
 
     public function d3GAGetImpressionListType()
