@@ -48,6 +48,7 @@ $aModule = array(
     'url'            => 'http://www.oxidmodule.com/',
     'extend'         => array(
         'oxcmp_utils'  => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics',
+        'oxcmp_basket' => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_basket_googleanalytics',
         'oxbasket'     => 'd3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalytics',
         'oxbasketitem' => 'd3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics',
         'oxorder'      => 'd3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics',
@@ -78,6 +79,7 @@ $aModule = array(
 
         'd3ga_gtag.tpl'                   => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_gtag.tpl',
         'd3ga_gtag_ecommerce.tpl'         => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerce.tpl',
+        'd3ga_gtag_ecommerceproduct.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerceproduct.tpl',
         'd3ga_gtag_adwords.tpl'           => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_adwords.tpl',
         'd3ga_gtag_custom.tpl'            => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_custom.tpl',
 

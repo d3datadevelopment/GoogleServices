@@ -6,8 +6,5 @@
     [{block name="BaseAnalytics"}]
         [{include file="d3ga_gtag.tpl"}]
         [{oxstyle include=$oViewConf->getModuleUrl('d3_googleanalytics', 'out/src/d3_googleanalytics.css')}]
-        [{if $blD3GAIsMobile}]
-            [{oxstyle include=$oViewConf->getModuleUrl('d3_googleanalytics', 'out/src/d3_googleanalytics_mobile.css')}]
-        [{/if}]
     [{/block}]
 [{/if}]

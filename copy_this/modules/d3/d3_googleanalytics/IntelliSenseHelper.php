@@ -17,7 +17,9 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
-class d3_oxcmp_utils_googleAnalytics_parent extends oxcmp_utils {}
+class d3_oxcmp_utils_googleanalytics_parent extends oxcmp_utils {}
+
+class d3_oxcmp_basket_googleanalytics_parent extends oxcmp_basket {}
 
 /** */
 class d3_oxorder_googleanalytics_parent extends oxOrder {}
