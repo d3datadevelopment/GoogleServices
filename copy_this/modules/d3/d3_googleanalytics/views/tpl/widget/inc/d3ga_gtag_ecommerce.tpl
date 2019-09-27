@@ -1,38 +1,3 @@
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/ecommerce *}]
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'purchase', {
-    "transaction_id": "24.031608523954162",
-    "affiliation": "Google online store",
-    "value": 23.07,
-    "currency": "USD",
-    "tax": 1.24,
-    "shipping": 0,
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": '2.0'
-        },
-        {
-            "id": "P67890",
-            "name": "Flame challenge TShirt",
-            "list_name": "Search Results",
-            "brand": "MyBrand",
-            "category": "Apparel/T-Shirts",
-            "variant": "Red",
-            "list_position": 2,
-            "quantity": 1,
-            "price": '3.0'
-        }
-    ]
-});
-
 [{if $blIsImpressionViewList}]
     [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
     gtag('event', '[{$sImpressionViewType}]', {
@@ -41,146 +6,75 @@ gtag('event', 'purchase', {
                 [{assign var="oPrice" value=$item->getPrice()}]
                 [{assign var="oManufacturer" value=$item->getManufacturer()}]
                 [{assign var="oCategory" value=$item->getCategory()}]
-                {
-                    "id": "[{$item->getFieldData('oxartnum')}]",
-                    "name": "[{$item->getFieldData('oxtitle')}]",
-                    "list_name": "[{$sImpressionListType}]",
-                    "brand": "[{if $oManufacturer}][{$oManufacturer->getTitle()}][{/if}]",
-                    "category": "[{if $oCategory}][{$oCategory->getTitle()}][{/if}]",
-                    "variant": "",
-                    "list_position": [{$smarty.foreach.itemlist.iteration}],
-                    "quantity": 1,
-                    "price": '[{$oPrice->getPrice()}]'
-                },
+                [{include file="d3ga_gtag_ecommerceproduct.tpl" item=$item iteration=$smarty.foreach.itemlist.iteration listname=$sImpressionListType}]
+            [{/foreach}]
+        ]
+    });
+[{elseif $blIsCheckoutViewList}]
+    [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
+    gtag('event', '[{$sImpressionViewType}]', {
+        "items": [
+            [{foreach from=$oBasket->getContents() name="itemlist" item="basketContent"}]
+                [{assign var="item" value=$basketContent->getArticle()}]
+                [{assign var="oPrice" value=$item->getPrice()}]
+                [{assign var="oManufacturer" value=$item->getManufacturer()}]
+                [{assign var="oCategory" value=$item->getCategory()}]
+                [{include file="d3ga_gtag_ecommerceproduct.tpl" item=$item iteration=$smarty.foreach.itemlist.iteration listname=$sImpressionListType quantity=$basketContent->getAmount()}]
+            [{/foreach}]
+        ]
+        [{if $oVoucherList && $oVoucherList->count()}]
+            , "coupon": "
+                [{foreach from=$oVoucherList item="oVoucher"}]
+                    [{assign var="voucherSerie" value=$oVoucher->getSerie()}]
+                    [{$voucherSerie->getFieldData('oxserienr')}],
+                [{/foreach}]
+            "
+        [{/if}]
+    });
+[{elseif $blIsPurchasedList}]
+    [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
+    [{assign var="oCurrency" value=$oOrder->getOrderCurrency()}]
+    gtag('event', 'purchase', {
+        "transaction_id": "[{$oOrder->getFieldData('oxordernr')}]",
+        "affiliation": "[{$oShop->getFieldData('oxname')|escape:"quotes"}]",
+        "value": [{$oOrder->getFieldData('oxtotalnetsum')}],
+        "currency": "[{$oCurrency->name}]",
+        "tax": [{$dVat}],
+        "shipping": [{$oOrder->getFieldData('oxdelcost')}],
+        "items": [
+            [{foreach from=$oOrder->getOrderArticles() name="itemlist" item="oOrderArticle"}]
+                [{assign var="oArticle" value=$oOrderArticle->getArticle()}]
+                [{include file="d3ga_gtag_ecommerceproduct.tpl" item=$oArticle iteration=$smarty.foreach.itemlist.iteration listname="Purchase List" quantity=$oOrderArticle->getFieldData('oxamount')}]
+            [{/foreach}]
+        ]
+        [{if $oVoucherList && $oVoucherList->count()}]
+            , "coupon": "
+            [{foreach from=$oVoucherList item="oVoucher"}]
+                [{assign var="voucherSerie" value=$oVoucher->getSerie()}]
+                [{$voucherSerie->getFieldData('oxserienr')}],
+            [{/foreach}]
+            "
+        [{/if}]
+    });
+[{/if}]
+
+[{if $blIsBasketAction}]
+    [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
+    [{* add_to_cart + remove_from_cart *}]
+    gtag('event', '[{$sBasketActionType}]', {
+        "items": [
+            [{foreach from=$aD3GABasketProdInfos name="itemlist" item="item"}]
+                [{include file="d3ga_gtag_ecommerceproduct.tpl" item=$item iteration=$smarty.foreach.itemlist.iteration listname=$sImpressionListType quantity=$dAmount}]
             [{/foreach}]
         ]
     });
 [{/if}]
 
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'add_to_cart', {
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": '2.0'
-        }
-    ]
-});
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'remove_from_cart', {
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": '2.0'
-        }
-    ]
-});
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'begin_checkout', {
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": '2.0'
-        }
-    ],
-    "coupon": ""
-});
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'checkout_progress', {
-    "items": [
-        {
-            "id": "P12345",
-            "name": "Android Warhol T-Shirt",
-            "list_name": "Search Results",
-            "brand": "Google",
-            "category": "Apparel/T-Shirts",
-            "variant": "Black",
-            "list_position": 1,
-            "quantity": 2,
-            "price": '2.0'
-        }
-    ],
-    "coupon": "SUMMER_DISCOUNT"
-});
-
-[{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
-gtag('event', 'set_checkout_option', {
-    "checkout_step": 1,
-    "checkout_option": "shipping method",
-    "value": "USPS"
-});
-
-
-[{* ============================================================ *}]
-
-
-[{if $oD3GASettings->getValue('blD3GASendECommerce') && $oViewConf->getActiveClassName() == 'thankyou'}][{strip}]
-    [{block name="UniversalEcommerceOrder"}]
-        [{assign var="order" value=$oView->getOrder()}]
-
-        [{assign var="currate" value=$order->oxorder__oxcurrate->value}]
-        [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
-            [{math equation="s / r" s=$order->getOrderNetSum() r=$currate format="%.2f" assign="sTotal"}]   [{* // total - required - has to be gross sum *}]
-        [{else}]
-            [{math equation="s / r" s=$order->getTotalOrderSum() r=$currate format="%.2f" assign="sTotal"}] [{* // total - required *}]
-        [{/if}]
-        [{math equation="s - r" s=$order->getTotalOrderSum() r=$order->getOrderNetSum() format="%.2f" assign="sTax"}]
-        [{math equation="s / r" s=$order->oxorder__oxdelcost->value r=$currate format="%.2f" assign="sShipping"}]
-
-        gtag('event', 'purchase', {
-            "transaction_id": "[{$order->oxorder__oxordernr->value}]",
-            "affiliation": "[{$oxcmp_shop->oxshops__oxname->value|escape:"quotes"}]",
-            "value": [{$sTotal}],
-            "currency": "[{$order->getFieldData('oxcurrency')}]",
-            "tax": [{$sTax}],
-            "shipping": [{$sShipping}],
-            "items": [
-
-            [{foreach from=$order->getOrderArticles() item=oOrderArticle name="artList"}]
-                [{block name="UniversalEcommerceOrderArticle"}]
-                    [{if $oD3GASettings->getValue('blD3GAUseNetto')}]
-                        [{assign var="oPrice" value=$oOrderArticle->getPrice()}]
-                        [{math equation="s / r" s=$oPrice->getNettoPrice() r=$currate format="%.2f" assign="sPrice"}]
-                    [{else}]
-                        [{assign var="sPrice" value=$oOrderArticle->oxorderarticles__oxprice->value}]
-                    [{/if}]
-                    {
-                        "id": "[{$order->oxorder__oxordernr->value}]",
-                        "name": "[{$oOrderArticle->oxorderarticles__oxtitle->value|escape:"quotes"}]",
-                        "list_name": "Search Results",
-                        "brand": "Google",
-                        "category": "[{$oOrderArticle->oxorderarticles__d3_galocator->value|escape:"quotes"}]",
-                        "variant": "[{$oOrderArticle->oxorderarticles__oxselvariant->value}]",
-                        "list_position": [{$smarty.foreach.artList.index}],
-                        "quantity": [{$oOrderArticle->oxorderarticles__oxamount->value}],
-                        "price": '[{$sPrice}]'
-                    },
-                [{/block}]
-            [{/foreach}]
-        });
-    [{/block}]
-[{/strip}][{/if}]
+[{if $blIsCheckoutViewList || $blIsPurchasedList}]
+    [{* https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce *}]
+    gtag('event', 'set_checkout_option', {
+        "checkout_step": [{$iCheckoutStep}],
+        "checkout_option": "Shipping + Payment",
+        "value": "[{$checkoutOptionValue}]"
+    });
+[{/if}]

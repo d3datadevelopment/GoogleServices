@@ -5,7 +5,12 @@ use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
+use OxidEsales\Eshop\Application\Model\Article as Article;
 use OxidEsales\Eshop\Application\Model\ArticleList;
+use OxidEsales\Eshop\Application\Model\DeliverySet;
+use OxidEsales\Eshop\Application\Model\Payment as Payment;
+use OxidEsales\Eshop\Application\Model\Voucher;
+use OxidEsales\Eshop\Application\Model\VoucherList;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -71,10 +76,12 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
             $oParentView->addTplParam('oD3GAActCurrency', Registry::getConfig()->getActShopCurrencyObject());
             $oParentView->addTplParam('sD3GAPageLocation', $oParentView->getBaseLink());
             $oParentView->addTplParam('sD3GAPagePath', str_replace(Registry::getConfig()->getShopUrl(), '', $oParentView->getBaseLink()));
+            $oParentView->addTplParam('oShop', Registry::getConfig()->getActiveShop());
             // prevent overwriting with empty title from later loaded widgets
-            if ($oParentView->getTitle() && false == $oParentView->getViewDataElement('sD3GAPageTitle')) {
-                $oParentView->addTplParam('sD3GAPageTitle', $oParentView->getTitle());
+            if (false == $oParentView->getViewDataElement('sD3GAPageTitle')) {
+                $oParentView->addTplParam('sD3GAPageTitle', $oParentView->getTitle() ? $oParentView->getTitle() : ucfirst($oParentView->getClassKey()));
             }
+
             if (Registry::getSession()->getUser() && ($sUserId = Registry::getSession()->getUser()->getId())) {
                 $oParentView->addTplParam('sD3GAUserId', md5($sUserId));
             }
@@ -82,8 +89,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
             $oParentView->addTplParam('sAFEGetMoreUrls', $this->afGetMoreUrls());
             $oParentView->addTplParam('sD3GASendPageViewParameter', $this->d3getSendPageViewParameters());
-            $oParentView->addTplParam('sD3CurrentShopUrl', $this->d3GetCreateCurrentShopUrl());
-            $oParentView->addTplParam('blD3GAIsMobile', $this->d3isMobile());
             $oParentView->addTplParam('iD3GASendNoBounceEventTime', $this->d3GetSendNoBounceEventTime());
 
             if ($oSet->getValue('sD3GATSActive')) {
@@ -126,15 +131,73 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
         if ($oSet->getValue('blD3GASendECommerce')) {
             $oParentView->addTplParam('blIsImpressionViewList', false);
+            $oParentView->addTplParam('blIsCheckoutViewList', false);
+            $oParentView->addTplParam('blIsPurchasedList', false);
+            $oParentView->addTplParam('blIsBasketAction', false);
 
             if ($this->isImpressionViewList()) {
                 $oParentView->addTplParam('blIsImpressionViewList', true);
                 $oParentView->addTplParam('aD3GAProdInfos', $this->d3GAGetProdInfos());
                 $oParentView->addTplParam('sImpressionListType', $this->d3GAGetImpressionListType());
                 $oParentView->addTplParam('sImpressionViewType', $this->d3GAGetImpressionViewType());
+            } elseif ($this->isCheckoutViewList()) {
+                $oParentView->addTplParam('blIsCheckoutViewList', true);
+                /** @var \OxidEsales\Eshop\Application\Model\Basket $basket */
+                $basket = Registry::getSession()->getBasket();
+                $oParentView->addTplParam('oBasket', $basket);
+
+                $voucherList = oxNew(VoucherList::class);
+                foreach ($basket->getVouchers() as $voucher) {
+                    $oVoucher = oxNew(Voucher::class);
+                    $oVoucher->load($voucher->sVoucherId);
+                    $voucherList->offsetSet($oVoucher->getId(), $oVoucher);
+                }
+                $oParentView->addTplParam('oVoucherList', $voucherList);
+                $oParentView->addTplParam('iCheckoutStep', $this->d3GAGetCheckoutStep());
+                $oParentView->addTplParam('sImpressionViewType', $this->d3GAGetImpressionViewType());
+
+                $oShipping = oxNew(DeliverySet::class);
+                if ($basket->getShippingId()) $oShipping->load($basket->getShippingId());
+                $oPayment = oxNew( Payment::class);
+                if ($basket->getPaymentId()) $oPayment->load($basket->getPaymentId());
+                $oParentView->addTplParam('checkoutOptionValue', $oShipping->getFieldData('oxtitle').' + '.$oPayment->getFieldData('oxdesc'));
+            } elseif ($this->isPurchasedList()) {
+                $oParentView->addTplParam('blIsPurchasedList', true);
+                /** @var \OxidEsales\Eshop\Application\Model\Basket $basket */
+                $basket = $oParentView->getBasket();
+                $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
+                $order->load($basket->getOrderId());
+                $oParentView->addTplParam('oOrder', $order);
+
+                $voucherList = oxNew(VoucherList::class);
+                foreach ($basket->getVouchers() as $voucher) {
+                    $oVoucher = oxNew(Voucher::class);
+                    $oVoucher->load($voucher->sVoucherId);
+                    $voucherList->offsetSet($oVoucher->getId(), $oVoucher);
+                }
+                $oParentView->addTplParam('oVoucherList', $voucherList);
+                $oParentView->addTplParam('iCheckoutStep', 5);
+                $oParentView->addTplParam('dVat', array_sum($order->getProductVats(false)));
+
+                $oShipping = oxNew(DeliverySet::class);
+                if ($basket->getShippingId()) $oShipping->load($basket->getShippingId());
+                $oPayment = oxNew( Payment::class);
+                if ($basket->getPaymentId()) $oPayment->load($basket->getPaymentId());
+                $oParentView->addTplParam('checkoutOptionValue', $oShipping->getFieldData('oxtitle').' + '.$oPayment->getFieldData('oxdesc'));
+            }
+
+            if (($basketAction = Registry::getSession()->getVariable('d3GABasketAction'))) {
+                $oParentView->addTplParam('blIsBasketAction', true);
+                $oParentView->addTplParam('sBasketActionType', $this->d3GAGetBasketActionType());
+                $oArticleList = oxNew(ArticleList::class);
+                $oArticle = oxNew( Article::class);
+                $oArticle->load($basketAction->product);
+                $oArticleList->offsetSet($oArticle->getId(), $oArticle);
+                $oParentView->addTplParam('aD3GABasketProdInfos', $oArticleList);
+                $oParentView->addTplParam('dAmount', $basketAction->amount);
+                Registry::getSession()->deleteVariable('d3GABasketAction');
             }
         }
-
     }
 
     public function isImpressionViewList()
@@ -143,17 +206,67 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
         $impressionViews = ['search', 'start', 'alist', 'vendorlist', 'manufacturerlist', 'details', 'oxwarticledetails'];
         $oCurrentView = Registry::getConfig()->getActiveView();
 
-        return in_array($oCurrentView->getClassKey(), $impressionViews);
+        return in_array(strtolower($oCurrentView->getClassKey()), $impressionViews);
+    }
+
+    public function isCheckoutViewList()
+    {
+// ToDo: has to be completed
+        $impressionViews = ['basket', 'user', 'payment', 'order'];
+        $oCurrentView = Registry::getConfig()->getActiveView();
+
+        return in_array(strtolower($oCurrentView->getClassKey()), $impressionViews);
+    }
+
+    public function isPurchasedList()
+    {
+        $impressionViews = ['thankyou'];
+        $oCurrentView = Registry::getConfig()->getActiveView();
+
+        return in_array(strtolower($oCurrentView->getClassKey()), $impressionViews);
     }
 
     public function d3GAGetImpressionViewType()
     {
-        switch (Registry::getConfig()->getActiveView()->getClassKey()) {
+        switch (strtolower(Registry::getConfig()->getActiveView()->getClassKey())) {
             case 'details':
             case 'oxwarticledetails':
                 return 'view_item';
+            case 'basket':
+                return 'begin_checkout';
+            case 'user':
+            case 'payment':
+            case 'order':
+                return 'checkout_progress';
             default:
                 return 'view_item_list';
+        }
+    }
+
+    public function d3GAGetCheckoutStep()
+    {
+        switch (strtolower(Registry::getConfig()->getActiveView()->getClassKey())) {
+            case 'basket':
+                return 1;
+            case 'user':
+                return 2;
+            case 'payment':
+                return 3;
+            case 'order':
+                return 4;
+        }
+
+        return 0;
+    }
+
+    public function d3GAGetBasketActionType()
+    {
+        $basketAction = Registry::getSession()->getVariable('d3GABasketAction');
+        switch ($basketAction->action) {
+            case 'toBasket':
+                return 'add_to_cart';
+            case 'oxwarticledetails':
+                return 'remove_from_cart';
         }
     }
 
@@ -181,26 +294,6 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     private function _d3getModId()
     {
         return $this->_sModId;
-    }
-
-    /**
-     * @return string
-     */
-    public function d3GetCreateCurrentShopUrl()
-    {
-        if (d3_cfg_mod::get($this->_sModId)->getValue('blD3GAAllowDomainLinker')) {
-            return 'auto';
-        }
-
-        return $this->d3GetCurrentShopUrl();
-    }
-
-    /**
-     * @return string
-     */
-    public function d3GetCurrentShopUrl()
-    {
-        return oxRegistry::getConfig()->getActiveShop()->getFieldData('oxurl');
     }
 
     /**
@@ -446,7 +539,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
         $oCurrentView = Registry::getConfig()->getActiveView();
 
-        $aArticleIds = array();
+        $oArticleList = oxNew(ArticleList::class);
 
         $sMethodName = 'get'.ucfirst($oCurrentView->getClassKey())."ProdList";
         $oArticleLister = oxNew('d3_google_articlelister');
@@ -458,7 +551,7 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
 
         stopProfile(__METHOD__);
 
-        return array('aArtIdList' => $aArticleIds);
+        return $oArticleList;
     }
 
     /**
@@ -681,22 +774,10 @@ class d3_oxcmp_utils_googleanalytics extends d3_oxcmp_utils_googleanalytics_pare
     }
 
     /**
-     * @return bool
-     */
-    public function d3isMobile()
-    {
-        if (class_exists('oeThemeSwitcherThemeManager')) {
-            /** @var oeThemeSwitcherThemeManager $oThemeManager */
-            $oThemeManager = oxNew('oeThemeSwitcherThemeManager');
-
-            return $oThemeManager->isMobileThemeRequested();
-        }
-
-        return false;
-    }
-
-    /**
      * @return int
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function d3GetSendNoBounceEventTime()
     {

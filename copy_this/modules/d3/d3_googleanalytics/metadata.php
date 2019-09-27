@@ -41,19 +41,20 @@ $aModule = array(
             'en'   => 'Provides a quick and easy integration with your Google Analytics, Google Adwords and Google '.
                 'Trusted Shops account to your shop.',
     ),
-    'thumbnail'    => 'picture.png',
-    'version'      => '3.4.0.1',
-    'author'       => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
-    'email'        => 'support@shopmodule.com',
-    'url'          => 'http://www.oxidmodule.com/',
-    'extend'      => array(
-        'oxcmp_utils' => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics',
-        'oxbasket'    => 'd3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalytics',
-        'oxbasketitem'=> 'd3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics',
-        'oxorder'     => 'd3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics',
-        'order'       => 'd3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics',
-        'oxutilsview' => 'd3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalytics',
-        'thankyou'    => 'd3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics',
+    'thumbnail'      => 'picture.png',
+    'version'        => '3.4.0.1',
+    'author'         => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
+    'email'          => 'support@shopmodule.com',
+    'url'            => 'http://www.oxidmodule.com/',
+    'extend'         => array(
+        'oxcmp_utils'  => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics',
+        'oxcmp_basket' => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_basket_googleanalytics',
+        'oxbasket'     => 'd3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalytics',
+        'oxbasketitem' => 'd3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics',
+        'oxorder'      => 'd3/d3_googleanalytics/modules/models/d3_oxorder_googleanalytics',
+        'order'        => 'd3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics',
+        'oxutilsview'  => 'd3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalytics',
+        'thankyou'     => 'd3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics',
     ),
     'files'          => array(
         'd3_cfg_googleanalytics'               => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php',
@@ -78,6 +79,7 @@ $aModule = array(
 
         'd3ga_gtag.tpl'                   => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_gtag.tpl',
         'd3ga_gtag_ecommerce.tpl'         => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerce.tpl',
+        'd3ga_gtag_ecommerceproduct.tpl'  => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_ecommerceproduct.tpl',
         'd3ga_gtag_adwords.tpl'           => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_adwords.tpl',
         'd3ga_gtag_custom.tpl'            => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_gtag_custom.tpl',
 

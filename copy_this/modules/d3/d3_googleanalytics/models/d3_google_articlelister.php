@@ -30,7 +30,7 @@ class d3_google_articlelister
     /**
      * @param start $oView
      *
-     * @return array
+     * @return ArticleList
      */
     public function getStartProdList($oView)
     {
@@ -52,7 +52,7 @@ class d3_google_articlelister
             }
         }
 
-        return $this->_getProductList($oArticleList);
+        return $oArticleList;
     }
 
     /**
@@ -129,12 +129,19 @@ class d3_google_articlelister
     /**
      * @param basket $oView
      *
-     * @return array
+     * @return ArticleList
      */
     public function getBasketProdList($oView)
     {
         $aArticleList = $oView->getBasketArticles();
-        return $this->_getProductList($aArticleList);
+        $oArticleList = oxNew(ArticleList::class);
+
+        /** @var \OxidEsales\Eshop\Application\Model\Article $oArticle */
+        foreach ($aArticleList as $oArticle) {
+            $oArticleList->offsetSet($oArticle->getId(), $oArticle);
+        }
+
+        return $oArticleList;
     }
 
     /**
