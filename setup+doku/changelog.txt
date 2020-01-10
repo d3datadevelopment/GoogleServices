@@ -1,6 +1,8 @@
+- hotfix for chrome, unattractiveness - js created body fill full side, settings show after scrolling down
+
 => 4.0.0.1
 - "weiße" Thankyou-Seite behoben
-- 7740: ecomm_totalvalue: [{$sD3GARemarketingPrice}] - als Standardewrt wird nun 0 übergeben, damit ecomm_totalvalue nicht leer bleibt und dadurch Syntaxfehler verursacht
+- 7740: ecomm_totalvalue: [{$sD3GARemarketingPrice}] - als Standardwert wird nun 0 übergeben, damit ecomm_totalvalue nicht leer bleibt und dadurch Syntaxfehler verursacht
 - 7832: fehlende Angabe der Währung
 
 => 4.0.0.0
@@ -26,11 +28,11 @@
 - fix: Optionen im Admin können nicht deaktivert werden
        - "Zertifizierter Händler" im Shop aktivieren
        - zusätzliche Daten aus Google Shopping übertragen
-- fix: Zertifizierte Händler, locale Eintrag auch ohne 
+- fix: Zertifizierte Händler, locale Eintrag auch ohne
        aktive Option "zusätzliche Daten aus Google Shopping übertragen"
-- fix: Kampagnencode wurde nicht übertragen	   
+- fix: Kampagnencode wurde nicht übertragen
 - Link "Hilfe starten" korrigieren
-- Aktualisierung der Modulinstallationsanleitung / Vorabprüfung (d3precheck) 
+- Aktualisierung der Modulinstallationsanleitung / Vorabprüfung (d3precheck)
 - freigegeben bis PHP 5.6
 
 => 3.3.1.0

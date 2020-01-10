@@ -408,8 +408,8 @@ $aLang = array(
         'Sie in der <a href="https://www.google.de/search?q=Analytics+_opt+out+script" target="gahelp">Google-Suche'.
         '</a>.</p>',
 
-    'D3_GOOGLEANALYTICS_ADBLOCKER' => 'AdBlocker entdeckt - Bitte deaktivieren Sie diesen f�r diese Seite, da sonst '.
-        'Teile des Admin-Bereichs nicht richtig geladen werden k�nnen.',
+    'D3_GOOGLEANALYTICS_ADBLOCKER' => 'AdBlocker entdeckt - Bitte deaktivieren Sie diesen für diese Seite, da sonst '.
+        'Teile des Admin-Bereichs nicht richtig geladen werden können.',
 
     // Erweiterung des Links in der Fussnote "Hilfe Starten"
     'D3_GOOGLEANALYTICS_HELPLINK' => 'Fragen-zu-speziellen-Modulen/Google-Analytics/',
