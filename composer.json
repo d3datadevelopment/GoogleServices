@@ -22,7 +22,7 @@
   ],
   "homepage": "https://www.oxidmodule.com/",
   "license": [
-    "GPL3"
+    "GPL-3.0-or-later"
   ],
   "extra": {
     "oxideshop": {
