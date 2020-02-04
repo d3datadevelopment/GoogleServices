@@ -1,4 +1,6 @@
-- hotfix for chrome, unattractiveness - js created body fill full side, settings show after scrolling down
+=> 4.0.0.2
+- Installation via Composer ermöglicht
+- Hotfix für Google Chrome Browser, vermeidet unnötigen Leerraum vor den Settings im Admin
 
 => 4.0.0.1
 - "weiße" Thankyou-Seite behoben
