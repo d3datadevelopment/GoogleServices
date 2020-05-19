@@ -1,9 +1,9 @@
 {
-    "title": "<i class='fab fa-d3 d3fa-color-blue'></i> MODULNAME",
-    "moduleversion": "5.0.0.0",
+    "title": "<i class='fab fa-d3 d3fa-color-blue'></i> Google Services",
+    "moduleversion": "4.0.0.2",
     "titledesc": "für den Oxid eShop",
     "author": "D³ Data Development",
-    "moduledate": "17.04.2018",
+    "moduledate": "17.05.2020",
     "editors": "XX/YY",
     "tagline": "",
     "image": "",
@@ -32,7 +32,6 @@
         "powered_by": ""
     },
     "languages": {
-        "editions": "Editionen",
         "installation": "Installation",
         "manual": "Handbuch",
         "changelog": "Changelog",
@@ -62,11 +61,11 @@
         }
     },
     "variables": {
-        "modulename"    : "<i class='fab fa-d3 d3fa-color-blue'></i> MODULNAME",
-        "menutitle"     : "<i class='fab fa-d3 d3fa-color-blue'></i> MODULNAME",
+        "modulename"    : "<i class='fab fa-d3 d3fa-color-blue'></i> Google Services",
+        "menutitle"     : "<i class='fab fa-d3 d3fa-color-blue'></i> Google Services",
         "modulefolder"  : "module_folder",
-        "modcfgident"   : "d3modident",
-        "composerident" : "d3/moduleident"
+        "modcfgident"   : "d3_googleanalytics",
+        "composerident" : "d3/googleservices"
     },
     "versionselector": false,
     "versiondirectoryindex": 2
