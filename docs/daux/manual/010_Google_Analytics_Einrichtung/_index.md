@@ -1,3 +1,3 @@
 ---
-Title: Google Analytics-Einrichtung
+title: Einrichtungsleitfaden Google Analytics
 ---

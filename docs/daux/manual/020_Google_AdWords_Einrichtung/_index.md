@@ -1,3 +1,3 @@
 ---
-Title: Google AdWords-Einrichtung
+title: Einrichtungsleitfaden Google AdWords
 ---

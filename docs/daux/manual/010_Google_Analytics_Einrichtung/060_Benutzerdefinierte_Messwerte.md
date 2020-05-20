@@ -2,9 +2,9 @@
 title: Benutzerdefinierte Messwerte  
 ---
 
-Werten Sie weitere kundenspezifische Daten aus, die über den Seitenbesuch hinausgehen. Im Standardmodul sind einige Dimensionen eingerichtet, deren Übertragung einfach im Adminbereich Ihres Shops aktiviert werden können.
+Werten Sie weitere kundenspezifische Daten aus, die Ã¼ber den Seitenbesuch hinausgehen. Im Standardmodul sind einige Dimensionen eingerichtet, deren Ãœbertragung einfach im Adminbereich Ihres Shops aktiviert werden kÃ¶nnen.
 Die Option finden Sie unter 
-[ Admin ] -> [ (D3) Module ] -> [ {$menutitle} ] -> [ Einstellungen ] -> [ Analytics ] -> [ individuelle Daten ] -> [ individuelle Daten übertrage ].
+[ Admin ] -> [ (D3) Module ] -> [ {$menutitle} ] -> [ Einstellungen ] -> [ Analytics ] -> [ individuelle Daten ] -> [ individuelle Daten Ã¼bertrage ].
 
-Die Dimensionen müssen ebenfalls in Ihrem Google-Konto angelegt werden. Die erforderlichen Einstellungen entnehmen Sie bitte der folgenden Grafik. 
+Die Dimensionen mÃ¼ssen ebenfalls in Ihrem Google-Konto angelegt werden. Die erforderlichen Einstellungen entnehmen Sie bitte der folgenden Grafik. 
 ![](../../assets/benutzerdefinierte_Messwerte.png)
