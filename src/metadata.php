@@ -28,8 +28,9 @@ $sMetadataVersion = '1.1';
  */
 $aModule = array(
     'id'             => 'd3_googleanalytics',
-    'title'          => (class_exists(\D3\ModCfg\Application\Model\d3utils::class) ? \D3\ModCfg\Application\Model\d3utils::getInstance()->getD3Logo() : 'D&sup3;').
-        ' Google Services Schnittstelle',
+    'title'          => 
+        '<svg style="height:1em;width:1em"><image xlink:href="https://logos.oxidmodule.com/d3logo.svg" style="height:1em;width:1em" /></svg> '.
+        'Google Services Schnittstelle',
     'description'    => array(
         'de' => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-'.
             'Kontos in Ihren Shop zur Verf&uuml;gung. Hierbei werden &uuml;ber standardisierte Schnittstellen die '.
