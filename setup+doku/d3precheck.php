@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId   = 'd3_googleanalytics';
 
-    public $sModVersion = '4.0.0.2';
+    public $sModVersion = '4.1.0.0';
 
     /********************** check configuration section ************************/
 
@@ -164,7 +164,7 @@ class requConfig
                 'aParams' => array(
                     'id'      => 'd3modcfg_lib',
                     'name'    => 'Modul-Connector',
-                    'version' => '5.0.0.1',
+                    'version' => '5.3.1.0',
                 ),
             ),
         ),
@@ -176,7 +176,7 @@ class requConfig
                 'aParams' => array(
                     'id'      => 'd3modcfg_lib',
                     'name'    => 'Modul-Connector',
-                    'version' => '5.1.2.0',
+                    'version' => '5.3.1.100',
                 ),
             ),
         ),

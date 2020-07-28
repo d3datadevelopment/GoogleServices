@@ -41,7 +41,7 @@ $aModule = array(
             'Trusted Shops account to your shop.',
     ),
     'thumbnail'      => 'picture.png',
-    'version'        => '4.0.0.2',
+    'version'        => '4.1.0.0',
     'author'         => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'          => 'support@shopmodule.com',
     'url'            => 'http://www.oxidmodule.com/',
@@ -103,8 +103,5 @@ $aModule = array(
             'block'    => 'footer_main',
             'file'     => '/views/blocks/layout/d3_base_optout.tpl',
         ),
-    ),
-    'd3SetupClasses' => array(
-        'd3_googleanalytics_update',
     ),
 );
