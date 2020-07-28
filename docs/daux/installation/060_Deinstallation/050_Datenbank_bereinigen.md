@@ -10,3 +10,10 @@ Für das Modul **{$modulename}** sind dies die folgende Felder:
 
 * in Tabelle `oxorderarticles`:  
   * das Feld `D3_GALOCATOR`
+  
+sowie diese Einträge in bestehenden Tabellen:
+
+* in Tabelle `d3_cfg_mod`:  
+  * den Eintrag `oxmodid = "{$modcfgident}"` **)
+  
+**) Diesen Eintrag gibt es ggf. für jeden Subshop. Entfernen Sie diesen nur für die Mandanten, in denen das Modul **nicht** mehr installiert ist. 

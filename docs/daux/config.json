@@ -63,7 +63,7 @@
     "variables": {
         "modulename"    : "<i class='fab fa-d3 d3fa-color-blue'></i> Google Services",
         "menutitle"     : "<i class='fab fa-d3 d3fa-color-blue'></i> Google Services",
-        "modulefolder"  : "module_folder",
+        "modulefolder"  : "d3_googleanalytics",
         "modcfgident"   : "d3_googleanalytics",
         "composerident" : "d3/googleservices"
     },
