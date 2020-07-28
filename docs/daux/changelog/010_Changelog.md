@@ -1,12 +1,22 @@
 ---
 title: Changelog
 ---
+
+## 4.1.0.0 - (2020-07-28)
+### Added
+- Update für OXID 6.2 (vielen Dank an Marten Seemann)
+### Changed
+- Dokumentationsformat aktualisiert
+
+---
+
 ## 4.0.0.2
 ### Changed
 - Installation via Composer ermöglicht
 ### Fixed
 - Hotfix für Google Chrome Browser, vermeidet unnötigen Leerraum vor den Settings im Admin
 
+---
 
 ## 4.0.0.1
 ### Fixed
@@ -14,6 +24,7 @@ title: Changelog
 - 0007740: ecomm_totalvalue: [{$sD3GARemarketingPrice}] - als Standardwert wird nun 0 übergeben, damit ecomm_totalvalue nicht leer bleibt und dadurch Syntaxfehler verursacht
 - 0007832: fehlende Angabe der Währung
 
+---
 
 ## 4.0.0.0
 ### Changed
@@ -21,6 +32,9 @@ title: Changelog
 ### Fixed
 - 0006419: Korrektur der Benamung der Eingabefelder für Remarketing
 
+**Minor version upgrade notice: there are some backward-incompatible changes to this release.**
+
+---
 
 ## 3.4.0.0
 ### Changed
@@ -159,24 +173,3 @@ title: Changelog
 - Ladezeit-Log hinzugefügt
 - Preise werden in Shophauptwährung übertragen
 - Templates für OXID 4.5.1 kompatibel
-
-
-
-------------------------
-
-## 1.1.0.0 - (2018-05-29)
-
-**Minor version upgrade notice: there are some backward-incompatible changes to this release.**
-
-#### Fixed
-- Einstellungs-Überladung korrigiert - verwendet Einstellungen der Hauptsprache, wenn in aktueller Sprache keine Einstellungen gespeichert wurden
-
-#### Changed
-- kleine Textänderungen in der Installationsroutine
-
----
-
-## 2.2.0
-
-#### Added
-- Angepasst für Shopversion 6.x, Installation via Composer 

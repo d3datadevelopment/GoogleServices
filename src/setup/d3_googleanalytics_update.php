@@ -25,17 +25,17 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModVersion = '4.1.0.0';
 
-    public $sModRevision = '4002';
+    public $sModRevision = '4100';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
     public $sBaseConf = <<<KEY
 --------------------------------------------------------------------------------
-S9xv2==R1N4cUNMWHNRWlZqazlGOVVPUGhzY3AwUkVOODk0TzdzSVBkWVo0QmFBYkMyb0RWWENCbnhXe
-G5WSytlUCtyajRzYkR1MDJVQ1RlZUg2aFZsbkVWVlZkb0FLS2pEalR1MjRZcmhESVFZc0RXUXcxK3Bub
-WlETU9QNUQ1M1NxZDZNTGNpcmpCZDdJNFpIeXlpOHhqemR3NGhTWTg1UGhjbmNRMENqeFVkMmVQUFl4e
-G5mVGhvTVBwNlMxSkYvVEphRVlJU1l6SmtEcGwwK3plbDc2aUl4dGFrN1Qwazk1d3lQcXFOK0JQZG4wT
-3NmL3Q1K1czN3RGTGtrWHIyaTBiSSthTDFtaWhraDJjQUM2ZlJOTWw4L3F5T2t2WTNLaFUrSFg3NHhOY
-3B5MUJMOVV6S0RySkRnV1FZZ0Y4VjZIYjB3bnJ1bjE0d0UwYXM1OUFkL0ExSFJnPT0=
+8DOv2==OTg1M21icytjd0t4Nmc5bHFma2JBYS9acE13V2JlNFVuV3JGTWV2STl6czVaWTdic01abERDN
+WVMYXZ5L2lkZEYzaG1GMzFLb1RQOWtGdVFEVzVIeDFKdDQyWis4MGwvWW5BTGFFQlZhS0hkbHM1OWNMZ
+Fd0TlpLK1p1T0RzSWFScERIdUtQa1QzcS85M3NQNXNBc0o5OFlHZmdFbm5EVzhxcExrSUhPUjdlR253U
+FVEbnkxRmhaNnBpcERIbDl0K0JrZVFVYUdiU21SNXkwdG5HTURrb3J0NXZMQzNsM05GdktNelpia09VT
+itsSE10OXdlVWhxekZlZ0YxTmswQ1MyeENtT3FQNGlGcHJIVkZCbWo1WkNzekxTc1VmOVNWaS9qSzZYV
+EhRUXhBTmNuWm9TaVRoUnZHZ3J5NkN2a1VqSy9NWVdxRkNLc0w1cHdzVCtYT2tBPT0=
 --------------------------------------------------------------------------------
 KEY;
 

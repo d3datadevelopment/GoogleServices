@@ -1,10 +1,10 @@
 {
     "title": "<i class='fab fa-d3 d3fa-color-blue'></i> Google Services",
-    "moduleversion": "4.0.0.2",
+    "moduleversion": "4.1.0.0",
     "titledesc": "für den Oxid eShop",
     "author": "D³ Data Development",
-    "moduledate": "17.05.2020",
-    "editors": "DS",
+    "moduledate": "28.07.2020",
+    "editors": "",
     "tagline": "",
     "image": "",
     "ignore": {
