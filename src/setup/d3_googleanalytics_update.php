@@ -23,7 +23,7 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModName = 'Google Services Schnittstelle';
 
-    public $sModVersion = '4.0.0.2';
+    public $sModVersion = '4.1.0.0';
 
     public $sModRevision = '4002';
 
