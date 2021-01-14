@@ -32,7 +32,7 @@
   },
   "require": {
     "php": ">=7.0",
-    "oxid-esales/oxideshop-ce": "6.0 - 6.5",
+    "oxid-esales/oxideshop-ce": "6.0 - 6.6",
     "d3/modcfg": "^5.3.1.100"
   }
 }
