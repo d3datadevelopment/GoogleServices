@@ -1,0 +1,53 @@
+From 2046ce8bf3ba70b2464ca388a746d18366467214 Mon Sep 17 00:00:00 2001
+From: Daniel Seifert <ds@shopmodule.com>
+Date: Fri, 26 Feb 2021 15:17:48 +0100
+Subject: [PATCH 1/1] add cookie compliance switch
+
+---
+ src/views/blocks/layout/d3_base_googleadwordscode.tpl | 2 +-
+ src/views/blocks/layout/d3_base_googleanalytics.tpl   | 2 +-
+ src/views/blocks/layout/d3_base_optout.tpl            | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/views/blocks/layout/d3_base_googleadwordscode.tpl b/src/views/blocks/layout/d3_base_googleadwordscode.tpl
+index 5b39645..6298d51 100644
+--- a/src/views/blocks/layout/d3_base_googleadwordscode.tpl
++++ b/src/views/blocks/layout/d3_base_googleadwordscode.tpl
+@@ -3,7 +3,7 @@
+ [{d3modcfgcheck modid="d3_googleanalytics"}]
+ [{/d3modcfgcheck}]
+ 
+-[{if $mod_d3_googleanalytics}]
++[{if $mod_d3_googleanalytics && $oViewConf->isCookieCategoryEnabled('MARKETING') == 1}]
+     [{* Content shouldn't rendered in disabled module!
+         Because of this reason, it can't included in d3modcfgcheck block. *}]
+     [{block name="BaseAdwords"}]
+diff --git a/src/views/blocks/layout/d3_base_googleanalytics.tpl b/src/views/blocks/layout/d3_base_googleanalytics.tpl
+index d65f5ba..5b2dadc 100644
+--- a/src/views/blocks/layout/d3_base_googleanalytics.tpl
++++ b/src/views/blocks/layout/d3_base_googleanalytics.tpl
+@@ -2,7 +2,7 @@
+ 
+ [{d3modcfgcheck modid="d3_googleanalytics"}][{/d3modcfgcheck}]
+ 
+-[{if $mod_d3_googleanalytics}]
++[{if $mod_d3_googleanalytics && $oViewConf->isCookieCategoryEnabled('ANALYSE') == 1}]
+     [{block name="BaseAnalytics"}]
+         [{include file=$sD3GATTpl}]
+         [{oxstyle include=$oViewConf->getModuleUrl('d3_googleanalytics', 'out/src/d3_googleanalytics.css')}]
+diff --git a/src/views/blocks/layout/d3_base_optout.tpl b/src/views/blocks/layout/d3_base_optout.tpl
+index 44cc4d4..2c684ac 100644
+--- a/src/views/blocks/layout/d3_base_optout.tpl
++++ b/src/views/blocks/layout/d3_base_optout.tpl
+@@ -3,7 +3,7 @@
+ [{d3modcfgcheck modid="d3_googleanalytics"}]
+ [{/d3modcfgcheck}]
+ 
+-[{if $mod_d3_googleanalytics && $oD3GASettings->getValue('blD3GAUseOptOut')}]
++[{if $mod_d3_googleanalytics  && $oViewConf->isCookieCategoryEnabled('ANALYSE') == 1 && $oD3GASettings->getValue('blD3GAUseOptOut')}]
+     [{block name="BaseOptout"}]
+         <div id="d3GAOptOut">
+             <a href="javascript:gaOptout();">[{oxmultilang ident="D3_GOOGLEANALYTICS_OPTOUT"}]</a>
+-- 
+2.26.1.windows.1
+
