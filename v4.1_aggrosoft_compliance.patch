@@ -18,7 +18,7 @@ index 5b39645..6298d51 100644
  [{/d3modcfgcheck}]
  
 -[{if $mod_d3_googleanalytics}]
-+[{if $mod_d3_googleanalytics && $oViewConf->isCookieCategoryEnabled('MARKETING') == 1}]
++[{if $mod_d3_googleanalytics && $oViewConf->isCookieCategoryEnabled('ANALYTICS') == 1}]
      [{* Content shouldn't rendered in disabled module!
          Because of this reason, it can't included in d3modcfgcheck block. *}]
      [{block name="BaseAdwords"}]
@@ -31,7 +31,7 @@ index d65f5ba..5b2dadc 100644
  [{d3modcfgcheck modid="d3_googleanalytics"}][{/d3modcfgcheck}]
  
 -[{if $mod_d3_googleanalytics}]
-+[{if $mod_d3_googleanalytics && $oViewConf->isCookieCategoryEnabled('ANALYSE') == 1}]
++[{if $mod_d3_googleanalytics && $oViewConf->isCookieCategoryEnabled('ANALYTICS') == 1}]
      [{block name="BaseAnalytics"}]
          [{include file=$sD3GATTpl}]
          [{oxstyle include=$oViewConf->getModuleUrl('d3_googleanalytics', 'out/src/d3_googleanalytics.css')}]
@@ -44,7 +44,7 @@ index 44cc4d4..2c684ac 100644
  [{/d3modcfgcheck}]
  
 -[{if $mod_d3_googleanalytics && $oD3GASettings->getValue('blD3GAUseOptOut')}]
-+[{if $mod_d3_googleanalytics  && $oViewConf->isCookieCategoryEnabled('ANALYSE') == 1 && $oD3GASettings->getValue('blD3GAUseOptOut')}]
++[{if $mod_d3_googleanalytics  && $oViewConf->isCookieCategoryEnabled('ANALYTICS') == 1 && $oD3GASettings->getValue('blD3GAUseOptOut')}]
      [{block name="BaseOptout"}]
          <div id="d3GAOptOut">
              <a href="javascript:gaOptout();">[{oxmultilang ident="D3_GOOGLEANALYTICS_OPTOUT"}]</a>
