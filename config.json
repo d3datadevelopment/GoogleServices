@@ -65,6 +65,7 @@
         "modulename"    : "<i class='fab fa-d3 d3fa-color-blue'></i> MODULNAME",
         "menutitle"     : "<i class='fab fa-d3 d3fa-color-blue'></i> MODULNAME",
         "modulefolder"  : "module_folder",
+        "metadataident" : "d3moduleid",
         "modcfgident"   : "d3modident",
         "composerident" : "d3/moduleident"
     },

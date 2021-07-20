@@ -4,6 +4,7 @@ title: Verwendung eigener Themes
 
 Das Modul ist für die Verwendung mit den folgenden OXID-Themes vorbereitet:
 
+* Wave
 * Flow
 * Azure
 
