@@ -27,7 +27,7 @@ $aLang = array(
 
 //Navigation
     'charset'                                                      => 'UTF-8',
-    'd3mxgoogleanalytics'                                          => "<i class='fa fa-google'></i> Google Services",
+    'd3mxgoogleanalytics'                                          => "<i class='fa fa-fw fa-google'></i> Google Services",
     'd3mxgoogleanalytics_settings'                                 => 'Settings',
     'd3tbclgoogleanalytics_main'                                   => 'Analytics',
     'd3tbclgoogleanalytics_adwords'                                => 'AdWords',
