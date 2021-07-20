@@ -6,12 +6,11 @@ dargestellt werden können. Weiterhin gibt es optionale Freitexte, in denen z.B.
 
 ## Systemanforderungen:
 * PHP Version
-    * 7.0 bis PHP 7.4
+    * 7.1 bis PHP 8.0
 * Shopversionen / -editionen
     * OXID eShop Community Edition (CE), Professional Edition (PE) oder Enterprise Edition (EE) in Compilation Version
-        * 6.0.x
-        * 6.1.x
         * 6.2.x
+        * 6.3.x
 * [D³ Modul-Connector](https://www.oxidmodule.com/Modul-Connector/Modul-Connector-fuer-Oxid-CE-PE-EE.html)
 * Installation via Composer
 

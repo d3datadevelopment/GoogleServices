@@ -3,12 +3,11 @@ title: Systemanforderungen
 ---
 
 * PHP Version
-    * 7.0.x bis 7.4.x
+    * 7.1.x bis 8.0.x
 * Shopversionen / -editionen
     * OXID eShop Community Edition (CE), Professional Edition (PE) oder Enterprise Edition (EE) in Compilation Version 
-        * 6.0.x
-        * 6.1.x
         * 6.2.x
+        * 6.3.x
 * Themes
     * azure
     * flow
