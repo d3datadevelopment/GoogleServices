@@ -18,6 +18,8 @@
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  */
 
+use OxidEsales\Eshop\Application\Model\Article as Article;
+
 /**
  * Smarty plugin
  * -------------------------------------------------------------
@@ -29,11 +31,11 @@
  *
  * @return string
  */
-function smarty_function_d3getArticleFromOrderArticle( $params, &$smarty )
+function smarty_function_d3getArticleFromOrderArticle( $params, $smarty )
 {
     $sArtId = $params['aid'];
-    $oArticle = oxNew('oxarticle');
-    $oArticle->Load($sArtId);
+    $oArticle = oxNew( Article::class);
+    $oArticle->load($sArtId);
 
     if (isset($params['assign']) && $params['assign']) {
         $smarty->assign($params['assign'], $oArticle);

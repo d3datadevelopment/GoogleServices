@@ -8,7 +8,7 @@
 
 function UpdateList( sID)
 {
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.oxid.value=sID;
     oSearch.fnc.value='';
     oSearch.submit();
@@ -16,28 +16,28 @@ function UpdateList( sID)
 
 function EditThis( sID)
 {
-    var oTransfer = document.getElementById("transfer");
+    let oTransfer = document.getElementById("transfer");
     oTransfer.oxid.value=sID;
     oTransfer.cl.value='';
     oTransfer.submit();
 
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.actedit.value = 0;
     oSearch.oxid.value=sID;
     oSearch.submit();
 }
 
 function _groupExp(el) {
-    var _cur = el.parentNode;
+    let _cur = el.parentNode;
 
-    if (_cur.className == "exp") _cur.className = "";
+    if (_cur.className === "exp") _cur.className = "";
       else _cur.className = "exp";
 }
 
 -->
 </script>
 
-<style type="text/css">
+<style>
     <!--
     fieldset {
         border:           1px inset black;
@@ -251,7 +251,7 @@ function _groupExp(el) {
                                 <label for="sD3GAAdWordConversionId">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_CONVID"}]</label>
                             </dt>
                             <dd>
-                                <input type="text" class="edittext ext_edittext" size="15" maxlength="50" name="value[sD3GAAdWordConversionId]" value="[{$edit->getValue('sD3GAAdWordConversionId')}]">
+                                <input type="text" id="sD3GAAdWordConversionId" class="edittext ext_edittext" size="15" maxlength="50" name="value[sD3GAAdWordConversionId]" value="[{$edit->getValue('sD3GAAdWordConversionId')}]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_CONVID_DESC"}]
                             </dd>
                         </dl>
@@ -260,7 +260,7 @@ function _groupExp(el) {
                                 <label for="sD3GAAdWordConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL"}]</label>
                             </dt>
                             <dd>
-                                <input type="text" class="edittext ext_edittext" size="15" maxlength="50" name="value[sD3GAAdWordConversionLabel]" value="[{$edit->getValue('sD3GAAdWordConversionLabel')}]">
+                                <input type="text" id="sD3GAAdWordConversionLabel" class="edittext ext_edittext" size="15" maxlength="50" name="value[sD3GAAdWordConversionLabel]" value="[{$edit->getValue('sD3GAAdWordConversionLabel')}]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_CONVLABEL_DESC"}]
                             </dd>
                         </dl>
@@ -289,7 +289,7 @@ function _groupExp(el) {
                                 <label for="sD3GARemarketingConversionId">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID"}]</label>
                             </dt>
                             <dd>
-                                <input type="text" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GARemarketingConversionId]" value="[{$edit->getValue('sD3GARemarketingConversionId')}]">
+                                <input type="text" id="sD3GARemarketingConversionId" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GARemarketingConversionId]" value="[{$edit->getValue('sD3GARemarketingConversionId')}]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVID_DESC"}]
                             </dd>
                         </dl>
@@ -298,7 +298,7 @@ function _groupExp(el) {
                                 <label for="sD3GARemarketingConversionLabel">[{oxmultilang ident="D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL"}]</label>
                             </dt>
                             <dd>
-                                <input type="text" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GARemarketingConversionLabel]" value="[{$edit->getValue('sD3GARemarketingConversionLabel')}]">
+                                <input type="text" id="sD3GARemarketingConversionLabel" class="edittext ext_edittext" size="15" maxlength="15" name="value[sD3GARemarketingConversionLabel]" value="[{$edit->getValue('sD3GARemarketingConversionLabel')}]">
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_ADWORDS_REMARKETINGCONVLABEL_DESC"}]
                             </dd>
                         </dl>

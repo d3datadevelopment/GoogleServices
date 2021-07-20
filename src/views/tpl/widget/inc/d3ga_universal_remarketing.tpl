@@ -10,7 +10,7 @@
         ---------------------------------------------------*}]
 
         <script type="text/javascript">
-            var google_tag_params = {
+            let google_tag_params = {
                 ecomm_prodid: [{$sD3GARemarketingProdId}],
                 ecomm_pagetype: '[{$sD3GARemarketingPageType}]',
                 ecomm_totalvalue: [{$sD3GARemarketingPrice}]
@@ -18,12 +18,12 @@
         </script>
         <script type="text/javascript">
             /* <![CDATA[ */
-            var google_conversion_id = [{$oD3GASettings->getValue('sD3GARemarketingConversionId')}];
+            let google_conversion_id = [{$oD3GASettings->getValue('sD3GARemarketingConversionId')}];
             [{if $oD3GASettings->getValue('sD3GARemarketingConversionLabel')}]
                 var google_conversion_label = "[{$oD3GASettings->getValue('sD3GARemarketingConversionLabel')}]";
             [{/if}]
-            var google_custom_params = window.google_tag_params;
-            var google_remarketing_only = true;
+            let google_custom_params = window.google_tag_params;
+            let google_remarketing_only = true;
             /* ]]> */
         </script>
         <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">

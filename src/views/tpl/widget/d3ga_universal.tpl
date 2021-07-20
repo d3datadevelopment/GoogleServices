@@ -66,7 +66,7 @@
                             var scrollCount = 0;
                             function testScroll() {
                                 ++scrollCount;
-                                if (scrollCount == 2) {
+                                if (scrollCount === 2) {
                                     ga('send', 'event', 'window', 'scrolled');
                                 }
                             }

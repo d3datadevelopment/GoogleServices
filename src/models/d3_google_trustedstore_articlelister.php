@@ -1,5 +1,9 @@
 <?php
- /**
+
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use OxidEsales\Eshop\Application\Model\ArticleList;
+
+/**
  * This Software is the property of Data Development and is protected
  * by copyright law - it is NOT Freeware.
  *
@@ -41,7 +45,7 @@ class d3_google_trustedstore_articlelister
                 /** @var oxArticleList $oList */
                 $mList = call_user_func(array($oView, $sListName));
 
-                if ($mList instanceof oxArticleList) {
+                if ($mList instanceof ArticleList) {
                     if ($mList->count()) {
                         foreach ($mList->getArray() as $sID => $oArticle) {
                             $oArticleList->offsetSet($sID, $oArticle);
@@ -170,7 +174,7 @@ class d3_google_trustedstore_articlelister
         if (isset($aArticleList)) {
             foreach ($aArticleList as $oArticle) {
                 $aArticleIds[] = $oArticle->getFieldData(
-                    \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModId)->getValue('sD3GATSShoppingArtId')
+                    d3_cfg_mod::get($this->_sModId)->getValue('sD3GATSShoppingArtId')
                 );
             }
         }

@@ -15,13 +15,13 @@
                 <!-- Google Code for Conversion Page -->
                 <script type="text/javascript">
                     /* <![CDATA[ */
-                    var google_conversion_id = [{$oD3GASettings->getValue('sD3GAAdWordConversionId')}];
-                    var google_conversion_language = "de";
-                    var google_conversion_format = "3";
-                    var google_conversion_color = "ffffff";
-                    var google_conversion_label = "[{$oD3GASettings->getValue('sD3GAAdWordConversionLabel')}]";
-                    var google_conversion_value = [{$sTotal}];
-                    var google_remarketing_only = false;
+                    let google_conversion_id = [{$oD3GASettings->getValue('sD3GAAdWordConversionId')}];
+                    let google_conversion_language = "de";
+                    let google_conversion_format = "3";
+                    let google_conversion_color = "ffffff";
+                    let google_conversion_label = "[{$oD3GASettings->getValue('sD3GAAdWordConversionLabel')}]";
+                    let google_conversion_value = [{$sTotal}];
+                    let google_remarketing_only = false;
                     /* ]]> */
                 </script>
 

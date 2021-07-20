@@ -2,7 +2,7 @@
     [{* https://support.google.com/trustedstoresmerchant/answer/6063080?hl=de&ref_topic=6063044 *}]
     <!-- BEGIN: Google Certified Shops -->
     <script type="text/javascript">
-        var gts = gts || [];
+        let gts = gts || [];
 
         [{if $oD3GASettings->getValue('sD3GATSShoppingActive')}]
             gts.push(["id", "[{$oD3GASettings->getValue('sD3GATSId')}]"]);
@@ -17,11 +17,11 @@
         [{/if}]
 
         (function() {
-            var gts = document.createElement("script");
+            let gts = document.createElement("script");
             gts.type = "text/javascript";
             gts.async = true;
             gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
-            var s = document.getElementsByTagName("script")[0];
+            let s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(gts, s);
         })();
     </script>

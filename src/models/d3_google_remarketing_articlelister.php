@@ -1,5 +1,8 @@
 <?php
- /**
+
+use OxidEsales\Eshop\Application\Model\ArticleList;
+
+/**
  * This Software is the property of Data Development and is protected
  * by copyright law - it is NOT Freeware.
  *
@@ -36,14 +39,14 @@ class d3_google_remarketing_articlelister
     public function getStartProdList($oView)
     {
         /** @var oxArticleList $oArticleList */
-        $oArticleList = oxNew('oxarticlelist');
+        $oArticleList = oxNew(ArticleList::class);
 
         if (is_array($this->aStartListMethodNames) && count($this->aStartListMethodNames)) {
             foreach ($this->aStartListMethodNames as $sListName) {
                 /** @var oxArticleList $oList */
                 $mList = call_user_func(array($oView, $sListName));
 
-                if ($mList instanceof oxArticleList) {
+                if ($mList instanceof ArticleList) {
                     if ($mList->count()) {
                         foreach ($mList->getArray() as $sID => $oArticle) {
                             $oArticleList->offsetSet($sID, $oArticle);

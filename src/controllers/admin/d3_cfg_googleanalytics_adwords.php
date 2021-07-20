@@ -1,5 +1,10 @@
 <?php
 
+use Doctrine\DBAL\Driver\Exception as DoctrineException;
+use Doctrine\DBAL\Exception as Exception;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -29,6 +34,10 @@ class d3_cfg_googleanalytics_adwords extends D3\ModCfg\Application\Controller\Ad
 
     /**
      * @return mixed
+     * @throws DoctrineException
+     * @throws Exception
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function getGaType()
     {

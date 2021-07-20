@@ -23,15 +23,15 @@
  */
 $sMetadataVersion = '1.1';
 
+$sLogo = '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> ';
+
 /**
  * Module information
  */
-$aModule = array(
+$aModule = [
     'id'             => 'd3_googleanalytics',
-    'title'          => 
-        '<svg style="height:1em;width:1em"><image xlink:href="https://logos.oxidmodule.com/d3logo.svg" style="height:1em;width:1em" /></svg> '.
-        'Google Services Schnittstelle',
-    'description'    => array(
+    'title'          => $sLogo.'Google Services Schnittstelle',
+    'description'    => [
         'de' => 'Dieses Modul stellt Ihnen die schnelle und unkomplizierte Einbindung Ihres Google-Analytics-'.
             'Kontos in Ihren Shop zur Verf&uuml;gung. Hierbei werden &uuml;ber standardisierte Schnittstellen die '.
             'Besucherdaten und eCommerce-Daten zu Google &uuml;bertragen. Ebenfalls &uuml;bermittelt werden Daten '.
@@ -39,13 +39,13 @@ $aModule = array(
             'Trusted Shops &uuml;bertragen werden.',
         'en' => 'Provides a quick and easy integration with your Google Analytics, Google Adwords and Google '.
             'Trusted Shops account to your shop.',
-    ),
+    ],
     'thumbnail'      => 'picture.png',
     'version'        => '4.1.0.0',
     'author'         => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'          => 'support@shopmodule.com',
-    'url'            => 'http://www.oxidmodule.com/',
-    'extend'         => array(
+    'url'            => 'https://www.oxidmodule.com/',
+    'extend'         => [
         'oxcmp_utils'  => 'd3/d3_googleanalytics/modules/components/d3_oxcmp_utils_googleanalytics',
         'oxbasket'     => 'd3/d3_googleanalytics/modules/models/d3_oxbasket_googleanalytics',
         'oxbasketitem' => 'd3/d3_googleanalytics/modules/models/d3_oxbasketitem_googleanalytics',
@@ -53,8 +53,8 @@ $aModule = array(
         'order'        => 'd3/d3_googleanalytics/modules/controllers/d3_order_googleanalytics',
         'oxutilsview'  => 'd3/d3_googleanalytics/modules/core/d3_oxutilsview_googleanalytics',
         'thankyou'     => 'd3/d3_googleanalytics/modules/controllers/d3_thankyou_googleanalytics',
-    ),
-    'files'          => array(
+    ],
+    'files'          => [
         'd3_cfg_googleanalytics'               => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics.php',
         'd3_cfg_googleanalytics_adwords'       => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_adwords.php',
         'd3_cfg_googleanalytics_campaigns'     => 'd3/d3_googleanalytics/controllers/admin/d3_cfg_googleanalytics_campaigns.php',
@@ -67,8 +67,8 @@ $aModule = array(
         'd3_google_remarketing_articlelister'  => 'd3/d3_googleanalytics/models/d3_google_remarketing_articlelister.php',
         'd3_google_trustedstore_articlelister' => 'd3/d3_googleanalytics/models/d3_google_trustedstore_articlelister.php',
         'd3_googleanalytics_update'            => 'd3/d3_googleanalytics/setup/d3_googleanalytics_update.php',
-    ),
-    'templates'      => array(
+    ],
+    'templates'      => [
         'd3_googleanalytics.tpl'          => 'd3/d3_googleanalytics/views/tpl/widget/d3_googleanalytics.tpl',
         'd3ga_universal.tpl'              => 'd3/d3_googleanalytics/views/tpl/widget/d3ga_universal.tpl',
         'd3ga_universal_custom.tpl'       => 'd3/d3_googleanalytics/views/tpl/widget/inc/d3ga_universal_custom.tpl',
@@ -83,25 +83,25 @@ $aModule = array(
         'd3_cfg_googleanalytics_adwords.tpl'      => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_adwords.tpl',
         'd3_cfg_googleanalytics_campaigns.tpl'    => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_campaigns.tpl',
         'd3_cfg_googleanalytics_trustedstore.tpl' => 'd3/d3_googleanalytics/views/admin/tpl/d3_cfg_googleanalytics_trustedstore.tpl',
-    ),
-    'events'         => array(
+    ],
+    'events'         => [
         'onActivate' => '\D3\ModCfg\Application\Model\Install\d3install::checkUpdateStart',
-    ),
-    'blocks'         => array(
-        array(
+    ],
+    'blocks'         => [
+        [
             'template' => 'layout/base.tpl',
             'block'    => 'head_css',
             'file'     => '/views/blocks/layout/d3_base_googleanalytics.tpl',
-        ),
-        array(
+        ],
+        [
             'template' => 'layout/base.tpl',
             'block'    => 'base_js',
             'file'     => '/views/blocks/layout/d3_base_googleadwordscode.tpl',
-        ),
-        array(
+        ],
+        [
             'template' => 'layout/footer.tpl',
             'block'    => 'footer_main',
             'file'     => '/views/blocks/layout/d3_base_optout.tpl',
-        ),
-    ),
-);
+        ],
+    ],
+];

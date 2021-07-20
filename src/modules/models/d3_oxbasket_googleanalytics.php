@@ -1,5 +1,8 @@
 <?php
- /**
+
+use OxidEsales\Eshop\Core\Registry;
+
+/**
  * This Software is the property of Data Development and is protected
  * by copyright law - it is NOT Freeware.
  *
@@ -22,8 +25,7 @@ class d3_oxbasket_googleanalytics extends d3_oxbasket_googleanalytics_parent
     public function d3GetCurrentLocatorTitle()
     {
         $sTitle = '';
-        /** @var \OxidEsales\Eshop\Application\Controller\FrontendController $oView */
-        $oView = oxRegistry::getConfig()->getActiveView();
+        $oView = Registry::getConfig()->getActiveView();
 
         if (method_exists($oView, 'getBreadCrumb') &&
             ($aPaths = $oView->getBreadCrumb())
@@ -31,7 +33,7 @@ class d3_oxbasket_googleanalytics extends d3_oxbasket_googleanalytics_parent
             foreach ($aPaths as $aPath) {
                 $sTitle .= "/".$aPath['title'];
             }
-        } elseif ($oView->getClassName() == 'details' &&
+        } elseif ($oView->getClassKey() == 'details' &&
             (
                 (
                     ($oCatTree = $oView->getCategoryTree()) &&
@@ -46,7 +48,7 @@ class d3_oxbasket_googleanalytics extends d3_oxbasket_googleanalytics_parent
                 $sTitle .= "/".$oCat->getFieldData('oxtitle');
             }
         } else {
-            $sTitle = "page: ".ucfirst($oView->getClassName());
+            $sTitle = "page: ".ucfirst($oView->getClassKey());
         }
 
         return $sTitle;

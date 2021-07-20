@@ -186,7 +186,7 @@
                                 var scrollCount = 0;
                                 function testScroll() {
                                     ++scrollCount;
-                                    if (scrollCount == 2) {
+                                    if (scrollCount === 2) {
                                         _gaq.push(['_trackEvent', 'window', 'scrolled']);
                                     }
                                 }
@@ -198,9 +198,9 @@
                         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 
                         [{if $oD3GASettings->getValue('blD3GAUseRemarketing')}]
-                            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+                            ga.src = 'https://stats.g.doubleclick.net/dc.js';
                         [{else}]
-                            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                            ga.src = 'https://ssl.google-analytics.com/ga.js';
                         [{/if}]
 
                         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);

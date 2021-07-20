@@ -1,5 +1,7 @@
 <?php
 
+use OxidEsales\Eshop\Core\DatabaseProvider;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -38,13 +40,13 @@ class d3_oxorder_googleanalytics extends d3_oxorder_googleanalytics_parent
     public function d3getVoucherSerieList()
     {
         $sSelect           =
-            "SELECT oxvoucherserieid FROM oxvouchers WHERE oxorderid =  " . oxDb::getDb()->quote($this->getId());
-        $aVoucherIds       = (array) oxDb::getDb()->getAll($sSelect);
-        $aVoucherSerieList = array();
+            "SELECT oxvoucherserieid FROM oxvouchers WHERE oxorderid =  " . DatabaseProvider::getDb()->quote($this->getId());
+        $aVoucherIds       = DatabaseProvider::getDb()->getAll($sSelect);
+        $aVoucherSerieList = [];
 
         foreach ($aVoucherIds as $aVoucherId) {
             $oVoucherSerie = oxNew('oxvoucherserie');
-            $oVoucherSerie->Load($aVoucherId[0]);
+            $oVoucherSerie->load($aVoucherId[0]);
             $aVoucherSerieList[] = $oVoucherSerie;
         }
 

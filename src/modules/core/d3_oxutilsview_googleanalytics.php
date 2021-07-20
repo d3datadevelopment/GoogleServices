@@ -1,5 +1,7 @@
 <?php
 
+use OxidEsales\Eshop\Core\Registry;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -25,12 +27,12 @@ class d3_oxutilsview_googleanalytics extends d3_oxutilsview_googleanalytics_pare
      *
      * @return null|void
      */
-    protected function _fillCommonSmartyProperties($oSmarty)
+    protected function _fillCommonSmartyProperties($smarty)
     {
-        parent::_fillCommonSmartyProperties($oSmarty);
+        parent::_fillCommonSmartyProperties($smarty);
 
-        $oSmarty->plugins_dir[] =
-            oxRegistry::getConfig()->getActiveView()->getViewConfig()->getModulePath('d3_googleanalytics').
+        $smarty->plugins_dir[] =
+            Registry::getConfig()->getActiveView()->getViewConfig()->getModulePath('d3_googleanalytics').
             'core/smarty/plugins';
     }
 }

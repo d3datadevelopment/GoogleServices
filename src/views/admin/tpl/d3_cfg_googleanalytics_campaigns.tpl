@@ -8,7 +8,7 @@
 
 function UpdateList( sID)
 {
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.oxid.value=sID;
     oSearch.fnc.value='';
     oSearch.submit();
@@ -16,28 +16,28 @@ function UpdateList( sID)
 
 function EditThis( sID)
 {
-    var oTransfer = document.getElementById("transfer");
+    let oTransfer = document.getElementById("transfer");
     oTransfer.oxid.value=sID;
     oTransfer.cl.value='';
     oTransfer.submit();
 
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.actedit.value = 0;
     oSearch.oxid.value=sID;
     oSearch.submit();
 }
 
 function _groupExp(el) {
-    var _cur = el.parentNode;
+    let _cur = el.parentNode;
 
-    if (_cur.className == "exp") _cur.className = "";
+    if (_cur.className === "exp") _cur.className = "";
       else _cur.className = "exp";
 }
 
 -->
 </script>
 
-<style type="text/css">
+<style>
     <!--
     fieldset {
         border:           1px inset black;

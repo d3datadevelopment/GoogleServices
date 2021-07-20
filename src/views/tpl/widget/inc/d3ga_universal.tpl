@@ -66,7 +66,7 @@
                             var scrollCount = 0;
                             function testScroll() {
                                 ++scrollCount;
-                                if (scrollCount == 2) {
+                                if (scrollCount === 2) {
                                     ga('send', 'event', 'window', 'scrolled');
                                 }
                             }
@@ -80,9 +80,9 @@
 
                 [{if $oD3GASettings->getValue('blD3GATrackPageLoadTime')}]
                     [{block name="d3ga_trackpageloadtime"}]
-                        var perfData = window.performance.timing;
-                        var pageLoadTime = perfData.domComplete - perfData.navigationStart;
-                        var loadTime = "";
+                        let perfData = window.performance.timing;
+                        let pageLoadTime = perfData.domComplete - perfData.navigationStart;
+                        let loadTime;
 
                         if (pageLoadTime < 1000) { loadTime = "0-1 seconds"; }
                         else if (pageLoadTime < 2000) { loadTime = "1-2 seconds"; }

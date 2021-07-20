@@ -41,7 +41,7 @@ $aLang = array(
         'Deaktivieren Sie die Funktion f&uuml;r den Livebetrieb.',
 
     'D3_GOOGLEANALYTICS_DESC'                                      => 'Diese Einstellungen betreffen den Dienst '.
-        '<a href="http://www.google.com/analytics/" target="_blank">"Google Analytics"</a>. '.
+        '<a href="https://www.google.com/analytics/" target="_blank">"Google Analytics"</a>. '.
         'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
     'D3_GOOGLEANALYTICS_DESC1'                                     => 'Während der Anmeldung werden Sie aufgefordert, '.
         'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul für Sie. '.
@@ -215,8 +215,8 @@ $aLang = array(
         'd3_googleanalytics.tpl" (f&uuml;r Async) oder "modules/d3/d3_googleanalytics/views/tpl/widget/inc/'.
         'd3ga_universal_custom.tpl" (f&uuml;r Universal) um die gew&uuml;nschten Daten. Details F&uuml;r die '.
         'Einrichtung der Datenaufzeichnung bei Analytics entnehmen Sie bitte der Moduldokumentation.<br><br>Weitere '.
-        'Informationen finden Sie <a href="http://code.google.com/apis/analytics/docs/tracking/'.
-        'gaTrackingCustomVariables.html" target="gahelp">hier</a>.<br>Auf Anregung durch <a href="http://'.
+        'Informationen finden Sie <a href="https://code.google.com/apis/analytics/docs/tracking/'.
+        'gaTrackingCustomVariables.html" target="gahelp">hier</a>.<br>Auf Anregung durch <a href="https://'.
         'www.commodule.de/blog/tracking/zahlungsarten-in-google-analytics-tracken/" target="Commodule">Commodule-Blog'.
         '</a> haben wir nun noch weitere Beispiele hinterlegt. Vielen Dank f&uuml;r diese Unterst&uuml;tzung!',
 
@@ -243,7 +243,7 @@ $aLang = array(
         'target="gahelp">Google-Suche</a>.</p>',
 
     'D3_GOOGLEANALYTICS_ADWORDS_DESC'                              => 'Diese Einstellungen betreffen den Dienst '.
-        '<a href="http://www.google.de/AdWords" target="_blank">"Google Adwords"</a>. '.
+        '<a href="https://www.google.de/AdWords" target="_blank">"Google Adwords"</a>. '.
         'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
     'D3_GOOGLEANALYTICS_ADWORDS_DESC1'                             => 'Während der Anmeldung werden Sie aufgefordert, '.
         'einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dies erledigt das vorliegende Modul für Sie. '.
@@ -270,32 +270,32 @@ $aLang = array(
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNAMEKEY'                => 'Kampagnenname (optional)',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPNAMEKEY_DESC'           => 'Unter diesem Namen sehen Sie die Auswertung '.
         'der Daten aus dieser Shopkampagne in Analytics.<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: '.
-        '<a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._'.
+        '<a href="https://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._'.
         'setCampNameKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/'.
         'devguides/collection/analyticsjs/field-reference#campaignName" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPMEDIUMKEY'              => 'Kampagnenmedium (optional)',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPMEDIUMKEY_DESC'         => 'Definieren Sie das Medium dieser Kampagne '.
         '(z.B. Werbebanner, Mailkampagne oder auch Klickkampagne). Diese Einstellung finden Sie in der Kampagnen'.
-        'auswertung unter "Keywords".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://'.
+        'auswertung unter "Keywords".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="https://'.
         'code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampMediumKey" '.
         'target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/'.
         'collection/analyticsjs/field-reference#campaignMedium" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPSOURCEKEY'              => 'Kampagnenquelle (optional)',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPSOURCEKEY_DESC'         => 'Benennen Sie hier die Quelle der Shopkampagne, '.
         'vergeben Sie zum Beispiel den Webseiten-Name oder den Firmenname.<br><br>Weitere Informationen finden Sie '.
-        'hier: <ul><li>Async: <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#'.
+        'hier: <ul><li>Async: <a href="https://code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#'.
         '_gat.GA_Tracker_._setCampSourceKey" target="gahelp">hier</a></li><li>Universal: <a href="https://developers.'.
         'google.com/analytics/devguides/collection/analyticsjs/field-reference#campaignSource" target="gahelp">hier'.
         '</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPTERMKEY'                => 'Schl&uuml;sselwort(e) Ihrer Kampagne (optional)',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPTERMKEY_DESC'           => 'Auch diese Keywords erscheinen in Analytics '.
-        'unter "Keywords".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://code.google.'.
+        'unter "Keywords".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="https://code.google.'.
         'com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampTermKey" target="gahelp">'.
         'hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs'.
         '/field-reference#campaignKeyword" target="gahelp">hier</a></li></ul>',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPCONTENTKEY'             => 'Inhaltsbeschreibung der Kampagne (optional)',
     'D3_GOOGLEANALYTICS_ADWORDSMAIN_SETCAMPCONTENTKEY_DESC'        => 'Den beschrieben Inhalt finden Sie in der '.
-        'Auswertung als "Ad Content".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="http://'.
+        'Auswertung als "Ad Content".<br><br>Weitere Informationen finden Sie hier: <ul><li>Async: <a href="https://'.
         'code.google.com/apis/analytics/docs/gaJS/gaJSApiCampaignTracking.html#_gat.GA_Tracker_._setCampContentKey" '.
         'target="gahelp">hier</a></li><li>Universal: <a href="https://developers.google.com/analytics/devguides/'.
         'collection/analyticsjs/field-reference#campaignContent" target="gahelp">hier</a></li></ul>',
@@ -332,7 +332,7 @@ $aLang = array(
         'Dieser Code wird 1:1 in den Seitenquelltext eingef&uuml;gt und nicht geparst.',
 
     'D3_GOOGLEANALYTICS_TS_DESC'                                   => 'Diese Einstellungen betreffen den Dienst '.
-        '<a href="http://www.google.de/zertifiziertehaendler/" target="_blank">"Google Zertifizierter Händler"</a>. '.
+        '<a href="https://www.google.de/zertifiziertehaendler/" target="_blank">"Google Zertifizierter Händler"</a>. '.
         'Möchten Sie diesen nutzen, melden Sie sich auf der Webseite dafür an.',
     'D3_GOOGLEANALYTICS_TS_DESC1'                                  => 'Während der Aktivierung werden Sie '.
         'aufgefordert, einen Trackingcode in den Quelltext Ihrer Seite einzukopieren. Dieser wird von unserem Modul '.

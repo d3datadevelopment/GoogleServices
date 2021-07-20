@@ -1,5 +1,7 @@
 <?php
 
+use OxidEsales\Eshop\Core\Registry;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -30,16 +32,20 @@ class d3_cfg_googleanalytics extends D3\ModCfg\Application\Controller\Admin\d3_c
         return parent::render();
     }
 
+    /**
+     * @return string
+     * @throws oxFileException
+     */
     public function getAdditionalHeadContent()
     {
-        $oViewConf = oxRegistry::getConfig()->getActiveView()->getViewConfig();
+        $oViewConf = Registry::getConfig()->getActiveView()->getViewConfig();
         $sScriptUrl = $oViewConf->getModuleUrl('d3_googleanalytics', 'out/src/d3_googleanalytics_test.js');
 
         return parent::getAdditionalHeadContent().'
             <script src="'.$sScriptUrl.'"></script>
             <script type="text/javascript">
                 if(null === document.getElementById("SePiRENuJOBWx")){
-                    alert("'.oxRegistry::getLang()->translateString('D3_GOOGLEANALYTICS_ADBLOCKER', null, true).'");
+                    alert("'.Registry::getLang()->translateString('D3_GOOGLEANALYTICS_ADBLOCKER', null, true).'");
                 }
             </script>
         ';

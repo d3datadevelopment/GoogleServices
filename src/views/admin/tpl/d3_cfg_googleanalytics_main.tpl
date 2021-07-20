@@ -8,7 +8,7 @@
 
     function UpdateList( sID)
     {
-        var oSearch = parent.list.document.getElementById("search");
+        let oSearch = parent.list.document.getElementById("search");
         oSearch.oxid.value=sID;
         oSearch.fnc.value='';
         oSearch.submit();
@@ -16,21 +16,21 @@
 
     function EditThis( sID)
     {
-        var oTransfer = document.getElementById("transfer");
+        let oTransfer = document.getElementById("transfer");
         oTransfer.oxid.value=sID;
         oTransfer.cl.value='';
         oTransfer.submit();
 
-        var oSearch = parent.list.document.getElementById("search");
+        let oSearch = parent.list.document.getElementById("search");
         oSearch.actedit.value = 0;
         oSearch.oxid.value=sID;
         oSearch.submit();
     }
 
     function _groupExp(el) {
-        var _cur = el.parentNode;
+        let _cur = el.parentNode;
 
-        if (_cur.className == "exp") _cur.className = "";
+        if (_cur.className === "exp") _cur.className = "";
           else _cur.className = "exp";
     }
 
@@ -142,7 +142,7 @@
                                 <label for="sD3GAType">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE"}]</label>
                             </dt>
                             <dd>
-                                <input type="radio" name="value[sD3GAType]" value="universal" [{if $oView->getGaType() != 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL"}]<br>
+                                <input type="radio" id="sD3GAType" name="value[sD3GAType]" value="universal" [{if $oView->getGaType() != 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_UNIVERSAL"}]<br>
                                 <input type="radio" name="value[sD3GAType]" value="async" [{if $oView->getGaType() == 'async'}]checked[{/if}] onclick="alert('[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC_DESC"}]');"> [{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_ASYNC"}]
                                 [{oxinputhelp ident="D3_GOOGLEANALYTICS_MAIN_GATYPE_DESC"}]
                             </dd>
@@ -170,7 +170,7 @@
                         </dl>
                         <dl>
                             <dt>
-                                <label for="blD3GASampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE"}]</label>
+                                <label for="iD3GASampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SAMPLERATE"}]</label>
 [{* _gaq.push(['_setSampleRate', 5]); *}]
                             </dt>
                             <dd>
@@ -192,7 +192,7 @@
                         </dl>
                         <dl>
                             <dt>
-                                <label for="blD3GASiteSpeedSampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE"}]</label>
+                                <label for="iD3GASiteSpeedSampleRate">[{oxmultilang ident="D3_GOOGLEANALYTICS_MAIN_SITESPEEDSAMPLERATE"}]</label>
 [{* _gaq.push(['_setSiteSpeedSampleRate', 5]); *}]
                             </dt>
                             <dd>

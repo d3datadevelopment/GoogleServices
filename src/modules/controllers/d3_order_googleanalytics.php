@@ -1,5 +1,8 @@
 <?php
 
+use OxidEsales\Eshop\Application\Model\User as User;
+use OxidEsales\Eshop\Core\Registry;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -32,8 +35,8 @@ class d3_order_googleanalytics extends d3_order_googleanalytics_parent
     protected function _d3SetIsNewCustomer()
     {
         $oUser = $this->getUser();
-        $isNewCustomer = (isset($oUser) && $oUser instanceof oxuser) ? $oUser->inGroup('oxidnotyetordered') : 0 ;
+        $isNewCustomer = (isset($oUser) && $oUser instanceof User ) ? $oUser->inGroup( 'oxidnotyetordered') : 0 ;
 
-        oxRegistry::getSession()->setVariable('iD3GANewCustomer', (int)$isNewCustomer);
+        Registry::getSession()->setVariable('iD3GANewCustomer', (int)$isNewCustomer);
     }
 }

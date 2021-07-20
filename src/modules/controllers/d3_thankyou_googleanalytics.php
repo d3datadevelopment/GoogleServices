@@ -1,5 +1,11 @@
 <?php
 
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use D3\ModCfg\Application\Model\Log\d3log;
+use OxidEsales\Eshop\Application\Model\OrderArticle;
+use OxidEsales\Eshop\Core\Model\ListModel;
+use OxidEsales\Eshop\Core\Registry;
+
 /**
  *    This module is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -47,8 +53,8 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function isNewCustomer()
     {
-        $iIsNewCustomer = oxRegistry::getSession()->getVariable("iD3GANewCustomer");
-        oxRegistry::getSession()->deleteVariable("iD3GANewCustomer");
+        $iIsNewCustomer = Registry::getSession()->getVariable("iD3GANewCustomer");
+        Registry::getSession()->deleteVariable("iD3GANewCustomer");
 
         return $iIsNewCustomer;
     }
@@ -58,8 +64,8 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function logCode($sGACode)
     {
-        \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->d3getLog()->log(
-            \D3\ModCfg\Application\Model\Log\d3log::NOTICE,
+        d3_cfg_mod::get($this->_sModCfgId)->d3getLog()->log(
+            d3log::NOTICE,
             __CLASS__,
             __FUNCTION__,
             __LINE__,
@@ -119,7 +125,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
             $sModCfgVarName = 'iEstShippingTimeValueOutOfStock';
         }
 
-        $iTimeValue = \D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
+        $iTimeValue = d3_cfg_mod::get($this->_sModCfgId)->getValue($sModCfgVarName);
 
         for ($i = 0; $i < $iTimeValue; $i++) {
             $iTimestamp += 86400;
@@ -187,7 +193,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      *
      * @return bool
      */
-    protected function _d3GAhasArticleBackorderPreorder(oxorderarticle $oOrderArticle)
+    protected function _d3GAhasArticleBackorderPreorder( OrderArticle $oOrderArticle)
     {
         /** @var oxarticle $oArticle */
         $oArticle = $oOrderArticle->getArticle();
@@ -211,7 +217,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
             if ($this->_d3GAhasArticleDigitalGoods($oOrderArticle)) {
                 return 'Y';
             }
-        };
+        }
 
         return 'N';
     }
@@ -221,7 +227,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      *
      * @return bool
      */
-    protected function _d3GAhasArticleDigitalGoods(oxorderarticle $oOrderArticle)
+    protected function _d3GAhasArticleDigitalGoods(OrderArticle $oOrderArticle)
     {
         /** @var oxarticle $oArticle */
         $oArticle = $oOrderArticle->getArticle();
@@ -243,7 +249,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      *
      * @return bool
      */
-    protected function _d3GAhasArticlePurchasedDownload(oxList $oArticleFileList)
+    protected function _d3GAhasArticlePurchasedDownload( ListModel $oArticleFileList)
     {
         /** @var oxfile $oArticleFile */
         foreach ($oArticleFileList->getArray() as $oArticleFile) {
@@ -262,14 +268,14 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function d3GAgetProductId($oOrderArticle)
     {
-        switch (\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId')) {
+        switch ( d3_cfg_mod::get( $this->_sModCfgId)->getValue( 'sD3GATSShoppingArtId')) {
             case 'oxartnum':
                 return $oOrderArticle->getFieldData('oxartnum');
             case 'oxid':
                 return $oOrderArticle->getFieldData('oxartid');
-        };
+        }
 
-        return $oOrderArticle->getFieldData(\D3\ModCfg\Application\Model\Configuration\d3_cfg_mod::get($this->_sModCfgId)->getValue('sD3GATSShoppingArtId'));
+        return $oOrderArticle->getFieldData( d3_cfg_mod::get( $this->_sModCfgId)->getValue( 'sD3GATSShoppingArtId'));
     }
 
     /**
@@ -277,7 +283,7 @@ class d3_thankyou_googleanalytics extends d3_thankyou_googleanalytics_parent
      */
     public function hasOutOfStockArticles()
     {
-        if (oxRegistry::getConfig()->getConfigParam('blUseStock')) {
+        if (Registry::getConfig()->getConfigParam('blUseStock')) {
             foreach ($this->getOrder()->getOrderArticles() as $oOrderArticle) {
                 if ($this->_d3GAhasArticleBackorderPreorder($oOrderArticle)) {
                     return true;
