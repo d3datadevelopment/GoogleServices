@@ -24,19 +24,19 @@ class d3_googleanalytics_update extends d3install_updatebase
 
     public $sModName = 'Google Services Schnittstelle';
 
-    public $sModVersion = '4.1.0.0';
+    public $sModVersion = '4.5.0.0';
 
-    public $sModRevision = '4100';
+    public $sModRevision = '4500';
 
     // heredoc syntax using for class members is available from PHP 5.3 up
     public $sBaseConf = <<<KEY
 --------------------------------------------------------------------------------
-8DOv2==OTg1M21icytjd0t4Nmc5bHFma2JBYS9acE13V2JlNFVuV3JGTWV2STl6czVaWTdic01abERDN
-WVMYXZ5L2lkZEYzaG1GMzFLb1RQOWtGdVFEVzVIeDFKdDQyWis4MGwvWW5BTGFFQlZhS0hkbHM1OWNMZ
-Fd0TlpLK1p1T0RzSWFScERIdUtQa1QzcS85M3NQNXNBc0o5OFlHZmdFbm5EVzhxcExrSUhPUjdlR253U
-FVEbnkxRmhaNnBpcERIbDl0K0JrZVFVYUdiU21SNXkwdG5HTURrb3J0NXZMQzNsM05GdktNelpia09VT
-itsSE10OXdlVWhxekZlZ0YxTmswQ1MyeENtT3FQNGlGcHJIVkZCbWo1WkNzekxTc1VmOVNWaS9qSzZYV
-EhRUXhBTmNuWm9TaVRoUnZHZ3J5NkN2a1VqSy9NWVdxRkNLc0w1cHdzVCtYT2tBPT0=
+AeLv2==VFppcjFoMWU1S3pPYTl6WEJ3dHdtOGYrSVNQdGFNS2xJUXJRM1V0Undpemo0bERSeUk3amhZO
+VA2dFdKRkh3a1dldWxwd0xSajA4N2xZa3ZIZ2NXbEFDbm4yUVQwZ29JMFBkKzcxNmFwM1JxYVpzVFZOM
+0YxaUtnbU50czlmMHd1aGJ1MktaOW9qU2tmbjByN2JsQTRLdEMyNy9OZjBCYVV0aTZQaXhlc0NlV3o4d
+lA5cWM4NE5ZcGdLQ2JVSnYvTGRsdmNRaU4wYk80Vkh6TGg3TXVTZWhNeE9jaTRYUklCRW5UcXZOOXNhW
+mhUT3lBb1JlNG9NUlFSOUdXRnZuUHdhSGJka3FVZFBSWUdtTVVWbGE3N014NWRGSFdaVmxzWVRJTXh1U
+3I5Q3ZWQ2pkdU5IZHloK0tacUF3RytHazcwNXFHa3lRM0Jmbm44ZDRBZzZ1NzZnPT0=
 --------------------------------------------------------------------------------
 KEY;
 

@@ -2,6 +2,12 @@
 title: Changelog
 ---
 
+## 4.5.0.0 - (2021-07-20)
+### Added
+- Update für OXID 6.3
+
+---
+
 ## 4.1.0.0 - (2020-07-28)
 ### Added
 - Update für OXID 6.2 (vielen Dank an Marten Seemann)
