@@ -11,6 +11,7 @@ dargestellt werden können. Weiterhin gibt es optionale Freitexte, in denen z.B.
     * OXID eShop Community Edition (CE), Professional Edition (PE) oder Enterprise Edition (EE) in Compilation Version
         * 6.2.x
         * 6.3.x
+        * 6.4.x
 * [D³ Modul-Connector](https://www.oxidmodule.com/Modul-Connector/Modul-Connector-fuer-Oxid-CE-PE-EE.html)
 * Installation via Composer
 

@@ -41,7 +41,7 @@ $aModule = [
             'Trusted Shops account to your shop.',
     ],
     'thumbnail'      => 'picture.png',
-    'version'        => '4.5.0.0',
+    'version'        => '4.5.1.0',
     'author'         => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'          => 'support@shopmodule.com',
     'url'            => 'https://www.oxidmodule.com/',
